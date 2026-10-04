@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-WDhPXBUE.js";import{t}from"./plus-f5B0j2j0.js";import{LiquidButton as n}from"./liquid-BFCHyE-m.js";var r=e();function i({variant:e,size:i}){return(0,r.jsx)(n,{variant:e,size:i,children:i===`icon`?(0,r.jsx)(t,{}):`Hover me`})}export{i as default};

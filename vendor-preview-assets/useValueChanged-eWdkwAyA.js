@@ -1,0 +1,1 @@
+import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t}from"./vendor-preview-WDhPXBUE.js";import{d as n}from"./useRenderElement-dTXga5bM.js";import{t as r}from"./useStableCallback-pgolwp6j.js";var i=e(t(),1);function a(e,t){let a=i.useRef(e),o=r(t);n(()=>{a.current!==e&&o(a.current),a.current=e},[e,o])}export{a as t};

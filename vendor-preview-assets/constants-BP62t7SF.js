@@ -1,0 +1,1 @@
+var e={type:`spring`,duration:.5,bounce:.22},t={hidden:{},show:{transition:{staggerChildren:.035,delayChildren:.12}}},n={hidden:{opacity:0,y:-6,filter:`blur(3px)`},show:{opacity:1,y:0,filter:`blur(0px)`}},r=`flex items-center gap-2 px-2 py-1.5 text-left`;export{e as i,n,t as r,r as t};

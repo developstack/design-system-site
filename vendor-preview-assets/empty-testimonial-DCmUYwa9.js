@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-WDhPXBUE.js";import t from"./empty-testimonial-BJ9yjeef.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`w-full flex items-center justify-center min-h-[500px] not-prose`,children:(0,n.jsx)(t,{})})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-WDhPXBUE.js";import{BubbleBackground as t}from"./bubble-Do-0oesI.js";var n=e(),r=({interactive:e})=>(0,n.jsx)(t,{interactive:e,className:`absolute inset-0 flex items-center justify-center rounded-xl`});export{r as BubbleBackgroundDemo};
