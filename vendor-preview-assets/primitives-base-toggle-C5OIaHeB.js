@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-WDhPXBUE.js";import{t}from"./bold-DZNqzy4T.js";import{n,r,t as i}from"./toggle-B3K7UdCW.js";var a=e(),o=()=>(0,a.jsxs)(i,{className:`relative size-8 flex items-center justify-center`,children:[(0,a.jsx)(n,{className:`bg-accent`}),(0,a.jsx)(r,{children:(0,a.jsx)(t,{className:`h-4 w-4`})})]});export{o as BaseToggleDemo};

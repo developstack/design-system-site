@@ -1,0 +1,69 @@
+import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t,i as n,n as r}from"./vendor-preview-B0U4Zd6H.js";import{t as i}from"./dist-DuLxksy6.js";import{t as a}from"./use-reduced-motion-BUelBL_l.js";import{n as o,t as s}from"./sun-BbAuvgVU.js";import{i as c}from"./ease-CIW3z5WL.js";import{n as l}from"./action-swap-B_NRzoQE.js";var u=e(t(),1),d=r(),f=`beui-theme-toggle-vt`,p=`
+html[data-beui-vt="rect"]::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html[data-beui-vt="rect"]::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation: beui-rect-reveal 400ms ease-out;
+}
+html[data-beui-vt="circle"]::view-transition-old(root),
+html[data-beui-vt="circle-blur"]::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html[data-beui-vt="circle"]::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation: beui-circle-reveal 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+html[data-beui-vt="circle-blur"]::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation: beui-circle-blur-reveal 700ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+html[data-beui-vt="blinds"]::view-transition-old(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+/* Slats: a masked band widens inside every 72px tile, so the new theme opens
+   across the page like a shutter. The band edge has to be a registered custom
+   property — mask-image itself is not animatable, but it re-resolves every
+   frame the property ticks. mask-size fixes the tile at 72px rather than
+   letting a repeating gradient's last stop define it, which is what keeps the
+   20px soft edge from dragging the tile wider than the slat and leaving a
+   feathered gap that never closes; it also means both ends land clean, fully
+   transparent at -20px and fully opaque at 72px. Falling back to no mask
+   (unregistered property, so the var is invalid) reveals the page in one
+   step. */
+@property --beui-vt-slat {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 72px;
+}
+html[data-beui-vt="blinds"]::view-transition-new(root) {
+  mix-blend-mode: normal;
+  mask-image: linear-gradient(
+    90deg,
+    #000 0 var(--beui-vt-slat),
+    transparent calc(var(--beui-vt-slat) + 20px)
+  );
+  mask-size: 72px 100%;
+  mask-repeat: repeat;
+  animation: beui-blinds-reveal 700ms ${c};
+}
+@keyframes beui-rect-reveal {
+  from { clip-path: var(--beui-vt-from, inset(100% 0 0 0)); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+@keyframes beui-circle-reveal {
+  from { clip-path: circle(0% at var(--beui-vt-origin, 50% 100%)); }
+  to   { clip-path: circle(150% at var(--beui-vt-origin, 50% 100%)); }
+}
+@keyframes beui-circle-blur-reveal {
+  from { clip-path: circle(0% at var(--beui-vt-origin, 50% 100%)); filter: blur(8px); }
+  to   { clip-path: circle(150% at var(--beui-vt-origin, 50% 100%)); filter: blur(0px); }
+}
+@keyframes beui-blinds-reveal {
+  from { --beui-vt-slat: -20px; }
+  to   { --beui-vt-slat: 72px; }
+}
+`,m={"top-left":`inset(0 100% 100% 0)`,"top-right":`inset(0 0 100% 100%)`,"bottom-left":`inset(100% 100% 0 0)`,"bottom-right":`inset(100% 0 0 100%)`,center:`inset(50% 50% 50% 50%)`,"bottom-up":`inset(100% 0 0 0)`},h={"top-left":`0% 0%`,"top-right":`100% 0%`,"bottom-left":`0% 100%`,"bottom-right":`100% 100%`,center:`50% 50%`,"bottom-up":`50% 100%`};function g({variant:e=`rectangle`,start:t=`bottom-up`}={}){let{setTheme:r,resolvedTheme:i}=n(),o=a()??!1,[s,c]=(0,u.useState)(!1);(0,u.useEffect)(()=>c(!0),[]),(0,u.useEffect)(()=>{if(document.getElementById(f))return;let e=document.createElement(`style`);e.id=f,e.textContent=p,document.head.appendChild(e)},[]);let l=s&&i===`dark`;return{isDark:l,mounted:s,toggle:()=>{let n=l?`light`:`dark`;if(o||!(`startViewTransition`in document)){r(n);return}let i=document.documentElement;e===`rectangle`?(i.style.setProperty(`--beui-vt-from`,m[t]),i.dataset.beuiVt=`rect`):e===`blinds`?i.dataset.beuiVt=`blinds`:(i.style.setProperty(`--beui-vt-origin`,h[t]),i.dataset.beuiVt=e),document.startViewTransition(()=>r(n)).finished.finally(()=>{delete i.dataset.beuiVt})}}}function _({variant:e=`rectangle`,start:t=`bottom-up`,className:n,iconClassName:r,...a}){let{isDark:c,mounted:u,toggle:f}=g({variant:e,start:t});return(0,d.jsx)(`button`,{type:`button`,"aria-label":u&&c?`Switch to light mode`:`Switch to dark mode`,onClick:f,className:i(`flex items-center justify-center`,n),...a,children:u?(0,d.jsx)(l,{value:c?`dark`:`light`,animation:`blur`,className:r,children:c?(0,d.jsx)(s,{className:r}):(0,d.jsx)(o,{className:r})}):(0,d.jsx)(`span`,{className:r,"aria-hidden":`true`})})}export{_ as ThemeToggle,g as useThemeToggle};

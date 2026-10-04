@@ -1,0 +1,1 @@
+import e from"./client-card-BWsSb4Fb.js";export{e as default};

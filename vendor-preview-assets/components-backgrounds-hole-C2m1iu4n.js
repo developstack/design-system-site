@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-WDhPXBUE.js";import{HoleBackground as t}from"./hole-C2WRU7iz.js";var n=e(),r=()=>(0,n.jsx)(t,{className:`absolute inset-0 flex items-center justify-center rounded-xl`});export{r as HoleBackgroundDemo};

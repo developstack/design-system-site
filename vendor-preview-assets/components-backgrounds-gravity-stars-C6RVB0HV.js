@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-B0U4Zd6H.js";import{GravityStarsBackground as t}from"./gravity-stars-CDUJD4lN.js";var n=e(),r=()=>(0,n.jsx)(t,{className:`absolute inset-0 flex items-center justify-center rounded-xl`});export{r as GravityStarsBackgroundDemo};

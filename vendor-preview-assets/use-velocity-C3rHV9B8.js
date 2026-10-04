@@ -1,1 +1,0 @@
-import{a as e}from"./value-BGFSG0MF.js";import{t}from"./use-motion-value-event-CJuayq_S.js";import{t as n}from"./use-motion-value-U-Z_Cdje.js";function r(r){let i=n(r.getVelocity()),a=()=>{let t=r.getVelocity();i.set(t),t&&e.update(a)};return t(r,`change`,()=>{e.update(a,!1,!0)}),i}export{r as t};

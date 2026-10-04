@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-WDhPXBUE.js";import{KnockoutWheel as t,ROUNDS as n}from"./knockout-wheel-CSeQqHNS.js";var r=e();function i(){return(0,r.jsx)(`div`,{className:`w-full py-8`,children:(0,r.jsx)(t,{rounds:n})})}export{i as KnockoutWheelPreview};

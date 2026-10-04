@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-B0U4Zd6H.js";import{r as t}from"./action-swap-B_NRzoQE.js";var n=e();function r({text:e,className:r}){return(0,n.jsx)(t,{value:e,animation:`cascade`,className:r,children:e})}export{r as TextCascade};
