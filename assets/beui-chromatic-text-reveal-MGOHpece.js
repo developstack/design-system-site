@@ -1,0 +1,17 @@
+var e={vendored:{source:`beui`,license:`MIT`,files:[`components/vendor/beui/motion/chromatic-text-reveal.tsx`,`components/vendor/beui/lib/ease.ts`,`components/vendor/beui/NOTICE.md`],dependencies:[`motion`],registryDependencies:[],preview:{kind:`example`,module:`examples/beui/chromatic-text-reveal.tsx`,export:`ChromaticTextRevealPreview`,example:`https://github.com/starc007/ui-components/blob/main/components/previews/motion/chromatic-text-reveal.preview.tsx`},note:{summaryZh:`文字动效（动效组件）。`,importLine:`import { ChromaticTextReveal } from "@/components/vendor/beui/motion/chromatic-text-reveal";`,usage:`<ChromaticTextReveal prefix={…} words={…} />`,exports:[{name:`ChromaticTextRevealProps`,kind:`type`},{name:`ChromaticTextReveal`,kind:`component`,propsType:`ChromaticTextRevealProps`,inline:!0,union:!1,props:[{name:`prefix`,type:`string`,optional:!1,doc:`Sentence fragment that remains fixed while the final word changes.`},{name:`words`,type:`string[]`,optional:!1,doc:`Words revealed one after another after the fixed prefix.`},{name:`colors`,type:`string[]`,optional:!0,default:`CHROMATIC_PALETTE`,doc:`Colors used along the moving chromatic edge.`},{name:`foregroundColor`,type:`string`,optional:!0,default:`"var(--foreground)"`,doc:`Final text color after the sweep passes.`},{name:`duration`,type:`number`,optional:!0,default:`1.2`,doc:`Sweep duration in seconds.`},{name:`delay`,type:`number`,optional:!0,default:`0`,doc:`Delay before the first sweep, in seconds.`},{name:`pauseDuration`,type:`number`,optional:!0,default:`0.8`,doc:`Rest after a word finishes revealing, in seconds.`},{name:`loop`,type:`boolean`,optional:!0,default:`true`,doc:`Returns to the first word after the final word.`},{name:`startOnView`,type:`boolean`,optional:!0,default:`true`,doc:`Starts when the text enters the viewport.`},{name:`once`,type:`boolean`,optional:!0,default:`true`,doc:`Only starts on the first viewport entry.`},{name:`inViewMargin`,type:`MarginType`,optional:!0,doc:`IntersectionObserver root margin used by the viewport trigger.`},{name:`className`,type:`string`,optional:!0}],inherited:[]}],example:{url:`https://github.com/starc007/ui-components/blob/main/components/previews/motion/chromatic-text-reveal.preview.tsx`,code:`import { ChromaticTextReveal } from "@/components/vendor/beui/motion/chromatic-text-reveal";
+
+export function ChromaticTextRevealPreview() {
+  return (
+    // The sentence never wraps, so it has to be sized against the space it
+    // actually gets — the surrounding column, not the viewport.
+    <div className="@container flex w-full justify-center">
+      <ChromaticTextReveal
+        prefix="Motion that feels"
+        words={["natural.", "intentional.", "alive."]}
+        startOnView={false}
+        className="shrink-0 font-medium tracking-[-0.04em] text-foreground [font-size:clamp(1.25rem,7.8cqw,3rem)]"
+      />
+    </div>
+  );
+}
+`},exampleNote:null}},docsField:`A Dia-inspired text effect with a fixed sentence prefix and a cycling final word revealed by a colorful sweep. 主要导出：ChromaticTextReveal。 最小用法：<ChromaticTextReveal prefix={…} words={…} />。 收录组件，不随品牌层和暗色变化，有自有组件时用自有组件。属性与示例见 packages/registry/docs/vendor/beui-chromatic-text-reveal.md。`,upstream:`https://beui.dev/r/chromatic-text-reveal.json`};export{e as default};
