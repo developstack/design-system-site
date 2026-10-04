@@ -1,0 +1,12 @@
+var e={vendored:{source:`uselayouts`,license:`MIT`,files:[`components/vendor/uselayouts/prompt-box.tsx`,`components/vendor/uselayouts/prompt-box-icons.tsx`,`components/vendor/uselayouts/NOTICE.md`],dependencies:[`@base-ui/react`,`lucide-react`,`motion`],registryDependencies:[],preview:{kind:`example`,module:`examples/uselayouts/prompt-box.tsx`,export:`default`,example:`https://github.com/iurvish/uselayouts/blob/main/registry/default/demo/prompt-box-demo.tsx`},note:{summaryZh:`提示词输入框（动效组件）。`,importLine:`import { PromptInput } from "@/components/vendor/uselayouts/prompt-box";`,usage:`<PromptBox />`,exports:[{name:`PromptSettingOption`,kind:`type`},{name:`PromptSettingGroup`,kind:`type`},{name:`PromptMenuAction`,kind:`type`},{name:`PromptPlusMenuOption`,kind:`type`},{name:`PromptPlusMenuItem`,kind:`type`},{name:`PromptInputProps`,kind:`type`},{name:`PromptInput`,kind:`component`,propsType:`PromptInputProps`,inline:!0,union:!1,props:[{name:`onSubmit`,type:`(value: string) => void`,optional:!0},{name:`placeholder`,type:`string`,optional:!0},{name:`menuActions`,type:`PromptMenuAction[]`,optional:!0,default:`[]`},{name:`plusMenuItems`,type:`PromptPlusMenuItem[]`,optional:!0,default:`[]`},{name:`settingGroups`,type:`PromptSettingGroup[]`,optional:!0,default:`[]`},{name:`settings`,type:`Record<string, string>`,optional:!0},{name:`defaultSettings`,type:`Record<string, string>`,optional:!0},{name:`onSettingsChange`,type:`(settings: Record<string, string>) => void`,optional:!0}],inherited:[]},{name:`default`,local:`PromptBox`,kind:`component`,propsType:null,union:!1,props:[],inherited:[]}],example:{url:`https://github.com/iurvish/uselayouts/blob/main/registry/default/demo/prompt-box-demo.tsx`,code:`"use client";
+
+import PromptBox from "@/components/vendor/uselayouts/prompt-box";
+
+export default function PromptBoxDemo() {
+  return (
+    <div className="flex h-full w-full min-w-0 items-center justify-center overflow-hidden">
+      <PromptBox />
+    </div>
+  );
+}
+`},exampleNote:null}},docsField:`A collapsed chat composer that expands into a textarea with a model menu and send control. 主要导出：PromptBox、PromptInput。 最小用法：<PromptBox />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/prompt-input.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/uselayouts-prompt-box.md。`,upstream:`https://uselayouts.com/r/prompt-box.json`};export{e as default};

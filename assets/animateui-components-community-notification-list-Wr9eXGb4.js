@@ -1,0 +1,8 @@
+var e={vendored:{source:`animateui`,license:`MIT + Commons Clause`,files:[`components/vendor/animateui/components/community/notification-list.tsx`,`components/vendor/animateui/NOTICE.md`],dependencies:[`lucide-react`,`motion`],registryDependencies:[],preview:{kind:`example`,module:`examples/animateui/components-community-notification-list.tsx`,export:`NotificationListDemo`,example:`https://animate-ui.com/r/demo-components-community-notification-list.json`},note:{summaryZh:`通知列表（动效组件）。`,importLine:`import { NotificationList } from "@/components/vendor/animateui/components/community/notification-list";`,usage:`<NotificationList />`,exports:[{name:`NotificationList`,kind:`component`,propsType:null,union:!1,props:[],inherited:[]}],example:{url:`https://animate-ui.com/r/demo-components-community-notification-list.json`,code:`'use client';
+
+import * as React from 'react';
+
+import { NotificationList } from '@/components/vendor/animateui/components/community/notification-list';
+
+export const NotificationListDemo = () => <NotificationList />;
+`},exampleNote:null}},docsField:`A fun notification list with animated stacking and cards that exp… 主要导出：NotificationList。 最小用法：<NotificationList />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/notification.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-components-community-notification-list.md。`,upstream:`https://animate-ui.com/r/components-community-notification-list.json`};export{e as default};
