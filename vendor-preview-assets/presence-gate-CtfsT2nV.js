@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-hePW80VL.js";import{t}from"./use-presence-CPkPIh06.js";var n=e({PresenceGate:()=>r});function r({children:e}){let n=t();return e({isPresent:n,gate:{inert:!n,style:{pointerEvents:n?`auto`:`none`}}})}export{n,r as t};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-DcbPsAcT.js";import{KnockoutBracket as t,ROUNDS as n,THIRD_PLACE as r}from"./knockout-bracket-xcQ-8ZQl.js";var i=e();function a(){return(0,i.jsx)(`div`,{className:`w-full py-8`,children:(0,i.jsx)(t,{rounds:n,thirdPlace:r})})}export{a as KnockoutBracketPreview};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-D9IFTTCN.js";import{t}from"./plus-GBj1EM63.js";import{t as n}from"./button-BET8_Ytx.js";var r=e();function i({variant:e,size:i}){return(0,r.jsx)(n,{variant:e,size:i,children:i===`icon`?(0,r.jsx)(t,{}):`Click me`})}export{i as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-DcbPsAcT.js";import{t}from"./copy-DoEjJtPF.js";var n=e();function r({variant:e,size:r}){return(0,n.jsx)(t,{variant:e,size:r,content:`Hello world!`})}export{r as default};

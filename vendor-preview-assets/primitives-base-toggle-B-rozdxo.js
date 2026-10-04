@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-DcbPsAcT.js";import{t}from"./bold-quKwQYf4.js";import{n,r,t as i}from"./toggle-npj0_sHP.js";var a=e(),o=()=>(0,a.jsxs)(i,{className:`relative size-8 flex items-center justify-center`,children:[(0,a.jsx)(n,{className:`bg-accent`}),(0,a.jsx)(r,{children:(0,a.jsx)(t,{className:`h-4 w-4`})})]});export{o as BaseToggleDemo};

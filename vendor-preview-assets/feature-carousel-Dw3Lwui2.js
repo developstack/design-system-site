@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-DcbPsAcT.js";import t from"./feature-carousel-JPHABkTx.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex h-full w-full min-w-0 items-center justify-center overflow-auto p-4`,children:(0,n.jsx)(t,{})})}export{r as default};

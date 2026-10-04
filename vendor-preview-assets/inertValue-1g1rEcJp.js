@@ -1,0 +1,1 @@
+import{o as e}from"./useRenderElement-D2aq0-jn.js";function t(t){return e(19)?t:t?`true`:void 0}export{t};
