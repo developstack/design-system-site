@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-B0U4Zd6H.js";import{ShimmeringText as t}from"./shimmering-D3pwpFf_.js";var n=e(),r=({wave:e,duration:r})=>(0,n.jsx)(t,{className:`text-4xl font-semibold`,wave:e,duration:r,text:`Shimmering Text`},`${e}-${r}`);export{r as ShimmeringTextDemo};

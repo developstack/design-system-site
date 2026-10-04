@@ -1,0 +1,1 @@
+import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t}from"./vendor-preview-D9IFTTCN.js";import{n,t as r}from"./MotionConfigContext-DpfkANjk.js";import{r as i}from"./value-BGFSG0MF.js";var a=e(t(),1);function o(e){let t=n(()=>i(e)),{isStatic:o}=(0,a.useContext)(r);if(o){let[,n]=(0,a.useState)(e);(0,a.useEffect)(()=>t.on(`change`,n),[])}return t}export{o as t};

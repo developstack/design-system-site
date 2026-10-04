@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-B0U4Zd6H.js";import{CardStack as t,DEFAULT_CARDS as n}from"./accessible-action-T09yJmtJ.js";var r=e();function i(){return(0,r.jsx)(`div`,{className:`flex h-full w-full min-w-0 items-center justify-center overflow-hidden`,children:(0,r.jsx)(t,{items:n})})}export{i as default};

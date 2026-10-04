@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-D9IFTTCN.js";import{NotFoundMagnetic as t}from"./magnetic-CuiOavF8.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`w-full`,children:(0,n.jsx)(t,{})})}export{r as NotFoundMagneticPreview};

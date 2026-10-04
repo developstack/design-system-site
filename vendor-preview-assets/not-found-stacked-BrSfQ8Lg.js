@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-B0U4Zd6H.js";import{NotFoundStacked as t}from"./stacked-Tj5h2MXP.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`w-full`,children:(0,n.jsx)(t,{})})}export{r as NotFoundStackedPreview};

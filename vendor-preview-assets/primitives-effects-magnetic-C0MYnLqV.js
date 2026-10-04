@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-B0U4Zd6H.js";import{Magnetic as t}from"./magnetic-B27-o32S.js";var n=e(),r=e=>(0,n.jsx)(`div`,{className:`size-full flex items-center justify-center`,children:(0,n.jsx)(t,{className:`size-20 bg-primary`,...e})});export{r as MagneticDemo};
