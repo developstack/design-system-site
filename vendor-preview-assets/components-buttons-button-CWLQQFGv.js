@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CLAtwuaD.js";import{t}from"./plus-CAuUMgjE.js";import{t as n}from"./button-Bn8R5Eky.js";var r=e();function i({variant:e,size:i}){return(0,r.jsx)(n,{variant:e,size:i,children:i===`icon`?(0,r.jsx)(t,{}):`Click me`})}export{i as default};

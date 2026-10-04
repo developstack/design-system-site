@@ -1,0 +1,12 @@
+var e={vendored:{source:`beui`,license:`MIT`,files:[`components/vendor/beui/motion/expanding-arrow-button.tsx`,`components/vendor/beui/lib/ease.ts`,`components/vendor/beui/lib/hooks/use-hover-capable.ts`,`components/vendor/beui/NOTICE.md`],dependencies:[`motion`],registryDependencies:[],preview:{kind:`example`,module:`examples/beui/expanding-arrow-button.tsx`,export:`ExpandingArrowButtonPreview`,example:`https://github.com/starc007/ui-components/blob/main/components/previews/motion/expanding-arrow-button.preview.tsx`},note:{summaryZh:`按钮（动效组件）。`,importLine:`import { ExpandingArrowButton } from "@/components/vendor/beui/motion/expanding-arrow-button";`,usage:`<ExpandingArrowButton>…</ExpandingArrowButton>`,exports:[{name:`ExpandingArrowButtonProps`,kind:`type`},{name:`ExpandingArrowButton`,kind:`component`,propsType:`Omit<ExpandingArrowButtonProps, "ref"> & RefAttributes<HTMLButtonElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!1},{name:`accentClassName`,type:`string`,optional:!0},{name:`labelClassName`,type:`string`,optional:!0}],inherited:[{package:`映射类型生成，来源无法定位`,count:282,names:[]},{package:`motion-dom`,count:63,names:[`animate`,`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`]},{package:`@types/react`,count:2,names:[]},{package:`framer-motion`,count:1,names:[`style`]}]}],example:{url:`https://github.com/starc007/ui-components/blob/main/components/previews/motion/expanding-arrow-button.preview.tsx`,code:`"use client";
+
+import { ExpandingArrowButton } from "@/components/vendor/beui/motion/expanding-arrow-button";
+
+export function ExpandingArrowButtonPreview() {
+  return (
+    <div className="flex items-center justify-center">
+      <ExpandingArrowButton>Book a demo</ExpandingArrowButton>
+    </div>
+  );
+}
+`},exampleNote:null}},docsField:`An accent tile that expands into a dotted-arrow trail on hover or focus. 主要导出：ExpandingArrowButton。 最小用法：<ExpandingArrowButton>…</ExpandingArrowButton>。 收录组件，颜色原样来自上游；同组系统组件满足需求时用系统组件。同组对比：packages/registry/docs/catalog/button.md。属性与示例见 packages/registry/docs/vendor/beui-expanding-arrow-button.md。`,upstream:`https://beui.dev/r/expanding-arrow-button.json`};export{e as default};

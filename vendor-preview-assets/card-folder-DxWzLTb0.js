@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-DcbPsAcT.js";import t from"./card-folder-B7gi47l7.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`h-full w-full min-w-0 overflow-hidden bg-[#FAF8F5]`,children:(0,n.jsx)(t,{})})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CLAtwuaD.js";import t from"./prompt-box-BQ6lghkp.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex h-full w-full min-w-0 items-center justify-center overflow-hidden`,children:(0,n.jsx)(t,{})})}export{r as default};

@@ -1,0 +1,32 @@
+var e={vendored:{source:`animateui`,license:`MIT + Commons Clause`,files:[`components/vendor/animateui/primitives/animate/github-stars.tsx`,`components/vendor/animateui/NOTICE.md`],dependencies:[`motion`],registryDependencies:[`@developstack/animateui-hooks-use-is-in-view`,`@developstack/animateui-lib-get-strict-context`,`@developstack/animateui-primitives-animate-slot`,`@developstack/animateui-primitives-effects-particles`,`@developstack/animateui-primitives-texts-sliding-number`],preview:{kind:`example`,module:`examples/animateui/primitives-animate-github-stars.tsx`,export:`GithubStarsDemo`,example:`https://animate-ui.com/r/demo-primitives-animate-github-stars.json`},note:{summaryZh:null,importLine:`import { GithubStars } from "@/components/vendor/animateui/primitives/animate/github-stars";`,usage:`<GithubStars>…</GithubStars>`,exports:[{name:`GithubStars`,kind:`component`,propsType:`GithubStarsProps`,inline:!1,union:!0,props:[{name:`children`,type:`(ReactNode & ((MotionValueNumber | MotionValueString | ReactNode) & ReactElement<unknown, string | …`,optional:!1},{name:`username`,type:`string`,optional:!0},{name:`repo`,type:`string`,optional:!0},{name:`value`,type:`number`,optional:!0},{name:`delay`,type:`number`,optional:!0,default:`0`},{name:`inView`,type:`boolean`,optional:!0,default:`false`},{name:`inViewOnce`,type:`boolean`,optional:!0,default:`true`},{name:`inViewMargin`,type:`MarginType`,optional:!0,default:`'0px'`},{name:`asChild`,type:`boolean`,optional:!0,default:`false`}],inherited:[{package:`映射类型生成，来源无法定位`,count:274,names:[]},{package:`motion-dom`,count:63,names:[`animate`,`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`]},{package:`framer-motion`,count:1,names:[`style`]}]},{name:`GithubStarsNumber`,kind:`component`,propsType:`GithubStarsNumberProps`,inline:!1,union:!1,props:[{name:`inView`,type:`boolean`,optional:!0},{name:`inViewOnce`,type:`boolean`,optional:!0},{name:`inViewMargin`,type:`MarginType`,optional:!0},{name:`onNumberChange`,type:`(number: number) => void`,optional:!0},{name:`padStart`,type:`boolean`,optional:!0,default:`true`},{name:`decimalSeparator`,type:`string`,optional:!0},{name:`decimalPlaces`,type:`number`,optional:!0},{name:`thousandSeparator`,type:`string`,optional:!0},{name:`transition`,type:`Transition<any> & SpringOptions`,optional:!0,doc:'Default transition. If no `transition` is defined in `animate`, it will use the transition defined here. ```jsx const spring = { type: "spring", damping: 10, stiffness: 100 } <motion.div transition={spring} animate={{ scale: 1.2 }} /> ```'},{name:`delay`,type:`number`,optional:!0},{name:`initiallyStable`,type:`boolean`,optional:!0}],inherited:[{package:`映射类型生成，来源无法定位`,count:274,names:[]},{package:`motion-dom`,count:62,names:[`animate`,`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`]},{package:`framer-motion`,count:1,names:[`style`]}]},{name:`GithubStarsIcon`,kind:`component`,propsType:`GithubStarsIconProps<T>`,inline:!1,union:!1,props:[],inherited:[]},{name:`GithubStarsParticles`,kind:`component`,propsType:`GithubStarsParticlesProps`,inline:!1,union:!1,props:[{name:`children`,type:`ReactElement<unknown, string | JSXElementConstructor<any>>`,optional:!1},{name:`size`,type:`number`,optional:!0,default:`4`},{name:`side`,type:`Side`,optional:!0},{name:`align`,type:`Align`,optional:!0},{name:`count`,type:`number`,optional:!0},{name:`radius`,type:`number`,optional:!0},{name:`spread`,type:`number`,optional:!0},{name:`duration`,type:`number`,optional:!0},{name:`holdDelay`,type:`number`,optional:!0},{name:`sideOffset`,type:`number`,optional:!0},{name:`alignOffset`,type:`number`,optional:!0},{name:`delay`,type:`number`,optional:!0}],inherited:[{package:`映射类型生成，来源无法定位`,count:274,names:[]},{package:`motion-dom`,count:63,names:[`animate`,`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`]},{package:`framer-motion`,count:1,names:[`style`]}]},{name:`GithubStarsLogo`,kind:`component`,propsType:`GithubStarsLogoProps`,inline:!1,union:!1,props:[],inherited:[{package:`@types/react`,count:488,names:[]}]},{name:`useGithubStars`,kind:`hook`,signature:`() => GithubStarsContextType`,params:[],requiredParams:0},{name:`GithubStarsProps`,kind:`type`},{name:`GithubStarsNumberProps`,kind:`type`},{name:`GithubStarsIconProps`,kind:`type`},{name:`GithubStarsParticlesProps`,kind:`type`},{name:`GithubStarsLogoProps`,kind:`type`},{name:`GithubStarsContextType`,kind:`type`}],example:{url:`https://animate-ui.com/r/demo-primitives-animate-github-stars.json`,code:`import {
+  GithubStars,
+  GithubStarsIcon,
+  GithubStarsLogo,
+  GithubStarsNumber,
+  GithubStarsParticles,
+} from '@/components/vendor/animateui/primitives/animate/github-stars';
+import { StarIcon } from 'lucide-react';
+
+export const GithubStarsDemo = () => {
+  return (
+    <GithubStars
+      className="flex gap-2 items-center"
+      username="imskyleen"
+      repo="animate-ui"
+    >
+      <GithubStarsLogo className="text-muted-foreground size-6" />
+      <div className="p-1 bg-muted flex items-center gap-1">
+        <GithubStarsNumber className="text-muted-foreground font-medium" />
+        <GithubStarsParticles>
+          <GithubStarsIcon
+            icon={StarIcon}
+            className="fill-neutral-300 stroke-neutral-300 dark:fill-neutral-700 dark:stroke-neutral-700"
+            activeClassName="text-muted-foreground"
+            size={18}
+          />
+        </GithubStarsParticles>
+      </div>
+    </GithubStars>
+  );
+};
+`},exampleNote:null}},docsField:`A component that… 主要导出：GithubStars、GithubStarsNumber、GithubStarsIcon、GithubStarsParticles 等。 最小用法：<GithubStars>…</GithubStars>。 收录组件，颜色原样来自上游；同组系统组件满足需求时用系统组件。同组对比：packages/registry/docs/catalog/github-stars.md。属性与示例见 packages/registry/docs/vendor/animateui-primitives-animate-github-stars.md。`,upstream:`https://animate-ui.com/r/primitives-animate-github-stars.json`};export{e as default};

@@ -1,1 +1,0 @@
-import"./rolldown-runtime-hePW80VL.js";import{a as e,n as t}from"./vendor-preview-DcbPsAcT.js";import{NotificationList as n}from"./notification-list-DY7eJqy3.js";e();var r=t(),i=()=>(0,r.jsx)(n,{});export{i as NotificationListDemo};

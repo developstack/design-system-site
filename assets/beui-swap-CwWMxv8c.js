@@ -1,0 +1,12 @@
+var e={vendored:{source:`beui`,license:`MIT`,files:[`components/vendor/beui/motion/swap.tsx`,`components/vendor/beui/motion/swap/constants.ts`,`components/vendor/beui/motion/swap/controls.tsx`,`components/vendor/beui/motion/swap/data.ts`,`components/vendor/beui/motion/swap/field.tsx`,`components/vendor/beui/motion/swap/quote-row.tsx`,`components/vendor/beui/motion/swap/token-picker.tsx`,`components/vendor/beui/motion/swap/types.ts`,`components/vendor/beui/motion/swap/utils.ts`,`components/vendor/beui/lib/ease.ts`,`components/vendor/beui/motion/swap/token-badges.tsx`,`components/vendor/beui/NOTICE.md`],dependencies:[`lucide-react`,`motion`],registryDependencies:[],preview:{kind:`example`,module:`examples/beui/swap.tsx`,export:`SwapPreview`,example:`https://github.com/starc007/ui-components/blob/main/components/previews/blocks/swap.preview.tsx`},note:{summaryZh:null,importLine:`import { MultiChainSwap } from "@/components/vendor/beui/motion/swap";`,usage:`<MultiChainSwap />`,exports:[{name:`Chain`,kind:`type`},{name:`Token`,kind:`type`},{name:`SWAP_DRAWER_EASE`,kind:`constant`,type:`readonly [0.32, 0.72, 0, 1]`},{name:`MultiChainSwapProps`,kind:`type`},{name:`MultiChainSwap`,kind:`component`,propsType:`MultiChainSwapProps`,inline:!1,union:!1,props:[{name:`chains`,type:`Chain[]`,optional:!0,default:`CHAINS`},{name:`tokens`,type:`Token[]`,optional:!0,default:`TOKENS`},{name:`defaultFromId`,type:`string`,optional:!0,default:`"eth-eth"`},{name:`defaultToId`,type:`string`,optional:!0,default:`"sol-sol"`},{name:`className`,type:`string`,optional:!0}],inherited:[]}],example:{url:`https://github.com/starc007/ui-components/blob/main/components/previews/blocks/swap.preview.tsx`,code:`"use client";
+
+import { MultiChainSwap } from "@/components/vendor/beui/motion/swap";
+
+export function SwapPreview() {
+  return (
+    <div className="flex w-full items-center justify-center">
+      <MultiChainSwap />
+    </div>
+  );
+}
+`},exampleNote:null}},docsField:`Cross-chain swap widget with chain + token selectors, morphing views, animated flip and quote. 主要导出：MultiChainSwap、SWAP_DRAWER_EASE。 最小用法：<MultiChainSwap />。 收录组件，颜色原样来自上游；同组系统组件满足需求时用系统组件。独有组件。属性与示例见 packages/registry/docs/vendor/beui-swap.md。`,upstream:`https://beui.dev/r/swap.json`};export{e as default};

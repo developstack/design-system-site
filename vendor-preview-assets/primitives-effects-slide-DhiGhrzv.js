@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-DcbPsAcT.js";import{Slide as t}from"./slide-CsWfuvjv.js";var n=e();function r({delay:e=0,direction:r=`up`,offset:i=100}){return(0,n.jsx)(t,{delay:e,direction:r,offset:i,className:`px-6 py-4 bg-accent`,children:`Slide`})}export{r as default};

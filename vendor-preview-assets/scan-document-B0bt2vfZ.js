@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-DcbPsAcT.js";import t from"./scan-document-BQqcqXIO.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex h-full w-full min-w-0 items-center justify-center overflow-hidden`,children:(0,n.jsx)(t,{})})}export{r as default};

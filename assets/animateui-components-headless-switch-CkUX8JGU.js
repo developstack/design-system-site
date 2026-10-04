@@ -1,0 +1,12 @@
+var e={vendored:{source:`animateui`,license:`MIT + Commons Clause`,files:[`components/vendor/animateui/components/headless/switch.tsx`,`components/vendor/animateui/NOTICE.md`],dependencies:[],registryDependencies:[`@developstack/animateui-primitives-headless-switch`],preview:{kind:`example`,module:`examples/animateui/components-headless-switch.tsx`,export:`HeadlessSwitchDemo`,example:`https://animate-ui.com/r/demo-components-headless-switch.json`},note:{summaryZh:`开关（基于 Headless UI 的组件）。`,importLine:`import { Switch } from "@/components/vendor/animateui/components/headless/switch";`,usage:`<Switch />`,exports:[{name:`Switch`,kind:`component`,propsType:`SwitchProps`,inline:!1,union:!1,props:[{name:`pressedWidth`,type:`number`,optional:!0,default:`19`},{name:`startIcon`,type:`ReactElement<unknown, string | JSXElementConstructor<any>>`,optional:!0},{name:`endIcon`,type:`ReactElement<unknown, string | JSXElementConstructor<any>>`,optional:!0},{name:`thumbIcon`,type:`ReactElement<unknown, string | JSXElementConstructor<any>>`,optional:!0},{name:`as`,type:`ForwardRefComponent<HTMLButtonElement, HTMLMotionProps<"button">>`,optional:!0}],inherited:[{package:`映射类型生成，来源无法定位`,count:274,names:[]},{package:`motion-dom`,count:63,names:[`animate`,`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`]},{package:`@headlessui/react`,count:12,names:[`autoFocus`,`checked`,`children`,`className`,`defaultChecked`,`disabled`,`form`,`name`,`onChange`,`refName`,`tabIndex`,`value`]},{package:`@types/react`,count:1,names:[]},{package:`framer-motion`,count:1,names:[`style`]}]},{name:`SwitchProps`,kind:`type`}],example:{url:`https://animate-ui.com/r/demo-components-headless-switch.json`,code:`import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/vendor/animateui/components/headless/switch';
+
+export function HeadlessSwitchDemo() {
+  return (
+    <Label className="flex items-center gap-x-3">
+      <Switch />
+      Airplane Mode
+    </Label>
+  );
+}
+`},exampleNote:null}},docsField:`Switches are a pleasant interface for toggling a value between two states, and offer the same semantics and… 主要导出：Switch。 最小用法：<Switch />。 收录组件，颜色原样来自上游；同组系统组件满足需求时用系统组件。同组对比：packages/registry/docs/catalog/switch.md。属性与示例见 packages/registry/docs/vendor/animateui-components-headless-switch.md。`,upstream:`https://animate-ui.com/r/components-headless-switch.json`};export{e as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CLAtwuaD.js";import{t}from"./label-Dkg2FcO5.js";import{Checkbox as n}from"./checkbox-sMl74n32.js";var r=e(),i=({indeterminate:e,variant:i,size:a})=>(0,r.jsxs)(t,{className:`flex items-center gap-x-3`,children:[(0,r.jsx)(n,{indeterminate:e,variant:i,size:a}),`Accept terms and conditions`]});export{i as BaseCheckboxDemo};

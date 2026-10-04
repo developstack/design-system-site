@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-DcbPsAcT.js";import{t}from"./counting-number-CEQiAwyL.js";var n=e(),r=({number:e,fromNumber:r,padStart:i,decimalSeparator:a,decimalPlaces:o,delay:s})=>(0,n.jsx)(t,{delay:s,number:e,fromNumber:r,padStart:i,decimalSeparator:a,decimalPlaces:o,className:`text-4xl font-semibold`},s);export{r as CountingFromNumberDemo};

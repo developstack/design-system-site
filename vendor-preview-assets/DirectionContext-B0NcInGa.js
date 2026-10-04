@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t}from"./vendor-preview-DcbPsAcT.js";var n=e(t(),1),r=n.createContext(void 0);function i(){return n.useContext(r)?.direction??`ltr`}export{i as t};

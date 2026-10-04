@@ -1,1 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-hePW80VL.js";import{a as n}from"./vendor-preview-DcbPsAcT.js";var r=e({useControlledState:()=>a}),i=t(n(),1);function a(e){let{value:t,defaultValue:n,onChange:r}=e,[a,o]=i.useState(t===void 0?n:t);return i.useEffect(()=>{t!==void 0&&o(t)},[t]),[a,i.useCallback((e,...t)=>{o(e),r?.(e,...t)},[r])]}export{r as n,a as t};
