@@ -1,0 +1,1 @@
+import e,{dialConfig as t}from"./delete-button-D5bKIVSC.js";export{e as default,t as dialConfig};

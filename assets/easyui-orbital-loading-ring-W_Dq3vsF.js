@@ -1,0 +1,12 @@
+var e={vendored:{source:`easyui`,license:`MIT`,files:[`components/vendor/easyui/ui/orbital-loading-ring.tsx`,`components/vendor/easyui/lib/utils.ts`,`components/vendor/easyui/NOTICE.md`],dependencies:[`clsx`,`tailwind-merge`],registryDependencies:[],preview:{kind:`example`,module:`examples/easyui/orbital-loading-ring.tsx`,export:`default`,example:`https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/src/components/registry/previews/items/orbital-loading-ring.tsx`},note:{summaryZh:null,importLine:`import { OrbitalLoadingRing } from "@/components/vendor/easyui/ui/orbital-loading-ring";`,usage:`<OrbitalLoadingRing />`,exports:[{name:`OrbitalLoadingRingProps`,kind:`type`},{name:`OrbitalLoadingRing`,kind:`component`,propsType:`OrbitalLoadingRingProps`,inline:!1,union:!1,props:[{name:`size`,type:`number`,optional:!0,default:`72`},{name:`speed`,type:`number`,optional:!0,default:`1`},{name:`variant`,type:`"default" | "dense" | "minimal"`,optional:!0,default:`'default'`},{name:`label`,type:`string`,optional:!0,default:`'Loading'`}],inherited:[{package:`@types/react`,count:278,names:[]}]}],example:{url:`https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/src/components/registry/previews/items/orbital-loading-ring.tsx`,code:`import { OrbitalLoadingRing } from '@/components/vendor/easyui/ui/orbital-loading-ring';
+import type { ComponentPreviewProps } from './preview-props';
+
+export default function Preview({ isHovered = false }: ComponentPreviewProps) {
+  const hovered = isHovered;
+  return (
+          <div className="h-52 flex items-center justify-center p-4">
+            <OrbitalLoadingRing size={64} variant={hovered ? 'dense' : 'default'} label="Loading preview" />
+          </div>
+        );
+}
+`},exampleNote:null}},docsField:`A lightweight loading indicator with layered rings and orbiting particles that communicat… 主要导出：OrbitalLoadingRing。 最小用法：<OrbitalLoadingRing />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/loader.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/easyui-orbital-loading-ring.md。`,upstream:`https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#orbital-loading-ring`};export{e as default};

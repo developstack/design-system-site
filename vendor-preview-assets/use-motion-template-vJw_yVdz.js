@@ -1,0 +1,1 @@
+import{t as e}from"./is-motion-value-DPNbxbvn.js";import{t}from"./use-combine-values-C0-fZlqs.js";function n(n,...r){let i=n.length;function a(){let t=``;for(let a=0;a<i;a++){t+=n[a];let i=r[a];i&&(t+=e(i)?i.get():i)}return t}return t(r.filter(e),a)}export{n as t};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{NotFoundTerminal as t}from"./terminal-CEamulqL.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`w-full`,children:(0,n.jsx)(t,{})})}export{r as NotFoundTerminalPreview};

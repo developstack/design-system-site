@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CLAtwuaD.js";import{AvailabilityScheduler as t}from"./availability-scheduler-D8OZFtYA.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full justify-center`,children:(0,n.jsx)(t,{})})}export{r as AvailabilitySchedulerPreview};

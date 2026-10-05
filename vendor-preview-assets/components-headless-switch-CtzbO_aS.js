@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{t}from"./label-B--uOC2Y.js";import{Switch as n}from"./switch-C3tGmXnz.js";var r=e();function i(){return(0,r.jsxs)(t,{className:`flex items-center gap-x-3`,children:[(0,r.jsx)(n,{}),`Airplane Mode`]})}export{i as HeadlessSwitchDemo};

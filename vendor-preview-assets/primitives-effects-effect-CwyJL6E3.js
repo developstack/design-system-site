@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{Effect as t}from"./effect-DzzYhS_4.js";var n=e();function r({delay:e=0,blur:r=!1,slide:i=!1,fade:a=!1,zoom:o=!1}){return(0,n.jsx)(t,{delay:e,blur:r,slide:i,fade:a,zoom:o,className:`px-6 py-4 bg-accent`,children:`Effect`})}export{r as default};

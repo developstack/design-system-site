@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{AgentProgress as t}from"./agent-progress-lsydcqEI.js";var n=e();function r(){return(0,n.jsx)(t,{label:`Churning`,initialSeconds:151.6,className:`text-base`})}export{r as AgentProgressPreview};

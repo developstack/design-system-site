@@ -1,1 +1,0 @@
-import{f as e,p as t}from"./useRenderElement-f6wZTzxG.js";var n=t.useInsertionEffect,r=n&&n!==t.useLayoutEffect?n:e=>e();function i(t){let n=e(a).current;return n.next=t,r(n.effect),n.trampoline}function a(){let e={next:void 0,callback:o,trampoline:(...t)=>e.callback?.(...t),effect:()=>{e.callback=e.next}};return e}function o(){}export{i as t};

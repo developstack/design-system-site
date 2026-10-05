@@ -1,1 +1,0 @@
-import{n as e}from"./as-number-7npnsJzY.js";import{a as t,i as n}from"./value-BGFSG0MF.js";import{t as r}from"./use-motion-value-BOt91BxZ.js";function i(i,a){let o=r(a()),s=()=>o.set(a());return s(),e(()=>{let e=()=>t.preRender(s,!1,!0),r=i.map(t=>t.on(`change`,e));return()=>{r.forEach(e=>e()),n(s)}}),o}export{i as t};

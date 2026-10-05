@@ -1,0 +1,18 @@
+var e={vendored:{source:`easyui`,license:`MIT`,files:[`components/vendor/easyui/ui/book-call-button.tsx`,`components/vendor/easyui/lib/utils.ts`,`components/vendor/easyui/NOTICE.md`],dependencies:[`clsx`,`motion`,`tailwind-merge`],registryDependencies:[],preview:{kind:`example`,module:`examples/easyui/book-call-button.tsx`,export:`default`,example:`https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/src/components/registry/previews/items/book-call-button.tsx`},note:{summaryZh:`按钮（动效组件）。`,importLine:`import { BookCallButton } from "@/components/vendor/easyui/ui/book-call-button";`,usage:`<BookCallButton />`,exports:[{name:`BookCallButtonProps`,kind:`type`},{name:`BookCallButton`,doc:"The exported button. Resolves to <a> when `href` is given so the component can sit on a marketing page (rendered as a link) or as a true form action (rendered as a button) without a second API (Rule 40: no unnecessary configuration).",kind:`component`,propsType:`BookCallButtonProps`,inline:!1,union:!1,props:[{name:`children`,type:`string`,optional:!0,default:`'Book a call'`,doc:`Button label rendered on the right of the dotted arrow.`},{name:`onClick`,type:`() => void`,optional:!0,doc:"Click handler — ignored when `href` is also provided."},{name:`href`,type:`string`,optional:!0,doc:`When provided, renders an <a> with this href instead of a <button>.`},{name:`className`,type:`string`,optional:!0,doc:`Class name merged into the pill root.`}],inherited:[{package:`@types/react`,count:281,names:[]}]},{name:`default`,local:`BookCallButton`,doc:"The exported button. Resolves to <a> when `href` is given so the component can sit on a marketing page (rendered as a link) or as a true form action (rendered as a button) without a second API (Rule 40: no unnecessary configuration).",kind:`component`,propsType:`BookCallButtonProps`,inline:!1,union:!1,props:[{name:`children`,type:`string`,optional:!0,default:`'Book a call'`,doc:`Button label rendered on the right of the dotted arrow.`},{name:`onClick`,type:`() => void`,optional:!0,doc:"Click handler — ignored when `href` is also provided."},{name:`href`,type:`string`,optional:!0,doc:`When provided, renders an <a> with this href instead of a <button>.`},{name:`className`,type:`string`,optional:!0,doc:`Class name merged into the pill root.`}],inherited:[{package:`@types/react`,count:281,names:[]}]}],example:{url:`https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/src/components/registry/previews/items/book-call-button.tsx`,code:`import { BookCallButton } from '@/components/vendor/easyui/ui/book-call-button';
+import type { ComponentPreviewProps } from './preview-props';
+
+export default function Preview(_props: ComponentPreviewProps) {
+  return (
+          <div className="h-52 w-full flex items-center justify-center p-2 pointer-events-none overflow-hidden">
+            <div className="w-[230px] h-[200px] overflow-hidden flex items-center justify-center">
+              <div
+                className="origin-center shrink-0"
+                style={{ width: 306, height: 96, transform: 'scale(0.62)' }}
+              >
+                <BookCallButton />
+              </div>
+            </div>
+          </div>
+        );
+}
+`},exampleNote:null}},docsField:`A premium "Book a call" pill with a green expanding capsule. 主要导出：BookCallButton。 最小用法：<BookCallButton />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/button.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/easyui-book-call-button.md。`,upstream:`https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#book-call-button`};export{e as default};

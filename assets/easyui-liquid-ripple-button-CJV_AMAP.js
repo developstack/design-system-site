@@ -1,0 +1,13 @@
+var e={vendored:{source:`easyui`,license:`MIT`,files:[`components/vendor/easyui/ui/liquid-ripple-button.tsx`,`components/vendor/easyui/lib/utils.ts`,`components/vendor/easyui/lib/motion-tokens.ts`,`components/vendor/easyui/NOTICE.md`],dependencies:[`clsx`,`lucide-react`,`motion`,`tailwind-merge`],registryDependencies:[],preview:{kind:`example`,module:`examples/easyui/liquid-ripple-button.tsx`,export:`default`,example:`https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/src/components/registry/previews/items/liquid-ripple-button.tsx`},note:{summaryZh:`按钮（动效组件）。`,importLine:`import { LiquidRippleButton } from "@/components/vendor/easyui/ui/liquid-ripple-button";`,usage:`<LiquidRippleButton />`,exports:[{name:`LiquidRippleButtonProps`,kind:`type`},{name:`LiquidRippleButton`,kind:`component`,propsType:`LiquidRippleButtonProps`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0,default:`'Water Ripple'`},{name:`variant`,type:`"primary" | "secondary"`,optional:!0,default:`'secondary'`},{name:`showIcon`,type:`boolean`,optional:!0,default:`true`}],inherited:[{package:`@types/react`,count:287,names:[]}]},{name:`default`,local:`LiquidRippleButton`,kind:`component`,propsType:`LiquidRippleButtonProps`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0,default:`'Water Ripple'`},{name:`variant`,type:`"primary" | "secondary"`,optional:!0,default:`'secondary'`},{name:`showIcon`,type:`boolean`,optional:!0,default:`true`}],inherited:[{package:`@types/react`,count:287,names:[]}]}],example:{url:`https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/src/components/registry/previews/items/liquid-ripple-button.tsx`,code:`import { LiquidRippleButton } from '@/components/vendor/easyui/ui/liquid-ripple-button';
+import type { ComponentPreviewProps } from './preview-props';
+
+export default function Preview(_props: ComponentPreviewProps) {
+  return (
+          <div className="h-52 flex items-center justify-center p-4">
+            <div className="pointer-events-none scale-90">
+              <LiquidRippleButton variant="secondary">Generate</LiquidRippleButton>
+            </div>
+          </div>
+        );
+}
+`},exampleNote:null}},docsField:`A tactile button whose pointer-origin ripple and subtle wave layer make press feedback feel fluid. 主要导出：LiquidRippleButton。 最小用法：<LiquidRippleButton />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/button.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/easyui-liquid-ripple-button.md。`,upstream:`https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#liquid-ripple-button`};export{e as default};

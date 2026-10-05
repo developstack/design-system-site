@@ -1,0 +1,14 @@
+var e={vendored:{source:`easyui`,license:`MIT`,files:[`components/vendor/easyui/ui/pill-navigation.tsx`,`components/vendor/easyui/lib/utils.ts`,`components/vendor/easyui/lib/motion-tokens.ts`,`components/vendor/easyui/NOTICE.md`],dependencies:[`clsx`,`lucide-react`,`motion`,`tailwind-merge`],registryDependencies:[],preview:{kind:`example`,module:`examples/easyui/pill-navigation.tsx`,export:`default`,example:`https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/src/components/registry/previews/items/pill-navigation.tsx`},note:{summaryZh:null,importLine:`import { PillNavigation } from "@/components/vendor/easyui/ui/pill-navigation";`,usage:`<PillNavigation />`,exports:[{name:`PillSubItem`,kind:`type`},{name:`PillNavigationItem`,kind:`type`},{name:`PillNavigationProps`,kind:`type`},{name:`PillNavigation`,kind:`component`,propsType:`PillNavigationProps`,inline:!1,union:!1,props:[{name:`items`,type:`PillNavigationItem[]`,optional:!0,default:`defaultItems`},{name:`defaultValue`,type:`string`,optional:!0},{name:`defaultSubValue`,type:`string`,optional:!0},{name:`onChange`,type:`(id: string, subId?: string | undefined) => void`,optional:!0}],inherited:[{package:`@types/react`,count:276,names:[]}]},{name:`default`,local:`PillNavigation`,kind:`component`,propsType:`PillNavigationProps`,inline:!1,union:!1,props:[{name:`items`,type:`PillNavigationItem[]`,optional:!0,default:`defaultItems`},{name:`defaultValue`,type:`string`,optional:!0},{name:`defaultSubValue`,type:`string`,optional:!0},{name:`onChange`,type:`(id: string, subId?: string | undefined) => void`,optional:!0}],inherited:[{package:`@types/react`,count:276,names:[]}]}],example:{url:`https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/src/components/registry/previews/items/pill-navigation.tsx`,code:`import { PillNavigation } from '@/components/vendor/easyui/ui/pill-navigation';
+import type { ComponentPreviewProps } from './preview-props';
+
+export default function Preview({ isHovered = false }: ComponentPreviewProps) {
+  const hovered = isHovered;
+  return (
+          <div className="h-52 flex items-center justify-center p-4">
+            <div className="pointer-events-none scale-90">
+              <PillNavigation defaultValue={hovered ? 'motion' : 'overview'} />
+            </div>
+          </div>
+        );
+}
+`},exampleNote:null}},docsField:`A restrained segmented navigation control with shared pill layout morphing and nested submenu dropdown support. 主要导出：PillNavigation。 最小用法：<PillNavigation />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/nav.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/easyui-pill-navigation.md。`,upstream:`https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#pill-navigation`};export{e as default};
