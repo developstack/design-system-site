@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/sunset-bloom-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/sunset-bloom-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2523-L2525`,usage:`<SunsetBloomBackground className="min-h-screen p-8"><h1>Golden hour</h1></SunsetBloomBackground>`},note:{summaryZh:null,importLine:`import { SunsetBloomBackground } from "@/components/vendor/opensourceui/background-gradient/sunset-bloom-background";`,usage:`<SunsetBloomBackground />`,exports:[{name:`SunsetBloomBackgroundProps`,kind:`type`},{name:`SunsetBloomBackground`,kind:`component`,propsType:`SunsetBloomBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2523-L2525`,code:`import { SunsetBloomBackground } from "@/components/vendor/opensourceui/background-gradient/sunset-bloom-background";
+
+export default function Example() {
+  return (
+    <SunsetBloomBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </SunsetBloomBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Golden-hour aurora with orange, rose, amber, and sun yellow blooms — events, p… 主要导出：SunsetBloomBackground。 最小用法：<SunsetBloomBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-sunset-bloom-background.md。`,upstream:`https://opensourceui.in/components/sunset-bloom-background`};export{e as default};

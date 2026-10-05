@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/terrazzo-fragment-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/terrazzo-fragment-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2641-L2643`,usage:`<TerrazzoFragmentBackground className="min-h-screen p-8"><h1>Studio</h1></TerrazzoFragmentBackground>`},note:{summaryZh:null,importLine:`import { TerrazzoFragmentBackground } from "@/components/vendor/opensourceui/background-gradient/terrazzo-fragment-background";`,usage:`<TerrazzoFragmentBackground />`,exports:[{name:`TerrazzoFragmentBackgroundProps`,kind:`type`},{name:`TerrazzoFragmentBackground`,kind:`component`,propsType:`TerrazzoFragmentBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2641-L2643`,code:`import { TerrazzoFragmentBackground } from "@/components/vendor/opensourceui/background-gradient/terrazzo-fragment-background";
+
+export default function Example() {
+  return (
+    <TerrazzoFragmentBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </TerrazzoFragmentBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Stone terrazzo base with scattered rose, teal, amber, and… 主要导出：TerrazzoFragmentBackground。 最小用法：<TerrazzoFragmentBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-terrazzo-fragment-background.md。`,upstream:`https://opensourceui.in/components/terrazzo-fragment-background`};export{e as default};

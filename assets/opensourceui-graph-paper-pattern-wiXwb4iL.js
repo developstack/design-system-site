@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-pattern/graph-paper-pattern.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/graph-paper-pattern.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2977-L2979`,usage:`<GraphPaperPattern className="min-h-screen p-8"><div>Wireframe</div></GraphPaperPattern>`},note:{summaryZh:null,importLine:`import { GraphPaperPattern } from "@/components/vendor/opensourceui/background-pattern/graph-paper-pattern";`,usage:`<GraphPaperPattern />`,exports:[{name:`GraphPaperPatternProps`,kind:`type`},{name:`GraphPaperPattern`,kind:`component`,propsType:`GraphPaperPatternProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2977-L2979`,code:`import { GraphPaperPattern } from "@/components/vendor/opensourceui/background-pattern/graph-paper-pattern";
+
+export default function Example() {
+  return (
+    <GraphPaperPattern className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </GraphPaperPattern>
+  );
+}
+`},exampleNote:null}},docsField:`Clean square grid for sketches, wireframes, and planning boards — subtle ink lines on white. 主要导出：GraphPaperPattern。 最小用法：<GraphPaperPattern />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-graph-paper-pattern.md。`,upstream:`https://opensourceui.in/components/graph-paper-pattern`};export{e as default};

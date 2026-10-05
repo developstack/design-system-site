@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-pattern/diagonal-box-pattern.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/diagonal-box-pattern.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2911-L2913`,usage:`<DiagonalBoxPattern className="min-h-screen p-8"><section>Content</section></DiagonalBoxPattern>`},note:{summaryZh:null,importLine:`import { DiagonalBoxPattern } from "@/components/vendor/opensourceui/background-pattern/diagonal-box-pattern";`,usage:`<DiagonalBoxPattern />`,exports:[{name:`DiagonalBoxPatternProps`,kind:`type`},{name:`DiagonalBoxPattern`,kind:`component`,propsType:`DiagonalBoxPatternProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2911-L2913`,code:`import { DiagonalBoxPattern } from "@/components/vendor/opensourceui/background-pattern/diagonal-box-pattern";
+
+export default function Example() {
+  return (
+    <DiagonalBoxPattern className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </DiagonalBoxPattern>
+  );
+}
+`},exampleNote:null}},docsField:`Classic 45° hairline hatch on white — the same quiet stage used across marketing m… 主要导出：DiagonalBoxPattern。 最小用法：<DiagonalBoxPattern />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-diagonal-box-pattern.md。`,upstream:`https://opensourceui.in/components/diagonal-box-pattern`};export{e as default};

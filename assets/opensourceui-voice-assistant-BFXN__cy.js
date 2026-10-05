@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/voice-assistant-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/voice-assistant.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L639`,usage:`<VoiceAssistantWidget label="Listening…" />`},note:{summaryZh:null,importLine:`import { VoiceAssistantWidget } from "@/components/vendor/opensourceui/widgets/voice-assistant-widget";`,usage:`<VoiceAssistantWidget />`,exports:[{name:`VoiceAssistantWidgetProps`,kind:`type`},{name:`VoiceAssistantWidget`,kind:`component`,propsType:`Readonly<{ label?: string | undefined; } & Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, H…`,inline:!1,union:!1,props:[{name:`label`,type:`string`,optional:!0,default:`"Listening…"`}],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L639`,code:`import { VoiceAssistantWidget } from "@/components/vendor/opensourceui/widgets/voice-assistant-widget";
+
+export default function Example() {
+  return (
+    <VoiceAssistantWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Animated equalizer bars and a mic button that flip between idle and listening. 主要导出：VoiceAssistantWidget。 最小用法：<VoiceAssistantWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-voice-assistant.md。`,upstream:`https://opensourceui.in/components/voice-assistant`};export{e as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-96-fUOOI.js";import{FileMenuDropdown as t}from"./file-menu-dropdown-NkLYCata.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

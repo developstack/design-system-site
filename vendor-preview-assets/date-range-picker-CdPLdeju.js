@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-96-fUOOI.js";import{DateRangePickerCard as t}from"./date-range-picker-card-BvPr-fAC.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

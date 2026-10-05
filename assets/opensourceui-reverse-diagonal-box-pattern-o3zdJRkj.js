@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-pattern/reverse-diagonal-box-pattern.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/reverse-diagonal-box-pattern.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2927-L2929`,usage:`<ReverseDiagonalBoxPattern className="min-h-screen p-8"><section>Content</section></ReverseDiagonalBoxPattern>`},note:{summaryZh:null,importLine:`import { ReverseDiagonalBoxPattern } from "@/components/vendor/opensourceui/background-pattern/reverse-diagonal-box-pattern";`,usage:`<ReverseDiagonalBoxPattern />`,exports:[{name:`ReverseDiagonalBoxPatternProps`,kind:`type`},{name:`ReverseDiagonalBoxPattern`,kind:`component`,propsType:`ReverseDiagonalBoxPatternProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2927-L2929`,code:`import { ReverseDiagonalBoxPattern } from "@/components/vendor/opensourceui/background-pattern/reverse-diagonal-box-pattern";
+
+export default function Example() {
+  return (
+    <ReverseDiagonalBoxPattern className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </ReverseDiagonalBoxPattern>
+  );
+}
+`},exampleNote:null}},docsField:`Mirrored 45° hairline hatch — same quiet stage as Diagonal Box, r… 主要导出：ReverseDiagonalBoxPattern。 最小用法：<ReverseDiagonalBoxPattern />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-reverse-diagonal-box-pattern.md。`,upstream:`https://opensourceui.in/components/reverse-diagonal-box-pattern`};export{e as default};

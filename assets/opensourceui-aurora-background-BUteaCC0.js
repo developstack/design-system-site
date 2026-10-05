@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/aurora-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/aurora-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2473-L2475`,usage:`<AuroraBackground className="min-h-screen p-8"><h1>Hello</h1></AuroraBackground>`},note:{summaryZh:null,importLine:`import { AuroraBackground } from "@/components/vendor/opensourceui/background-gradient/aurora-background";`,usage:`<AuroraBackground />`,exports:[{name:`AuroraBackgroundProps`,kind:`type`},{name:`AuroraBackground`,kind:`component`,propsType:`AuroraBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2473-L2475`,code:`import { AuroraBackground } from "@/components/vendor/opensourceui/background-gradient/aurora-background";
+
+export default function Example() {
+  return (
+    <AuroraBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </AuroraBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Soft aurora wash with lime, mint, cyan, and blue blobs over a warm paper base — wrap any page s… 主要导出：AuroraBackground。 最小用法：<AuroraBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-aurora-background.md。`,upstream:`https://opensourceui.in/components/aurora-background`};export{e as default};

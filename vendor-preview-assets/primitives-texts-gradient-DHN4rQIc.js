@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Di9BXzKq.js";import{GradientText as t}from"./gradient-OLaYqtFf.js";var n=e(),r=({neon:e})=>(0,n.jsx)(t,{className:`text-4xl font-semibold`,text:`Gradient Text`,neon:e});export{r as GradientTextDemo};

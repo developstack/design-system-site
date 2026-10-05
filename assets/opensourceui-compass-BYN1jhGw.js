@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/compass-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/compass.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L684`,usage:`<CompassWidget heading={45} />`},note:{summaryZh:null,importLine:`import { CompassWidget } from "@/components/vendor/opensourceui/widgets/compass-widget";`,usage:`<CompassWidget />`,exports:[{name:`CompassWidgetProps`,kind:`type`},{name:`CompassWidget`,kind:`component`,propsType:`Readonly<{ heading?: number | undefined; } & Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,…`,inline:!1,union:!1,props:[{name:`heading`,type:`number`,optional:!0,default:`0`}],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L684`,code:`import { CompassWidget } from "@/components/vendor/opensourceui/widgets/compass-widget";
+
+export default function Example() {
+  return (
+    <CompassWidget />
+  );
+}
+`},exampleNote:null}},docsField:`A compass dial with labeled directions and a needle that follows device tilt. 主要导出：CompassWidget。 最小用法：<CompassWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-compass.md。`,upstream:`https://opensourceui.in/components/compass`};export{e as default};

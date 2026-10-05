@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/dark-midnight-mesh-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/dark-midnight-mesh-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2859-L2861`,usage:`<DarkMidnightMeshBackground className="min-h-screen p-8"><h1 className="text-neutral-100">Console</h1></DarkMidnightMeshBackground>`},note:{summaryZh:null,importLine:`import { DarkMidnightMeshBackground } from "@/components/vendor/opensourceui/background-gradient/dark-midnight-mesh-background";`,usage:`<DarkMidnightMeshBackground />`,exports:[{name:`DarkMidnightMeshBackgroundProps`,kind:`type`},{name:`DarkMidnightMeshBackground`,kind:`component`,propsType:`DarkMidnightMeshBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2859-L2861`,code:`import { DarkMidnightMeshBackground } from "@/components/vendor/opensourceui/background-gradient/dark-midnight-mesh-background";
+
+export default function Example() {
+  return (
+    <DarkMidnightMeshBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-100">Your content</p>
+    </DarkMidnightMeshBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Midnight frost mesh with whisper-soft grid, teal and sky bloom… 主要导出：DarkMidnightMeshBackground。 最小用法：<DarkMidnightMeshBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-dark-midnight-mesh-background.md。`,upstream:`https://opensourceui.in/components/dark-midnight-mesh-background`};export{e as default};

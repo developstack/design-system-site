@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/paper-fold-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/paper-fold-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2725-L2727`,usage:`<PaperFoldBackground className="min-h-screen p-8"><h1>Folded</h1></PaperFoldBackground>`},note:{summaryZh:null,importLine:`import { PaperFoldBackground } from "@/components/vendor/opensourceui/background-gradient/paper-fold-background";`,usage:`<PaperFoldBackground />`,exports:[{name:`PaperFoldBackgroundProps`,kind:`type`},{name:`PaperFoldBackground`,kind:`component`,propsType:`PaperFoldBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2725-L2727`,code:`import { PaperFoldBackground } from "@/components/vendor/opensourceui/background-gradient/paper-fold-background";
+
+export default function Example() {
+  return (
+    <PaperFoldBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </PaperFoldBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Tactile cardstock with a diagonal crease, soft highlight, and shadow — invita… 主要导出：PaperFoldBackground。 最小用法：<PaperFoldBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-paper-fold-background.md。`,upstream:`https://opensourceui.in/components/paper-fold-background`};export{e as default};

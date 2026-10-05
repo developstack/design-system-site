@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/dark-aurora-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/dark-aurora-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2777-L2779`,usage:`<DarkAuroraBackground className="min-h-screen p-8"><h1 className="text-neutral-100">Launch</h1></DarkAuroraBackground>`},note:{summaryZh:null,importLine:`import { DarkAuroraBackground } from "@/components/vendor/opensourceui/background-gradient/dark-aurora-background";`,usage:`<DarkAuroraBackground />`,exports:[{name:`DarkAuroraBackgroundProps`,kind:`type`},{name:`DarkAuroraBackground`,kind:`component`,propsType:`DarkAuroraBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2777-L2779`,code:`import { DarkAuroraBackground } from "@/components/vendor/opensourceui/background-gradient/dark-aurora-background";
+
+export default function Example() {
+  return (
+    <DarkAuroraBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-100">Your content</p>
+    </DarkAuroraBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Charcoal stage with soft teal, cyan, and emerald aurora blooms — premium dark hero… 主要导出：DarkAuroraBackground。 最小用法：<DarkAuroraBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-dark-aurora-background.md。`,upstream:`https://opensourceui.in/components/dark-aurora-background`};export{e as default};

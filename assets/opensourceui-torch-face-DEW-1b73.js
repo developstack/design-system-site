@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/torch-face-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/torch-face.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L708`},note:{summaryZh:null,importLine:`import { TorchFaceWidget } from "@/components/vendor/opensourceui/widgets/torch-face-widget";`,usage:`<TorchFaceWidget />`,exports:[{name:`TorchFaceWidgetProps`,kind:`type`},{name:`TorchFaceWidget`,kind:`component`,propsType:`Readonly<{ defaultOn?: boolean | undefined; } & Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLBut…`,inline:!1,union:!1,props:[{name:`defaultOn`,type:`boolean`,optional:!0,default:`false`}],inherited:[{package:`@types/react`,count:290,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L708`,code:`import { TorchFaceWidget } from "@/components/vendor/opensourceui/widgets/torch-face-widget";
+
+export default function Example() {
+  return (
+    <TorchFaceWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Yellow flashlight toggle with a face that lights up when the torch is on. 主要导出：TorchFaceWidget。 最小用法：<TorchFaceWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-torch-face.md。`,upstream:`https://opensourceui.in/components/torch-face`};export{e as default};

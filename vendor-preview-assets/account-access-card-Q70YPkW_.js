@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Di9BXzKq.js";import{AccountAccessCard as t}from"./account-access-card-4IgPDFKp.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full justify-center py-8`,children:(0,n.jsx)(`div`,{className:`w-full max-w-[360px]`,children:(0,n.jsx)(t,{})})})}export{r as default};

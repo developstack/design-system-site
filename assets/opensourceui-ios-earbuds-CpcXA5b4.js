@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/ios-earbuds-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/ios-earbuds.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L650`,usage:`<IosEarbudsWidget name="AirPods Pro" connected />`},note:{summaryZh:null,importLine:`import { IosEarbudsWidget } from "@/components/vendor/opensourceui/widgets/ios-earbuds-widget";`,usage:`<IosEarbudsWidget />`,exports:[{name:`IosEarbudsWidgetProps`,kind:`type`},{name:`IosEarbudsWidget`,kind:`component`,propsType:`Readonly<{ name?: string | undefined; connected?: boolean | undefined; } & Omit<DetailedHTMLProps<H…`,inline:!1,union:!1,props:[{name:`name`,type:`string`,optional:!0,default:`"AirPods Pro"`},{name:`connected`,type:`boolean`,optional:!0,default:`true`}],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L650`,code:`import { IosEarbudsWidget } from "@/components/vendor/opensourceui/widgets/ios-earbuds-widget";
+
+export default function Example() {
+  return (
+    <IosEarbudsWidget />
+  );
+}
+`},exampleNote:null}},docsField:`AirPods-style widget showing device name and connection status. 主要导出：IosEarbudsWidget。 最小用法：<IosEarbudsWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-ios-earbuds.md。`,upstream:`https://opensourceui.in/components/ios-earbuds`};export{e as default};

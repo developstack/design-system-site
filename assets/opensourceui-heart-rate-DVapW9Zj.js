@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/heart-rate-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/heart-rate.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L950`,usage:`<HeartRateWidget bpm={72} />`},note:{summaryZh:null,importLine:`import { HeartRateWidget } from "@/components/vendor/opensourceui/widgets/heart-rate-widget";`,usage:`<HeartRateWidget />`,exports:[{name:`HeartRateWidgetProps`,kind:`type`},{name:`HeartRateWidget`,kind:`component`,propsType:`Readonly<{ bpm?: number | undefined; label?: string | undefined; } & Omit<DetailedHTMLProps<HTMLAtt…`,inline:!1,union:!1,props:[{name:`bpm`,type:`number`,optional:!0,default:`72`},{name:`label`,type:`string`,optional:!0,default:`"BPM"`}],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L950`,code:`import { HeartRateWidget } from "@/components/vendor/opensourceui/widgets/heart-rate-widget";
+
+export default function Example() {
+  return (
+    <HeartRateWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Heart rate in the DND face layout — mascot at the bottom, BPM above the dial, soft pulse on the ring. 主要导出：HeartRateWidget。 最小用法：<HeartRateWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-heart-rate.md。`,upstream:`https://opensourceui.in/components/heart-rate`};export{e as default};

@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/table/orders-table.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/orders-table.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1021`,usage:`<OrdersTable />`},note:{summaryZh:null,importLine:`import { OrdersTable } from "@/components/vendor/opensourceui/table/orders-table";`,usage:`<OrdersTable />`,exports:[{name:`OrdersTable`,kind:`component`,propsType:`Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref"> & RefAttributes<HTML…`,inline:!1,union:!1,props:[],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1021`,code:`import { OrdersTable } from "@/components/vendor/opensourceui/table/orders-table";
+
+export default function Example() {
+  return (
+    <OrdersTable />
+  );
+}
+`},exampleNote:null}},docsField:`E-commerce orders table — sort by date, total, or status. 主要导出：OrdersTable。 最小用法：<OrdersTable />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/table.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-orders-table.md。`,upstream:`https://opensourceui.in/components/orders-table`};export{e as default};

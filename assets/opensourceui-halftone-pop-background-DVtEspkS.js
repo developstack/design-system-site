@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/halftone-pop-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/halftone-pop-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2709-L2711`,usage:`<HalftonePopBackground className="min-h-screen p-8"><h1>Print</h1></HalftonePopBackground>`},note:{summaryZh:null,importLine:`import { HalftonePopBackground } from "@/components/vendor/opensourceui/background-gradient/halftone-pop-background";`,usage:`<HalftonePopBackground />`,exports:[{name:`HalftonePopBackgroundProps`,kind:`type`},{name:`HalftonePopBackground`,kind:`component`,propsType:`HalftonePopBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2709-L2711`,code:`import { HalftonePopBackground } from "@/components/vendor/opensourceui/background-gradient/halftone-pop-background";
+
+export default function Example() {
+  return (
+    <HalftonePopBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </HalftonePopBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Risograph-style halftone dots in rose, teal, and amber on cream — posters, zi… 主要导出：HalftonePopBackground。 最小用法：<HalftonePopBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-halftone-pop-background.md。`,upstream:`https://opensourceui.in/components/halftone-pop-background`};export{e as default};

@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/dark-carbon-spotlight-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/dark-carbon-spotlight-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2843-L2845`,usage:`<DarkCarbonSpotlightBackground className="min-h-screen p-8"><h1 className="text-neutral-100">Reveal</h1></DarkCarbonSpotlightBackground>`},note:{summaryZh:null,importLine:`import { DarkCarbonSpotlightBackground } from "@/components/vendor/opensourceui/background-gradient/dark-carbon-spotlight-background";`,usage:`<DarkCarbonSpotlightBackground />`,exports:[{name:`DarkCarbonSpotlightBackgroundProps`,kind:`type`},{name:`DarkCarbonSpotlightBackground`,kind:`component`,propsType:`DarkCarbonSpotlightBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2843-L2845`,code:`import { DarkCarbonSpotlightBackground } from "@/components/vendor/opensourceui/background-gradient/dark-carbon-spotlight-background";
+
+export default function Example() {
+  return (
+    <DarkCarbonSpotlightBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-100">Your content</p>
+    </DarkCarbonSpotlightBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Carbon black stage with a soft overhead spotlight and v… 主要导出：DarkCarbonSpotlightBackground。 最小用法：<DarkCarbonSpotlightBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-dark-carbon-spotlight-background.md。`,upstream:`https://opensourceui.in/components/dark-carbon-spotlight-background`};export{e as default};

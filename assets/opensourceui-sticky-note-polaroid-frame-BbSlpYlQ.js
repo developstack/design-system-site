@@ -1,0 +1,13 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/frames/sticky-note-polaroid-frame.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/sticky-note-polaroid-frame.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1919-L1924`,usage:`<StickyNotePolaroidFrame noteBody="open studio this weekend" noteFooter="details @bidyut.cc"><img src="/photo.jpg" alt="" /></StickyNotePolaroidFrame>`},note:{summaryZh:null,importLine:`import { StickyNotePolaroidFrame } from "@/components/vendor/opensourceui/frames/sticky-note-polaroid-frame";`,usage:`<StickyNotePolaroidFrame />`,exports:[{name:`StickyNotePolaroidFrameProps`,kind:`type`},{name:`StickyNotePolaroidFrame`,kind:`component`,propsType:`Readonly<{ children?: ReactNode; noteHeader?: string | undefined; noteBody?: string | undefined; no…`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0},{name:`noteHeader`,type:`string`,optional:!0},{name:`noteBody`,type:`string`,optional:!0},{name:`noteFooter`,type:`string`,optional:!0},{name:`noteColor`,type:`string`,optional:!0,default:`DEFAULT_NOTE_COLOR`},{name:`noteRotation`,type:`number`,optional:!0,default:`3`},{name:`width`,type:`string | number`,optional:!0},{name:`mediaClassName`,type:`string`,optional:!0},{name:`skeleton`,type:`boolean`,optional:!0,default:`false`}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1919-L1924`,code:`import { StickyNotePolaroidFrame } from "@/components/vendor/opensourceui/frames/sticky-note-polaroid-frame";
+
+export default function Example() {
+  return (
+    <StickyNotePolaroidFrame
+      skeleton
+      noteBody="open studio this weekend — drop by anytime"
+      noteFooter="details @bidyut.cc"
+      className="max-w-none"
+    />
+  );
+}
+`},exampleNote:null}},docsField:`Polaroid-style frame with a paper-clipped sticky note overlay — pass… 主要导出：StickyNotePolaroidFrame。 最小用法：<StickyNotePolaroidFrame />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/frame.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-sticky-note-polaroid-frame.md。`,upstream:`https://opensourceui.in/components/sticky-note-polaroid-frame`};export{e as default};

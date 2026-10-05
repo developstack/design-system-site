@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/coral-glow-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/coral-glow-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2489-L2491`,usage:`<CoralGlowBackground className="min-h-screen p-8"><h1>Welcome</h1></CoralGlowBackground>`},note:{summaryZh:null,importLine:`import { CoralGlowBackground } from "@/components/vendor/opensourceui/background-gradient/coral-glow-background";`,usage:`<CoralGlowBackground />`,exports:[{name:`CoralGlowBackgroundProps`,kind:`type`},{name:`CoralGlowBackground`,kind:`component`,propsType:`CoralGlowBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2489-L2491`,code:`import { CoralGlowBackground } from "@/components/vendor/opensourceui/background-gradient/coral-glow-background";
+
+export default function Example() {
+  return (
+    <CoralGlowBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </CoralGlowBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Warm aurora wash in rose, peach, coral, and gold over a blush paper base — beauty,… 主要导出：CoralGlowBackground。 最小用法：<CoralGlowBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-coral-glow-background.md。`,upstream:`https://opensourceui.in/components/coral-glow-background`};export{e as default};

@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/focus-breath-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/focus-breath.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L774`,usage:`<FocusBreathWidget label="Breathe" />`},note:{summaryZh:null,importLine:`import { FocusBreathWidget } from "@/components/vendor/opensourceui/widgets/focus-breath-widget";`,usage:`<FocusBreathWidget />`,exports:[{name:`FocusBreathWidgetProps`,kind:`type`},{name:`FocusBreathWidget`,kind:`component`,propsType:`Readonly<{ label?: string | undefined; } & Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, H…`,inline:!1,union:!1,props:[{name:`label`,type:`string`,optional:!0,default:`"Breathe"`}],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L774`,code:`import { FocusBreathWidget } from "@/components/vendor/opensourceui/widgets/focus-breath-widget";
+
+export default function Example() {
+  return (
+    <FocusBreathWidget />
+  );
+}
+`},exampleNote:null}},docsField:`A breathing guide that pulses between inhale and exhale every four seconds. 主要导出：FocusBreathWidget。 最小用法：<FocusBreathWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-focus-breath.md。`,upstream:`https://opensourceui.in/components/focus-breath`};export{e as default};

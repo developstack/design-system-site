@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/loaders/spin-loader.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/spin-loader.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2442-L2444`,usage:`<SpinLoader size="lg" iconClassName="text-sky-600" />`},note:{summaryZh:null,importLine:`import { SpinLoader } from "@/components/vendor/opensourceui/loaders/spin-loader";`,usage:`<SpinLoader />`,exports:[{name:`SpinLoaderSize`,kind:`type`},{name:`SpinLoaderProps`,kind:`type`},{name:`SpinLoader`,kind:`component`,propsType:`Readonly<{ size?: SpinLoaderSize | undefined; icon?: LucideIcon | undefined; label?: string | undef…`,inline:!0,union:!1,props:[{name:`size`,type:`SpinLoaderSize`,optional:!0,default:`"md"`},{name:`icon`,type:`LucideIcon`,optional:!0,default:`Loader`},{name:`label`,type:`string`,optional:!0,default:`"Loading"`},{name:`className`,type:`string`,optional:!0},{name:`iconClassName`,type:`string`,optional:!0}],inherited:[]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2442-L2444`,code:`import { SpinLoader } from "@/components/vendor/opensourceui/loaders/spin-loader";
+
+export default function Example() {
+  return (
+    <div className="flex items-center justify-center p-8">
+      <SpinLoader size="lg" />
+    </div>
+  );
+}
+`},exampleNote:null}},docsField:`Minimal spinning loader built on a lucide icon — defaults to Loader, but pass any icon prop. 主要导出：SpinLoader。 最小用法：<SpinLoader />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/loader.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-spin-loader.md。`,upstream:`https://opensourceui.in/components/spin-loader`};export{e as default};

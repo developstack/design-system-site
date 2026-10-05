@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-96-fUOOI.js";import{RainPrismBackground as t}from"./rain-prism-background-CL32gVdE.js";var n=e();function r(){return(0,n.jsx)(t,{className:`flex h-full min-h-96 w-full items-center justify-center md:min-h-120`,children:(0,n.jsx)(`p`,{className:`font-serif text-2xl text-neutral-800`,children:`Your content`})})}export{r as default};

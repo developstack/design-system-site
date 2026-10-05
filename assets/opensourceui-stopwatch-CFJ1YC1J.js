@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/stopwatch-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/stopwatch.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L751`},note:{summaryZh:null,importLine:`import { StopwatchWidget } from "@/components/vendor/opensourceui/widgets/stopwatch-widget";`,usage:`<StopwatchWidget />`,exports:[{name:`StopwatchWidgetProps`,kind:`type`},{name:`StopwatchWidget`,kind:`component`,propsType:`Readonly<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref">> & RefAttri…`,inline:!1,union:!1,props:[],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L751`,code:`import { StopwatchWidget } from "@/components/vendor/opensourceui/widgets/stopwatch-widget";
+
+export default function Example() {
+  return (
+    <StopwatchWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Millisecond-precision stopwatch with reset, play-pause, and stop in a compact white widget. 主要导出：StopwatchWidget。 最小用法：<StopwatchWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-stopwatch.md。`,upstream:`https://opensourceui.in/components/stopwatch`};export{e as default};

@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/dnd-face-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/dnd-face.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L718`,usage:`<DndFaceWidget label="Focus" defaultOn />`},note:{summaryZh:null,importLine:`import { DndFaceWidget } from "@/components/vendor/opensourceui/widgets/dnd-face-widget";`,usage:`<DndFaceWidget />`,exports:[{name:`DndFaceWidgetProps`,kind:`type`},{name:`DndFaceWidget`,kind:`component`,propsType:`Readonly<{ label?: string | undefined; defaultOn?: boolean | undefined; } & Omit<DetailedHTMLProps<…`,inline:!1,union:!1,props:[{name:`label`,type:`string`,optional:!0,default:`"Focus"`},{name:`defaultOn`,type:`boolean`,optional:!0,default:`true`}],inherited:[{package:`@types/react`,count:290,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L718`,code:`import { DndFaceWidget } from "@/components/vendor/opensourceui/widgets/dnd-face-widget";
+
+export default function Example() {
+  return (
+    <DndFaceWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Focus mode as a purple moon mascot — tap to toggle DND and watch the expression shift. 主要导出：DndFaceWidget。 最小用法：<DndFaceWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-dnd-face.md。`,upstream:`https://opensourceui.in/components/dnd-face`};export{e as default};

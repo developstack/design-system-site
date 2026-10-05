@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/pomodoro-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/pomodoro.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L914`,usage:`<PomodoroWidget minutes={25} label="Focus" />`},note:{summaryZh:null,importLine:`import { PomodoroWidget } from "@/components/vendor/opensourceui/widgets/pomodoro-widget";`,usage:`<PomodoroWidget />`,exports:[{name:`PomodoroWidgetProps`,kind:`type`},{name:`PomodoroWidget`,kind:`component`,propsType:`Readonly<{ minutes?: number | undefined; label?: string | undefined; } & Omit<DetailedHTMLProps<But…`,inline:!1,union:!1,props:[{name:`minutes`,type:`number`,optional:!0,default:`25`},{name:`label`,type:`string`,optional:!0,default:`"Focus"`}],inherited:[{package:`@types/react`,count:290,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L914`,code:`import { PomodoroWidget } from "@/components/vendor/opensourceui/widgets/pomodoro-widget";
+
+export default function Example() {
+  return (
+    <PomodoroWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Dark pomodoro timer — thin ring, split monospace time, tap to start or pause. 主要导出：PomodoroWidget。 最小用法：<PomodoroWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-pomodoro.md。`,upstream:`https://opensourceui.in/components/pomodoro`};export{e as default};

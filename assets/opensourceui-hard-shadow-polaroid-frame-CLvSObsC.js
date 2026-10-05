@@ -1,0 +1,12 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/frames/hard-shadow-polaroid-frame.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/hard-shadow-polaroid-frame.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1938-L1942`,usage:`<HardShadowPolaroidFrame caption="Bidyut Kundu"><img src="/photo.jpg" alt="" /></HardShadowPolaroidFrame>`},note:{summaryZh:null,importLine:`import { HardShadowPolaroidFrame } from "@/components/vendor/opensourceui/frames/hard-shadow-polaroid-frame";`,usage:`<HardShadowPolaroidFrame />`,exports:[{name:`HardShadowPolaroidFrameProps`,kind:`type`},{name:`HardShadowPolaroidFrame`,kind:`component`,propsType:`Readonly<{ children?: ReactNode; caption?: string | undefined; width?: string | number | undefined;…`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0},{name:`caption`,type:`string`,optional:!0},{name:`width`,type:`string | number`,optional:!0},{name:`mediaClassName`,type:`string`,optional:!0},{name:`skeleton`,type:`boolean`,optional:!0,default:`false`},{name:`shadowOffset`,type:`number`,optional:!0,default:`10`}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1938-L1942`,code:`import { HardShadowPolaroidFrame } from "@/components/vendor/opensourceui/frames/hard-shadow-polaroid-frame";
+
+export default function Example() {
+  return (
+    <HardShadowPolaroidFrame
+      skeleton
+      caption="Bidyut Kundu"
+      className="max-w-none"
+    />
+  );
+}
+`},exampleNote:null}},docsField:`Polaroid frame with a crisp inner border, thick caption chin, and hard offs… 主要导出：HardShadowPolaroidFrame。 最小用法：<HardShadowPolaroidFrame />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/frame.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-hard-shadow-polaroid-frame.md。`,upstream:`https://opensourceui.in/components/hard-shadow-polaroid-frame`};export{e as default};

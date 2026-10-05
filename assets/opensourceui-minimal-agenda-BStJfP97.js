@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/minimal-agenda-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/minimal-agenda.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1139`},note:{summaryZh:null,importLine:`import { MinimalAgendaWidget } from "@/components/vendor/opensourceui/widgets/minimal-agenda-widget";`,usage:`<MinimalAgendaWidget />`,exports:[{name:`MinimalAgendaWidgetProps`,kind:`type`},{name:`MinimalAgendaWidget`,kind:`component`,propsType:`Readonly<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref">> & RefAttri…`,inline:!1,union:!1,props:[],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1139`,code:`import { MinimalAgendaWidget } from "@/components/vendor/opensourceui/widgets/minimal-agenda-widget";
+
+export default function Example() {
+  return (
+    <MinimalAgendaWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Today's tasks with times — tap a row to mark it done with a strikethrough and checkmark. 主要导出：MinimalAgendaWidget。 最小用法：<MinimalAgendaWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-minimal-agenda.md。`,upstream:`https://opensourceui.in/components/minimal-agenda`};export{e as default};

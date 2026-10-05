@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/ios-calender-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/ios-calender.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L741`},note:{summaryZh:null,importLine:`import { IosCalenderWidget } from "@/components/vendor/opensourceui/widgets/ios-calender-widget";`,usage:`<IosCalenderWidget />`,exports:[{name:`IosCalenderWidgetProps`,kind:`type`},{name:`IosCalenderWidget`,kind:`component`,propsType:`Readonly<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref">> & RefAttri…`,inline:!1,union:!1,props:[],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L741`,code:`import { IosCalenderWidget } from "@/components/vendor/opensourceui/widgets/ios-calender-widget";
+
+export default function Example() {
+  return (
+    <IosCalenderWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Today's date in the classic iOS calendar tile — red weekday, big day number, month underneath. 主要导出：IosCalenderWidget。 最小用法：<IosCalenderWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-ios-calender.md。`,upstream:`https://opensourceui.in/components/ios-calender`};export{e as default};

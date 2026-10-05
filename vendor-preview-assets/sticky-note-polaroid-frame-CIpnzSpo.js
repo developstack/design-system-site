@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-96-fUOOI.js";import{StickyNotePolaroidFrame as t}from"./sticky-note-polaroid-frame-0-R-eV3I.js";var n=e();function r(){return(0,n.jsx)(t,{skeleton:!0,noteBody:`open studio this weekend — drop by anytime`,noteFooter:`details @bidyut.cc`,className:`max-w-none`})}export{r as default};

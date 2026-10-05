@@ -1,0 +1,1 @@
+import e from"./client-card-DXYxCxl_.js";export{e as default};

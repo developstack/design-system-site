@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/analog-clock-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/analog-clock-minimal.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L602`,usage:`<AnalogClockWidget variant="minimal" />`},note:{summaryZh:null,importLine:`import { AnalogClockWidget } from "@/components/vendor/opensourceui/widgets/analog-clock-widget";`,usage:`<AnalogClockWidget />`,exports:[{name:`AnalogClockFaceVariant`,kind:`type`},{name:`AnalogClockWidgetProps`,kind:`type`},{name:`AnalogClockWidget`,kind:`component`,propsType:`Readonly<{ variant?: AnalogClockFaceVariant | undefined; } & Omit<DetailedHTMLProps<HTMLAttributes<…`,inline:!1,union:!1,props:[{name:`variant`,type:`AnalogClockFaceVariant`,optional:!0,default:`"minimal"`}],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L602`,code:`import { AnalogClockWidget } from "@/components/vendor/opensourceui/widgets/analog-clock-widget";
+
+export default function Example() {
+  return (
+    <AnalogClockWidget variant="minimal" />
+  );
+}
+`},exampleNote:null}},docsField:`Ticks and hands on a quiet face, nothing else. 主要导出：AnalogClockWidget。 最小用法：<AnalogClockWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-analog-clock-minimal.md。`,upstream:`https://opensourceui.in/components/analog-clock-minimal`};export{e as default};

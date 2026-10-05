@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/honey-ember-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/honey-ember-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2539-L2541`,usage:`<HoneyEmberBackground className="min-h-screen p-8"><h1>Harvest</h1></HoneyEmberBackground>`},note:{summaryZh:null,importLine:`import { HoneyEmberBackground } from "@/components/vendor/opensourceui/background-gradient/honey-ember-background";`,usage:`<HoneyEmberBackground />`,exports:[{name:`HoneyEmberBackgroundProps`,kind:`type`},{name:`HoneyEmberBackground`,kind:`component`,propsType:`HoneyEmberBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2539-L2541`,code:`import { HoneyEmberBackground } from "@/components/vendor/opensourceui/background-gradient/honey-ember-background";
+
+export default function Example() {
+  return (
+    <HoneyEmberBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </HoneyEmberBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Cozy aurora glow in honey, amber, ember orange, and soft rose over warm ivo… 主要导出：HoneyEmberBackground。 最小用法：<HoneyEmberBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-honey-ember-background.md。`,upstream:`https://opensourceui.in/components/honey-ember-background`};export{e as default};

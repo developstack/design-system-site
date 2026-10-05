@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/sunrise-horizon-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/sunrise-horizon-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2573-L2575`,usage:`<SunriseHorizonBackground className="min-h-screen p-8"><h1>Morning</h1></SunriseHorizonBackground>`},note:{summaryZh:null,importLine:`import { SunriseHorizonBackground } from "@/components/vendor/opensourceui/background-gradient/sunrise-horizon-background";`,usage:`<SunriseHorizonBackground />`,exports:[{name:`SunriseHorizonBackgroundProps`,kind:`type`},{name:`SunriseHorizonBackground`,kind:`component`,propsType:`SunriseHorizonBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2573-L2575`,code:`import { SunriseHorizonBackground } from "@/components/vendor/opensourceui/background-gradient/sunrise-horizon-background";
+
+export default function Example() {
+  return (
+    <SunriseHorizonBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </SunriseHorizonBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Warm dawn sky with peach horizon bands, a soft sun glow, and c… 主要导出：SunriseHorizonBackground。 最小用法：<SunriseHorizonBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-sunrise-horizon-background.md。`,upstream:`https://opensourceui.in/components/sunrise-horizon-background`};export{e as default};

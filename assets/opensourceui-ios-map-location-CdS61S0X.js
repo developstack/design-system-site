@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/ios-map-location-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/ios-map-location.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L763`,usage:`<IosMapLocationWidget city="Kolkata" />`},note:{summaryZh:null,importLine:`import { IosMapLocationWidget } from "@/components/vendor/opensourceui/widgets/ios-map-location-widget";`,usage:`<IosMapLocationWidget />`,exports:[{name:`IosMapLocationWidgetProps`,kind:`type`},{name:`IosMapLocationWidget`,kind:`component`,propsType:`Readonly<{ city?: string | undefined; } & Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT…`,inline:!1,union:!1,props:[{name:`city`,type:`string`,optional:!0,default:`"Kolkata"`}],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L763`,code:`import { IosMapLocationWidget } from "@/components/vendor/opensourceui/widgets/ios-map-location-widget";
+
+export default function Example() {
+  return (
+    <IosMapLocationWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Map pin widget with your city name — simple location card in the iOS family. 主要导出：IosMapLocationWidget。 最小用法：<IosMapLocationWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-ios-map-location.md。`,upstream:`https://opensourceui.in/components/ios-map-location`};export{e as default};

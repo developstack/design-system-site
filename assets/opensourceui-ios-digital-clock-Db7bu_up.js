@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/ios-digital-clock-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/ios-digital-clock.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L731`},note:{summaryZh:null,importLine:`import { IosDigitalClockWidget } from "@/components/vendor/opensourceui/widgets/ios-digital-clock-widget";`,usage:`<IosDigitalClockWidget />`,exports:[{name:`IosDigitalClockWidgetProps`,kind:`type`},{name:`IosDigitalClockWidget`,kind:`component`,propsType:`Readonly<Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref">> & RefAttri…`,inline:!1,union:!1,props:[],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L731`,code:`import { IosDigitalClockWidget } from "@/components/vendor/opensourceui/widgets/ios-digital-clock-widget";
+
+export default function Example() {
+  return (
+    <IosDigitalClockWidget />
+  );
+}
+`},exampleNote:null}},docsField:`Live HH:MM in an iOS squircle with subtle tick marks around the edge. 主要导出：IosDigitalClockWidget。 最小用法：<IosDigitalClockWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-ios-digital-clock.md。`,upstream:`https://opensourceui.in/components/ios-digital-clock`};export{e as default};

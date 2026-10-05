@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/cherry-petal-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/cherry-petal-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2675-L2677`,usage:`<CherryPetalBackground className="min-h-screen p-8"><h1>Spring</h1></CherryPetalBackground>`},note:{summaryZh:null,importLine:`import { CherryPetalBackground } from "@/components/vendor/opensourceui/background-gradient/cherry-petal-background";`,usage:`<CherryPetalBackground />`,exports:[{name:`CherryPetalBackgroundProps`,kind:`type`},{name:`CherryPetalBackground`,kind:`component`,propsType:`CherryPetalBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2675-L2677`,code:`import { CherryPetalBackground } from "@/components/vendor/opensourceui/background-gradient/cherry-petal-background";
+
+export default function Example() {
+  return (
+    <CherryPetalBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </CherryPetalBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Soft spring canvas with drifting cherry petals and a blush radial glow — wed… 主要导出：CherryPetalBackground。 最小用法：<CherryPetalBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-cherry-petal-background.md。`,upstream:`https://opensourceui.in/components/cherry-petal-background`};export{e as default};

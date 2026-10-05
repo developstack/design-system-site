@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/linen-weave-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/linen-weave-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2591-L2593`,usage:`<LinenWeaveBackground className="min-h-screen p-8"><article>Story</article></LinenWeaveBackground>`},note:{summaryZh:null,importLine:`import { LinenWeaveBackground } from "@/components/vendor/opensourceui/background-gradient/linen-weave-background";`,usage:`<LinenWeaveBackground />`,exports:[{name:`LinenWeaveBackgroundProps`,kind:`type`},{name:`LinenWeaveBackground`,kind:`component`,propsType:`LinenWeaveBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2591-L2593`,code:`import { LinenWeaveBackground } from "@/components/vendor/opensourceui/background-gradient/linen-weave-background";
+
+export default function Example() {
+  return (
+    <LinenWeaveBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </LinenWeaveBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Warm editorial linen with crosshatch weave, soft paper grain, and a gentle vignet… 主要导出：LinenWeaveBackground。 最小用法：<LinenWeaveBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-linen-weave-background.md。`,upstream:`https://opensourceui.in/components/linen-weave-background`};export{e as default};

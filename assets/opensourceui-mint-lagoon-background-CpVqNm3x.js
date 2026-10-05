@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/mint-lagoon-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/mint-lagoon-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2505-L2507`,usage:`<MintLagoonBackground className="min-h-screen p-8"><h1>Refresh</h1></MintLagoonBackground>`},note:{summaryZh:null,importLine:`import { MintLagoonBackground } from "@/components/vendor/opensourceui/background-gradient/mint-lagoon-background";`,usage:`<MintLagoonBackground />`,exports:[{name:`MintLagoonBackgroundProps`,kind:`type`},{name:`MintLagoonBackground`,kind:`component`,propsType:`MintLagoonBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2505-L2507`,code:`import { MintLagoonBackground } from "@/components/vendor/opensourceui/background-gradient/mint-lagoon-background";
+
+export default function Example() {
+  return (
+    <MintLagoonBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </MintLagoonBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Cool aurora wash in emerald, teal, cyan, and mint over a fresh white base — we… 主要导出：MintLagoonBackground。 最小用法：<MintLagoonBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-mint-lagoon-background.md。`,upstream:`https://opensourceui.in/components/mint-lagoon-background`};export{e as default};

@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t,n}from"./vendor-preview-Di9BXzKq.js";import{t as r}from"./DirectionContext-BB0qyDjl.js";var i=e(t(),1),a=n(),o=function(e){let{direction:t=`ltr`}=e,n=i.useMemo(()=>({direction:t}),[t]);return(0,a.jsx)(r.Provider,{value:n,children:e.children})};export{o as t};

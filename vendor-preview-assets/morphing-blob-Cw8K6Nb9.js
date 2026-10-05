@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-96-fUOOI.js";import{MorphingBlob as t}from"./morphing-blob-dSRaYRMc.js";var n=e();function r(e){return(0,n.jsx)(`div`,{className:`flex items-center justify-center  w-full`,children:(0,n.jsx)(t,{speed:10,baseRadius:40,points:10,height:60,width:60})})}export{r as default};

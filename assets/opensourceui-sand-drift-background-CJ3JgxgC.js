@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/sand-drift-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/sand-drift-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2607-L2609`,usage:`<SandDriftBackground className="min-h-screen p-8"><h1>Escape</h1></SandDriftBackground>`},note:{summaryZh:null,importLine:`import { SandDriftBackground } from "@/components/vendor/opensourceui/background-gradient/sand-drift-background";`,usage:`<SandDriftBackground />`,exports:[{name:`SandDriftBackgroundProps`,kind:`type`},{name:`SandDriftBackground`,kind:`component`,propsType:`SandDriftBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2607-L2609`,code:`import { SandDriftBackground } from "@/components/vendor/opensourceui/background-gradient/sand-drift-background";
+
+export default function Example() {
+  return (
+    <SandDriftBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </SandDriftBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Layered desert dunes in stone and amber tones with fine grain — travel, hospitali… 主要导出：SandDriftBackground。 最小用法：<SandDriftBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-sand-drift-background.md。`,upstream:`https://opensourceui.in/components/sand-drift-background`};export{e as default};

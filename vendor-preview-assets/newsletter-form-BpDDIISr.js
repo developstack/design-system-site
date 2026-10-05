@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-96-fUOOI.js";import{NewsletterForm as t}from"./newsletter-form-4aXJCwRB.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

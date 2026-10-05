@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/ink-wash-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/ink-wash-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2693-L2695`,usage:`<InkWashBackground className="min-h-screen p-8"><h1>Studio</h1></InkWashBackground>`},note:{summaryZh:null,importLine:`import { InkWashBackground } from "@/components/vendor/opensourceui/background-gradient/ink-wash-background";`,usage:`<InkWashBackground />`,exports:[{name:`InkWashBackgroundProps`,kind:`type`},{name:`InkWashBackground`,kind:`component`,propsType:`InkWashBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2693-L2695`,code:`import { InkWashBackground } from "@/components/vendor/opensourceui/background-gradient/ink-wash-background";
+
+export default function Example() {
+  return (
+    <InkWashBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </InkWashBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Minimal sumi-e ink clouds in soft stone gray on warm paper — galleries, studios, and cal… 主要导出：InkWashBackground。 最小用法：<InkWashBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-ink-wash-background.md。`,upstream:`https://opensourceui.in/components/ink-wash-background`};export{e as default};

@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/rain-prism-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/rain-prism-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2657-L2659`,usage:`<RainPrismBackground className="min-h-screen p-8"><h1>Rain</h1></RainPrismBackground>`},note:{summaryZh:null,importLine:`import { RainPrismBackground } from "@/components/vendor/opensourceui/background-gradient/rain-prism-background";`,usage:`<RainPrismBackground />`,exports:[{name:`RainPrismBackgroundProps`,kind:`type`},{name:`RainPrismBackground`,kind:`component`,propsType:`RainPrismBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2657-L2659`,code:`import { RainPrismBackground } from "@/components/vendor/opensourceui/background-gradient/rain-prism-background";
+
+export default function Example() {
+  return (
+    <RainPrismBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-800">Your content</p>
+    </RainPrismBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Moody rainfall with angled streaks and a soft prism band across the scene — music,… 主要导出：RainPrismBackground。 最小用法：<RainPrismBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-rain-prism-background.md。`,upstream:`https://opensourceui.in/components/rain-prism-background`};export{e as default};

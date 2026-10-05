@@ -1,1 +1,0 @@
-import e,{dialConfig as t}from"./delete-button-CPF2-Oco.js";export{e as default,t as dialConfig};

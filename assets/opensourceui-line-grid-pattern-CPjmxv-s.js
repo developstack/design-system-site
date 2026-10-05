@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-pattern/line-grid-pattern.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/line-grid-pattern.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2959-L2961`,usage:`<LineGridPattern className="min-h-screen p-8"><article>Notes</article></LineGridPattern>`},note:{summaryZh:null,importLine:`import { LineGridPattern } from "@/components/vendor/opensourceui/background-pattern/line-grid-pattern";`,usage:`<LineGridPattern />`,exports:[{name:`LineGridPatternProps`,kind:`type`},{name:`LineGridPattern`,kind:`component`,propsType:`LineGridPatternProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2959-L2961`,code:`import { LineGridPattern } from "@/components/vendor/opensourceui/background-pattern/line-grid-pattern";
+
+export default function Example() {
+  return (
+    <LineGridPattern className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </LineGridPattern>
+  );
+}
+`},exampleNote:null}},docsField:`Horizontal ruled lines with a soft paper gradient — editorial layouts, docs, and notebook-style… 主要导出：LineGridPattern。 最小用法：<LineGridPattern />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-line-grid-pattern.md。`,upstream:`https://opensourceui.in/components/line-grid-pattern`};export{e as default};

@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t,n}from"./vendor-preview-Di9BXzKq.js";import{ScrollSplitCards as r}from"./scroll-split-cards-Bt1EST6T.js";var i=e(t(),1),a=n();function o(){let e=(0,i.useRef)(null);return(0,a.jsx)(`div`,{ref:e,className:`absolute inset-0 overflow-y-auto`,children:(0,a.jsx)(r,{containerRef:e})})}export{o as default};

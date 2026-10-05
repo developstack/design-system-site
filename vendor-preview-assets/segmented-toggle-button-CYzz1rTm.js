@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-96-fUOOI.js";import{SegmentedToggleButton as t}from"./segmented-toggle-button-CCmyhtQ5.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

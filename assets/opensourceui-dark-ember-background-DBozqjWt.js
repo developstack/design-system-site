@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/dark-ember-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/dark-ember-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2793-L2795`,usage:`<DarkEmberBackground className="min-h-screen p-8"><h1 className="text-neutral-100">Ember</h1></DarkEmberBackground>`},note:{summaryZh:null,importLine:`import { DarkEmberBackground } from "@/components/vendor/opensourceui/background-gradient/dark-ember-background";`,usage:`<DarkEmberBackground />`,exports:[{name:`DarkEmberBackgroundProps`,kind:`type`},{name:`DarkEmberBackground`,kind:`component`,propsType:`DarkEmberBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2793-L2795`,code:`import { DarkEmberBackground } from "@/components/vendor/opensourceui/background-gradient/dark-ember-background";
+
+export default function Example() {
+  return (
+    <DarkEmberBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-100">Your content</p>
+    </DarkEmberBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Warm noir base with amber, ember orange, and rose glow pools — luxury dining, nightl… 主要导出：DarkEmberBackground。 最小用法：<DarkEmberBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-dark-ember-background.md。`,upstream:`https://opensourceui.in/components/dark-ember-background`};export{e as default};

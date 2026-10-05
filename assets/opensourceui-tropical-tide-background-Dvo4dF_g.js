@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/tropical-tide-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/tropical-tide-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2555-L2557`,usage:`<TropicalTideBackground className="min-h-screen p-8"><h1>Island</h1></TropicalTideBackground>`},note:{summaryZh:null,importLine:`import { TropicalTideBackground } from "@/components/vendor/opensourceui/background-gradient/tropical-tide-background";`,usage:`<TropicalTideBackground />`,exports:[{name:`TropicalTideBackgroundProps`,kind:`type`},{name:`TropicalTideBackground`,kind:`component`,propsType:`TropicalTideBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2555-L2557`,code:`import { TropicalTideBackground } from "@/components/vendor/opensourceui/background-gradient/tropical-tide-background";
+
+export default function Example() {
+  return (
+    <TropicalTideBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </TropicalTideBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Vibrant aurora wash in turquoise, lime, sky blue, and sea green — tr… 主要导出：TropicalTideBackground。 最小用法：<TropicalTideBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-tropical-tide-background.md。`,upstream:`https://opensourceui.in/components/tropical-tide-background`};export{e as default};

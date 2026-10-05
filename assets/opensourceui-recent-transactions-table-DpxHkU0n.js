@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/table/recent-transactions-table.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/recent-transactions-table.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1045`,usage:`<RecentTransactionsTable />`},note:{summaryZh:null,importLine:`import { RecentTransactionsTable } from "@/components/vendor/opensourceui/table/recent-transactions-table";`,usage:`<RecentTransactionsTable />`,exports:[{name:`RecentTransactionsTable`,kind:`component`,propsType:`Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "ref"> & RefAttributes<HTML…`,inline:!1,union:!1,props:[],inherited:[{package:`@types/react`,count:280,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L1045`,code:`import { RecentTransactionsTable } from "@/components/vendor/opensourceui/table/recent-transactions-table";
+
+export default function Example() {
+  return (
+    <RecentTransactionsTable />
+  );
+}
+`},exampleNote:null}},docsField:`Stripe-style transaction list with positive and negative amounts and simple p… 主要导出：RecentTransactionsTable。 最小用法：<RecentTransactionsTable />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/table.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-recent-transactions-table.md。`,upstream:`https://opensourceui.in/components/recent-transactions-table`};export{e as default};

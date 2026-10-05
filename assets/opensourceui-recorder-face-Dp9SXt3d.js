@@ -1,0 +1,8 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/widgets/recorder-face-widget.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[`lucide-react`],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/recorder-face.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L663`},note:{summaryZh:null,importLine:`import { RecorderFaceWidget } from "@/components/vendor/opensourceui/widgets/recorder-face-widget";`,usage:`<RecorderFaceWidget />`,exports:[{name:`RecorderFaceWidgetProps`,kind:`type`},{name:`RecorderFaceWidget`,kind:`component`,propsType:`Readonly<Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref">…`,inline:!1,union:!1,props:[],inherited:[{package:`@types/react`,count:290,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L663`,code:`import { RecorderFaceWidget } from "@/components/vendor/opensourceui/widgets/recorder-face-widget";
+
+export default function Example() {
+  return (
+    <RecorderFaceWidget />
+  );
+}
+`},exampleNote:null}},docsField:`A quirky record button with a mascot face, circular dial, and live timer. 主要导出：RecorderFaceWidget。 最小用法：<RecorderFaceWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-recorder-face.md。`,upstream:`https://opensourceui.in/components/recorder-face`};export{e as default};

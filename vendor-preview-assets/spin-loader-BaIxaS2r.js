@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-96-fUOOI.js";import{SpinLoader as t}from"./spin-loader-CKdRKBn4.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex items-center justify-center p-8`,children:(0,n.jsx)(t,{size:`lg`})})}export{r as default};

@@ -1,0 +1,10 @@
+var e={vendored:{source:`opensourceui`,license:`MIT`,files:[`components/vendor/opensourceui/background-gradient/frost-mesh-background.tsx`,`components/vendor/opensourceui/NOTICE.md`],dependencies:[],registryDependencies:[],preview:{kind:`example`,module:`examples/opensourceui/frost-mesh-background.tsx`,export:`default`,example:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2623-L2625`,usage:`<FrostMeshBackground className="min-h-screen p-8"><h1>Launch</h1></FrostMeshBackground>`},note:{summaryZh:null,importLine:`import { FrostMeshBackground } from "@/components/vendor/opensourceui/background-gradient/frost-mesh-background";`,usage:`<FrostMeshBackground />`,exports:[{name:`FrostMeshBackgroundProps`,kind:`type`},{name:`FrostMeshBackground`,kind:`component`,propsType:`FrostMeshBackgroundProps & RefAttributes<HTMLDivElement>`,inline:!1,union:!1,props:[{name:`children`,type:`ReactNode`,optional:!0}],inherited:[{package:`@types/react`,count:279,names:[]}]}],example:{url:`https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/lib/showcase/showcase.tsx#L2623-L2625`,code:`import { FrostMeshBackground } from "@/components/vendor/opensourceui/background-gradient/frost-mesh-background";
+
+export default function Example() {
+  return (
+    <FrostMeshBackground className="flex h-full min-h-96 w-full items-center justify-center md:min-h-120">
+      <p className="font-serif text-2xl text-neutral-900">Your content</p>
+    </FrostMeshBackground>
+  );
+}
+`},exampleNote:null}},docsField:`Cool frost-white mesh with teal and emerald corner washes — SaaS dashboards, he… 主要导出：FrostMeshBackground。 最小用法：<FrostMeshBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-frost-mesh-background.md。`,upstream:`https://opensourceui.in/components/frost-mesh-background`};export{e as default};
