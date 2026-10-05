@@ -1,0 +1,14 @@
+var e={vendored:{source:`spectrum`,license:`Apache-2.0`,files:[`components/vendor/spectrum/account-access-card.tsx`,`components/vendor/spectrum/NOTICE.md`],dependencies:[`lucide-react`,`motion`],registryDependencies:[`@developstack/spectrum-use-typewriter`],preview:{kind:`example`,module:`examples/spectrum/account-access-card.tsx`,export:`default`,example:`https://ui.spectrumhq.in/r/account-access-card-demo.json`},note:{summaryZh:`卡片（组件）。`,importLine:`import { AccountAccessCard } from "@/components/vendor/spectrum/account-access-card";`,usage:`<AccountAccessCard />`,exports:[{name:`AccountCredential`,kind:`type`},{name:`AccountAccessCardProps`,kind:`type`},{name:`AccountAccessCard`,kind:`component`,propsType:`AccountAccessCardProps`,inline:!1,union:!1,props:[{name:`title`,type:`string`,optional:!0,default:`"Account Access"`},{name:`description`,type:`string`,optional:!0,default:`"Update your credentials or re-authenticate."`},{name:`emailLabel`,type:`string`,optional:!0,default:`"Email Address"`},{name:`passwordLabel`,type:`string`,optional:!0,default:`"Current Password"`},{name:`forgotLabel`,type:`string`,optional:!0,default:`"Forgot?"`},{name:`buttonLabel`,type:`string`,optional:!0,default:`"Update Security"`},{name:`buttonIcon`,type:`ReactNode`,optional:!0},{name:`dangerTitle`,type:`string`,optional:!0,default:`"Danger Zone"`},{name:`dangerDescription`,type:`string`,optional:!0,default:`"Archive account and remove access"`},{name:`credentials`,type:`AccountCredential[]`,optional:!0,default:`DEFAULT_CREDENTIALS`,doc:`Accounts the card cycles through, typing each one in.`},{name:`animated`,type:`boolean`,optional:!0,default:`true`,doc:`Turn the auto-fill animation off and show static values.`},{name:`emailValue`,type:`string`,optional:!0,default:`"alfa@spectrum.com"`},{name:`passwordValue`,type:`string`,optional:!0,default:`"••••••••••••••••••••••••"`},{name:`onSubmit`,type:`() => void`,optional:!0},{name:`onForgot`,type:`() => void`,optional:!0},{name:`onDanger`,type:`() => void`,optional:!0},{name:`className`,type:`string`,optional:!0}],inherited:[]}],example:{url:`https://ui.spectrumhq.in/r/account-access-card-demo.json`,code:`"use client"
+
+import { AccountAccessCard } from "@/components/vendor/spectrum/account-access-card"
+
+export default function AccountAccessCardDemo() {
+  return (
+    <div className="flex w-full justify-center py-8">
+      <div className="w-full max-w-[360px]">
+        <AccountAccessCard />
+      </div>
+    </div>
+  )
+}
+`},exampleNote:null}},docsField:`A credentials card that auto-fills email and password on a loop, with a danger zone. 主要导出：AccountAccessCard。 最小用法：<AccountAccessCard />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/card.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/spectrum-account-access-card.md。`,upstream:`https://ui.spectrumhq.in/r/account-access-card.json`};export{e as default};

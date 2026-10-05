@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Di9BXzKq.js";import{MorphingText as t}from"./morphing-DvUL4HHn.js";var n=e(),r=[`MorphingText Primitive`,`Animate your text 🚀`,`Handles emojis 🚀✨`,`Built with Motion ✨`],i=({loop:e,holdDelay:i})=>(0,n.jsx)(t,{className:`text-4xl font-semibold max-w-2xl`,text:r,loop:e,holdDelay:i},`${e}-${i}`);export{i as MorphingTextDemo};

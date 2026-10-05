@@ -1,0 +1,1 @@
+var e=[.16,1,.3,1];export{e as t};

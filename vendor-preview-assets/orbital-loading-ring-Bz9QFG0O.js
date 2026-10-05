@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Dts4goaG.js";import{OrbitalLoadingRing as t}from"./orbital-loading-ring-B083x6xY.js";var n=e();function r({isHovered:e=!1}){return(0,n.jsx)(`div`,{className:`h-52 flex items-center justify-center p-4`,children:(0,n.jsx)(t,{size:64,variant:e?`dense`:`default`,label:`Loading preview`})})}export{r as default};

@@ -1,1 +1,0 @@
-import e from"./slide-subscribe-BVDMtpr5.js";export{e as default};

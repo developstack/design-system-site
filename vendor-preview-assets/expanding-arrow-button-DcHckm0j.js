@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Dts4goaG.js";import{ExpandingArrowButton as t}from"./expanding-arrow-button-NI3CpHs9.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex items-center justify-center`,children:(0,n.jsx)(t,{children:`Book a demo`})})}export{r as ExpandingArrowButtonPreview};

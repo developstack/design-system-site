@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Dts4goaG.js";import{Blur as t}from"./blur-CieW5-UW.js";var n=e();function r({delay:e=0,initialBlur:r=10,blur:i=0}){return(0,n.jsx)(t,{delay:e,initialBlur:r,blur:i,className:`px-6 py-4 bg-accent`,children:`Blur`})}export{r as default};

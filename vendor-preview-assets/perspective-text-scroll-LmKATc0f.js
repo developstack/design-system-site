@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Di9BXzKq.js";import{PerspectiveText as t}from"./perspective-text-scroll-DGekh_wo.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`w-full min-w-0 bg-[#F7F4F2]`,children:(0,n.jsx)(t,{})})}export{r as default};

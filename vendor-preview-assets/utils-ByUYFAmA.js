@@ -1,0 +1,1 @@
+var e={sans:`font-sans`,rounded:`font-rounded`,mono:`font-mono`},t={regular:`font-normal`,medium:`font-medium`,semibold:`font-semibold`,bold:`font-bold`};export{t as n,e as t};
