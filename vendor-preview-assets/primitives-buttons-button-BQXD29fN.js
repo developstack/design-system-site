@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{t}from"./button-DonMPSDb.js";var n=e();function r({hoverScale:e,tapScale:r}){return(0,n.jsx)(t,{hoverScale:e,tapScale:r,className:`bg-primary text-primary-foreground text-sm font-medium px-4 py-2 h-10`,children:`Button`},`${e}-${r}`)}export{r as default};

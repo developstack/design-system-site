@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{t}from"./dist-DuLxksy6.js";import{r as n}from"./smooth-scroll-BR8zvbbY.js";var r=e();function i({to:e,offset:i,duration:a,children:o,className:s,...c}){let{scrollTo:l}=n(),u={offset:i,duration:a};return(0,r.jsx)(`button`,{type:`button`,onClick:()=>l(e,u),className:t(s),...c,children:o})}export{i as ScrollTo};

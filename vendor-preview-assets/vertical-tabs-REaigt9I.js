@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import t from"./vertical-tabs-BMbgKtUk.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex h-full w-full min-w-0 items-center justify-center overflow-auto`,children:(0,n.jsx)(t,{})})}export{r as default};

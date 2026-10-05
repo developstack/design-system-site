@@ -1,1 +1,0 @@
-import"./rolldown-runtime-hePW80VL.js";import{a as e,n as t}from"./vendor-preview-hUJ0ppZ4.js";import{MotionCarousel as n}from"./motion-carousel-CTN-2G9a.js";e();var r=t(),i=()=>{let e={loop:!0},t=Array.from([,,,,,,].keys());return(0,r.jsx)(n,{slides:t,options:e})};export{i as MotionCarouselDemo};

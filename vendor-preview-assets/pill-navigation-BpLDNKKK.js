@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Dts4goaG.js";import{PillNavigation as t}from"./pill-navigation-D5bNv7et.js";var n=e();function r({isHovered:e=!1}){return(0,n.jsx)(`div`,{className:`h-52 flex items-center justify-center p-4`,children:(0,n.jsx)(`div`,{className:`pointer-events-none scale-90`,children:(0,n.jsx)(t,{defaultValue:e?`motion`:`overview`})})})}export{r as default};

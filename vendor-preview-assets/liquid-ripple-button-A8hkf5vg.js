@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{LiquidRippleButton as t}from"./liquid-ripple-button-CHVnKrU_.js";var n=e();function r(e){return(0,n.jsx)(`div`,{className:`h-52 flex items-center justify-center p-4`,children:(0,n.jsx)(`div`,{className:`pointer-events-none scale-90`,children:(0,n.jsx)(t,{variant:`secondary`,children:`Generate`})})})}export{r as default};

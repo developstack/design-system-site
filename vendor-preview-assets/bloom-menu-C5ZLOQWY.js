@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{BloomMenu as t}from"./bloom-menu-C2paUH_j.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex min-h-[420px] w-full items-start justify-center pt-24`,children:(0,n.jsx)(t,{})})}export{r as BloomMenuPreview};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Dts4goaG.js";import t from"./pop-tilt-cards-lqV4KN4u.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`h-full w-full min-w-0 overflow-hidden`,children:(0,n.jsx)(t,{})})}export{r as default};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{HighlightText as t}from"./highlight-D3d5PNVt.js";var n=e(),r=({delay:e})=>(0,n.jsx)(t,{delay:e,className:`text-4xl font-semibold bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-500 dark:to-purple-500`,text:`Highlight Text`},e);export{r as HighlightTextDemo};

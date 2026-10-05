@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t}from"./vendor-preview-hUJ0ppZ4.js";var n=e(t(),1),r=typeof window<`u`?n.useLayoutEffect:n.useEffect,i=e=>typeof e==`number`?e:parseFloat(e);export{r as n,i as t};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-hUJ0ppZ4.js";import{NotFoundGlitch as t}from"./glitch-DEkaZkaO.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`w-full`,children:(0,n.jsx)(t,{})})}export{r as NotFoundGlitchPreview};

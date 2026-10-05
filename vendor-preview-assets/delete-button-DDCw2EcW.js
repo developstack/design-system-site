@@ -1,0 +1,1 @@
+import e,{dialConfig as t}from"./delete-button-DRjlmdgi.js";export{e as default,t as dialConfig};

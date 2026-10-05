@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Dts4goaG.js";import{OTPInput as t}from"./otp-input-n7kq44xm.js";var n=e();function r(e){return(0,n.jsx)(`div`,{className:`flex items-center justify-center  w-full`,children:(0,n.jsx)(t,{length:6,autoFocus:!0,onComplete:e=>{alert(e)}})})}export{r as default};
