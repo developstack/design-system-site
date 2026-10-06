@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BRsgvuRh.js";import{IosMapLocationWidget as t}from"./ios-map-location-widget-7ATbwGIa.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

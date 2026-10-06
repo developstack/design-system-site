@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{HydrationWidget as t}from"./hydration-widget-DBbX08Sz.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

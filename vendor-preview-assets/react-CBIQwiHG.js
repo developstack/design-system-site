@@ -1,0 +1,1 @@
+import{t as e}from"./proxy-BMzk6t4h.js";var t=e;export{t};

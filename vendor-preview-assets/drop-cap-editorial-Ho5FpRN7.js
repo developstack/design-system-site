@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{DropCapEditorialCard as t}from"./drop-cap-editorial-card-uLMvls0P.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

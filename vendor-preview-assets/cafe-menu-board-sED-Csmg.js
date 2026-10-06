@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BRsgvuRh.js";import{CafeMenuBoardCard as t}from"./cafe-menu-board-card-De8Fj_fj.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

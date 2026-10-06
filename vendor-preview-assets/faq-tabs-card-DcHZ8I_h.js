@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{FAQTabsCard as t}from"./faq-tabs-card-DtWxhO60.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full justify-center py-8`,children:(0,n.jsx)(`div`,{className:`w-full max-w-[378px]`,children:(0,n.jsx)(t,{})})})}export{r as default};

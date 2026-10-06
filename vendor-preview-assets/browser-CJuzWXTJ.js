@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{BrowserMockupCard as t}from"./browser-mockup-card-D8zS804X.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

@@ -1,0 +1,23 @@
+var e={vendored:{source:`beui`,license:`MIT`,files:[`components/vendor/beui/motion/collapsible.tsx`,`components/vendor/beui/lib/ease.ts`,`components/vendor/beui/NOTICE.md`],dependencies:[`lucide-react`,`motion`],registryDependencies:[],preview:{kind:`example`,module:`examples/beui/collapsible.tsx`,export:`CollapsiblePreview`,example:`https://github.com/starc007/ui-components/blob/main/components/previews/motion/collapsible.preview.tsx`},note:{summaryZh:`折叠面板（动效组件）。`,importLine:`import { Collapsible } from "@/components/vendor/beui/motion/collapsible";`,usage:`<Collapsible />`,exports:[{name:`CollapsibleState`,kind:`type`},{name:`useCollapsible`,doc:`Shared state and actions for custom children inside a Collapsible root.`,kind:`hook`,signature:`() => CollapsibleState`,params:[],requiredParams:0},{name:`CollapsibleProps`,kind:`type`},{name:`Collapsible`,kind:`component`,propsType:`CollapsibleProps`,inline:!1,union:!1,props:[{name:`open`,type:`boolean`,optional:!0},{name:`defaultOpen`,type:`boolean`,optional:!0,default:`false`},{name:`onOpenChange`,type:`(open: boolean) => void`,optional:!0},{name:`disabled`,type:`boolean`,optional:!0,default:`false`},{name:`contentClassName`,type:`string`,optional:!0,doc:`Layout classes for the inner wrapper, separate from the animated surface.`}],inherited:[{package:`映射类型生成，来源无法定位`,count:274,names:[]},{package:`motion-dom`,count:62,names:[`animate`,`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`]},{package:`framer-motion`,count:2,names:[`children`,`style`]}]},{name:`CollapsibleTriggerProps`,kind:`type`},{name:`CollapsibleTrigger`,kind:`component`,propsType:`CollapsibleTriggerProps`,inline:!1,union:!1,props:[{name:`render`,type:`ReactElement<unknown, string | JSXElementConstructor<any>>`,optional:!0,doc:`Reuse a button element or a component that forwards its props and ref to a button.`}],inherited:[{package:`映射类型生成，来源无法定位`,count:283,names:[]},{package:`motion-dom`,count:62,names:[`animate`,`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`]},{package:`framer-motion`,count:2,names:[`children`,`style`]}]},{name:`CollapsibleContentProps`,kind:`type`},{name:`CollapsibleContent`,kind:`component`,propsType:`CollapsibleContentProps`,inline:!1,union:!1,props:[{name:`contentClassName`,type:`string`,optional:!0,doc:`Padding and layout classes for the measured content, inside the clipping wrapper.`}],inherited:[{package:`映射类型生成，来源无法定位`,count:273,names:[]},{package:`motion-dom`,count:60,names:[`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`,`exit`]},{package:`framer-motion`,count:2,names:[`children`,`style`]}]},{name:`CollapsibleIndicatorProps`,kind:`type`},{name:`CollapsibleIndicator`,kind:`component`,propsType:`CollapsibleIndicatorProps`,inline:!1,union:!1,props:[],inherited:[{package:`映射类型生成，来源无法定位`,count:274,names:[]},{package:`motion-dom`,count:63,names:[`animate`,`custom`,`drag`,`dragConstraints`,`dragControls`,`dragDirectionLock`,`dragElastic`,`dragListener`,`dragMomentum`,`dragPropagation`,`dragSnapToOrigin`,`dragTransition`]},{package:`framer-motion`,count:2,names:[`children`,`style`]}]}],example:{url:`https://github.com/starc007/ui-components/blob/main/components/previews/motion/collapsible.preview.tsx`,code:`"use client";
+
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleIndicator,
+  CollapsibleTrigger,
+} from "@/components/vendor/beui/motion/collapsible";
+
+export function CollapsiblePreview() {
+  return (
+    <Collapsible className="max-w-sm rounded-xl border border-border bg-background p-1">
+      <CollapsibleTrigger>
+        More details
+        <CollapsibleIndicator />
+      </CollapsibleTrigger>
+      <CollapsibleContent contentClassName="px-3 pb-3 pt-1 text-sm leading-6 text-muted-foreground">
+        <p>Keep extra information tucked away until you need it.</p>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
+`},exampleNote:null}},docsField:`Expandable content with a smooth reveal. 主要导出：Collapsible、useCollapsible、CollapsibleTrigger、CollapsibleContent 等。 最小用法：<Collapsible />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/collapsible.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/beui-collapsible.md。`,upstream:`https://beui.dev/r/collapsible.json`};export{e as default};

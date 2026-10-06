@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{SystemAlertBanner as t}from"./system-alert-banner-sGK4w54p.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

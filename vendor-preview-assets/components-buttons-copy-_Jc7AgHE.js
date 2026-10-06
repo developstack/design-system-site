@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{t}from"./copy-B7np5p7k.js";var n=e();function r({variant:e,size:r}){return(0,n.jsx)(t,{variant:e,size:r,content:`Hello world!`})}export{r as default};

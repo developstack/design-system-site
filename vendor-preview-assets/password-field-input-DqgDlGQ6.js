@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BRsgvuRh.js";import{PasswordFieldInput as t}from"./password-field-input-DLiRSANG.js";var n=e();function r(){return(0,n.jsx)(t,{placeholder:`Enter password`})}export{r as default};

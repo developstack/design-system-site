@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BRsgvuRh.js";import{CircleCutFrame as t}from"./circle-cut-frame-Bv-nkVPp.js";var n=e();function r(){return(0,n.jsx)(t,{skeleton:!0,width:320,height:320,frameColor:`#d4d4d4`,className:`max-w-none`})}export{r as default};

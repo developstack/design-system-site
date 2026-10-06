@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BRsgvuRh.js";import{WeatherSnapshotCard as t}from"./weather-snapshot-card-CqogD8G1.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

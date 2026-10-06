@@ -1,1 +1,0 @@
-import e from"./photo-albums-BGacrUyX.js";export{e as default};

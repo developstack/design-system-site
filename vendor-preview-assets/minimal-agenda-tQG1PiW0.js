@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BRsgvuRh.js";import{MinimalAgendaWidget as t}from"./minimal-agenda-widget-D4Pul7pl.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

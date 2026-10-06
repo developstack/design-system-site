@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BRsgvuRh.js";import{NotepadCard as t}from"./notepad-card-DJoK-HwW.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

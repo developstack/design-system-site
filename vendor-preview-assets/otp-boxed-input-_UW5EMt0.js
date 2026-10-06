@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BRsgvuRh.js";import{OtpBoxedInput as t}from"./otp-boxed-input-DwXgQP4l.js";var n=e();function r(){return(0,n.jsx)(t,{autoFocus:!1,destination:`s•••@icloud.com`})}export{r as default};

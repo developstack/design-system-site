@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{FlightBoardingCard as t}from"./flight-boarding-card-D3wpQsuT.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};
