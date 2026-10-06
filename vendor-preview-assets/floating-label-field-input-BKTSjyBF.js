@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{FloatingLabelFieldInput as t}from"./floating-label-field-input-D--s1sag.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`We never share your email.`})}export{r as default};

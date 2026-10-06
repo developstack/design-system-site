@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{GithubContributionCard as t}from"./github-contribution-BvKcKhpk.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

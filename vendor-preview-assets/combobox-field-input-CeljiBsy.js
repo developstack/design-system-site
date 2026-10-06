@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{ComboboxFieldInput as t}from"./combobox-field-input-i6JG-O2m.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`Type to filter the list.`})}export{r as default};

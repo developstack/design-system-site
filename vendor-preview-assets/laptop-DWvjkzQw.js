@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{LaptopMockupCard as t}from"./laptop-mockup-card-BGV_sq1S.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

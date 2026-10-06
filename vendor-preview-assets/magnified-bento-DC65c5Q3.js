@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import t from"./magnified-bento-DJV-r1FB.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`w-full flex items-center justify-center p-4`,children:(0,n.jsx)(t,{})})}export{r as default};

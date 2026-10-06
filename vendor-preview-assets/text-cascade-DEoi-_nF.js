@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{r as t}from"./action-swap-gHtY-Q04.js";var n=e();function r({text:e,className:r}){return(0,n.jsx)(t,{value:e,animation:`cascade`,className:r,children:e})}export{r as TextCascade};

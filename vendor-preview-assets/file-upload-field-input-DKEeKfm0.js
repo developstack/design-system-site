@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{FileUploadFieldInput as t}from"./file-upload-field-input-Be-tTHhT.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

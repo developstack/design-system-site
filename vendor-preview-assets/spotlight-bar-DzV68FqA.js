@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{SpotlightBar as t}from"./spotlight-bar-3ch3ke_a.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

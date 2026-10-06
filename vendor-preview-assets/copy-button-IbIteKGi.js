@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{CopyButton as t}from"./copy-button-CjG-zdR5.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

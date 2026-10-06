@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{InkStampDocumentCard as t}from"./ink-stamp-document-card-BO2Xchy3.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

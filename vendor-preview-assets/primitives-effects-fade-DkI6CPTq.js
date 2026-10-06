@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{Fade as t}from"./fade-8B_T3FTH.js";var n=e();function r({delay:e=0,initialOpacity:r=0,opacity:i=1}){return(0,n.jsx)(t,{delay:e,initialOpacity:r,opacity:i,className:`px-6 py-4 bg-accent`,children:`Fade`})}export{r as default};

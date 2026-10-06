@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{GradientBackground as t}from"./gradient-CJALahT2.js";var n=e(),r=()=>(0,n.jsx)(t,{className:`absolute inset-0 flex items-center justify-center rounded-xl`});export{r as GradientBackgroundDemo};

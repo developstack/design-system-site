@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{DimpleSwitch as t}from"./dimple-switch-qrNlpN7p.js";var n=e();function r(){return(0,n.jsx)(t,{defaultChecked:!0})}export{r as default};

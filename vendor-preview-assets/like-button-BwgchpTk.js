@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{LikeButton as t}from"./like-button-B7p-aNgd.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

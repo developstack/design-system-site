@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{Zoom as t}from"./zoom-ByU6GTyw.js";var n=e();function r({delay:e=0,initialScale:r=.5,scale:i=1}){return(0,n.jsx)(t,{delay:e,initialScale:r,scale:i,className:`px-6 py-4 bg-accent`,children:`Zoom`})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{InputGroupField as t}from"./input-group-field-C_50RsVC.js";var n=e();function r(){return(0,n.jsx)(t,{prefix:`https://`,placeholder:`opensourceui.in`})}export{r as default};

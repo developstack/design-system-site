@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{IpodMockupCard as t}from"./apple-ipod-mockup-card-BRuBaXfr.js";var n=e();function r(){return(0,n.jsx)(t,{variant:`silver`})}export{r as default};

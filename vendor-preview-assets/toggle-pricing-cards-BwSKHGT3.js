@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{TogglePricingCards as t}from"./toggle-pricing-cards-lF4jFU0-.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

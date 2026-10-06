@@ -1,1 +1,0 @@
-import"./rolldown-runtime-hePW80VL.js";import{a as e,n as t}from"./vendor-preview-BysRXe6T.js";import{t as n}from"./dist-DuLxksy6.js";e();var r=t();function i({className:e,...t}){return(0,r.jsx)(`code`,{className:n(`relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold`,e),...t})}export{i as InlineCode};

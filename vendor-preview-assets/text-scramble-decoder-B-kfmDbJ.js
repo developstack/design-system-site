@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{TextScrambleDecoder as t}from"./text-scramble-decoder-D2B00--f.js";var n=e();function r({isHovered:e=!1}){return(0,n.jsx)(`div`,{className:`h-52 flex items-center justify-center p-4`,children:(0,n.jsx)(t,{text:`EASYUI.SYNCED`,trigger:`mount`,duration:650,className:`text-xs`},e?`hovered`:`idle`)})}export{r as default};

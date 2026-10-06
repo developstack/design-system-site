@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{MultiChainSwap as t}from"./swap-wcTF_b-n.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full items-center justify-center`,children:(0,n.jsx)(t,{})})}export{r as SwapPreview};

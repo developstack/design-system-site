@@ -1,0 +1,1 @@
+import{t as e}from"./useRenderElement-TH6Vbq2s.js";function t(t){return e(t.defaultTagName??`div`,t,t)}export{t};

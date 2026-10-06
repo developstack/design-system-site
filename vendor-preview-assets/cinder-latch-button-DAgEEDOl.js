@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{CinderLatchButton as t}from"./cinder-latch-button-stwgfL11.js";var n=e();function r(){return(0,n.jsx)(t,{children:`Unlock`})}export{r as default};

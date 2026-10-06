@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{SelectFieldInput as t}from"./select-field-input-BNURO7hi.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`Shipping rates vary by region.`})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{AnalogClockWidget as t}from"./analog-clock-widget-u0ZNt7JJ.js";var n=e();function r(){return(0,n.jsx)(t,{variant:`roman`})}export{r as default};

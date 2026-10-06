@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-Bwm98GW3.js";import{AudioRecorderWidget as t}from"./audio-recorder-widget-DHxJAQvH.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

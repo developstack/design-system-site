@@ -1,1 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-hePW80VL.js";import{a as n}from"./vendor-preview-BysRXe6T.js";var r=e({useMotionValueState:()=>a}),i=t(n(),1);function a(e){return i.useSyncExternalStore(t=>e.on(`change`,t),()=>e.get(),()=>e.get())}export{r as n,a as t};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BysRXe6T.js";import{WiFiToggleWidget as t}from"./wifi-toggle-widget-b92omO5w.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};
