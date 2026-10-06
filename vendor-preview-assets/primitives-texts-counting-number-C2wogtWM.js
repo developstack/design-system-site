@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{t}from"./counting-number-C55_X-9J.js";var n=e(),r=({number:e,fromNumber:r,padStart:i,decimalSeparator:a,decimalPlaces:o,delay:s})=>(0,n.jsx)(t,{delay:s,number:e,fromNumber:r,padStart:i,decimalSeparator:a,decimalPlaces:o,className:`text-4xl font-semibold`},s);export{r as CountingFromNumberDemo};

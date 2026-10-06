@@ -1,1 +1,0 @@
-import e,{dialConfig as t}from"./delete-button-CbO0FJIH.js";export{e as default,t as dialConfig};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-96-fUOOI.js";import{LaptopMockupCard as t}from"./laptop-mockup-card-D205Cg4y.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{EditorialStaffProfileCard as t}from"./editorial-staff-profile-card-DBPgOhxi.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

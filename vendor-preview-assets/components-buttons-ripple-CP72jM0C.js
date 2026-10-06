@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{t}from"./plus-Bgtb1aBL.js";import{RippleButton as n,RippleButtonRipples as r}from"./ripple-DiYt5eT9.js";var i=e();function a({variant:e,size:a}){return(0,i.jsxs)(n,{variant:e,size:a,children:[a===`icon`?(0,i.jsx)(t,{}):`Click me`,(0,i.jsx)(r,{})]})}export{a as default};

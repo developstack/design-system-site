@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{HoldToDeleteButton as t}from"./hold-to-delete-button-aJRPS87Z.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

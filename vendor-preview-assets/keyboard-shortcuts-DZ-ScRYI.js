@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{KeyboardShortcutsCard as t}from"./keyboard-shortcuts-card-Co7-1Ugo.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

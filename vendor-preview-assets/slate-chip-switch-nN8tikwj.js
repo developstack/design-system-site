@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{SlateChipSwitch as t}from"./slate-chip-switch-AIcLcF_B.js";var n=e();function r(){return(0,n.jsx)(t,{defaultChecked:!0})}export{r as default};

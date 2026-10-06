@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-96-fUOOI.js";import{SlateChipSwitch as t}from"./slate-chip-switch-HMbMI13n.js";var n=e();function r(){return(0,n.jsx)(t,{defaultChecked:!0})}export{r as default};

@@ -1,0 +1,1 @@
+import{t as e}from"./useRenderElement-D_DomAKx.js";function t(t){return e(t.defaultTagName??`div`,t,t)}export{t};

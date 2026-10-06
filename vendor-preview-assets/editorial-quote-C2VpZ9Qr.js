@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{EditorialQuoteCard as t}from"./editorial-quote-card-XPzn1Vhj.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

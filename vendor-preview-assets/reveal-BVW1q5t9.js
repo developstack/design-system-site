@@ -1,0 +1,5 @@
+import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t}from"./vendor-preview-CiLKmJNo.js";var n=e(t(),1),r=`
+@keyframes su-reveal { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+@keyframes su-draw { from { stroke-dashoffset: 1 } to { stroke-dashoffset: 0 } }
+@keyframes su-sheen { 0%, 62% { transform: translateX(-110%) } 100% { transform: translateX(110%) } }
+`;function i(){let e=(0,n.useRef)(null),[t,r]=(0,n.useState)(!1);return(0,n.useEffect)(()=>{let t=e.current;if(!t)return;if(typeof IntersectionObserver>`u`){let e=requestAnimationFrame(()=>r(!0));return()=>cancelAnimationFrame(e)}let n=new IntersectionObserver(e=>{e.some(e=>e.isIntersecting)&&(r(!0),n.disconnect())},{threshold:.18,rootMargin:`0px 0px -8% 0px`});return n.observe(t),()=>n.disconnect()},[]),{ref:e,shown:t}}function a(e){return e?`[animation:su-reveal_480ms_cubic-bezier(0.23,1,0.32,1)_both] motion-reduce:animate-none`:``}function o(e,t){return e?{animationDelay:`${t*70}ms`}:void 0}export{i,a as n,o as r,r as t};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{TerminalLogCard as t}from"./terminal-log-card-DUa7nvoH.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

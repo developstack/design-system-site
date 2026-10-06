@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{TorchFaceWidget as t}from"./torch-face-widget-BtEXRAkv.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

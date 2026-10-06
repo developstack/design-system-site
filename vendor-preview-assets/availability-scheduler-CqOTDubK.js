@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{AvailabilityScheduler as t}from"./availability-scheduler-CPJsp6yo.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full justify-center`,children:(0,n.jsx)(t,{})})}export{r as AvailabilitySchedulerPreview};

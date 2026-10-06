@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-96-fUOOI.js";import{ContactForm as t}from"./contact-form-CeFNgoty.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

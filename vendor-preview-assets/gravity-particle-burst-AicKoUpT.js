@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-96-fUOOI.js";import{GravityParticleBurst as t}from"./gravity-particle-burst-DVR6qm4d.js";var n=e();function r(e){return(0,n.jsx)(`div`,{className:`h-52 flex items-center justify-center p-4`,children:(0,n.jsx)(`div`,{className:`pointer-events-none scale-90`,children:(0,n.jsx)(t,{particleCount:18,children:`Burst`})})})}export{r as default};

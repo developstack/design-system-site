@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{SystemAlertBanner as t}from"./system-alert-banner-BX0RSOL_.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

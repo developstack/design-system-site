@@ -1,0 +1,1 @@
+function e(e,t,n=Object.is){let{length:r}=e;if(r!==t.length)return!1;for(let i=0;i<r;i+=1)if(!n(e[i],t[i]))return!1;return!0}function t(e){return e==null?void 0:`${e}-label`}function n(e,t){return e??t}export{n,e as r,t};

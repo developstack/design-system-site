@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CiLKmJNo.js";import{RollingText as t}from"./rolling-Dz7lb_19.js";var n=e(),r=({delay:e})=>(0,n.jsx)(t,{delay:e,className:`text-4xl font-semibold`,text:`Rolling Text`},e);export{r as RollingTextDemo};

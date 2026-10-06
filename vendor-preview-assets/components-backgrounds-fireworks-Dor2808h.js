@@ -1,0 +1,1 @@
+import{i as e,n as t}from"./vendor-preview-CiLKmJNo.js";import{FireworksBackground as n}from"./fireworks-Bol4tpHh.js";var r=t();function i({population:t}){let{resolvedTheme:i}=e();return(0,r.jsx)(n,{className:`absolute inset-0 flex items-center justify-center rounded-xl`,color:i===`dark`?`white`:`black`,population:t})}export{i as default};

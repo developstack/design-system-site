@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-96-fUOOI.js";import{BookmarkSaveButton as t}from"./bookmark-save-button-D5gQinRz.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

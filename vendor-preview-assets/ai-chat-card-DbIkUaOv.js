@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-96-fUOOI.js";import{AIChatCard as t}from"./ai-chat-card-it0njrGb.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full justify-center py-8`,children:(0,n.jsx)(`div`,{className:`w-full max-w-[360px]`,children:(0,n.jsx)(t,{className:`min-h-[520px]`})})})}export{r as default};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-96-fUOOI.js";import{TransferFundsCard as t}from"./transfer-funds-card-C8FW4XG8.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full justify-center py-8`,children:(0,n.jsx)(`div`,{className:`w-full max-w-[378px]`,children:(0,n.jsx)(t,{})})})}export{r as default};
