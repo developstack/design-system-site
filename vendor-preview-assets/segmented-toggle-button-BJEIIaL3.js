@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{SegmentedToggleButton as t}from"./segmented-toggle-button-DZVoBisO.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

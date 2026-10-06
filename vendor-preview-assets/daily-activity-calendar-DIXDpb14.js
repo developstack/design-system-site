@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{DailyActivityCalendarWidget as t}from"./daily-activity-calendar-widget-Cd02OgOd.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

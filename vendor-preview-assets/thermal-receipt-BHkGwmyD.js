@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{ThermalReceiptCard as t}from"./thermal-receipt-card-C0J1AhSs.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

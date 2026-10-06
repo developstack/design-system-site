@@ -1,1 +1,0 @@
-import e,{dialConfig as t}from"./delete-button-CBCBId1u.js";export{e as default,t as dialConfig};

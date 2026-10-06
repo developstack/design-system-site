@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{CheckboxFieldInput as t}from"./checkbox-field-input-C7gYc8dJ.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`You can unsubscribe at any time.`})}export{r as default};

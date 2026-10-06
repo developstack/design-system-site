@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import t from"./bento-card-BAj3jpof.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`w-full flex items-center justify-center py-10 not-prose`,children:(0,n.jsx)(t,{})})}export{r as default};

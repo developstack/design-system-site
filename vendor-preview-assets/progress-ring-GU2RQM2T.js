@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{ProgressRingCard as t}from"./progress-ring-card-DFK1jIR8.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

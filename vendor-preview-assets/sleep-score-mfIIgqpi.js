@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{SleepScoreWidget as t}from"./sleep-score-widget-DWAkJ-lj.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

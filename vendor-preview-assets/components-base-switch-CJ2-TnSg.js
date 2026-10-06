@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{t}from"./label-Mk_dE8Zr.js";import{Switch as n}from"./switch-C9VwhRAe.js";var r=e();function i(){return(0,r.jsxs)(t,{className:`flex items-center gap-x-3`,children:[(0,r.jsx)(n,{}),`Airplane Mode`]})}export{i as BaseSwitchDemo};

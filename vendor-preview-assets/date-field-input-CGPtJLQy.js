@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{DateFieldInput as t}from"./date-field-input-Bm7Kydx6.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`Must match your ID document.`})}export{r as default};

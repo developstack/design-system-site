@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{BatteryFaceWidget as t}from"./battery-face-widget-C1dIsF9H.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

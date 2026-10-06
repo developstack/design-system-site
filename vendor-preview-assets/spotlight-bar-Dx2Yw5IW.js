@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{SpotlightBar as t}from"./spotlight-bar-CDsiwlWl.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

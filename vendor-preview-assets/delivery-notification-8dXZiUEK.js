@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{DeliveryNotificationBanner as t}from"./delivery-notification-banner-Cil63PbI.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

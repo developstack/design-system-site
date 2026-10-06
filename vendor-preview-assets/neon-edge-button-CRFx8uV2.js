@@ -1,9 +1,0 @@
-import"./rolldown-runtime-hePW80VL.js";import{a as e,n as t}from"./vendor-preview-CiLKmJNo.js";import{t as n}from"./zap-CP_YxSsD.js";import{t as r}from"./utils-CWN7nxjK.js";e();var i=t(),a=({children:e=`Deploy preview`,speed:t=1,glow:a=!0,className:o,...s})=>{let c=`${3/t}s`;return(0,i.jsxs)(`button`,{type:`button`,className:r(`focus-ring group relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-[10px] p-[1px] text-sm font-medium text-[#FAFAFA] transition-all cursor-pointer active:scale-[0.98]`,a&&`shadow-[0_0_24px_-10px_rgba(255,255,255,0.4)]`,o),...s,children:[(0,i.jsx)(`style`,{children:`
-        @keyframes easyui-neon-rotate {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .easyui-neon-beam { animation: none !important; opacity: 0.4 !important; }
-        }
-      `}),(0,i.jsx)(`span`,{"aria-hidden":`true`,className:`pointer-events-none absolute -inset-[200%] overflow-hidden`,children:(0,i.jsx)(`span`,{className:`easyui-neon-beam absolute inset-0 block`,style:{background:`conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 280deg, rgba(255,255,255,0.85) 340deg, transparent 360deg)`,animation:`easyui-neon-rotate ${c} linear infinite`}})}),(0,i.jsxs)(`span`,{className:`relative z-10 inline-flex min-h-[42px] w-full items-center justify-center gap-2 rounded-[9px] bg-[#050505] px-5 py-2.5 transition-colors group-hover:bg-[#0B0B0B]`,children:[(0,i.jsx)(n,{className:`h-4 w-4 text-[#E5E5E5] transition-transform duration-300 group-hover:scale-110`}),(0,i.jsx)(`span`,{className:`select-none`,children:e})]})]})};export{a as NeonEdgeButton};

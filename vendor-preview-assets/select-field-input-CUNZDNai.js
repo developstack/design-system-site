@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{SelectFieldInput as t}from"./select-field-input-CDDR-A-X.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`Shipping rates vary by region.`})}export{r as default};

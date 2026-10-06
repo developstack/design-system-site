@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{ComboboxFieldInput as t}from"./combobox-field-input-Bkp4N3_Z.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`Type to filter the list.`})}export{r as default};

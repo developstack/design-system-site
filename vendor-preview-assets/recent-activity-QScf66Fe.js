@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{RecentActivity as t}from"./recent-activity-gZtT1_rK.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full justify-center py-8`,children:(0,n.jsx)(`div`,{className:`w-full max-w-[512px]`,children:(0,n.jsx)(t,{})})})}export{r as default};

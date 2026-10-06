@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{PresenceDock as t}from"./presence-dock-B8ETi1HL.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

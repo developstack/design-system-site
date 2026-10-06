@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{AppleHelloLoader as t}from"./apple-hello-loader-2KeB-vFy.js";var n=e();function r(){return(0,n.jsx)(t,{fill:!0})}export{r as default};

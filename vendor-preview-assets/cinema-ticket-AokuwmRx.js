@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{CinemaTicketCard as t}from"./cinema-ticket-card-CWlhw0W1.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

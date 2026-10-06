@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{PaymentNotificationBanner as t}from"./payment-notification-banner-CnYC7jxR.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

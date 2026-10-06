@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{FlightArrivalWidget as t}from"./flight-arrival-widget-CLuib4r0.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{HeartRateWidget as t}from"./heart-rate-widget-Dyw1ywmO.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

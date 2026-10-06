@@ -1,0 +1,14 @@
+var e={vendored:{source:`hextaui`,license:`MIT`,files:[`components/vendor/hextaui/ui/kbd.tsx`,`components/vendor/hextaui/NOTICE.md`],dependencies:[`@base-ui/react@^1.8.0`,`class-variance-authority`,`cn`],registryDependencies:[`@developstack/hextaui-hotkey`,`@developstack/hextaui-use-held-keys`],preview:{kind:`example`,module:`examples/hextaui/kbd.tsx`,export:`KbdDemo`,example:`https://hextaui.com/r/kbd-demo.json`},note:{summaryZh:null,importLine:`import { Kbd } from "@/components/vendor/hextaui/ui/kbd";`,usage:`<Kbd />`,exports:[{name:`Kbd`,kind:`component`,propsType:`KbdProps`,inline:!1,union:!1,props:[{name:`variant`,type:`KbdVariant`,optional:!0},{name:`size`,type:`KbdSize`,optional:!0},{name:`keys`,type:`string`,optional:!0},{name:`listen`,type:`boolean`,optional:!0}],inherited:[{package:`@types/react`,count:280,names:[]},{package:`@base-ui/react`,count:1,names:[`render`]}]},{name:`KbdGroup`,kind:`component`,propsType:`KbdGroupProps`,inline:!1,union:!1,props:[{name:`variant`,type:`KbdVariant`,optional:!0},{name:`size`,type:`KbdSize`,optional:!0},{name:`keys`,type:`string`,optional:!0},{name:`listen`,type:`boolean`,optional:!0},{name:`separator`,type:`ReactNode`,optional:!0,default:`"then"`}],inherited:[{package:`@types/react`,count:280,names:[]},{package:`@base-ui/react`,count:1,names:[`render`]}]},{name:`kbdVariants`,kind:`function`,signature:`(props?: (ConfigVariants<{ variant: { keycap: string; flat: string; }; size: { sm: string; default: string; lg: string; }; }> & ClassProp) | undefined) => string`,params:[`props`],requiredParams:0},{name:`useHeldKeys`,kind:`hook`,signature:`(enabled: boolean) => ReadonlySet<string>`,params:[`enabled`],requiredParams:1},{name:`KbdGroupProps`,kind:`type`},{name:`KbdProps`,kind:`type`}],example:{url:`https://hextaui.com/r/kbd-demo.json`,code:`import { Kbd, KbdGroup } from "@/components/vendor/hextaui/ui/kbd"
+
+export function KbdDemo() {
+  return (
+    <div className="flex flex-col items-center gap-6 text-sm text-muted-foreground">
+      <KbdGroup keys="mod+shift+p" size="lg" listen />
+      <p>
+        Press <Kbd keys="mod+k" listen /> to search, or hold{" "}
+        <Kbd keys="shift" listen /> and watch the keys.
+      </p>
+    </div>
+  )
+}
+`},exampleNote:null}},docsField:`Key caps for shortcuts that show the right symbols on every platform, read them out properly and press down with the real keys. 主要导出：Kbd、KbdGroup、kbdVariants、useHeldKeys。 最小用法：<Kbd />。 收录组件，颜色原样来自上游。独有组件。属性与示例见 packages/registry/docs/vendor/hextaui-kbd.md。`,upstream:`https://hextaui.com/r/kbd.json`};export{e as default};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{TextareaFieldInput as t}from"./textarea-field-input-C0RlAYbc.js";var n=e();function r(){return(0,n.jsx)(t,{placeholder:`Tell us about your project…`,defaultValue:``})}export{r as default};

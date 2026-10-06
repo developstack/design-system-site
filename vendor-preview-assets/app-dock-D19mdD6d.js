@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{AppDock as t}from"./app-dock-Drr4e5ty.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

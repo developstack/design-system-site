@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{SandDriftBackground as t}from"./sand-drift-background-C6nlJ8eJ.js";var n=e();function r(){return(0,n.jsx)(t,{className:`flex h-full min-h-96 w-full items-center justify-center md:min-h-120`,children:(0,n.jsx)(`p`,{className:`font-serif text-2xl text-neutral-900`,children:`Your content`})})}export{r as default};

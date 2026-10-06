@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-CiLKmJNo.js";import{SwitchFieldInput as t}from"./switch-field-input-2g2lYTzh.js";var n=e();function r(){return(0,n.jsx)(t,{defaultChecked:!0})}export{r as default};

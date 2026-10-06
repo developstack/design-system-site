@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{MonthPickerCalendar as t}from"./month-picker-calendar-Dm-yf0UY.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

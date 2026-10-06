@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{RecorderFaceWidget as t}from"./recorder-face-widget-DbCG9O0C.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

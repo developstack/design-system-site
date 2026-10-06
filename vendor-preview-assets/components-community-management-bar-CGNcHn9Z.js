@@ -1,1 +1,0 @@
-import"./rolldown-runtime-hePW80VL.js";import{a as e,n as t}from"./vendor-preview-CiLKmJNo.js";import{ManagementBar as n}from"./management-bar-Cl9ErR6q.js";e();var r=t(),i=()=>(0,r.jsx)(n,{});export{i as ManagementBarDemo};

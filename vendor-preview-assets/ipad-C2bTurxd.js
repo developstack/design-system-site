@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{IpadMockupCard as t}from"./tablet-mockup-card-Cbqwkc8J.js";var n=e();function r(){return(0,n.jsx)(t,{variant:`spaceGray`})}export{r as default};

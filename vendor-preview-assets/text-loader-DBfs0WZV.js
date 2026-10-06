@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-BysRXe6T.js";import{TextLoader as t}from"./text-loader-DihofmtU.js";var n=e();function r(){return(0,n.jsx)(t,{text:`Searching`})}export{r as default};
