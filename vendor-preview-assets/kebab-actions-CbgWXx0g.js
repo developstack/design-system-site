@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{KebabActionsDropdown as t}from"./kebab-actions-dropdown--8yVJEWK.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{Slider as t,SliderLabel as n,SliderValue as r}from"./slider-YrkCmsCo.js";var i=e();function a(){return(0,i.jsxs)(t,{defaultValue:60,className:`max-w-xs`,children:[(0,i.jsx)(n,{children:`Volume`}),(0,i.jsx)(r,{})]})}export{a as SliderDemo};

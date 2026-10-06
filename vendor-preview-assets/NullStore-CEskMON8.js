@@ -1,1 +1,0 @@
-import{r as e}from"./popupTriggerMap-RX8PQkzl.js";var t=class extends e{setState(e){}update(e){}set(e,t){}notifyAll(){}};export{t};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{GitHubRepoCard as t}from"./github-repo-card-B0_KNaSH.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

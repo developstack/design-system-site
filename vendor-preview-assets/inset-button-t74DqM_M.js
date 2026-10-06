@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{InsetButton as t}from"./inset-button-JQS0sqvA.js";var n=e();function r(){return(0,n.jsxs)(`div`,{className:`flex flex-wrap items-center justify-center gap-3`,children:[(0,n.jsx)(t,{children:`Secondary`}),(0,n.jsx)(t,{variant:`dark`,children:`Confirm`})]})}export{r as default};

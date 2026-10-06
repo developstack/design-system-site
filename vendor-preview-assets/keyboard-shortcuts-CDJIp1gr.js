@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{KeyboardShortcutsCard as t}from"./keyboard-shortcuts-card-BByz1kAV.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

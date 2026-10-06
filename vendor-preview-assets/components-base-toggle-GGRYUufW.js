@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{t}from"./bold-yr15FL87.js";import{Toggle as n}from"./toggle-fN3_cEh2.js";var r=e();function i({variant:e,size:i}){return(0,r.jsx)(n,{"aria-label":`Toggle italic`,variant:e,size:i,children:(0,r.jsx)(t,{})})}export{i as BaseToggleDemo};

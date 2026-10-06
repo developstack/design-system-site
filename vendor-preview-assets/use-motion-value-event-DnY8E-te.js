@@ -1,0 +1,1 @@
+import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t}from"./vendor-preview-E6Fy0Cha.js";var n=e(t(),1);function r(e,t,r){(0,n.useInsertionEffect)(()=>e.on(t,r),[e,t,r])}export{r as t};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{VoiceAssistantWidget as t}from"./voice-assistant-widget-IXSx2i9D.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

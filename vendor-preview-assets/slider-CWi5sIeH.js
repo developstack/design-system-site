@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{Slider as t,SliderLabel as n,SliderValue as r}from"./slider-B6ojfM7c.js";var i=e();function a(){return(0,i.jsxs)(t,{defaultValue:60,className:`max-w-xs`,children:[(0,i.jsx)(n,{children:`Volume`}),(0,i.jsx)(r,{})]})}export{a as SliderDemo};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{BookingSlotCalendar as t}from"./booking-slot-calendar-Beh0g1Bh.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

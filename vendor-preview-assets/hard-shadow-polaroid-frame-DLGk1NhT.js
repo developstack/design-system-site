@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{HardShadowPolaroidFrame as t}from"./hard-shadow-polaroid-frame-hIVJdsGc.js";var n=e();function r(){return(0,n.jsx)(t,{skeleton:!0,caption:`Bidyut Kundu`,className:`max-w-none`})}export{r as default};

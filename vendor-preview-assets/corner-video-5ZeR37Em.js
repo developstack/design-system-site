@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import t from"./corner-video-DDGRycda.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`h-full w-full min-w-0 overflow-hidden`,children:(0,n.jsx)(t,{})})}export{r as default};

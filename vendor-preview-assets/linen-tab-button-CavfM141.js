@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{LinenTabButton as t}from"./linen-tab-button-C-Wh-3JF.js";var n=e();function r(){return(0,n.jsx)(t,{children:`View details`})}export{r as default};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{AnalogStick as t}from"./analog-stick-Bnaa52Zd.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex h-full w-full min-w-0 items-center justify-center overflow-hidden`,children:(0,n.jsx)(t,{})})}export{r as default};

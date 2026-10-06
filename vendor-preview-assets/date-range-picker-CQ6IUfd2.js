@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{DateRangePickerCard as t}from"./date-range-picker-card-C7kJbmKT.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

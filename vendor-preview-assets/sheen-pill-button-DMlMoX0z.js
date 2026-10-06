@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{SheenPillButton as t}from"./sheen-pill-button-CIkJT4eQ.js";var n=e();function r(){return(0,n.jsx)(t,{children:`Get started`})}export{r as default};

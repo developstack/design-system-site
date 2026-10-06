@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-E6Fy0Cha.js";import{TransformPlusFrame as t}from"./transform-plus-frame-BFEGeTwt.js";var n=e();function r(){return(0,n.jsx)(t,{skeleton:!0,width:320,height:320,lineColor:`#737373`,handleColor:`#171717`,className:`max-w-none`})}export{r as default};

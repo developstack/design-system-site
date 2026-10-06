@@ -1,0 +1,1 @@
+import{r as e}from"./popupTriggerMap-D4pt4lex.js";var t=class extends e{setState(e){}update(e){}set(e,t){}notifyAll(){}};export{t};

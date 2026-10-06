@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{ShareMenuDropdown as t}from"./share-menu-dropdown-DE84G9-U.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

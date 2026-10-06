@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{IosCalenderWidget as t}from"./ios-calender-widget-BoS0tq5n.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

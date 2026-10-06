@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-Bwm98GW3.js";import{StackedOutlineText as t}from"./stacked-outline-text-Bs1VG2mA.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`h-full w-full min-w-0 overflow-hidden`,children:(0,n.jsx)(t,{})})}export{r as default};
