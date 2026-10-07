@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-components-buttons-flip",
+  "title": "Flip Button",
+  "description": "A button that flips between two states on hover.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-components-buttons-button",
+    "@developstack/animateui-primitives-buttons-flip"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/components/buttons/flip.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/components-buttons-flip.json>，上游文件 registry/components/buttons/flip/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\nimport * as React from 'react';\nimport { type VariantProps } from 'class-variance-authority';\n\nimport {\n  FlipButton as FlipButtonPrimitive,\n  FlipButtonFront as FlipButtonFrontPrimitive,\n  FlipButtonBack as FlipButtonBackPrimitive,\n  type FlipButtonProps as FlipButtonPrimitiveProps,\n  type FlipButtonFrontProps as FlipButtonFrontPrimitiveProps,\n  type FlipButtonBackProps as FlipButtonBackPrimitiveProps,\n} from '@/components/vendor/animateui/primitives/buttons/flip';\nimport { getStrictContext } from '@/components/vendor/animateui/lib/get-strict-context';\nimport { buttonVariants } from '@/components/vendor/animateui/components/buttons/button';\nimport { cn } from '@/lib/utils';\n\ntype FlipButtonContextType = VariantProps<typeof buttonVariants>;\n\nconst [FlipButtonProvider, useFlipButton] =\n  getStrictContext<FlipButtonContextType>('FlipButtonContext');\n\ntype FlipButtonProps = FlipButtonPrimitiveProps &\n  VariantProps<typeof buttonVariants>;\n\nfunction FlipButton({ variant, size, ...props }: FlipButtonProps) {\n  return (\n    <FlipButtonProvider value={{ variant, size }}>\n      <FlipButtonPrimitive {...props} />\n    </FlipButtonProvider>\n  );\n}\n\ntype FlipButtonFrontProps = FlipButtonFrontPrimitiveProps &\n  VariantProps<typeof buttonVariants>;\n\nfunction FlipButtonFront({\n  variant,\n  size,\n  className,\n  ...props\n}: FlipButtonFrontProps) {\n  const { variant: buttonVariant, size: buttonSize } = useFlipButton();\n  return (\n    <FlipButtonFrontPrimitive\n      className={cn(\n        buttonVariants({\n          variant: variant ?? buttonVariant,\n          size: size ?? buttonSize,\n          className,\n        }),\n      )}\n      {...props}\n    />\n  );\n}\n\ntype FlipButtonBackProps = FlipButtonBackPrimitiveProps &\n  VariantProps<typeof buttonVariants>;\n\nfunction FlipButtonBack({\n  variant,\n  size,\n  className,\n  ...props\n}: FlipButtonBackProps) {\n  const { variant: buttonVariant, size: buttonSize } = useFlipButton();\n  return (\n    <FlipButtonBackPrimitive\n      className={cn(\n        buttonVariants({\n          variant: variant ?? buttonVariant,\n          size: size ?? buttonSize,\n          className,\n        }),\n      )}\n      {...props}\n    />\n  );\n}\n\nexport {\n  FlipButton,\n  FlipButtonFront,\n  FlipButtonBack,\n  type FlipButtonProps,\n  type FlipButtonFrontProps,\n  type FlipButtonBackProps,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/components/buttons/flip.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/components-buttons-flip.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A button that flips between two states on hover. 主要导出：FlipButton、FlipButtonFront、FlipButtonBack。 最小用法：<FlipButton />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/button.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-components-buttons-flip.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

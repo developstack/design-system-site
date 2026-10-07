@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/progress.tsx",
+      "content": "\"use client\"\n\nimport { Progress as ProgressPrimitive } from \"@base-ui/react/progress\"\nimport { cn } from \"cn\"\n\nfunction Progress({\n  className,\n  children,\n  value,\n  ...props\n}: ProgressPrimitive.Root.Props) {\n  return (\n    <ProgressPrimitive.Root\n      value={value}\n      data-slot=\"progress\"\n      className={cn(\"flex flex-wrap gap-3\", className)}\n      {...props}\n    >\n      {children}\n      <ProgressTrack>\n        <ProgressIndicator />\n      </ProgressTrack>\n    </ProgressPrimitive.Root>\n  )\n}\n\nfunction ProgressTrack({ className, ...props }: ProgressPrimitive.Track.Props) {\n  return (\n    <ProgressPrimitive.Track\n      className={cn(\n        \"relative flex h-1 w-full items-center overflow-x-hidden rounded-none bg-muted\",\n        className\n      )}\n      data-slot=\"progress-track\"\n      {...props}\n    />\n  )\n}\n\nfunction ProgressIndicator({\n  className,\n  ...props\n}: ProgressPrimitive.Indicator.Props) {\n  return (\n    <ProgressPrimitive.Indicator\n      data-slot=\"progress-indicator\"\n      className={cn(\"h-full bg-primary transition-all\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction ProgressLabel({ className, ...props }: ProgressPrimitive.Label.Props) {\n  return (\n    <ProgressPrimitive.Label\n      className={cn(\"text-xs\", className)}\n      data-slot=\"progress-label\"\n      {...props}\n    />\n  )\n}\n\nfunction ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {\n  return (\n    <ProgressPrimitive.Value\n      className={cn(\n        \"ml-auto text-xs text-muted-foreground tabular-nums\",\n        className\n      )}\n      data-slot=\"progress-value\"\n      {...props}\n    />\n  )\n}\n\nexport {\n  Progress,\n  ProgressTrack,\n  ProgressIndicator,\n  ProgressLabel,\n  ProgressValue,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/progress",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/progress-example.tsx",
+      "api": "https://base-ui.com/react/components/progress.md"
+    },
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/progress.json",
+    "snapshotDate": "2026-10-06",
+    "sha256": {
+      "src/components/ui/progress.tsx": "b7d5c7a7465201399750d99fc1cfac60459b2497b499caca3ecde5daa3bdaee8"
+    }
+  },
+  "docs": "长任务的进度用 Progress：value 取 0 到 100，不确定时写 null；要名称与百分比时放 ProgressLabel 与 ProgressValue；没有 Label 就写 aria-label。静态量值看 meter 组，短等待用 Spinner，首次加载用 Skeleton。完整说明见 docs/components/progress.md。",
+  "type": "registry:ui"
+}

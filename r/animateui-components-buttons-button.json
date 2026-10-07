@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-components-buttons-button",
+  "title": "Button",
+  "description": "A button component with a variety of styles and animations.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-primitives-buttons-button"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/components/buttons/button.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/components-buttons-button.json>，上游文件 registry/components/buttons/button/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport {\n  Button as ButtonPrimitive,\n  type ButtonProps as ButtonPrimitiveProps,\n} from '@/components/vendor/animateui/primitives/buttons/button';\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[box-shadow,_color,_background-color,_border-color,_outline-color,_text-decoration-color,_fill,_stroke] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        accent: 'bg-accent text-accent-foreground shadow-xs hover:bg-accent/90',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n        link: 'text-primary underline-offset-4 hover:underline',\n      },\n      size: {\n        default: 'h-9 px-4 py-2 has-[>svg]:px-3',\n        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',\n        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',\n        icon: 'size-9',\n        'icon-sm': 'size-8 rounded-md',\n        'icon-lg': 'size-10 rounded-md',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\ntype ButtonProps = ButtonPrimitiveProps & VariantProps<typeof buttonVariants>;\n\nfunction Button({ className, variant, size, ...props }: ButtonProps) {\n  return (\n    <ButtonPrimitive\n      className={cn(buttonVariants({ variant, size, className }))}\n      {...props}\n    />\n  );\n}\n\nexport { Button, buttonVariants, type ButtonProps };\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/components/buttons/button.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/components-buttons-button.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A button component with a variety of styles and animations. 主要导出：Button、buttonVariants。 最小用法：<Button />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/button.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-components-buttons-button.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

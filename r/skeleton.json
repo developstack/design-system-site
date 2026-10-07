@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/skeleton.tsx",
+      "content": "/**\n * 改造自 shadcn 原装 base-lyra skeleton（https://ui.shadcn.com/r/styles/base-lyra/skeleton.json，MIT）。\n * 与上游的差异：\n * 1. 动效改由 `motion` 属性选预设（ADR 0021），骨架渲染 `data-motion`。缺省 `shimmer`：在 `bg-muted` 上扫过一道高光\n *    （基础层的 `animate-shimmer`，渐变配方见 `@developstack/tokens/base.css` 的 `@keyframes shimmer` 注释）。\n *    上游的 `animate-pulse` 换成预设 `pulse`；`none` 只是一块静态的 `bg-muted`。\n * 此外只有格式化（分号）。\n */\nimport { cn } from \"cn\";\nimport type * as React from \"react\";\n\n/**\n * 骨架支持的动效预设（ADR 0021）。缺省 `shimmer`。\n * - `shimmer`：一道高光从左扫到右，1.4s 循环。\n * - `pulse`：不透明度 1 → 0.5 → 1 呼吸，2s 循环（上游的手感）。\n * - `none`：静态占位块。\n */\ntype SkeletonMotion = \"none\" | \"pulse\" | \"shimmer\";\n\nconst MOTION_CLASS: Record<SkeletonMotion, string> = {\n  shimmer:\n    \"bg-linear-to-r from-transparent from-35% via-foreground/10 via-50% to-transparent to-65% animate-shimmer\",\n  pulse: \"\",\n  none: \"\",\n};\n\nfunction Skeleton({\n  className,\n  motion = \"shimmer\",\n  ...props\n}: React.ComponentProps<\"div\"> & { motion?: SkeletonMotion }) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      data-motion={motion === \"none\" ? undefined : motion}\n      className={cn(\"rounded-none bg-muted\", MOTION_CLASS[motion], className)}\n      {...props}\n    />\n  );\n}\n\nexport { Skeleton, type SkeletonMotion };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/skeleton",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/skeleton-example.tsx"
+    },
+    "status": "adapted",
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/skeleton.json",
+    "snapshotDate": "2026-10-02",
+    "decision": "动效改由 motion 属性选预设（shimmer／pulse／none，缺省 shimmer，ADR 0021）：骨架渲染 data-motion；shimmer 用基础层的 animate-shimmer 加令牌渐变，上游的 animate-pulse 换成预设 pulse。"
+  },
+  "docs": "内容首次加载时用 Skeleton 占位：一行文字 h-4 w-32，头像 size-8 rounded-full，列表骨架从同一份列规格生成；侧栏用 SidebarMenuSkeleton；按钮等待用按钮的加载态，刷新已有内容保留旧内容加 opacity-60，都不用 Skeleton。完整说明见 docs/components/skeleton.md。",
+  "type": "registry:ui"
+}

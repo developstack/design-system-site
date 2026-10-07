@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-primitives-animate-scroll-progress",
+  "title": "Scroll Progress",
+  "description": "A scroll progress component that allows you to track the progress of a scrollable element.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-hooks-use-motion-value-state",
+    "@developstack/animateui-lib-get-strict-context",
+    "@developstack/animateui-primitives-animate-slot"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/primitives/animate/scroll-progress.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/primitives-animate-scroll-progress.json>，上游文件 registry/primitives/animate/scroll-progress/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport {\n  motion,\n  useScroll,\n  useSpring,\n  type MotionValue,\n  type HTMLMotionProps,\n  type SpringOptions,\n} from 'motion/react';\n\nimport { Slot, type WithAsChild } from '@/components/vendor/animateui/primitives/animate/slot';\nimport { getStrictContext } from '@/components/vendor/animateui/lib/get-strict-context';\nimport { useMotionValueState } from '@/components/vendor/animateui/hooks/use-motion-value-state';\n\ntype ScrollProgressDirection = 'horizontal' | 'vertical';\n\ntype ScrollProgressContextType = {\n  containerRef: React.RefObject<HTMLDivElement | null>;\n  progress: MotionValue<number>;\n  scale: MotionValue<number>;\n  direction: ScrollProgressDirection;\n  global: boolean;\n};\n\nconst [LocalScrollProgressProvider, useScrollProgress] =\n  getStrictContext<ScrollProgressContextType>('ScrollProgressContext');\n\ntype ScrollProgressProviderProps = {\n  children: React.ReactNode;\n  global?: boolean;\n  transition?: SpringOptions;\n  direction?: ScrollProgressDirection;\n};\n\nfunction ScrollProgressProvider({\n  global = false,\n  transition = { stiffness: 250, damping: 40, bounce: 0 },\n  direction = 'vertical',\n  ...props\n}: ScrollProgressProviderProps) {\n  const containerRef = React.useRef<HTMLDivElement | null>(null);\n\n  const { scrollYProgress, scrollXProgress } = useScroll(\n    global ? undefined : { container: containerRef },\n  );\n\n  const progress = direction === 'vertical' ? scrollYProgress : scrollXProgress;\n  const scale = useSpring(progress, transition);\n\n  return (\n    <LocalScrollProgressProvider\n      value={{\n        containerRef,\n        progress,\n        scale,\n        direction,\n        global,\n      }}\n      {...props}\n    />\n  );\n}\n\ntype ScrollProgressMode = 'width' | 'height' | 'scaleY' | 'scaleX';\n\ntype ScrollProgressProps = WithAsChild<\n  HTMLMotionProps<'div'> & {\n    mode?: ScrollProgressMode;\n  }\n>;\n\nfunction ScrollProgress({\n  style,\n  mode = 'width',\n  asChild = false,\n  ...props\n}: ScrollProgressProps) {\n  const { scale, direction, global } = useScrollProgress();\n  const scaleValue = useMotionValueState(scale);\n\n  const Component = asChild ? Slot : motion.div;\n\n  return (\n    <Component\n      data-slot=\"scroll-progress\"\n      data-direction={direction}\n      data-mode={mode}\n      data-global={global}\n      style={{\n        ...(mode === 'width' || mode === 'height'\n          ? {\n              [mode]: scaleValue * 100 + '%',\n            }\n          : {\n              [mode]: scale,\n            }),\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\ntype ScrollProgressContainerProps = WithAsChild<HTMLMotionProps<'div'>>;\n\nfunction ScrollProgressContainer({\n  ref,\n  asChild = false,\n  ...props\n}: ScrollProgressContainerProps) {\n  const { containerRef, direction, global } = useScrollProgress();\n\n  React.useImperativeHandle(ref, () => containerRef.current as HTMLDivElement);\n\n  const Component = asChild ? Slot : motion.div;\n\n  return (\n    <Component\n      ref={containerRef}\n      data-slot=\"scroll-progress-container\"\n      data-direction={direction}\n      data-global={global}\n      {...props}\n    />\n  );\n}\n\nexport {\n  ScrollProgressProvider,\n  ScrollProgress,\n  ScrollProgressContainer,\n  useScrollProgress,\n  type ScrollProgressProviderProps,\n  type ScrollProgressProps,\n  type ScrollProgressContainerProps,\n  type ScrollProgressDirection,\n  type ScrollProgressMode,\n  type ScrollProgressContextType,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/primitives/animate/scroll-progress.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/primitives-animate-scroll-progress.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A scroll p… 主要导出：ScrollProgress、ScrollProgressProvider、ScrollProgressContainer、useScrollProgress。 最小用法：<ScrollProgress />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/scroll-progress.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-primitives-animate-scroll-progress.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

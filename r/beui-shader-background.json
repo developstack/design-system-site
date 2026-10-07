@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "beui-shader-background",
+  "title": "Shader Background",
+  "author": "Saurabh <saurabh10102@gmail.com>",
+  "description": "Canvas shader backgrounds (mesh gradient, grain, warp, waves, voronoi, dot orbit and more) with a single typed variant prop. Reduced-motion freezes animated variants.",
+  "dependencies": [
+    "@paper-design/shaders-react",
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/beui/motion/shader-background.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：beUI <https://beui.dev/r/shader-background.json>，上游文件 components/motion/shader-background.tsx\n// 许可证：MIT © 2026 Saurabh Chauhan <https://github.com/starc007/ui-components/blob/main/LICENSE>\n// 收录：2026-10-04；适配：落点（明细见 vendor.lock.json）\n\"use client\";\n// beui.dev/components/motion/shader-background\n\nimport {\n  ColorPanels,\n  type ColorPanelsProps,\n  Dithering,\n  type DitheringProps,\n  DotGrid,\n  type DotGridProps,\n  DotOrbit,\n  type DotOrbitProps,\n  GodRays,\n  type GodRaysProps,\n  GrainGradient,\n  type GrainGradientProps,\n  Metaballs,\n  type MetaballsProps,\n  MeshGradient,\n  type MeshGradientProps,\n  NeuroNoise,\n  type NeuroNoiseProps,\n  PerlinNoise,\n  type PerlinNoiseProps,\n  PulsingBorder,\n  type PulsingBorderProps,\n  SimplexNoise,\n  type SimplexNoiseProps,\n  SmokeRing,\n  type SmokeRingProps,\n  Spiral,\n  type SpiralProps,\n  StaticMeshGradient,\n  type StaticMeshGradientProps,\n  StaticRadialGradient,\n  type StaticRadialGradientProps,\n  Swirl,\n  type SwirlProps,\n  Voronoi,\n  type VoronoiProps,\n  Warp,\n  type WarpProps,\n  Water,\n  type WaterProps,\n  Waves,\n  type WavesProps,\n} from \"@paper-design/shaders-react\";\nimport { useReducedMotion } from \"motion/react\";\nimport type { ComponentType } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ntype ShaderVariantProps = {\n  \"mesh-gradient\": MeshGradientProps;\n  \"grain-gradient\": GrainGradientProps;\n  \"dot-grid\": DotGridProps;\n  \"dot-orbit\": DotOrbitProps;\n  warp: WarpProps;\n  waves: WavesProps;\n  water: WaterProps;\n  voronoi: VoronoiProps;\n  swirl: SwirlProps;\n  \"smoke-ring\": SmokeRingProps;\n  \"static-radial-gradient\": StaticRadialGradientProps;\n  \"neuro-noise\": NeuroNoiseProps;\n  metaballs: MetaballsProps;\n  \"god-rays\": GodRaysProps;\n  spiral: SpiralProps;\n  dithering: DitheringProps;\n  \"pulsing-border\": PulsingBorderProps;\n  \"color-panels\": ColorPanelsProps;\n  \"static-mesh-gradient\": StaticMeshGradientProps;\n  \"simplex-noise\": SimplexNoiseProps;\n  \"perlin-noise\": PerlinNoiseProps;\n};\n\nexport type ShaderBackgroundVariant = keyof ShaderVariantProps;\n\nexport type ShaderBackgroundProps = {\n  [K in ShaderBackgroundVariant]: { variant: K } & ShaderVariantProps[K];\n}[ShaderBackgroundVariant];\n\nconst VARIANT_COMPONENTS: {\n  [K in ShaderBackgroundVariant]: ComponentType<ShaderVariantProps[K]>;\n} = {\n  \"mesh-gradient\": MeshGradient,\n  \"grain-gradient\": GrainGradient,\n  \"dot-grid\": DotGrid,\n  \"dot-orbit\": DotOrbit,\n  warp: Warp,\n  waves: Waves,\n  water: Water,\n  voronoi: Voronoi,\n  swirl: Swirl,\n  \"smoke-ring\": SmokeRing,\n  \"static-radial-gradient\": StaticRadialGradient,\n  \"neuro-noise\": NeuroNoise,\n  metaballs: Metaballs,\n  \"god-rays\": GodRays,\n  spiral: Spiral,\n  dithering: Dithering,\n  \"pulsing-border\": PulsingBorder,\n  \"color-panels\": ColorPanels,\n  \"static-mesh-gradient\": StaticMeshGradient,\n  \"simplex-noise\": SimplexNoise,\n  \"perlin-noise\": PerlinNoise,\n};\n\nexport const SHADER_BACKGROUND_VARIANTS = Object.keys(\n  VARIANT_COMPONENTS,\n) as ShaderBackgroundVariant[];\n\n/**\n * Not every variant animates (e.g. dot-grid is a static pattern), so `speed`\n * is only frozen for reduced motion when the variant actually exposes it.\n */\nexport function ShaderBackground({\n  variant,\n  className,\n  ...rest\n}: ShaderBackgroundProps) {\n  const reducedMotion = useReducedMotion();\n  const Shader = VARIANT_COMPONENTS[variant] as ComponentType<\n    Record<string, unknown>\n  >;\n  const props = rest as Record<string, unknown>;\n  const speedProps = reducedMotion && \"speed\" in props ? { speed: 0 } : {};\n\n  return (\n    <Shader\n      {...props}\n      {...speedProps}\n      className={cn(\"h-full w-full\", className)}\n    />\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/vendor/beui/motion/shader-background.tsx"
+    },
+    {
+      "path": "src/components/vendor/beui/NOTICE.md",
+      "content": "# 收录组件署名：beUI\n\n本目录的文件收录自 beUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：beUI <https://github.com/starc007/ui-components>\n- 许可证：MIT <https://github.com/starc007/ui-components/blob/main/LICENSE>\n- 版权：© 2026 Saurabh Chauhan\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Saurabh Chauhan\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/beui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "beui",
+    "upstream": "https://beui.dev/r/shader-background.json",
+    "license": "MIT"
+  },
+  "docs": "Canvas shader backgrounds (mesh gradient, grain, warp,… 主要导出：ShaderBackground、SHADER_BACKGROUND_VARIANTS。 最小用法：<ShaderBackground variant={…} />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/background.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/beui-shader-background.md。",
+  "categories": [
+    "vendored",
+    "beui"
+  ],
+  "type": "registry:component"
+}

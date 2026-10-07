@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-primitives-headless-popover",
+  "title": "Headless Popover",
+  "description": "Popovers are perfect for floating panels with arbitrary content like navigation menus, mobile menus and flyout menus.",
+  "dependencies": [
+    "@headlessui/react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-lib-get-strict-context"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/primitives/headless/popover.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/primitives-headless-popover.json>，上游文件 registry/primitives/headless/popover/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport {\n  Popover as PopoverPrimitive,\n  PopoverButton as PopoverButtonPrimitive,\n  PopoverPanel as PopoverPanelPrimitive,\n  PopoverBackdrop as PopoverBackdropPrimitive,\n  PopoverGroup as PopoverGroupPrimitive,\n  type PopoverProps as PopoverPrimitiveProps,\n  type PopoverButtonProps as PopoverButtonPrimitiveProps,\n  type PopoverPanelProps as PopoverPanelPrimitiveProps,\n  type PopoverBackdropProps as PopoverBackdropPrimitiveProps,\n  type PopoverGroupProps as PopoverGroupPrimitiveProps,\n} from '@headlessui/react';\nimport {\n  AnimatePresence,\n  motion,\n  type HTMLMotionProps,\n  type Transition,\n} from 'motion/react';\n\nimport { getStrictContext } from '@/components/vendor/animateui/lib/get-strict-context';\n\ntype PopoverContextType = {\n  isOpen: boolean;\n};\n\nconst [PopoverProvider, usePopover] =\n  getStrictContext<PopoverContextType>('PopoverContext');\n\ntype PopoverProps<TTag extends React.ElementType = 'div'> =\n  PopoverPrimitiveProps<TTag> & {\n    as?: TTag;\n  };\n\nfunction Popover<TTag extends React.ElementType = 'div'>({\n  children,\n  ...props\n}: PopoverProps<TTag>) {\n  return (\n    <PopoverPrimitive data-slot=\"popover\" {...props}>\n      {(bag) => (\n        <PopoverProvider value={{ isOpen: bag.open }}>\n          {typeof children === 'function' ? children(bag) : children}\n        </PopoverProvider>\n      )}\n    </PopoverPrimitive>\n  );\n}\n\ntype PopoverButtonProps<TTag extends React.ElementType = 'button'> =\n  PopoverButtonPrimitiveProps<TTag> & {\n    as?: TTag;\n  };\n\nfunction PopoverButton<TTag extends React.ElementType = 'button'>(\n  props: PopoverButtonProps<TTag>,\n) {\n  return <PopoverButtonPrimitive data-slot=\"popover-button\" {...props} />;\n}\n\ntype PopoverBackdropProps<TTag extends React.ElementType = 'div'> =\n  PopoverBackdropPrimitiveProps<TTag> & {\n    as?: TTag;\n  };\n\nfunction PopoverBackdrop<TTag extends React.ElementType = 'div'>(\n  props: PopoverBackdropProps<TTag>,\n) {\n  return <PopoverBackdropPrimitive data-slot=\"popover-backdrop\" {...props} />;\n}\n\ntype PopoverGroupProps<TTag extends React.ElementType = 'div'> =\n  PopoverGroupPrimitiveProps<TTag> & {\n    as?: TTag;\n  };\n\nfunction PopoverGroup<TTag extends React.ElementType = 'div'>(\n  props: PopoverGroupProps<TTag>,\n) {\n  return <PopoverGroupPrimitive data-slot=\"popover-group\" {...props} />;\n}\n\ntype PopoverPanelProps<TTag extends React.ElementType = 'div'> = Omit<\n  PopoverPanelPrimitiveProps<TTag>,\n  'transition'\n> &\n  Omit<HTMLMotionProps<'div'>, 'children'> & {\n    transition?: Transition;\n    as?: TTag;\n  };\n\nfunction PopoverPanel<TTag extends React.ElementType = 'div'>(\n  props: PopoverPanelProps<TTag>,\n) {\n  const {\n    transition = { type: 'spring', stiffness: 300, damping: 25 },\n    as = motion.div,\n    ...rest\n  } = props;\n\n  const { isOpen } = usePopover();\n\n  return (\n    <AnimatePresence>\n      {isOpen && (\n        <PopoverPanelPrimitive\n          key=\"popover-panel\"\n          data-slot=\"popover-panel\"\n          static\n          as={as}\n          initial={{ opacity: 0, scale: 0.5, transition }}\n          animate={{ opacity: 1, scale: 1, transition }}\n          exit={{ opacity: 0, scale: 0.5, transition }}\n          {...rest}\n        />\n      )}\n    </AnimatePresence>\n  );\n}\n\nexport {\n  Popover,\n  PopoverButton,\n  PopoverPanel,\n  PopoverBackdrop,\n  PopoverGroup,\n  type PopoverProps,\n  type PopoverButtonProps,\n  type PopoverPanelProps,\n  type PopoverBackdropProps,\n  type PopoverGroupProps,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/primitives/headless/popover.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/primitives-headless-popover.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "Popovers are perfect for floating panels with arbitrary c… 主要导出：Popover、PopoverButton、PopoverPanel、PopoverBackdrop 等。 最小用法：<Popover />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/popover.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-primitives-headless-popover.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

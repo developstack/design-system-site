@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "message-scroller",
+  "dependencies": [
+    "cn",
+    "@shadcn/react@~0.3.1",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@developstack/button"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/message-scroller.tsx",
+      "content": "\"use client\";\n\n/**\n * 改造自 shadcn 原装 base-lyra message-scroller\n * （https://ui.shadcn.com/r/styles/base-lyra/message-scroller.json，MIT）。\n * 滚动行为来自 @shadcn/react ~0.3.1（ADR 0007）。按 #16 改造：\n * - 滚动按钮的动效用预设 pop（ADR 0021；原来是两条任意值曲线，Q10 先换成 ease-enter／ease-exit 类）：\n *   显示时淡入加缩放，ease-enter；隐藏时渲染 data-ending-style，沿原路退回，ease-exit。按钮常驻、只切显隐，\n *   所以隐藏态由本组件按 useMessageScrollerScrollable() 算出，不靠 Base UI。原来隐藏时的半个按钮位移去掉了；\n * - 删去 Item 的 content-visibility／contain-intrinsic-size 任意属性；\n * - Viewport 的 scroll-fade-b 来自 shadcn/tailwind.css，消费者 globals.css 保留该导入；\n * - 图标直接用 lucide（ADR 0004）。\n */\nimport {\n  MessageScroller as MessageScrollerPrimitive,\n  useMessageScroller,\n  useMessageScrollerScrollable,\n  useMessageScrollerVisibility,\n} from \"@shadcn/react/message-scroller\";\nimport { cn } from \"cn\";\nimport { ArrowDownIcon } from \"lucide-react\";\nimport type * as React from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\n\nfunction MessageScrollerProvider(\n  props: React.ComponentProps<typeof MessageScrollerPrimitive.Provider>,\n) {\n  return <MessageScrollerPrimitive.Provider {...props} />;\n}\n\nfunction MessageScroller({\n  className,\n  ...props\n}: React.ComponentProps<typeof MessageScrollerPrimitive.Root>) {\n  return (\n    <MessageScrollerPrimitive.Root\n      data-slot=\"message-scroller\"\n      className={cn(\n        \"group/message-scroller relative flex size-full min-h-0 flex-col overflow-hidden\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction MessageScrollerViewport({\n  className,\n  ...props\n}: React.ComponentProps<typeof MessageScrollerPrimitive.Viewport>) {\n  return (\n    <MessageScrollerPrimitive.Viewport\n      data-slot=\"message-scroller-viewport\"\n      className={cn(\n        \"size-full min-h-0 min-w-0 scroll-fade-b scrollbar-thin scrollbar-gutter-stable overflow-y-auto overscroll-contain contain-content data-autoscrolling:scrollbar-thumb-transparent data-autoscrolling:scrollbar-track-transparent data-pending-scroll:invisible\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction MessageScrollerContent({\n  className,\n  ...props\n}: React.ComponentProps<typeof MessageScrollerPrimitive.Content>) {\n  return (\n    <MessageScrollerPrimitive.Content\n      data-slot=\"message-scroller-content\"\n      className={cn(\"flex h-max min-h-full flex-col gap-6\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction MessageScrollerItem({\n  className,\n  scrollAnchor = false,\n  ...props\n}: React.ComponentProps<typeof MessageScrollerPrimitive.Item>) {\n  return (\n    <MessageScrollerPrimitive.Item\n      data-slot=\"message-scroller-item\"\n      scrollAnchor={scrollAnchor}\n      className={cn(\"min-w-0 shrink-0\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction MessageScrollerButton({\n  direction = \"end\",\n  className,\n  children,\n  render,\n  variant = \"secondary\",\n  size = \"icon-sm\",\n  ...props\n}: React.ComponentProps<typeof MessageScrollerPrimitive.Button> &\n  Pick<React.ComponentProps<typeof Button>, \"variant\" | \"size\">) {\n  const scrollable = useMessageScrollerScrollable();\n  const active = direction === \"start\" ? scrollable.start : scrollable.end;\n  return (\n    <MessageScrollerPrimitive.Button\n      data-slot=\"message-scroller-button\"\n      data-direction={direction}\n      data-variant={variant}\n      data-size={size}\n      data-motion=\"pop\"\n      data-ending-style={active ? undefined : \"\"}\n      direction={direction}\n      className={cn(\n        \"absolute inset-s-1/2 -translate-x-1/2 border-border bg-background text-foreground hover:bg-muted hover:text-foreground data-[active=false]:pointer-events-none data-[direction=end]:bottom-4 data-[direction=start]:top-4 rtl:translate-x-1/2 data-[direction=start]:[&_svg]:rotate-180\",\n        className,\n      )}\n      render={render ?? <Button variant={variant} size={size} />}\n      {...props}\n    >\n      {children ?? (\n        <>\n          <ArrowDownIcon />\n          <span className=\"sr-only\">\n            {direction === \"end\" ? \"Scroll to end\" : \"Scroll to start\"}\n          </span>\n        </>\n      )}\n    </MessageScrollerPrimitive.Button>\n  );\n}\n\nexport {\n  MessageScroller,\n  MessageScrollerButton,\n  MessageScrollerContent,\n  MessageScrollerItem,\n  MessageScrollerProvider,\n  MessageScrollerViewport,\n  useMessageScroller,\n  useMessageScrollerScrollable,\n  useMessageScrollerVisibility,\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "status": "adapted",
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/message-scroller.json",
+    "snapshotDate": "2026-10-03",
+    "decision": "https://github.com/developstack/design-system/issues/16"
+  },
+  "docs": "对话列表：Provider > MessageScroller > Viewport > Content > 每条一个 Item，父容器要有确定高度。流式输出贴底用 Provider autoScroll；发出的用户消息 Item 加 scrollAnchor；回到底部用 MessageScrollerButton，放在 Viewport 之后；加载历史用 Viewport preserveScrollOnPrepend。不要手写贴底。完整说明见 docs/components/message-scroller.md。",
+  "type": "registry:ui"
+}

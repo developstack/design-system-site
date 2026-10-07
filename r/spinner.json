@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/spinner.tsx",
+      "content": "import { cn } from \"cn\"\n\nimport { IconPlaceholder } from \"@/app/(create)/components/icon-placeholder\"\n\nfunction Spinner({ className, ...props }: React.ComponentProps<\"svg\">) {\n  return (\n    <IconPlaceholder\n      lucide=\"Loader2Icon\"\n      tabler=\"IconLoader\"\n      hugeicons=\"Loading03Icon\"\n      phosphor=\"SpinnerIcon\"\n      remixicon=\"RiLoaderLine\"\n      data-slot=\"spinner\"\n      role=\"status\"\n      aria-label=\"Loading\"\n      className={cn(\"size-4 animate-spin\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Spinner }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/spinner",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/spinner-example.tsx"
+    },
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/spinner.json",
+    "snapshotDate": "2026-10-06",
+    "sha256": {
+      "src/components/ui/spinner.tsx": "494f71fd2733709d0e43be44e3353d9df215b370137af0195251cbdfdcc9e17b"
+    }
+  },
+  "docs": "短操作正在进行时用 Spinner：按钮里放 Spinner 并禁用按钮，区域刷新时保留旧内容、中间放 Spinner，尺寸只用 size-*。内容首次加载用 Skeleton，知道进度的长任务用 Progress，不自己写 animate-spin 图标。完整说明见 docs/components/spinner.md。",
+  "type": "registry:ui"
+}

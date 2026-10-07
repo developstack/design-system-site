@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hextaui-toggle",
+  "title": "Toggle",
+  "description": "A button that stays on or off, with a fill that settles in when pressed, a clear hover-to-on step and icons that can fill with the state.",
+  "dependencies": [
+    "@base-ui/react@^1.8.0",
+    "class-variance-authority",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/hextaui/ui/toggle.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：HextaUI <https://hextaui.com/r/toggle.json>，上游文件 components/ui/toggle.tsx\n// 许可证：MIT © 2026 Preet Suthar <https://github.com/preetsuthar17/hextaui/blob/main/LICENSE>\n// 收录：2026-10-06；适配：落点（明细见 vendor.lock.json）\n\"use client\"\n\nimport * as React from \"react\"\nimport { Toggle as TogglePrimitive } from \"@base-ui/react/toggle\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"cn\"\n\ntype ClassName<State> =\n  string | ((state: State) => string | undefined) | undefined\n\nfunction mergeClassName<State>(base: string, className: ClassName<State>) {\n  return typeof className === \"function\"\n    ? (state: State) => cn(base, className(state))\n    : cn(base, className)\n}\n\nconst toggleVariants = cva(\n  \"group/toggle relative isolate inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 rounded-md bg-clip-padding text-sm font-medium whitespace-nowrap text-muted-foreground inset-ring-(length:--hairline) inset-ring-transparent transition-[color,background-color,box-shadow,opacity,translate,scale] duration-200 ease-out-quint outline-none select-none before:pointer-events-none before:absolute before:inset-(--hairline) before:-z-1 before:rounded-[inherit] before:bg-foreground/8 before:opacity-0 before:transition-[opacity,scale] before:duration-200 before:ease-out-quint hover:text-foreground focus-visible:z-10 focus-visible:ring-3 focus-visible:ring-focus-ring focus-visible:inset-ring-ring focus-visible:outline-hidden active:duration-100 aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:inset-ring-destructive data-pressed:text-foreground data-pressed:before:opacity-100 motion-safe:before:scale-[0.88] motion-safe:active:not-data-disabled:translate-y-px motion-safe:active:not-data-disabled:scale-[0.97] motion-safe:data-pressed:before:scale-100 dark:before:bg-foreground/12 dark:aria-invalid:ring-destructive/40 dark:aria-invalid:inset-ring-destructive/50 forced-colors:border forced-colors:before:hidden forced-colors:data-pressed:outline-2 forced-colors:data-pressed:-outline-offset-2 forced-colors:data-pressed:outline-solid pointer-coarse:after:absolute pointer-coarse:in-data-[slot=toggle-group]:after:hidden data-disabled:pointer-events-none data-disabled:cursor-not-allowed data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:transition-[color,fill] [&_svg]:duration-200 [&_svg]:ease-out-quint [&_svg:not([class*='size-'])]:size-4\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-transparent hover:bg-muted dark:hover:bg-muted/50\",\n        outline:\n          \"bg-background inset-ring-border hover:bg-muted dark:bg-input/30 dark:inset-ring-input dark:hover:bg-input/50\",\n      },\n      size: {\n        default: \"h-9 min-w-9 px-2 pointer-coarse:after:-inset-1\",\n        sm: \"h-8 min-w-8 rounded-[min(var(--radius-md),10px)] px-1.5 pointer-coarse:after:-inset-1.5\",\n        lg: \"h-10 min-w-10 px-2.5 pointer-coarse:after:-inset-0.5\",\n      },\n      shape: {\n        default: \"\",\n        pill: \"rounded-full\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n      shape: \"default\",\n    },\n  }\n)\n\ntype ToggleProps<Value extends string = string> = TogglePrimitive.Props<Value> &\n  VariantProps<typeof toggleVariants>\n\nfunction Toggle<Value extends string = string>({\n  className,\n  variant = \"default\",\n  size = \"default\",\n  shape = \"default\",\n  ...props\n}: ToggleProps<Value>) {\n  return (\n    <TogglePrimitive\n      data-variant={variant}\n      data-size={size}\n      data-shape={shape ?? \"default\"}\n      className={mergeClassName(\n        toggleVariants({ variant, size, shape }),\n        className\n      )}\n      {...props}\n      data-slot=\"toggle\"\n    />\n  )\n}\n\nexport { Toggle, toggleVariants }\nexport type { ToggleProps }\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/hextaui/ui/toggle.tsx"
+    },
+    {
+      "path": "src/components/vendor/hextaui/NOTICE.md",
+      "content": "# 收录组件署名：HextaUI\n\n本目录的文件收录自 HextaUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：HextaUI <https://github.com/preetsuthar17/hextaui>\n- 许可证：MIT <https://github.com/preetsuthar17/hextaui/blob/main/LICENSE>\n- 版权：© 2026 Preet Suthar\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Preet Suthar\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/hextaui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "hextaui",
+    "upstream": "https://hextaui.com/r/toggle.json",
+    "license": "MIT"
+  },
+  "docs": "A button that stays on or off, with a fill that settles in when pressed, a clear hover-to-on step and icons that can… 主要导出：Toggle、toggleVariants。 最小用法：<Toggle />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/toggle.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/hextaui-toggle.md。",
+  "categories": [
+    "vendored",
+    "hextaui"
+  ],
+  "type": "registry:ui"
+}

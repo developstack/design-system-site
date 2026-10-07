@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "uselayouts-create-menu",
+  "title": "Create Menu",
+  "description": "A Start Creating pill that springs open into a list of create actions.",
+  "dependencies": [
+    "@hugeicons/core-free-icons",
+    "@hugeicons/react",
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/uselayouts/create-menu.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：useLayouts <https://uselayouts.com/r/create-menu.json>，上游文件 registry/default/example/create-menu.tsx\n// 许可证：MIT © 2025 Urvish Mali <https://github.com/iurvish/uselayouts/blob/main/LICENSE>\n// 收录：2026-10-04；适配：落点（明细见 vendor.lock.json）\n\"use client\";\n\nimport { useEffect, useMemo, useRef, useState } from \"react\";\nimport { motion } from \"motion/react\";\nimport { HugeiconsIcon } from \"@hugeicons/react\";\nimport {\n  AiBookIcon,\n  AiContentGenerator02Icon,\n  AiIdeaIcon,\n  AssignmentsIcon,\n  LicenseDraftIcon,\n  PencilEdit02Icon,\n  PlusSignCircleIcon,\n} from \"@hugeicons/core-free-icons\";\n\nexport default function CreateMenu() {\n  const [view, setView] = useState<\"button\" | \"dropdown\">(\"button\");\n  const rootRef = useRef<HTMLDivElement>(null);\n\n  const content = useMemo(() => {\n    if (view === \"dropdown\") return <MenuItems />;\n    return <NewButton onClick={() => setView(\"dropdown\")} />;\n  }, [view]);\n\n  useEffect(() => {\n    const onPointer = (event: MouseEvent) => {\n      if (rootRef.current && !rootRef.current.contains(event.target as Node)) {\n        setView(\"button\");\n      }\n    };\n    document.addEventListener(\"mousedown\", onPointer);\n    return () => document.removeEventListener(\"mousedown\", onPointer);\n  }, []);\n\n  return (\n    <div className=\"relative h-10 w-full\">\n      <motion.div\n        ref={rootRef}\n        layout\n        transition={{ type: \"spring\", bounce: 0.3 }}\n        style={{\n          borderRadius: view === \"button\" ? 22 : 12,\n          transformOrigin: \"top left\",\n        }}\n        className={\n          view === \"button\"\n            ? \"absolute z-20 w-fit overflow-hidden rounded-full bg-primary text-primary-foreground shadow-sm\"\n            : \"absolute z-20 w-fit overflow-hidden rounded-[12px] bg-popover text-popover-foreground shadow-sm ring-1 ring-border ring-inset\"\n        }\n      >\n        <motion.div\n          layout\n          key={view}\n          initial={{ scaleY: 0.98, opacity: 0, filter: \"blur(4px)\" }}\n          animate={{\n            scaleY: 1,\n            opacity: 1,\n            filter: \"blur(0px)\",\n            transition: { duration: 0.2, delay: 0.03 },\n          }}\n          transition={{ type: \"spring\" }}\n        >\n          {content}\n        </motion.div>\n      </motion.div>\n    </div>\n  );\n}\n\nfunction NewButton({ onClick }: { onClick: () => void }) {\n  return (\n    <button\n      type=\"button\"\n      className=\"z-10 flex w-fit cursor-pointer items-center justify-center gap-1.5 px-4 py-2 pl-3.5\"\n      onClick={onClick}\n    >\n      <HugeiconsIcon icon={PlusSignCircleIcon} className=\"size-4\" />\n      Start Creating\n    </button>\n  );\n}\n\nfunction MenuItems() {\n  const items = [\n    { label: \"New Post\", icon: LicenseDraftIcon },\n    { label: \"Generate Idea\", icon: AiIdeaIcon },\n    { label: \"Create Thread\", icon: PencilEdit02Icon },\n    { label: \"New Template\", icon: AssignmentsIcon },\n    { label: \"Repurpose Content\", icon: AiContentGenerator02Icon },\n    { label: \"AI Quick Tool\", icon: AiBookIcon },\n  ];\n\n  return (\n    <div className=\"flex w-fit flex-col gap-0.5 rounded-full p-1\">\n      {items.map((item) => (\n        <button\n          key={item.label}\n          type=\"button\"\n          className=\"flex w-full cursor-pointer items-center gap-2 rounded-md bg-muted px-3 py-2 pl-2.5 text-sm text-foreground transition-colors duration-150 ease-out hover:bg-accent hover:text-accent-foreground\"\n        >\n          <HugeiconsIcon icon={item.icon} strokeWidth={1.6} className=\"size-4\" />\n          <span className=\"whitespace-nowrap\">{item.label}</span>\n        </button>\n      ))}\n    </div>\n  );\n}\n\n",
+      "type": "registry:component",
+      "target": "@components/vendor/uselayouts/create-menu.tsx"
+    },
+    {
+      "path": "src/components/vendor/uselayouts/NOTICE.md",
+      "content": "# 收录组件署名：useLayouts\n\n本目录的文件收录自 useLayouts，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：useLayouts <https://github.com/iurvish/uselayouts>\n- 许可证：MIT <https://github.com/iurvish/uselayouts/blob/main/LICENSE>\n- 版权：© 2025 Urvish Mali\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2025 Urvish Mali\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/uselayouts/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "uselayouts",
+    "upstream": "https://uselayouts.com/r/create-menu.json",
+    "license": "MIT"
+  },
+  "docs": "A Start Creating pill that springs open into a list of create actions. 主要导出：CreateMenu。 最小用法：<CreateMenu />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/menu.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/uselayouts-create-menu.md。",
+  "categories": [
+    "vendored",
+    "uselayouts"
+  ],
+  "type": "registry:component"
+}

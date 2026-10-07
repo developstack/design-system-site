@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-hydration",
+  "title": "Hydration",
+  "description": "Tall bottle card — count at the top, water level rises inside a simple bottle outline. Tap to log a glass.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/widgets/hydration-widget.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/hydration>，上游文件 components/widgets/hydration-widget.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport {\n  forwardRef,\n  useId,\n  useState,\n  type ComponentPropsWithoutRef,\n} from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type HydrationWidgetProps = Readonly<\n  {\n    glasses?: number;\n    goal?: number;\n    label?: string;\n  } & ComponentPropsWithoutRef<\"button\">\n>;\n\n// Hydration — tall bottle card, tap to fill one more glass.\nexport const HydrationWidget = forwardRef<\n  HTMLButtonElement,\n  HydrationWidgetProps\n>(\n  (\n    {\n      className,\n      glasses: defaultGlasses = 5,\n      goal = 8,\n      label = \"glasses\",\n      onClick,\n      ...props\n    },\n    ref,\n  ) => {\n    const [glasses, setGlasses] = useState(defaultGlasses);\n    const fill = Math.min(1, glasses / goal);\n    const clipId = useId();\n\n    return (\n      <button\n        ref={ref}\n        type=\"button\"\n        aria-label=\"Log a glass of water\"\n        data-slot=\"hydration-widget\"\n        onClick={(event) => {\n          setGlasses((prev) => (prev >= goal ? 0 : prev + 1));\n          onClick?.(event);\n        }}\n        className={cn(\n          \"flex h-60 w-36 cursor-pointer flex-col items-center rounded-[2rem] border border-neutral-200/80 bg-white px-5 pt-5 pb-6 font-sans shadow-lg shadow-black/5 select-none\",\n          className,\n        )}\n        {...props}\n      >\n        <div className=\"w-full text-left\">\n          <span className=\"text-3xl leading-none font-light text-neutral-900 tabular-nums\">\n            {glasses}\n          </span>\n          <span className=\"ml-0.5 text-sm text-neutral-400\">/{goal}</span>\n          <p className=\"mt-1 text-xs text-neutral-500\">{label}</p>\n        </div>\n\n        <div className=\"relative mt-5 flex flex-1 items-end justify-center\">\n          <svg viewBox=\"0 0 64 120\" className=\"h-full w-14\" aria-hidden>\n            <defs>\n              <clipPath id={clipId}>\n                <rect x=\"12\" y=\"18\" width=\"40\" height=\"94\" rx=\"18\" />\n              </clipPath>\n            </defs>\n\n            <rect\n              x=\"26\"\n              y=\"6\"\n              width=\"12\"\n              height=\"10\"\n              rx=\"3\"\n              fill=\"none\"\n              stroke=\"#D4D4D4\"\n              strokeWidth=\"1.5\"\n            />\n            <rect\n              x=\"12\"\n              y=\"18\"\n              width=\"40\"\n              height=\"94\"\n              rx=\"18\"\n              fill=\"none\"\n              stroke=\"#D4D4D4\"\n              strokeWidth=\"1.5\"\n            />\n\n            <rect\n              x=\"12\"\n              y={18 + 94 * (1 - fill)}\n              width=\"40\"\n              height={94 * fill}\n              fill=\"#7DD3FC\"\n              clipPath={`url(#${clipId})`}\n              className=\"transition-all duration-300 ease-out\"\n            />\n          </svg>\n        </div>\n      </button>\n    );\n  },\n);\n\nHydrationWidget.displayName = \"HydrationWidget\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/widgets/hydration-widget.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/hydration",
+    "license": "MIT"
+  },
+  "docs": "Tall bottle card — count at the top, water level rises inside a simple bottle outline. 主要导出：HydrationWidget。 最小用法：<HydrationWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-hydration.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

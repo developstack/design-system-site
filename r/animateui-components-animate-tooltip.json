@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-components-animate-tooltip",
+  "title": "Tooltip",
+  "description": "A tooltip is a small box that appears when hovering over an element.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-primitives-animate-tooltip"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/components/animate/tooltip.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/components-animate-tooltip.json>，上游文件 registry/components/animate/tooltip/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\nimport * as React from 'react';\nimport * as motion from 'motion/react-client';\n\nimport {\n  TooltipProvider as TooltipProviderPrimitive,\n  Tooltip as TooltipPrimitive,\n  TooltipTrigger as TooltipTriggerPrimitive,\n  TooltipContent as TooltipContentPrimitive,\n  TooltipArrow as TooltipArrowPrimitive,\n  type TooltipProviderProps as TooltipProviderPrimitiveProps,\n  type TooltipProps as TooltipPrimitiveProps,\n  type TooltipTriggerProps as TooltipTriggerPrimitiveProps,\n  type TooltipContentProps as TooltipContentPrimitiveProps,\n} from '@/components/vendor/animateui/primitives/animate/tooltip';\nimport { cn } from '@/lib/utils';\n\ntype TooltipProviderProps = TooltipProviderPrimitiveProps;\n\nfunction TooltipProvider({ openDelay = 0, ...props }: TooltipProviderProps) {\n  return <TooltipProviderPrimitive openDelay={openDelay} {...props} />;\n}\n\ntype TooltipProps = TooltipPrimitiveProps;\n\nfunction Tooltip({ sideOffset = 10, ...props }: TooltipProps) {\n  return <TooltipPrimitive sideOffset={sideOffset} {...props} />;\n}\n\ntype TooltipTriggerProps = TooltipTriggerPrimitiveProps;\n\nfunction TooltipTrigger({ ...props }: TooltipTriggerProps) {\n  return <TooltipTriggerPrimitive {...props} />;\n}\n\ntype TooltipContentProps = Omit<TooltipContentPrimitiveProps, 'asChild'> & {\n  children: React.ReactNode;\n  layout?: boolean | 'position' | 'size' | 'preserve-aspect';\n};\n\nfunction TooltipContent({\n  className,\n  children,\n  layout = 'preserve-aspect',\n  ...props\n}: TooltipContentProps) {\n  return (\n    <TooltipContentPrimitive\n      className={cn(\n        'z-50 w-fit bg-primary text-primary-foreground rounded-md',\n        className,\n      )}\n      {...props}\n    >\n      <motion.div className=\"overflow-hidden px-3 py-1.5 text-xs text-balance\">\n        <motion.div layout={layout}>{children}</motion.div>\n      </motion.div>\n      <TooltipArrowPrimitive\n        className=\"fill-primary size-3 data-[side='bottom']:translate-y-[1px] data-[side='right']:translate-x-[1px] data-[side='left']:translate-x-[-1px] data-[side='top']:translate-y-[-1px]\"\n        tipRadius={2}\n      />\n    </TooltipContentPrimitive>\n  );\n}\n\nexport {\n  TooltipProvider,\n  Tooltip,\n  TooltipTrigger,\n  TooltipContent,\n  type TooltipProviderProps,\n  type TooltipProps,\n  type TooltipTriggerProps,\n  type TooltipContentProps,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/components/animate/tooltip.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/components-animate-tooltip.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A tooltip is a small box that appears when hover… 主要导出：Tooltip、TooltipProvider、TooltipTrigger、TooltipContent。 最小用法：<Tooltip>…</Tooltip>。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/tooltip.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-components-animate-tooltip.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

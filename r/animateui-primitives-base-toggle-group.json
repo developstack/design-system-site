@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-primitives-base-toggle-group",
+  "title": "Base Toggle Group",
+  "description": "Provides a shared state to a series of toggle buttons.",
+  "dependencies": [
+    "@base-ui/react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-hooks-use-controlled-state",
+    "@developstack/animateui-lib-get-strict-context",
+    "@developstack/animateui-primitives-effects-highlight"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/primitives/base/toggle-group.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/primitives-base-toggle-group.json>，上游文件 registry/primitives/base/toggle-group/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径、包名（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport { Toggle as TogglePrimitive } from '@base-ui/react/toggle';\nimport { ToggleGroup as ToggleGroupPrimitive } from '@base-ui/react/toggle-group';\nimport { AnimatePresence, motion, type HTMLMotionProps } from 'motion/react';\n\nimport {\n  Highlight,\n  HighlightItem,\n  type HighlightItemProps,\n  type HighlightProps,\n} from '@/components/vendor/animateui/primitives/effects/highlight';\nimport { getStrictContext } from '@/components/vendor/animateui/lib/get-strict-context';\nimport { useControlledState } from '@/components/vendor/animateui/hooks/use-controlled-state';\n\ntype ToggleGroupContextType = {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  value: any[];\n  setValue: ToggleGroupProps['onValueChange'];\n  multiple: boolean | undefined;\n};\n\nconst [ToggleGroupProvider, useToggleGroup] =\n  getStrictContext<ToggleGroupContextType>('ToggleGroupContext');\n\ntype ToggleGroupProps = React.ComponentProps<typeof ToggleGroupPrimitive>;\n\nfunction ToggleGroup(props: ToggleGroupProps) {\n  const [value, setValue] = useControlledState({\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    value: props.value as any[],\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    defaultValue: props.defaultValue as any[],\n    onChange: props.onValueChange,\n  });\n\n  return (\n    <ToggleGroupProvider value={{ value, setValue, multiple: props.multiple }}>\n      <ToggleGroupPrimitive\n        data-slot=\"toggle-group\"\n        {...props}\n        onValueChange={setValue}\n      />\n    </ToggleGroupProvider>\n  );\n}\n\ntype ToggleProps = Omit<\n  React.ComponentProps<typeof TogglePrimitive>,\n  'render'\n> &\n  HTMLMotionProps<'button'>;\n\nfunction Toggle({\n  value,\n  pressed,\n  defaultPressed,\n  onPressedChange,\n  nativeButton,\n  disabled,\n  ...props\n}: ToggleProps) {\n  return (\n    <TogglePrimitive\n      value={value}\n      disabled={disabled}\n      pressed={pressed}\n      defaultPressed={defaultPressed}\n      onPressedChange={onPressedChange}\n      nativeButton={nativeButton}\n      render={\n        <motion.button\n          data-slot=\"toggle\"\n          whileTap={{ scale: 0.95 }}\n          {...props}\n        />\n      }\n    />\n  );\n}\n\ntype ToggleGroupHighlightProps = Omit<HighlightProps, 'controlledItems'>;\n\nfunction ToggleGroupHighlight({\n  transition = { type: 'spring', stiffness: 200, damping: 25 },\n  ...props\n}: ToggleGroupHighlightProps) {\n  const { value } = useToggleGroup();\n\n  return (\n    <Highlight\n      data-slot=\"toggle-group-highlight\"\n      controlledItems\n      value={value?.[0] ?? null}\n      exitDelay={0}\n      transition={transition}\n      {...props}\n    />\n  );\n}\n\ntype ToggleHighlightProps = HighlightItemProps &\n  HTMLMotionProps<'div'> & {\n    children: React.ReactElement;\n  };\n\nfunction ToggleHighlight({ children, style, ...props }: ToggleHighlightProps) {\n  const { multiple, value } = useToggleGroup();\n\n  if (!multiple) {\n    return (\n      <HighlightItem\n        data-slot=\"toggle-highlight\"\n        style={{ inset: 0, ...style }}\n        {...props}\n      >\n        {children}\n      </HighlightItem>\n    );\n  }\n\n  if (multiple && React.isValidElement(children)) {\n    const isActive = props.value && value && value.includes(props.value);\n\n    const element = children as React.ReactElement<React.ComponentProps<'div'>>;\n\n    return React.cloneElement(\n      children,\n      {\n        style: {\n          ...element.props.style,\n          position: 'relative',\n        },\n        ...element.props,\n      },\n      <>\n        <AnimatePresence>\n          {isActive && (\n            <motion.div\n              data-slot=\"toggle-highlight\"\n              style={{ position: 'absolute', inset: 0, zIndex: 0, ...style }}\n              initial={{ opacity: 0 }}\n              animate={{ opacity: 1 }}\n              exit={{ opacity: 0 }}\n              {...props}\n            />\n          )}\n        </AnimatePresence>\n\n        <div\n          style={{\n            position: 'relative',\n            zIndex: 1,\n          }}\n        >\n          {element.props.children}\n        </div>\n      </>,\n    );\n  }\n}\n\nexport {\n  ToggleGroup,\n  ToggleGroupHighlight,\n  Toggle,\n  ToggleHighlight,\n  useToggleGroup,\n  type ToggleGroupProps,\n  type ToggleGroupHighlightProps,\n  type ToggleProps,\n  type ToggleHighlightProps,\n  type ToggleGroupContextType,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/primitives/base/toggle-group.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/primitives-base-toggle-group.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "Provides a shared state to a series of toggl… 主要导出：ToggleGroup、ToggleGroupHighlight、Toggle、ToggleHighlight 等。 最小用法：<ToggleGroup />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/toggle-group.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-primitives-base-toggle-group.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

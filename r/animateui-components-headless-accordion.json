@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-components-headless-accordion",
+  "title": "Accordion",
+  "description": "A vertically stacked set of interactive headings that each reveal an associated section of content.",
+  "dependencies": [
+    "lucide-react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-primitives-headless-disclosure"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/components/headless/accordion.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/components-headless-accordion.json>，上游文件 registry/components/headless/accordion/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\nimport * as React from 'react';\nimport { motion } from 'motion/react';\nimport { ChevronDownIcon } from 'lucide-react';\n\nimport {\n  Disclosure as DisclosurePrimitive,\n  DisclosureButton as DisclosureButtonPrimitive,\n  DisclosurePanel as DisclosurePanelPrimitive,\n  type DisclosureProps as DisclosurePrimitiveProps,\n  type DisclosureButtonProps as DisclosureButtonPrimitiveProps,\n  type DisclosurePanelProps as DisclosurePanelPrimitiveProps,\n} from '@/components/vendor/animateui/primitives/headless/disclosure';\nimport { cn } from '@/lib/utils';\n\ntype AccordionProps<TTag extends React.ElementType = 'div'> =\n  React.ComponentProps<TTag> & {\n    children: React.ReactNode;\n    as?: TTag;\n  };\n\nfunction Accordion<TTag extends React.ElementType = 'div'>({\n  as: Component = 'div',\n  ...props\n}: AccordionProps<TTag>) {\n  return <Component data-slot=\"accordion\" {...props} />;\n}\n\ntype AccordionItemProps<TTag extends React.ElementType = 'div'> =\n  DisclosurePrimitiveProps<TTag>;\n\nfunction AccordionItem<TTag extends React.ElementType = 'div'>({\n  className,\n  children,\n  ...props\n}: AccordionItemProps<TTag>) {\n  return (\n    <DisclosurePrimitive {...props}>\n      {(bag) => (\n        <div className={cn('border-b last:border-b-0', className)}>\n          {typeof children === 'function' ? children(bag) : children}\n        </div>\n      )}\n    </DisclosurePrimitive>\n  );\n}\n\ntype AccordionButtonProps = DisclosureButtonPrimitiveProps & {\n  showArrow?: boolean;\n};\n\nfunction AccordionButton({\n  className,\n  children,\n  showArrow = true,\n  ...props\n}: AccordionButtonProps) {\n  return (\n    <DisclosureButtonPrimitive\n      className={cn(\n        'focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 w-full rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-open]>svg]:rotate-180',\n        className,\n      )}\n      {...props}\n    >\n      {(bag) => (\n        <>\n          {typeof children === 'function' ? children(bag) : children}\n          {showArrow && (\n            <ChevronDownIcon className=\"text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200\" />\n          )}\n        </>\n      )}\n    </DisclosureButtonPrimitive>\n  );\n}\n\ntype AccordionPanelProps<TTag extends React.ElementType = typeof motion.div> =\n  DisclosurePanelPrimitiveProps<TTag>;\n\nfunction AccordionPanel<TTag extends React.ElementType = typeof motion.div>({\n  className,\n  children,\n  ...props\n}: AccordionPanelProps<TTag>) {\n  return (\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    <DisclosurePanelPrimitive<any> {...props}>\n      {(bag) => (\n        <div className={cn('text-sm pt-0 pb-4', className)}>\n          {typeof children === 'function' ? children(bag) : children}\n        </div>\n      )}\n    </DisclosurePanelPrimitive>\n  );\n}\n\nexport {\n  Accordion,\n  AccordionItem,\n  AccordionButton,\n  AccordionPanel,\n  type AccordionProps,\n  type AccordionItemProps,\n  type AccordionButtonProps,\n  type AccordionPanelProps,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/components/headless/accordion.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/components-headless-accordion.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A vertically stacked set of interactive headings… 主要导出：Accordion、AccordionItem、AccordionButton、AccordionPanel。 最小用法：<Accordion />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/accordion.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-components-headless-accordion.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

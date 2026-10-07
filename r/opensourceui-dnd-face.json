@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-dnd-face",
+  "title": "Dnd Face",
+  "description": "Focus mode as a purple moon mascot — tap to toggle DND and watch the expression shift. Makes a utilitarian setting feel a little human.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/widgets/dnd-face-widget.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/dnd-face>，上游文件 components/widgets/dnd-face-widget.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport { forwardRef, useState, type ComponentPropsWithoutRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Moon } from \"lucide-react\";\n\nconst MASCOT = \"#A78BFA\";\nconst ACCENT = \"#C4B5FD\";\nconst DIAL = { cx: 88, cy: 84, r: 56 } as const;\n\ntype DndMascotProps = Readonly<{\n  on: boolean;\n}>;\n\nfunction DndMascot({ on }: DndMascotProps) {\n  return (\n    <g aria-hidden>\n      <circle cx=\"88\" cy=\"142\" r=\"58\" fill={MASCOT} />\n      {on ? (\n        <>\n          <path\n            d=\"M64 122 Q68 118 72 122\"\n            stroke=\"white\"\n            strokeWidth=\"2.2\"\n            fill=\"none\"\n            strokeLinecap=\"round\"\n          />\n          <path\n            d=\"M104 122 Q108 118 112 122\"\n            stroke=\"white\"\n            strokeWidth=\"2.2\"\n            fill=\"none\"\n            strokeLinecap=\"round\"\n          />\n        </>\n      ) : (\n        <>\n          <circle cx=\"68\" cy=\"122\" r=\"5\" fill=\"white\" />\n          <circle cx=\"108\" cy=\"122\" r=\"5\" fill=\"white\" />\n          <circle cx=\"69\" cy=\"123\" r=\"2.2\" fill=\"#1C1C1E\" />\n          <circle cx=\"109\" cy=\"123\" r=\"2.2\" fill=\"#1C1C1E\" />\n        </>\n      )}\n      <path\n        d=\"M76 138 Q88 144 100 138\"\n        stroke=\"white\"\n        strokeWidth=\"2.2\"\n        fill=\"none\"\n        strokeLinecap=\"round\"\n      />\n    </g>\n  );\n}\n\n// Do Not Disturb face widget — tap the mascot to toggle focus mode on or off.\nexport type DndFaceWidgetProps = Readonly<\n  {\n    label?: string;\n    defaultOn?: boolean;\n  } & ComponentPropsWithoutRef<\"button\">\n>;\n\nexport const DndFaceWidget = forwardRef<HTMLButtonElement, DndFaceWidgetProps>(\n  (\n    { className, label = \"Focus\", defaultOn = true, onClick, ...props },\n    ref,\n  ) => {\n    const [on, setOn] = useState(defaultOn);\n\n    return (\n      <button\n        ref={ref}\n        type=\"button\"\n        aria-pressed={on}\n        aria-label={on ? \"Turn Focus mode off\" : \"Turn Focus mode on\"}\n        data-slot=\"dnd-face-widget\"\n        onClick={(event) => {\n          setOn((prev) => !prev);\n          onClick?.(event);\n        }}\n        className={cn(\n          \"relative h-44 w-44 max-w-full cursor-pointer overflow-hidden rounded-[1.75rem] bg-black font-sans shadow-lg shadow-black/5 select-none\",\n          className,\n        )}\n        {...props}\n      >\n        <svg\n          viewBox=\"0 0 176 176\"\n          className=\"absolute inset-0 h-full w-full\"\n          aria-hidden\n        >\n          <rect width=\"176\" height=\"176\" fill=\"#000\" />\n          <DndMascot on={on} />\n          <circle\n            cx={DIAL.cx}\n            cy={DIAL.cy}\n            r={DIAL.r}\n            fill=\"none\"\n            stroke={on ? ACCENT : \"white\"}\n            strokeWidth=\"1.5\"\n            opacity={on ? 0.45 : 0.25}\n          />\n        </svg>\n\n        <span className=\"absolute top-3.5 right-3.5 z-10\" aria-hidden>\n          <Moon\n            size={14}\n            color={on ? ACCENT : \"#FFFFFF66\"}\n            fill={on ? ACCENT : \"#FFFFFF66\"}\n          />\n        </span>\n\n        <div className=\"absolute inset-x-0 top-[32%] z-10 px-3 text-center\">\n          <p\n            className={cn(\n              \"text-base leading-none font-semibold\",\n              on ? \"text-white\" : \"text-white/40\",\n            )}\n          >\n            {on ? label : \"Off\"}\n          </p>\n        </div>\n      </button>\n    );\n  },\n);\n\nDndFaceWidget.displayName = \"DndFaceWidget\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/widgets/dnd-face-widget.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/dnd-face",
+    "license": "MIT"
+  },
+  "docs": "Focus mode as a purple moon mascot — tap to toggle DND and watch the expression shift. 主要导出：DndFaceWidget。 最小用法：<DndFaceWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-dnd-face.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

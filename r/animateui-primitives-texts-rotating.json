@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-primitives-texts-rotating",
+  "title": "Rotating Text",
+  "description": "A rotating text animation.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-hooks-use-is-in-view",
+    "@developstack/animateui-lib-get-strict-context"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/primitives/texts/rotating.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/primitives-texts-rotating.json>，上游文件 registry/primitives/texts/rotating/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport { motion, AnimatePresence, type HTMLMotionProps } from 'motion/react';\n\nimport {\n  useIsInView,\n  type UseIsInViewOptions,\n} from '@/components/vendor/animateui/hooks/use-is-in-view';\nimport { getStrictContext } from '@/components/vendor/animateui/lib/get-strict-context';\n\ntype RotatingTextContextType = {\n  currentText: string;\n  y: number;\n  isInView: boolean;\n};\n\nconst [RotatingTextProvider, useRotatingText] =\n  getStrictContext<RotatingTextContextType>('RotatingTextContext');\n\ntype RotatingTextContainerProps = React.ComponentProps<'div'> & {\n  text: string | string[];\n  duration?: number;\n  y?: number;\n  delay?: number;\n} & UseIsInViewOptions;\n\nfunction RotatingTextContainer({\n  ref,\n  text,\n  y = -50,\n  duration = 2000,\n  delay = 0,\n  style,\n  inView = false,\n  inViewMargin = '0px',\n  inViewOnce = true,\n  ...props\n}: RotatingTextContainerProps) {\n  const [index, setIndex] = React.useState(0);\n\n  const { ref: localRef, isInView } = useIsInView(\n    ref as React.Ref<HTMLDivElement>,\n    {\n      inView,\n      inViewOnce,\n      inViewMargin,\n    },\n  );\n\n  React.useEffect(() => {\n    if (!Array.isArray(text)) return;\n    if (inView && !isInView) return;\n\n    let intervalId: ReturnType<typeof setInterval> | undefined;\n\n    const timeoutId = setTimeout(() => {\n      setIndex((prev) => (prev + 1) % text.length);\n      intervalId = setInterval(\n        () => setIndex((prev) => (prev + 1) % text.length),\n        duration,\n      );\n    }, delay);\n\n    return () => {\n      clearTimeout(timeoutId);\n      if (intervalId) clearInterval(intervalId);\n    };\n  }, [text, duration, delay, inView, isInView]);\n\n  const currentText = Array.isArray(text) ? text[index] : text;\n\n  return (\n    <RotatingTextProvider value={{ currentText, y, isInView }}>\n      <div\n        ref={localRef}\n        style={{\n          overflow: 'hidden',\n          paddingBlock: '0.25rem',\n          ...style,\n        }}\n        {...props}\n      />\n    </RotatingTextProvider>\n  );\n}\n\ntype RotatingTextProps = Omit<HTMLMotionProps<'div'>, 'children'>;\n\nfunction RotatingText({\n  transition = { duration: 0.3, ease: 'easeOut' },\n  ...props\n}: RotatingTextProps) {\n  const { currentText, y, isInView } = useRotatingText();\n\n  return (\n    <AnimatePresence mode=\"wait\">\n      {isInView && (\n        <motion.div\n          key={currentText}\n          transition={transition}\n          initial={{ opacity: 0, y: -y }}\n          animate={{ opacity: 1, y: 0 }}\n          exit={{ opacity: 0, y }}\n          {...props}\n        >\n          {currentText}\n        </motion.div>\n      )}\n    </AnimatePresence>\n  );\n}\n\nexport {\n  RotatingTextContainer,\n  RotatingText,\n  useRotatingText,\n  type RotatingTextContainerProps,\n  type RotatingTextProps,\n  type RotatingTextContextType,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/primitives/texts/rotating.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/primitives-texts-rotating.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A rotating text animation. 主要导出：RotatingTextContainer、RotatingText、useRotatingText。 最小用法：<RotatingTextContainer text={…} />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/text.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-primitives-texts-rotating.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

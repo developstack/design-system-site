@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hextaui-use-held-keys",
+  "title": "useHeldKeys",
+  "description": "The keys someone is holding down right now, shared by every subscriber through a single set of window listeners.",
+  "files": [
+    {
+      "path": "src/components/vendor/hextaui/hooks/use-held-keys.ts",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：HextaUI <https://hextaui.com/r/use-held-keys.json>，上游文件 hooks/use-held-keys.ts\n// 许可证：MIT © 2026 Preet Suthar <https://github.com/preetsuthar17/hextaui/blob/main/LICENSE>\n// 收录：2026-10-06；适配：落点（明细见 vendor.lock.json）\nimport * as React from \"react\"\n\nconst modifierNames: Record<string, string> = {\n  Meta: \"meta\",\n  OS: \"meta\",\n  Control: \"ctrl\",\n  Alt: \"alt\",\n  AltGraph: \"alt\",\n  Shift: \"shift\",\n}\n\nconst emptyHeld: ReadonlySet<string> = new Set()\n\nlet held: ReadonlySet<string> = emptyHeld\nconst subscribers = new Set<() => void>()\n\nfunction physicalKey(event: KeyboardEvent) {\n  const modifier = modifierNames[event.key]\n  if (modifier) {\n    return modifier\n  }\n  const letter = /^Key([A-Z])$/.exec(event.code)\n  if (letter) {\n    return letter[1].toLowerCase()\n  }\n  const digit = /^(?:Digit|Numpad)([0-9])$/.exec(event.code)\n  if (digit) {\n    return digit[1]\n  }\n  if (event.key === \" \") {\n    return \"space\"\n  }\n  return event.key.toLowerCase()\n}\n\nfunction publish(next: ReadonlySet<string>) {\n  held = next\n  for (const notify of subscribers) {\n    notify()\n  }\n}\n\nfunction onKeyDown(event: KeyboardEvent) {\n  if (event.repeat) {\n    return\n  }\n  const key = physicalKey(event)\n  if (!held.has(key)) {\n    publish(new Set([...held, key]))\n  }\n}\n\nfunction onKeyUp(event: KeyboardEvent) {\n  const key = physicalKey(event)\n  if (key === \"meta\") {\n    publish(\n      new Set(\n        [...held].filter(\n          (name) =>\n            name !== \"meta\" && Object.values(modifierNames).includes(name)\n        )\n      )\n    )\n    return\n  }\n  if (held.has(key)) {\n    const next = new Set(held)\n    next.delete(key)\n    publish(next)\n  }\n}\n\nfunction releaseAll() {\n  if (held.size > 0) {\n    publish(emptyHeld)\n  }\n}\n\nfunction onVisibilityChange() {\n  if (document.visibilityState === \"hidden\") {\n    releaseAll()\n  }\n}\n\nfunction subscribeHeld(notify: () => void) {\n  subscribers.add(notify)\n  if (subscribers.size === 1) {\n    window.addEventListener(\"keydown\", onKeyDown, { passive: true })\n    window.addEventListener(\"keyup\", onKeyUp, { passive: true })\n    window.addEventListener(\"blur\", releaseAll)\n    document.addEventListener(\"visibilitychange\", onVisibilityChange)\n  }\n  return () => {\n    subscribers.delete(notify)\n    if (subscribers.size === 0) {\n      window.removeEventListener(\"keydown\", onKeyDown)\n      window.removeEventListener(\"keyup\", onKeyUp)\n      window.removeEventListener(\"blur\", releaseAll)\n      document.removeEventListener(\"visibilitychange\", onVisibilityChange)\n      held = emptyHeld\n    }\n  }\n}\n\nfunction subscribeNothing() {\n  return () => {}\n}\n\nfunction getHeld() {\n  return held\n}\n\nfunction getServerHeld() {\n  return emptyHeld\n}\n\nfunction useHeldKeys(enabled: boolean) {\n  return React.useSyncExternalStore(\n    enabled ? subscribeHeld : subscribeNothing,\n    enabled ? getHeld : getServerHeld,\n    getServerHeld\n  )\n}\n\nexport { useHeldKeys }\n",
+      "type": "registry:hook",
+      "target": "@components/vendor/hextaui/hooks/use-held-keys.ts"
+    },
+    {
+      "path": "src/components/vendor/hextaui/NOTICE.md",
+      "content": "# 收录组件署名：HextaUI\n\n本目录的文件收录自 HextaUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：HextaUI <https://github.com/preetsuthar17/hextaui>\n- 许可证：MIT <https://github.com/preetsuthar17/hextaui/blob/main/LICENSE>\n- 版权：© 2026 Preet Suthar\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Preet Suthar\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/hextaui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "hextaui",
+    "upstream": "https://hextaui.com/r/use-held-keys.json",
+    "license": "MIT"
+  },
+  "docs": "The keys someone is holding down right now, shared by every subscriber through a single set of window listeners. 主要导出：useHeldKeys。 最小用法：useHeldKeys(enabled)。 收录组件，颜色原样来自上游。独有组件。属性与示例见 packages/registry/docs/vendor/hextaui-use-held-keys.md。",
+  "categories": [
+    "vendored",
+    "hextaui"
+  ],
+  "type": "registry:hook"
+}

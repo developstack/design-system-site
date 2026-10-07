@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-editorial-quote",
+  "title": "Editorial Quote",
+  "description": "Pull quote with issue metadata and a highlighted word inside the line — author and role at the bottom. Built for case studies and long reads.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/text/editorial-quote-card.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/editorial-quote>，上游文件 components/text/editorial-quote-card.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\nimport { forwardRef, type ComponentPropsWithoutRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nimport { Quote } from \"lucide-react\";\n\nexport type EditorialQuoteCardProps = Readonly<\n  {\n    quote?: string;\n    author?: string;\n    role?: string;\n    issue?: string;\n    accentWord?: string;\n  } & ComponentPropsWithoutRef<\"div\">\n>;\n\n// Production-ready Editorial Quote component — styled with Tailwind CSS.\nexport const EditorialQuoteCard = forwardRef<\n  HTMLDivElement,\n  EditorialQuoteCardProps\n>(\n  (\n    {\n      className,\n      quote = \"Good design is as little design as possible — but every pixel must earn its place.\",\n      author = \"Dieter Rams\",\n      role = \"Industrial Designer\",\n      issue = \"Issue 06 · Design\",\n      accentWord = \"pixel\",\n      ...props\n    },\n    ref,\n  ) => {\n    const parts = quote.split(new RegExp(`(${accentWord})`, \"i\"));\n    let segmentOffset = 0;\n    const segments = parts.map((part) => {\n      const segment = {\n        id: `quote-part-${segmentOffset}`,\n        part,\n      };\n      segmentOffset += part.length;\n      return segment;\n    });\n\n    return (\n      <div\n        ref={ref}\n        data-slot=\"editorial-quote-card\"\n        className={cn(\n          \"w-sm border border-neutral-200 bg-[#f6f2eb] p-5 font-sans md:p-6\",\n          className,\n        )}\n        {...props}\n      >\n        <div\n          data-slot=\"editorial-quote-card-meta\"\n          className=\"mb-4 flex items-center justify-between border-b border-neutral-200 pb-3\"\n        >\n          <span className=\"font-mono text-[10px] font-semibold tracking-widest text-neutral-500 uppercase\">\n            {issue}\n          </span>\n          <Quote size={18} className=\"text-neutral-400\" />\n        </div>\n\n        <blockquote\n          data-slot=\"editorial-quote-card-quote\"\n          className=\"text-lg leading-snug font-semibold tracking-tight text-neutral-700 md:text-xl\"\n        >\n          {segments.map(({ id, part }) =>\n            part.toLowerCase() === accentWord.toLowerCase() ? (\n              <span\n                key={id}\n                className=\"rounded-sm bg-neutral-300/60 px-1 text-neutral-800\"\n              >\n                {part}\n              </span>\n            ) : (\n              <span key={id}>{part}</span>\n            ),\n          )}\n        </blockquote>\n\n        <div\n          data-slot=\"editorial-quote-card-author\"\n          className=\"mt-5 flex items-center gap-3\"\n        >\n          <div className=\"h-px flex-1 bg-neutral-200\" />\n          <div className=\"text-right\">\n            <p className=\"text-sm font-medium text-neutral-600\">{author}</p>\n            <p className=\"text-[11px] text-neutral-500\">{role}</p>\n          </div>\n        </div>\n      </div>\n    );\n  },\n);\n\nEditorialQuoteCard.displayName = \"EditorialQuoteCard\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/text/editorial-quote-card.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/editorial-quote",
+    "license": "MIT"
+  },
+  "docs": "Pull quote with issue metadata and a highlighted word inside the line — author and role at t… 主要导出：EditorialQuoteCard。 最小用法：<EditorialQuoteCard />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/card.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-editorial-quote.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-minimal-agenda",
+  "title": "Minimal Agenda",
+  "description": "Today's tasks with times — tap a row to mark it done with a strikethrough and checkmark. Clean enough for a daily planner sidebar.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/widgets/minimal-agenda-widget.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/minimal-agenda>，上游文件 components/widgets/minimal-agenda-widget.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport { forwardRef, useState, type ComponentPropsWithoutRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Check } from \"lucide-react\";\n\n// Minimal daily agenda — tap rows to toggle done state with strikethrough animation.\ntype AgendaItem = Readonly<{\n  time: string;\n  title: string;\n  done: boolean;\n}>;\n\nconst DEFAULT_ITEMS: AgendaItem[] = [\n  { time: \"09:00\", title: \"Design review\", done: true },\n  { time: \"11:30\", title: \"Client sync\", done: false },\n  { time: \"14:00\", title: \"Ship components\", done: false },\n];\n\ntype AgendaTitleProps = Readonly<{\n  done: boolean;\n  children: string;\n}>;\n\n// Strikethrough hugs text width only — fixed line-height keeps every slash aligned.\nfunction AgendaTitle({ done, children }: AgendaTitleProps) {\n  return (\n    <span className=\"min-w-0 flex-1\">\n      <span className=\"relative inline-block max-w-full\">\n        <span\n          className={cn(\n            \"block max-w-full truncate text-xs leading-4 font-medium transition-colors duration-300 ease-out\",\n            done ? \"text-neutral-400\" : \"text-neutral-900\",\n          )}\n        >\n          {children}\n        </span>\n        <span\n          aria-hidden\n          className={cn(\n            \"pointer-events-none absolute top-2 left-0 h-px bg-neutral-400/80\",\n            \"transition-[width] duration-500 ease-in-out\",\n            done ? \"w-full\" : \"w-0\",\n          )}\n        />\n      </span>\n    </span>\n  );\n}\n\nexport type MinimalAgendaWidgetProps = Readonly<\n  ComponentPropsWithoutRef<\"div\">\n>;\n\nexport const MinimalAgendaWidget = forwardRef<\n  HTMLDivElement,\n  MinimalAgendaWidgetProps\n>(({ className, ...props }, ref) => {\n  const [items, setItems] = useState<AgendaItem[]>(DEFAULT_ITEMS);\n\n  const toggleItem = (title: string) => {\n    setItems((prev) =>\n      prev.map((item) =>\n        item.title === title ? { ...item, done: !item.done } : item,\n      ),\n    );\n  };\n\n  return (\n    <div\n      ref={ref}\n      data-slot=\"minimal-agenda-widget\"\n      className={cn(\n        \"w-64 rounded-3xl border border-neutral-100 bg-white p-4 font-sans shadow-lg shadow-black/5\",\n        className,\n      )}\n      {...props}\n    >\n      <p className=\"mb-3 text-[10px] font-semibold tracking-widest text-neutral-400 uppercase\">\n        Today\n      </p>\n\n      <ul className=\"space-y-2.5\">\n        {items.map((item) => (\n          <li key={item.title}>\n            <button\n              type=\"button\"\n              aria-pressed={item.done}\n              aria-label={`${item.title} at ${item.time}`}\n              onClick={() => toggleItem(item.title)}\n              className=\"flex w-full cursor-pointer items-center gap-3 px-1 py-0.5 text-left\"\n            >\n              <span\n                className={cn(\n                  \"w-10 shrink-0 text-[11px] font-medium tabular-nums transition-colors duration-300 ease-out\",\n                  item.done ? \"text-neutral-300\" : \"text-neutral-400\",\n                )}\n              >\n                {item.time}\n              </span>\n\n              <AgendaTitle done={item.done}>{item.title}</AgendaTitle>\n\n              <span className=\"flex h-3 w-3 shrink-0 items-center justify-center\">\n                <Check\n                  size={12}\n                  aria-hidden\n                  className={cn(\n                    \"text-emerald-500 transition-opacity duration-300 ease-out\",\n                    item.done ? \"opacity-100\" : \"opacity-0\",\n                  )}\n                />\n              </span>\n            </button>\n          </li>\n        ))}\n      </ul>\n    </div>\n  );\n});\n\nMinimalAgendaWidget.displayName = \"MinimalAgendaWidget\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/widgets/minimal-agenda-widget.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/minimal-agenda",
+    "license": "MIT"
+  },
+  "docs": "Today's tasks with times — tap a row to mark it done with a strikethrough and checkmark. 主要导出：MinimalAgendaWidget。 最小用法：<MinimalAgendaWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-minimal-agenda.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

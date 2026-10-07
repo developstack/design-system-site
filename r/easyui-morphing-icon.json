@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "easyui-morphing-icon",
+  "title": "Morphing Icon",
+  "description": "An animated micro-interaction wrapper that smoothly morphs between two icon states with coordinated rotation, scale, and cross-fade transitions.",
+  "dependencies": [
+    "clsx",
+    "motion",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/easyui/ui/morphing-icon.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：EasyUI <https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#morphing-icon>，上游文件 src/components/ui/MorphingIcon.tsx\n// 许可证：MIT © 2026 Suraj Maurya <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径、包名（明细见 vendor.lock.json）\nimport * as React from \"react\";\nimport { motion } from \"motion/react\";\nimport { cn } from '../lib/utils';\n\nexport interface MorphingIconProps\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \"children\"> {\n  from: React.ReactNode;\n  to: React.ReactNode;\n  active?: boolean;\n  duration?: number;\n  size?: number;\n}\n\nexport function MorphingIcon({\n  from,\n  to,\n  active = false,\n  duration = 0.3,\n  size = 20,\n  className,\n  ...props\n}: MorphingIconProps) {\n  return (\n    <div\n      className={cn(\n        \"relative inline-flex shrink-0 items-center justify-center\",\n        className,\n      )}\n      style={{\n        width: size,\n        height: size,\n      }}\n      {...props}\n    >\n      <motion.div\n        className=\"absolute inset-0 flex items-center justify-center\"\n        initial={false}\n        animate={{\n          opacity: active ? 0 : 1,\n          scale: active ? 0.65 : 1,\n          rotate: active ? -90 : 0,\n        }}\n        transition={{\n          duration,\n          ease: [0.4, 0, 0.2, 1],\n        }}\n        aria-hidden={active}\n      >\n        {from}\n      </motion.div>\n\n      <motion.div\n        className=\"absolute inset-0 flex items-center justify-center\"\n        initial={false}\n        animate={{\n          opacity: active ? 1 : 0,\n          scale: active ? 1 : 0.65,\n          rotate: active ? 0 : 90,\n        }}\n        transition={{\n          duration,\n          ease: [0.4, 0, 0.2, 1],\n        }}\n        aria-hidden={!active}\n      >\n        {to}\n      </motion.div>\n    </div>\n  );\n}\n\nexport default MorphingIcon;\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/easyui/ui/morphing-icon.tsx"
+    },
+    {
+      "path": "src/components/vendor/easyui/lib/utils.ts",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：EasyUI <https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#activity-feed>，上游文件 src/lib/utils.ts\n// 许可证：MIT © 2026 Suraj Maurya <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE>\n// 收录：2026-10-05；适配：落点（明细见 vendor.lock.json）\nimport { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function copyToClipboard(text: string): Promise<boolean> {\n  if (navigator.clipboard && window.isSecureContext) {\n    return navigator.clipboard.writeText(text).then(() => true).catch(() => false);\n  } else {\n    const textArea = document.createElement(\"textarea\");\n    textArea.value = text;\n    textArea.style.position = \"fixed\";\n    textArea.style.left = \"-999999px\";\n    textArea.style.top = \"-999999px\";\n    document.body.appendChild(textArea);\n    textArea.focus();\n    textArea.select();\n    return new Promise((resolve) => {\n      const successful = document.execCommand('copy');\n      textArea.remove();\n      resolve(successful);\n    });\n  }\n}\n\nexport function scrollToTop(behavior: ScrollBehavior = 'instant') {\n  if (typeof window === 'undefined') return;\n  window.scrollTo({ top: 0, left: 0, behavior });\n  document.documentElement.scrollTop = 0;\n  document.body.scrollTop = 0;\n}\n",
+      "type": "registry:lib",
+      "target": "@components/vendor/easyui/lib/utils.ts"
+    },
+    {
+      "path": "src/components/vendor/easyui/NOTICE.md",
+      "content": "# 收录组件署名：EasyUI\n\n本目录的文件收录自 EasyUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：EasyUI <https://github.com/Surajmaurya1/easyui>\n- 许可证：MIT <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE>\n- 版权：© 2026 Suraj Maurya\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Suraj Maurya\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/easyui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "easyui",
+    "upstream": "https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#morphing-icon",
+    "license": "MIT"
+  },
+  "docs": "An animated micro-interaction wrapper that smoothly morphs between two icon states with… 主要导出：MorphingIcon。 最小用法：<MorphingIcon from={…} to={…} />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/action-swap.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/easyui-morphing-icon.md。",
+  "categories": [
+    "vendored",
+    "easyui"
+  ],
+  "type": "registry:ui"
+}

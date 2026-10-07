@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "beui-text-scramble",
+  "title": "Text Animation Text Scramble",
+  "author": "Saurabh <saurabh10102@gmail.com>",
+  "description": "A controlled character scramble that resolves changed text while keeping its final value accessible.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/beui/motion/text-scramble.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：beUI <https://beui.dev/r/text-scramble.json>，上游文件 components/motion/text-scramble.tsx\n// 许可证：MIT © 2026 Saurabh Chauhan <https://github.com/starc007/ui-components/blob/main/LICENSE>\n// 收录：2026-10-04；适配：落点（明细见 vendor.lock.json）\n\"use client\";\n// beui.dev/components/motion/text-animation\n\nimport { useReducedMotion } from \"motion/react\";\nimport {\n  useEffect,\n  useRef,\n  useState,\n  type CSSProperties,\n} from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nconst DEFAULT_GLYPHS = \"ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%&@$?/\";\n\nexport interface TextScrambleProps {\n  /** Final text revealed by the scramble animation. */\n  text: string;\n  /** Maximum animation duration in milliseconds. */\n  duration?: number;\n  /** Characters sampled while unresolved positions are scrambling. */\n  glyphs?: string;\n  className?: string;\n  style?: CSSProperties;\n}\n\n/** Character scramble that resolves to `text` and respects reduced motion. */\nexport function TextScramble({\n  text,\n  duration,\n  glyphs = DEFAULT_GLYPHS,\n  className,\n  style,\n}: TextScrambleProps) {\n  const reduce = useReducedMotion() ?? false;\n  const [display, setDisplay] = useState(text);\n  const mounted = useRef(false);\n\n  useEffect(() => {\n    if (!mounted.current) {\n      mounted.current = true;\n      setDisplay(text);\n      return;\n    }\n\n    if (reduce || !glyphs) {\n      setDisplay(text);\n      return;\n    }\n\n    const characters = text.split(\"\");\n    const startedAt = performance.now();\n    const animationDuration = duration\n      ?? Math.min(760, Math.max(420, characters.length * 32));\n    let frame = 0;\n    let lastUpdate = 0;\n\n    const animate = (now: number) => {\n      if (now - lastUpdate >= 40) {\n        lastUpdate = now;\n        const progress = Math.min((now - startedAt) / animationDuration, 1);\n        const settled = Math.floor(progress * characters.length);\n        setDisplay(characters.map((character, index) => {\n          if (index < settled || character === \" \") return character;\n          return glyphs[Math.floor(Math.random() * glyphs.length)];\n        }).join(\"\"));\n      }\n\n      if (now - startedAt < animationDuration) {\n        frame = requestAnimationFrame(animate);\n      } else {\n        setDisplay(text);\n      }\n    };\n\n    frame = requestAnimationFrame(animate);\n    return () => cancelAnimationFrame(frame);\n  }, [duration, glyphs, reduce, text]);\n\n  return (\n    <span className={cn(\"inline-block whitespace-pre\", className)} style={style}>\n      <span className=\"sr-only\">{text}</span>\n      <span aria-hidden=\"true\">{reduce ? text : display}</span>\n    </span>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/vendor/beui/motion/text-scramble.tsx"
+    },
+    {
+      "path": "src/components/vendor/beui/NOTICE.md",
+      "content": "# 收录组件署名：beUI\n\n本目录的文件收录自 beUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：beUI <https://github.com/starc007/ui-components>\n- 许可证：MIT <https://github.com/starc007/ui-components/blob/main/LICENSE>\n- 版权：© 2026 Saurabh Chauhan\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Saurabh Chauhan\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/beui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "beui",
+    "upstream": "https://beui.dev/r/text-scramble.json",
+    "license": "MIT"
+  },
+  "docs": "A controlled character scramble that resolves changed text while keeping its final value accessible. 主要导出：TextScramble。 最小用法：<TextScramble text={…} />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/text.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/beui-text-scramble.md。",
+  "categories": [
+    "vendored",
+    "beui"
+  ],
+  "type": "registry:component"
+}

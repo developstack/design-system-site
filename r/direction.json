@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "direction",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/direction.tsx",
+      "content": "\"use client\"\n\nexport {\n  DirectionProvider,\n  useDirection,\n} from \"@base-ui/react/direction-provider\"\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/direction",
+      "api": "https://base-ui.com/react/utils/direction-provider.md"
+    },
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/direction.json",
+    "snapshotDate": "2026-10-06",
+    "sha256": {
+      "src/components/ui/direction.tsx": "661ff5b9c0dc26edde1226bfedc0ab50976d84f8bae42ca83a38dc3b478fd4d4"
+    }
+  },
+  "docs": "支持从右到左的语言时，在应用根部放 <DirectionProvider direction=\"rtl\">，外层元素同时写 dir=\"rtl\"；组件里用 useDirection() 读方向；随方向翻转的位置用 start-*、end-*、ms-*、me-*。只有从左到右的语言时不用它。完整说明见 docs/components/direction.md。",
+  "type": "registry:ui"
+}

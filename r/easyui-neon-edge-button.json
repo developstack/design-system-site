@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "easyui-neon-edge-button",
+  "title": "Neon Edge Button",
+  "description": "A button with a restrained light source travelling around the border while the label remains primary.",
+  "dependencies": [
+    "clsx",
+    "lucide-react",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/easyui/ui/neon-edge-button.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：EasyUI <https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#neon-edge-button>，上游文件 src/components/ui/NeonEdgeButton.tsx\n// 许可证：MIT © 2026 Suraj Maurya <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\nimport React from 'react';\nimport { Zap } from 'lucide-react';\nimport { cn } from '../lib/utils';\n\nexport interface NeonEdgeButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n  speed?: number;\n  glow?: boolean;\n}\n\nexport const NeonEdgeButton: React.FC<NeonEdgeButtonProps> = ({\n  children = 'Deploy preview',\n  speed = 1,\n  glow = true,\n  className,\n  ...props\n}) => {\n  const duration = `${3 / speed}s`;\n\n  return (\n    <button\n      type=\"button\"\n      className={cn(\n        'focus-ring group relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-[10px] p-[1px] text-sm font-medium text-[#FAFAFA] transition-all cursor-pointer active:scale-[0.98]',\n        glow && 'shadow-[0_0_24px_-10px_rgba(255,255,255,0.4)]',\n        className\n      )}\n      {...props}\n    >\n      <style>{`\n        @keyframes easyui-neon-rotate {\n          0% { transform: rotate(0deg); }\n          100% { transform: rotate(360deg); }\n        }\n        @media (prefers-reduced-motion: reduce) {\n          .easyui-neon-beam { animation: none !important; opacity: 0.4 !important; }\n        }\n      `}</style>\n      \n      {/* Dynamic Animated Border Beam */}\n      <span\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute -inset-[200%] overflow-hidden\"\n      >\n        <span\n          className=\"easyui-neon-beam absolute inset-0 block\"\n          style={{\n            background: 'conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 280deg, rgba(255,255,255,0.85) 340deg, transparent 360deg)',\n            animation: `easyui-neon-rotate ${duration} linear infinite`,\n          }}\n        />\n      </span>\n\n      {/* Button Interior Surface */}\n      <span className=\"relative z-10 inline-flex min-h-[42px] w-full items-center justify-center gap-2 rounded-[9px] bg-[#050505] px-5 py-2.5 transition-colors group-hover:bg-[#0B0B0B]\">\n        <Zap className=\"h-4 w-4 text-[#E5E5E5] transition-transform duration-300 group-hover:scale-110\" />\n        <span className=\"select-none\">{children}</span>\n      </span>\n    </button>\n  );\n};\n\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/easyui/ui/neon-edge-button.tsx"
+    },
+    {
+      "path": "src/components/vendor/easyui/lib/utils.ts",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：EasyUI <https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#activity-feed>，上游文件 src/lib/utils.ts\n// 许可证：MIT © 2026 Suraj Maurya <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE>\n// 收录：2026-10-05；适配：落点（明细见 vendor.lock.json）\nimport { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function copyToClipboard(text: string): Promise<boolean> {\n  if (navigator.clipboard && window.isSecureContext) {\n    return navigator.clipboard.writeText(text).then(() => true).catch(() => false);\n  } else {\n    const textArea = document.createElement(\"textarea\");\n    textArea.value = text;\n    textArea.style.position = \"fixed\";\n    textArea.style.left = \"-999999px\";\n    textArea.style.top = \"-999999px\";\n    document.body.appendChild(textArea);\n    textArea.focus();\n    textArea.select();\n    return new Promise((resolve) => {\n      const successful = document.execCommand('copy');\n      textArea.remove();\n      resolve(successful);\n    });\n  }\n}\n\nexport function scrollToTop(behavior: ScrollBehavior = 'instant') {\n  if (typeof window === 'undefined') return;\n  window.scrollTo({ top: 0, left: 0, behavior });\n  document.documentElement.scrollTop = 0;\n  document.body.scrollTop = 0;\n}\n",
+      "type": "registry:lib",
+      "target": "@components/vendor/easyui/lib/utils.ts"
+    },
+    {
+      "path": "src/components/vendor/easyui/NOTICE.md",
+      "content": "# 收录组件署名：EasyUI\n\n本目录的文件收录自 EasyUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：EasyUI <https://github.com/Surajmaurya1/easyui>\n- 许可证：MIT <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE>\n- 版权：© 2026 Suraj Maurya\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Suraj Maurya\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/easyui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "easyui",
+    "upstream": "https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#neon-edge-button",
+    "license": "MIT"
+  },
+  "docs": "A button with a restrained light source travelling around the border while the label remains primary. 主要导出：NeonEdgeButton。 最小用法：<NeonEdgeButton />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/button.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/easyui-neon-edge-button.md。",
+  "categories": [
+    "vendored",
+    "easyui"
+  ],
+  "type": "registry:ui"
+}

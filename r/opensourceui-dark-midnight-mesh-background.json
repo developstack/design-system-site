@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-dark-midnight-mesh-background",
+  "title": "Dark Midnight Mesh",
+  "description": "Midnight frost mesh with whisper-soft grid, teal and sky blooms, and a gentle vignette — dashboards, terminals, and refined dark UI.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/background-gradient/dark-midnight-mesh-background.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/dark-midnight-mesh-background>，上游文件 components/background-gradient/dark-midnight-mesh-background.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\nimport { forwardRef, type HTMLAttributes, type ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface DarkMidnightMeshBackgroundProps extends HTMLAttributes<HTMLDivElement> {\n  children?: ReactNode;\n}\n\nconst DarkMidnightMeshBackground = forwardRef<\n  HTMLDivElement,\n  DarkMidnightMeshBackgroundProps\n>(({ children, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      data-slot=\"dark-midnight-mesh-background\"\n      className={cn(\"relative isolate overflow-hidden bg-[#0A0D10]\", className)}\n      {...props}\n    >\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(145deg,#101418_0%,#0A0D10_52%,#06080A_100%)]\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:linear-gradient(to_right,rgba(148,163,184,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.10)_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.14]\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:7px_7px] opacity-[0.06]\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute -inset-8 -z-10 blur-3xl\"\n      >\n        <div className=\"absolute -top-[16%] -left-[10%] h-[54%] w-[54%] rounded-full bg-[#2DD4BF] opacity-16\" />\n        <div className=\"absolute top-[8%] -right-[12%] h-[48%] w-[48%] rounded-full bg-[#38BDF8] opacity-14\" />\n        <div className=\"absolute -bottom-[18%] left-[20%] h-[50%] w-[50%] rounded-full bg-[#34D399] opacity-12\" />\n      </div>\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(circle_at_center,rgba(255,255,255,0.75)_1px,transparent_1px)] [background-size:6px_6px] opacity-[0.04]\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(circle_at_center,transparent_54%,rgba(0,0,0,0.42)_100%)]\"\n      />\n\n      {children}\n    </div>\n  );\n});\n\nDarkMidnightMeshBackground.displayName = \"DarkMidnightMeshBackground\";\n\nexport { DarkMidnightMeshBackground };\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/background-gradient/dark-midnight-mesh-background.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/dark-midnight-mesh-background",
+    "license": "MIT"
+  },
+  "docs": "Midnight frost mesh with whisper-soft grid, teal and sky bloom… 主要导出：DarkMidnightMeshBackground。 最小用法：<DarkMidnightMeshBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-dark-midnight-mesh-background.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

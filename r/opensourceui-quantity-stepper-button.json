@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-quantity-stepper-button",
+  "title": "Quantity Stepper",
+  "description": "Inline minus / count / plus control for carts and forms. Clamps between min and max, disables at the edges.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/buttons/quantity-stepper-button.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/quantity-stepper-button>，上游文件 components/buttons/quantity-stepper-button.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport { forwardRef, useState, type ComponentPropsWithoutRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Minus, Plus } from \"lucide-react\";\n\nexport type QuantityStepperButtonProps = Readonly<\n  {\n    value?: number;\n    min?: number;\n    max?: number;\n    onChange?: (value: number) => void;\n  } & Omit<ComponentPropsWithoutRef<\"div\">, \"onChange\">\n>;\n\n// Quantity stepper — minus, count, plus in one inline control.\nexport const QuantityStepperButton = forwardRef<\n  HTMLDivElement,\n  QuantityStepperButtonProps\n>(\n  (\n    {\n      className,\n      value: defaultValue = 1,\n      min = 0,\n      max = 99,\n      onChange,\n      ...props\n    },\n    ref,\n  ) => {\n    const [value, setValue] = useState(defaultValue);\n\n    const update = (next: number) => {\n      const clamped = Math.min(max, Math.max(min, next));\n      setValue(clamped);\n      onChange?.(clamped);\n    };\n\n    // Raised key: layered drop shadows below, white bevel on top, shaded\n    // bottom edge. Pressing sinks it and flips the shadows inward.\n    const keyClass = cn(\n      \"group flex w-10 cursor-pointer items-center justify-center rounded-lg bg-neutral-50 text-neutral-600 transition-[box-shadow,color,transform,background-color] duration-200 ease-[cubic-bezier(0.32,0.72,0,1)]\",\n      \"shadow-[0_1px_1px_rgba(0,0,0,0.12),0_2px_3px_rgba(0,0,0,0.1),0_4px_8px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.55),inset_0_-2px_3px_rgba(0,0,0,0.1),inset_1px_0_1px_rgba(255,255,255,0.25),inset_-1px_0_1px_rgba(255,255,255,0.25)]\",\n      \"hover:text-neutral-900\",\n      \"active:bg-neutral-100 active:shadow-[0_1px_1px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(0,0,0,0.06),inset_0_2px_3px_rgba(0,0,0,0.03),inset_0_-2px_3px_rgba(0,0,0,0.05)]\",\n      \"disabled:cursor-default disabled:bg-transparent disabled:text-neutral-300 disabled:shadow-none\",\n    );\n\n    // Soft cast shadow under the glyph — 3D lift, no hard outline rim.\n    const iconClass = cn(\n      \"shrink-0 filter-[drop-shadow(0_1px_1px_rgba(0,0,0,0.22))_drop-shadow(0_2px_3px_rgba(0,0,0,0.12))]\",\n      \"group-disabled:filter-none\",\n    );\n\n    return (\n      <div\n        ref={ref}\n        data-slot=\"quantity-stepper-button\"\n        className={cn(\n          \"inline-flex h-11 items-stretch gap-1 rounded-xl bg-neutral-100 p-1 font-sans text-sm font-medium select-none\",\n          \"shadow-[inset_0_1px_2px_rgba(0,0,0,0.08),inset_0_2px_4px_rgba(0,0,0,0.05),inset_0_-2px_3px_rgba(0,0,0,0.06),0_1px_0_rgba(255,255,255,0.9)]\",\n          className,\n        )}\n        {...props}\n      >\n        <button\n          type=\"button\"\n          aria-label=\"Decrease quantity\"\n          disabled={value <= min}\n          onClick={() => update(value - 1)}\n          className={keyClass}\n        >\n          <Minus\n            size={15}\n            strokeWidth={2.5}\n            aria-hidden\n            className={iconClass}\n          />\n        </button>\n\n        <span\n          className=\"flex min-w-10 items-center justify-center px-2 text-neutral-900 tabular-nums [text-shadow:0_1px_0_rgba(255,255,255,0.8)]\"\n          aria-live=\"polite\"\n        >\n          {value}\n        </span>\n\n        <button\n          type=\"button\"\n          aria-label=\"Increase quantity\"\n          disabled={value >= max}\n          onClick={() => update(value + 1)}\n          className={keyClass}\n        >\n          <Plus size={15} strokeWidth={2.5} aria-hidden className={iconClass} />\n        </button>\n      </div>\n    );\n  },\n);\n\nQuantityStepperButton.displayName = \"QuantityStepperButton\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/buttons/quantity-stepper-button.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/quantity-stepper-button",
+    "license": "MIT"
+  },
+  "docs": "Inline minus / count / plus control for carts and forms. 主要导出：QuantityStepperButton。 最小用法：<QuantityStepperButton />。 收录组件，颜色原样来自上游。独有组件。属性与示例见 packages/registry/docs/vendor/opensourceui-quantity-stepper-button.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

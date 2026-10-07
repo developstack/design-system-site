@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-focus-breath",
+  "title": "Focus Breath",
+  "description": "A breathing guide that pulses between inhale and exhale every four seconds. One tap to start — useful in wellness or focus flows.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/widgets/focus-breath-widget.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/focus-breath>，上游文件 components/widgets/focus-breath-widget.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport {\n  forwardRef,\n  useEffect,\n  useState,\n  type ComponentPropsWithoutRef,\n} from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type FocusBreathWidgetProps = Readonly<\n  {\n    // Title shown below the breathing circle.\n    label?: string;\n  } & ComponentPropsWithoutRef<\"div\">\n>;\n\n// Guided breathing widget — circle grows on inhale and shrinks on exhale\nexport const FocusBreathWidget = forwardRef<\n  HTMLDivElement,\n  FocusBreathWidgetProps\n>(({ className, label = \"Breathe\", ...props }, ref) => {\n  // Alternates every 4 seconds between inhale and exhale\n  const [phase, setPhase] = useState<\"inhale\" | \"exhale\">(\"inhale\");\n  // Circle scale: larger on inhale, smaller on exhale\n  const [scale, setScale] = useState(0.85);\n\n  // Flip inhale ↔ exhale on a fixed 4s rhythm\n  useEffect(() => {\n    const timer = globalThis.setInterval(() => {\n      setPhase((p) => (p === \"inhale\" ? \"exhale\" : \"inhale\"));\n    }, 4000);\n    return () => globalThis.clearInterval(timer);\n  }, []);\n\n  // Resize the outer ring whenever the phase changes\n  useEffect(() => {\n    setScale(phase === \"inhale\" ? 1 : 0.75);\n  }, [phase]);\n\n  // Outer ring scales with the breathe cycle; inner circle shows inhale/exhale label\n  return (\n    <div\n      ref={ref}\n      data-slot=\"focus-breath-widget\"\n      className={cn(\n        \"flex h-44 w-44 flex-col items-center justify-center overflow-hidden rounded-3xl border border-neutral-100 bg-white font-sans shadow-lg shadow-black/5 select-none\",\n        className,\n      )}\n      {...props}\n    >\n      <div\n        className=\"flex h-24 w-24 items-center justify-center rounded-full bg-neutral-100 transition-transform duration-4000 ease-in-out\"\n        style={{ transform: `scale(${scale})` }}\n      >\n        <div className=\"flex h-16 w-16 items-center justify-center rounded-full border border-neutral-100 bg-white\">\n          <span\n            className=\"text-[10px] font-semibold tracking-widest text-neutral-500 uppercase\"\n            aria-live=\"polite\"\n          >\n            {phase}\n          </span>\n        </div>\n      </div>\n      <p className=\"mt-3 text-xs font-medium text-neutral-600\">{label}</p>\n    </div>\n  );\n});\n\nFocusBreathWidget.displayName = \"FocusBreathWidget\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/widgets/focus-breath-widget.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/focus-breath",
+    "license": "MIT"
+  },
+  "docs": "A breathing guide that pulses between inhale and exhale every four seconds. 主要导出：FocusBreathWidget。 最小用法：<FocusBreathWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-focus-breath.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

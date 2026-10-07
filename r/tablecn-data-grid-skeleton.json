@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tablecn-data-grid-skeleton",
+  "title": "Data Grid Skeleton",
+  "description": "A composable skeleton component for the data grid with toolbar and grid parts",
+  "dependencies": [
+    "cn"
+  ],
+  "registryDependencies": [
+    "@developstack/skeleton"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/tablecn/data-grid/data-grid-skeleton.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：tablecn <https://www.tablecn.com/r/styles/base-lyra/data-grid-skeleton.json>，上游文件 src/registry/bases/base/components/data-grid/data-grid-skeleton.tsx\n// 许可证：MIT © 2024 Sadman Sakib <https://github.com/sadmann7/tablecn/blob/main/LICENSE.md>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\nimport type * as React from \"react\";\n\nimport { cn } from \"cn\";\n\nimport { Skeleton } from \"@/components/ui/skeleton\";\n\ninterface DivProps extends React.ComponentProps<\"div\"> {}\n\nfunction DataGridSkeleton({ className, ...props }: DivProps) {\n  return (\n    <div\n      data-slot=\"grid-skeleton\"\n      className={cn(\n        \"flex h-[calc(100dvh-(--spacing(16)))] w-full flex-col gap-4 has-[>[data-slot=grid-skeleton-toolbar]]:h-[calc(100dvh-(--spacing(20)))]\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\ninterface DataGridSkeletonToolbarProps extends DivProps {\n  align?: \"start\" | \"center\" | \"end\";\n  actionCount?: number;\n}\n\nfunction DataGridSkeletonToolbar({\n  align = \"end\",\n  actionCount = 4,\n  className,\n  ...props\n}: DataGridSkeletonToolbarProps) {\n  return (\n    <div\n      data-slot=\"grid-skeleton-toolbar\"\n      className={cn(\n        \"flex items-center gap-2\",\n        {\n          \"justify-start\": align === \"start\",\n          \"justify-center\": align === \"center\",\n          \"justify-end\": align === \"end\",\n        },\n        className,\n      )}\n      {...props}\n    >\n      {Array.from({ length: actionCount }).map((_, i) => (\n        <Skeleton key={i} className=\"h-8 w-20 shrink-0 rounded-lg\" />\n      ))}\n    </div>\n  );\n}\n\nfunction DataGridSkeletonGrid({ className, ...props }: DivProps) {\n  return (\n    <Skeleton\n      data-slot=\"grid-skeleton-grid\"\n      className={cn(\"flex-1\", className)}\n      {...props}\n    />\n  );\n}\n\nexport { DataGridSkeleton, DataGridSkeletonGrid, DataGridSkeletonToolbar };\n",
+      "type": "registry:component",
+      "target": "@components/vendor/tablecn/data-grid/data-grid-skeleton.tsx"
+    },
+    {
+      "path": "src/components/vendor/tablecn/NOTICE.md",
+      "content": "# 收录组件署名：tablecn\n\n本目录的文件收录自 tablecn，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：tablecn <https://github.com/sadmann7/tablecn>\n- 许可证：MIT <https://github.com/sadmann7/tablecn/blob/main/LICENSE.md>\n- 版权：© 2024 Sadman Sakib\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\n# MIT License\n\nCopyright (c) 2024 Sadman Sakib\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/tablecn/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "tablecn",
+    "upstream": "https://www.tablecn.com/r/styles/base-lyra/data-grid-skeleton.json",
+    "license": "MIT"
+  },
+  "docs": "A composable skeleton component for the data gr… 主要导出：DataGridSkeleton、DataGridSkeletonGrid、DataGridSkeletonToolbar。 最小用法：<DataGridSkeleton />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/skeleton.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/tablecn-data-grid-skeleton.md。",
+  "categories": [
+    "vendored",
+    "tablecn"
+  ],
+  "type": "registry:component"
+}

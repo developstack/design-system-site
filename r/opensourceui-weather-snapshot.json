@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-weather-snapshot",
+  "title": "Weather Snapshot",
+  "description": "Compact weather card with temperature, highs/lows, humidity, and wind — clear or rain variants.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/others/weather-snapshot-card.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/weather-snapshot>，上游文件 components/others/weather-snapshot-card.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport { forwardRef, type ComponentPropsWithoutRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { CloudRain, Droplets, Sun, Wind } from \"lucide-react\";\n\nexport type WeatherSnapshotCardProps = Readonly<\n  {\n    city?: string;\n    condition?: string;\n    temperature?: number;\n    high?: number;\n    low?: number;\n    humidity?: number;\n    wind?: string;\n    variant?: \"clear\" | \"rain\";\n  } & ComponentPropsWithoutRef<\"div\">\n>;\n\nexport const WeatherSnapshotCard = forwardRef<\n  HTMLDivElement,\n  WeatherSnapshotCardProps\n>(\n  (\n    {\n      className,\n      city = \"Kolkata\",\n      condition = \"Partly cloudy\",\n      temperature = 31,\n      high = 34,\n      low = 26,\n      humidity = 72,\n      wind = \"12 km/h\",\n      variant = \"clear\",\n      ...props\n    },\n    ref,\n  ) => {\n    const isRain = variant === \"rain\";\n\n    return (\n      <div\n        ref={ref}\n        data-slot=\"weather-snapshot-card\"\n        data-variant={variant}\n        className={cn(\n          \"w-72 overflow-hidden rounded-3xl border font-sans shadow-md\",\n          isRain\n            ? \"border-sky-200 bg-sky-50 text-sky-950\"\n            : \"border-amber-100 bg-amber-50 text-amber-950\",\n          className,\n        )}\n        {...props}\n      >\n        <div className=\"p-5\">\n          <div className=\"flex items-start justify-between gap-3\">\n            <div>\n              <p className=\"text-xs font-medium tracking-wide text-neutral-500 uppercase\">\n                {city}\n              </p>\n              <p className=\"mt-1 text-sm text-neutral-600\">{condition}</p>\n            </div>\n\n            <div\n              data-layer=\"weather-icon\"\n              className={cn(\n                \"flex size-11 items-center justify-center rounded-2xl\",\n                isRain\n                  ? \"bg-sky-200/70 text-sky-800\"\n                  : \"bg-amber-200/80 text-amber-800\",\n              )}\n            >\n              {isRain ? (\n                <CloudRain size={22} aria-hidden />\n              ) : (\n                <Sun size={22} aria-hidden />\n              )}\n            </div>\n          </div>\n\n          <p className=\"mt-4 text-5xl font-light tracking-tight\">\n            {temperature}\n            <span className=\"align-top text-2xl\">°</span>\n          </p>\n\n          <p className=\"mt-1 text-xs text-neutral-500\">\n            H {high}° · L {low}°\n          </p>\n        </div>\n\n        <div\n          className={cn(\n            \"grid grid-cols-2 gap-px border-t text-xs\",\n            isRain\n              ? \"border-sky-200 bg-sky-200\"\n              : \"border-amber-200 bg-amber-200\",\n          )}\n        >\n          <div\n            className={cn(\n              \"flex items-center gap-2 px-4 py-3\",\n              isRain ? \"bg-sky-50\" : \"bg-amber-50\",\n            )}\n          >\n            <Droplets size={14} className=\"text-neutral-500\" aria-hidden />\n            <span>{humidity}% humidity</span>\n          </div>\n          <div\n            className={cn(\n              \"flex items-center gap-2 px-4 py-3\",\n              isRain ? \"bg-sky-50\" : \"bg-amber-50\",\n            )}\n          >\n            <Wind size={14} className=\"text-neutral-500\" aria-hidden />\n            <span>{wind}</span>\n          </div>\n        </div>\n      </div>\n    );\n  },\n);\n\nWeatherSnapshotCard.displayName = \"WeatherSnapshotCard\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/others/weather-snapshot-card.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/weather-snapshot",
+    "license": "MIT"
+  },
+  "docs": "Compact weather card with temperature, highs/lows, humidity, and wind — clear or rain… 主要导出：WeatherSnapshotCard。 最小用法：<WeatherSnapshotCard />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-weather-snapshot.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

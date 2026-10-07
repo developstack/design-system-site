@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "uselayouts-polaroid-stack",
+  "title": "Polaroid Stack",
+  "description": "Seven Polaroids sit in a pile. Hover and they fan into an arc from one corner.",
+  "files": [
+    {
+      "path": "src/components/vendor/uselayouts/polaroid-stack.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：useLayouts <https://uselayouts.com/r/polaroid-stack.json>，上游文件 registry/default/example/polaroid-stack.tsx\n// 许可证：MIT © 2025 Urvish Mali <https://github.com/iurvish/uselayouts/blob/main/LICENSE>\n// 收录：2026-10-04；适配：落点（明细见 vendor.lock.json）\n\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type FanCard = {\n  src: string;\n  alt: string;\n  hoverClassName: string;\n};\n\nconst cardClassName = cn(\n  \"absolute top-1/2 left-1/2 h-[226px] w-[152px] -translate-x-1/2 -translate-y-1/2\",\n  \"z-[100] origin-bottom-left overflow-hidden rounded-[8%] border-[5px] border-b-[40px] border-white bg-[#ebebeb]\",\n  \"[scale:1] [transform:rotate(0deg)_translate(0px,-8px)] shadow-[#c7c7c7_-2px_2px_4px]\",\n  \"transition-[transform,scale] duration-200 ease\",\n  \"group-has-[:hover]:z-[110] hover:z-[110]\",\n  \"[@media(hover:hover)_and_(pointer:fine)]:hover:[scale:1.1]\",\n  \"motion-reduce:transition-none motion-reduce:[transform:rotate(0deg)_translate(0px,-8px)] motion-reduce:hover:[scale:1]\"\n);\n\nconst fanCards: FanCard[] = [\n  {\n    src: \"https://images.pexels.com/photos/5995712/pexels-photo-5995712.jpeg\",\n    alt: \"Close-up portrait card\",\n    hoverClassName:\n      \"[@media(hover:hover)_and_(pointer:fine)]:group-has-[:hover]:[transform:rotate(-54deg)_translate(0px,-8px)]\",\n  },\n  {\n    src: \"https://images.pexels.com/photos/19259515/pexels-photo-19259515.jpeg\",\n    alt: \"Editorial portrait card\",\n    hoverClassName:\n      \"[@media(hover:hover)_and_(pointer:fine)]:group-has-[:hover]:[transform:rotate(-36deg)_translate(0px,-8px)]\",\n  },\n  {\n    src: \"https://images.pexels.com/photos/8765790/pexels-photo-8765790.jpeg\",\n    alt: \"Lifestyle portrait card\",\n    hoverClassName:\n      \"[@media(hover:hover)_and_(pointer:fine)]:group-has-[:hover]:[transform:rotate(-18deg)_translate(0px,-8px)]\",\n  },\n  {\n    src: \"https://images.pexels.com/photos/16611954/pexels-photo-16611954.jpeg\",\n    alt: \"Center portrait card\",\n    hoverClassName:\n      \"[@media(hover:hover)_and_(pointer:fine)]:group-has-[:hover]:[transform:rotate(0deg)_translate(0px,-8px)]\",\n  },\n  {\n    src: \"https://images.pexels.com/photos/2354863/pexels-photo-2354863.jpeg\",\n    alt: \"Outdoor portrait card\",\n    hoverClassName:\n      \"[@media(hover:hover)_and_(pointer:fine)]:group-has-[:hover]:[transform:rotate(18deg)_translate(0px,-8px)]\",\n  },\n  {\n    src: \"https://images.pexels.com/photos/28367850/pexels-photo-28367850.jpeg\",\n    alt: \"Fashion portrait card\",\n    hoverClassName:\n      \"[@media(hover:hover)_and_(pointer:fine)]:group-has-[:hover]:[transform:rotate(36deg)_translate(0px,-8px)]\",\n  },\n  {\n    src: \"https://images.pexels.com/photos/15295562/pexels-photo-15295562.jpeg\",\n    alt: \"Studio portrait card\",\n    hoverClassName:\n      \"[@media(hover:hover)_and_(pointer:fine)]:group-has-[:hover]:[transform:rotate(54deg)_translate(0px,-8px)]\",\n  },\n];\n\nexport const PolaroidStack = () => {\n  return (\n    <section\n      aria-label=\"Fanned photo cards\"\n      className=\"relative flex h-[560px] w-full touch-manipulation items-center justify-center overflow-hidden\"\n    >\n      <div className=\"group relative h-full w-full\">\n        {fanCards.map(({ alt, hoverClassName, src }) => (\n          <div className={cn(cardClassName, hoverClassName)} key={src}>\n            <img\n              alt={alt}\n              className=\"h-full w-full object-cover\"\n              draggable={false}\n              loading=\"lazy\"\n              src={src}\n            />\n          </div>\n        ))}\n      </div>\n    </section>\n  );\n};\n\nexport default PolaroidStack;\n",
+      "type": "registry:component",
+      "target": "@components/vendor/uselayouts/polaroid-stack.tsx"
+    },
+    {
+      "path": "src/components/vendor/uselayouts/NOTICE.md",
+      "content": "# 收录组件署名：useLayouts\n\n本目录的文件收录自 useLayouts，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：useLayouts <https://github.com/iurvish/uselayouts>\n- 许可证：MIT <https://github.com/iurvish/uselayouts/blob/main/LICENSE>\n- 版权：© 2025 Urvish Mali\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2025 Urvish Mali\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/uselayouts/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "uselayouts",
+    "upstream": "https://uselayouts.com/r/polaroid-stack.json",
+    "license": "MIT"
+  },
+  "docs": "Seven Polaroids sit in a pile. Hover and they fan into an arc from one corner. 主要导出：PolaroidStack。 最小用法：<PolaroidStack />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/gallery.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/uselayouts-polaroid-stack.md。",
+  "categories": [
+    "vendored",
+    "uselayouts"
+  ],
+  "type": "registry:component"
+}

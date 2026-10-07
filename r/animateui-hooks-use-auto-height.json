@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-hooks-use-auto-height",
+  "title": "useAutoHeight",
+  "description": "A hook that allows you to automatically adjust the height of an element based on its content.",
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/hooks/use-auto-height.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/hooks-use-auto-height.json>，上游文件 registry/hooks/use-auto-height/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\n\ntype AutoHeightOptions = {\n  includeParentBox?: boolean;\n  includeSelfBox?: boolean;\n};\n\nexport function useAutoHeight<T extends HTMLElement = HTMLDivElement>(\n  deps: React.DependencyList = [],\n  options: AutoHeightOptions = {\n    includeParentBox: true,\n    includeSelfBox: false,\n  },\n) {\n  const ref = React.useRef<T | null>(null);\n  const roRef = React.useRef<ResizeObserver | null>(null);\n  const [height, setHeight] = React.useState(0);\n\n  const measure = React.useCallback(() => {\n    const el = ref.current;\n    if (!el) return 0;\n\n    const base = el.getBoundingClientRect().height || 0;\n\n    let extra = 0;\n\n    if (options.includeParentBox && el.parentElement) {\n      const cs = getComputedStyle(el.parentElement);\n      const paddingY =\n        (parseFloat(cs.paddingTop || '0') || 0) +\n        (parseFloat(cs.paddingBottom || '0') || 0);\n      const borderY =\n        (parseFloat(cs.borderTopWidth || '0') || 0) +\n        (parseFloat(cs.borderBottomWidth || '0') || 0);\n      const isBorderBox = cs.boxSizing === 'border-box';\n      if (isBorderBox) {\n        extra += paddingY + borderY;\n      }\n    }\n\n    if (options.includeSelfBox) {\n      const cs = getComputedStyle(el);\n      const paddingY =\n        (parseFloat(cs.paddingTop || '0') || 0) +\n        (parseFloat(cs.paddingBottom || '0') || 0);\n      const borderY =\n        (parseFloat(cs.borderTopWidth || '0') || 0) +\n        (parseFloat(cs.borderBottomWidth || '0') || 0);\n      const isBorderBox = cs.boxSizing === 'border-box';\n      if (isBorderBox) {\n        extra += paddingY + borderY;\n      }\n    }\n\n    const dpr =\n      typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;\n    const total = Math.ceil((base + extra) * dpr) / dpr;\n\n    return total;\n  }, [options.includeParentBox, options.includeSelfBox]);\n\n  React.useLayoutEffect(() => {\n    const el = ref.current;\n    if (!el) return;\n\n    setHeight(measure());\n\n    if (roRef.current) {\n      roRef.current.disconnect();\n      roRef.current = null;\n    }\n\n    const ro = new ResizeObserver(() => {\n      const next = measure();\n      requestAnimationFrame(() => setHeight(next));\n    });\n\n    ro.observe(el);\n    if (options.includeParentBox && el.parentElement) {\n      ro.observe(el.parentElement);\n    }\n\n    roRef.current = ro;\n\n    return () => {\n      ro.disconnect();\n      roRef.current = null;\n    };\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, deps);\n\n  React.useLayoutEffect(() => {\n    if (height === 0) {\n      const next = measure();\n      if (next !== 0) setHeight(next);\n    }\n  }, [height, measure]);\n\n  return { ref, height } as const;\n}\n",
+      "type": "registry:hook",
+      "target": "@components/vendor/animateui/hooks/use-auto-height.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/hooks-use-auto-height.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A hook that allows you to automatically adjust the height of an element based on its content. 主要导出：useAutoHeight。 最小用法：useAutoHeight()。 收录组件，颜色原样来自上游。独有组件。属性与示例见 packages/registry/docs/vendor/animateui-hooks-use-auto-height.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:hook"
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-primitives-base-switch",
+  "title": "Base Switch",
+  "description": "A control that indicates whether a setting is on or off.",
+  "dependencies": [
+    "@base-ui/react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-hooks-use-controlled-state",
+    "@developstack/animateui-lib-get-strict-context"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/primitives/base/switch.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/primitives-base-switch.json>，上游文件 registry/primitives/base/switch/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径、包名（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport { Switch as SwitchPrimitives } from '@base-ui/react/switch';\nimport {\n  motion,\n  type TargetAndTransition,\n  type VariantLabels,\n  type HTMLMotionProps,\n  type LegacyAnimationControls,\n} from 'motion/react';\n\nimport { getStrictContext } from '@/components/vendor/animateui/lib/get-strict-context';\nimport { useControlledState } from '@/components/vendor/animateui/hooks/use-controlled-state';\n\ntype SwitchContextType = {\n  isChecked: boolean;\n  setIsChecked: SwitchProps['onCheckedChange'];\n  isPressed: boolean;\n  setIsPressed: (isPressed: boolean) => void;\n};\n\nconst [SwitchProvider, useSwitch] =\n  getStrictContext<SwitchContextType>('SwitchContext');\n\ntype SwitchProps = Omit<\n  React.ComponentProps<typeof SwitchPrimitives.Root>,\n  'render'\n> &\n  HTMLMotionProps<'button'>;\n\nfunction Switch({\n  name,\n  defaultChecked,\n  checked,\n  onCheckedChange,\n  nativeButton,\n  disabled,\n  readOnly,\n  required,\n  inputRef,\n  id,\n  ...props\n}: SwitchProps) {\n  const [isPressed, setIsPressed] = React.useState(false);\n  const [isChecked, setIsChecked] = useControlledState({\n    value: checked,\n    defaultValue: defaultChecked,\n    onChange: onCheckedChange,\n  });\n\n  return (\n    <SwitchProvider\n      value={{ isChecked, setIsChecked, isPressed, setIsPressed }}\n    >\n      <SwitchPrimitives.Root\n        name={name}\n        defaultChecked={defaultChecked}\n        checked={checked}\n        onCheckedChange={setIsChecked}\n        nativeButton={nativeButton}\n        disabled={disabled}\n        readOnly={readOnly}\n        required={required}\n        inputRef={inputRef}\n        id={id}\n        render={\n          <motion.button\n            data-slot=\"switch\"\n            whileTap=\"tap\"\n            initial={false}\n            onTapStart={() => setIsPressed(true)}\n            onTapCancel={() => setIsPressed(false)}\n            onTap={() => setIsPressed(false)}\n            {...props}\n          />\n        }\n      />\n    </SwitchProvider>\n  );\n}\n\ntype SwitchThumbProps = Omit<\n  React.ComponentProps<typeof SwitchPrimitives.Thumb>,\n  'render'\n> &\n  HTMLMotionProps<'div'> & {\n    pressedAnimation?:\n      | TargetAndTransition\n      | VariantLabels\n      | boolean\n      | LegacyAnimationControls;\n  };\n\nfunction SwitchThumb({\n  pressedAnimation,\n  transition = { type: 'spring', stiffness: 300, damping: 25 },\n  ...props\n}: SwitchThumbProps) {\n  const { isPressed } = useSwitch();\n\n  return (\n    <SwitchPrimitives.Thumb\n      render={\n        <motion.div\n          data-slot=\"switch-thumb\"\n          whileTap=\"tab\"\n          layout\n          transition={transition}\n          animate={isPressed ? pressedAnimation : undefined}\n          {...props}\n        />\n      }\n    />\n  );\n}\n\ntype SwitchIconPosition = 'left' | 'right' | 'thumb';\n\ntype SwitchIconProps = HTMLMotionProps<'div'> & {\n  position: SwitchIconPosition;\n};\n\nfunction SwitchIcon({\n  position,\n  transition = { type: 'spring', bounce: 0 },\n  ...props\n}: SwitchIconProps) {\n  const { isChecked } = useSwitch();\n\n  const isAnimated = React.useMemo(() => {\n    if (position === 'right') return !isChecked;\n    if (position === 'left') return isChecked;\n    if (position === 'thumb') return true;\n    return false;\n  }, [position, isChecked]);\n\n  return (\n    <motion.div\n      data-slot={`switch-${position}-icon`}\n      animate={isAnimated ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}\n      transition={transition}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Switch,\n  SwitchThumb,\n  SwitchIcon,\n  useSwitch,\n  type SwitchProps,\n  type SwitchThumbProps,\n  type SwitchIconProps,\n  type SwitchIconPosition,\n  type SwitchContextType,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/primitives/base/switch.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/primitives-base-switch.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A control that indicates whether a setting is on or off. 主要导出：Switch、SwitchThumb、SwitchIcon、useSwitch。 最小用法：<Switch />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/switch.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-primitives-base-switch.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

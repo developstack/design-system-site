@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "message",
+  "dependencies": [
+    "cn"
+  ],
+  "registryDependencies": [
+    "@developstack/avatar"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/message.tsx",
+      "content": "/**\n * 改造自 shadcn 原装 base-lyra message（https://ui.shadcn.com/r/styles/base-lyra/message.json，MIT）。\n * 按 #16 改造：MessageAvatar 组合原装 Avatar（Q9）；-translate-y-8 写死，不升格为令牌（Q6）。\n * 动效由 `motion` 属性选预设（ADR 0021）：`Message` 渲染 `data-motion`，挂载时入场（基础层的 `@starting-style`），\n * 缺省 `slide-up`。里面的 Bubble 用缺省 motion 时不再自己动，由 Message 带着一起入场。\n */\nimport { cn } from \"cn\";\nimport type * as React from \"react\";\n\nimport { Avatar } from \"@/components/ui/avatar\";\n\nfunction MessageGroup({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"message-group\"\n      className={cn(\"flex min-w-0 flex-col gap-1.5\", className)}\n      {...props}\n    />\n  );\n}\n\n/**\n * 消息支持的动效预设（ADR 0021）。缺省 `slide-up`。\n * - `slide-up`：挂载时从下方 16px 升起并淡入，220ms。新到的消息。\n * - `fade`：挂载时只淡入，150ms。一次渲染很多条（加载历史）时。\n * - `none`：直接出现。\n */\ntype MessageMotion = \"none\" | \"fade\" | \"slide-up\";\n\nfunction Message({\n  className,\n  align = \"start\",\n  motion = \"slide-up\",\n  ...props\n}: React.ComponentProps<\"div\"> & { align?: \"start\" | \"end\"; motion?: MessageMotion }) {\n  return (\n    <div\n      data-slot=\"message\"\n      data-align={align}\n      data-motion={motion === \"none\" ? undefined : motion}\n      className={cn(\n        \"group/message relative flex w-full min-w-0 gap-1.5 text-xs data-[align=end]:flex-row-reverse\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\n/** 子元素用原装 Avatar 的 AvatarImage／AvatarFallback。 */\nfunction MessageAvatar({ className, ...props }: React.ComponentProps<typeof Avatar>) {\n  return (\n    <Avatar\n      data-slot=\"message-avatar\"\n      className={cn(\n        \"self-end group-has-data-[slot=message-footer]/message:-translate-y-8\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction MessageContent({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"message-content\"\n      className={cn(\n        \"flex w-full min-w-0 flex-col gap-2 wrap-break-word group-data-[align=end]/message:*:data-slot:self-end\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction MessageHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"message-header\"\n      className={cn(\n        \"flex max-w-full min-w-0 items-center px-2.5 text-xs font-medium text-muted-foreground group-has-data-[variant=ghost]/message:px-0\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction MessageFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"message-footer\"\n      className={cn(\n        \"flex max-w-full min-w-0 items-center px-2.5 text-xs font-medium text-muted-foreground group-has-data-[variant=ghost]/message:px-0 group-data-[align=end]/message:justify-end\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Message,\n  MessageAvatar,\n  MessageContent,\n  MessageFooter,\n  MessageGroup,\n  MessageHeader,\n  type MessageMotion,\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "status": "adapted",
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/message.json",
+    "snapshotDate": "2026-10-03",
+    "decision": "https://github.com/developstack/design-system/issues/16"
+  },
+  "docs": "助手消息：Message > MessageAvatar + MessageContent > Bubble；用户消息用 Message align=\"end\"，通常不放头像。发送方名字用 MessageHeader，时间与已读用 MessageFooter，都放在 MessageContent 里。头像里放原装 Avatar 的 AvatarImage／AvatarFallback。系统事件用 Marker。完整说明见 docs/components/message.md。",
+  "type": "registry:ui"
+}

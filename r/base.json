@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "extends": "none",
+  "name": "base",
+  "title": "developstack 设计系统基础层",
+  "author": "jacksonw111 <https://github.com/developstack>",
+  "description": "一次性锁定 base-lyra 风格、lucide 图标库、neutral 基色与基础层令牌。消费者 `shadcn init`（参数是本条目的完整地址）的唯一入口。",
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react",
+    "class-variance-authority",
+    "cn",
+    "@developstack/tokens@~0.3.0"
+  ],
+  "devDependencies": [
+    "tw-animate-css",
+    "shadcn"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "css": {
+    "@import \"tw-animate-css\"": {},
+    "@import \"shadcn/tailwind.css\"": {},
+    "@import \"@developstack/tokens/base.css\"": {},
+    "@custom-variant dark (&:is(.dark *))": {},
+    "@layer base": {
+      "*": {
+        "@apply border-border outline-ring/50": {}
+      },
+      "body": {
+        "@apply bg-background text-foreground": {}
+      }
+    }
+  },
+  "docs": "接入步骤见设计系统文档站的接入说明（docs/consumer-onboarding.md）。init 把公开的组件注册表地址写进 components.json，之后 shadcn add @developstack/<name> 不要令牌。只有安装和升级 @developstack/tokens 要令牌：它在 GitHub Packages 上，要先导出 GITHUB_TOKEN，在 ~/.npmrc 写鉴权行，在项目 .npmrc 声明 @developstack 的包源。令牌包的版本范围只接受 patch 更新。monorepo 还要在根目录安装同一个版本范围：共享 Biome 配置从根目录的 node_modules 找 lint 插件。init 只写令牌的 @import，不写主题块；已有的 @theme inline、:root、.dark 块要删掉。品牌层只覆盖 10 个变量，:root 和 .dark 都要写。",
+  "type": "registry:base",
+  "config": {
+    "style": "base-lyra",
+    "rsc": false,
+    "tsx": true,
+    "tailwind": {
+      "baseColor": "neutral",
+      "cssVariables": true
+    },
+    "iconLibrary": "lucide",
+    "registries": {
+      "@developstack": "https://developstack.github.io/design-system-site/r/{name}.json"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-prism-depth-button",
+  "title": "Prism Depth",
+  "description": "Dark depth button with a cyan edge flare, rim glow, and layered core veil — pass any label as children.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/buttons/prism-depth-button.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/prism-depth-button>，上游文件 components/buttons/prism-depth-button.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport {\n  forwardRef,\n  type ComponentPropsWithoutRef,\n  type ReactNode,\n} from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type PrismDepthButtonProps = Readonly<\n  {\n    children?: ReactNode;\n  } & ComponentPropsWithoutRef<\"button\">\n>;\n\nconst PRISM_SHELL =\n  \"radial-gradient(circle 80px at 80% -10%, #ffffff, #181b1b)\";\nconst PRISM_EDGE_FLARE =\n  \"radial-gradient(circle 60px at 0% 100%, #3fe9ff, #0000ff80, transparent)\";\nconst PRISM_CORE = \"radial-gradient(circle 80px at 80% -50%, #777777, #0f1111)\";\nconst PRISM_CORE_VEIL =\n  \"radial-gradient(circle 60px at 0% 100%, #00e1ff1a, #0000ff11, transparent)\";\n\nexport const PrismDepthButton = forwardRef<\n  HTMLButtonElement,\n  PrismDepthButtonProps\n>(\n  (\n    { children = \"Continue\", className, type = \"button\", disabled, ...props },\n    ref,\n  ) => {\n    return (\n      <button\n        ref={ref}\n        type={type}\n        disabled={disabled}\n        data-slot=\"prism-depth-button\"\n        className={cn(\n          \"relative isolate cursor-pointer rounded-2xl border-0 p-0.5 text-[1.4rem] ring-0 outline-none\",\n          \"transition-[transform,opacity] duration-200 ease-out\",\n          \"hover:scale-[1.02] active:scale-[0.98] motion-reduce:transition-none motion-reduce:hover:scale-100 motion-reduce:active:scale-100\",\n          \"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300\",\n          \"disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\",\n          className,\n        )}\n        style={{ background: PRISM_SHELL }}\n        {...props}\n      >\n        <span\n          aria-hidden=\"true\"\n          data-layer=\"prism-rim-glow\"\n          className=\"pointer-events-none absolute top-0 right-0 -z-10 h-[60%] w-[65%] rounded-[120px]\"\n          style={{ boxShadow: \"0 0 20px #ffffff38\" }}\n        />\n\n        <span\n          aria-hidden=\"true\"\n          data-layer=\"prism-edge-flare\"\n          className=\"pointer-events-none absolute bottom-0 left-0 h-full w-[70px] rounded-2xl\"\n          style={{\n            background: PRISM_EDGE_FLARE,\n            boxShadow: \"-10px 10px 30px #0051ff2d\",\n          }}\n        />\n\n        <span\n          data-layer=\"prism-core\"\n          className=\"relative z-[3] block rounded-[14px] px-[25px] py-3.5 text-white\"\n          style={{ background: PRISM_CORE }}\n        >\n          <span\n            aria-hidden=\"true\"\n            data-layer=\"prism-core-veil\"\n            className=\"pointer-events-none absolute inset-0 rounded-[14px]\"\n            style={{ background: PRISM_CORE_VEIL }}\n          />\n          <span\n            data-layer=\"prism-label\"\n            className=\"relative z-[1] font-sans font-medium tracking-tight\"\n          >\n            {children}\n          </span>\n        </span>\n      </button>\n    );\n  },\n);\n\nPrismDepthButton.displayName = \"PrismDepthButton\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/buttons/prism-depth-button.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/prism-depth-button",
+    "license": "MIT"
+  },
+  "docs": "Dark depth button with a cyan edge flare, rim glow, and layered core veil — pass any label as… 主要导出：PrismDepthButton。 最小用法：<PrismDepthButton />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/button.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-prism-depth-button.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/popover.tsx",
+      "content": "/**\n * 改造自 shadcn 原装 base-lyra popover（https://ui.shadcn.com/r/styles/base-lyra/popover.json，MIT）。\n * 与上游的差异：动效改由 `motion` 属性选预设（ADR 0021）。`Popover` 收 `motion`，经 context 交给\n * `PopoverContent`，弹层渲染 `data-motion`。删掉弹层上的 tw-animate-css 类（`duration-100`、`data-open:animate-in`、\n * `fade-*`、`zoom-*`、`slide-in-from-*`）与 `origin-(--transform-origin)`：预设自己读 Base UI 的 `--transform-origin`。\n * 上游的 100ms 淡入加缩放 95% 保留为预设 `zoom`。此外只有格式化，其余类名逐字保留。\n */\n\"use client\";\n\nimport { Popover as PopoverPrimitive } from \"@base-ui/react/popover\";\nimport { cn } from \"cn\";\nimport { type ComponentProps, createContext, use } from \"react\";\n\n/**\n * 浮层支持的动效预设（ADR 0021）。缺省 `pop`。\n * - `pop`：从触发器一侧淡入加缩放 96%→100%，200ms。\n * - `fade`：只淡入淡出，150ms。\n * - `zoom`：Lyra 原版，淡入加缩放 95%，100ms。\n */\ntype PopoverMotion = \"fade\" | \"pop\" | \"zoom\";\n\nconst PopoverMotionContext = createContext<PopoverMotion>(\"pop\");\n\nfunction Popover({\n  motion = \"pop\",\n  ...props\n}: PopoverPrimitive.Root.Props & { motion?: PopoverMotion }) {\n  return (\n    <PopoverMotionContext value={motion}>\n      <PopoverPrimitive.Root data-slot=\"popover\" {...props} />\n    </PopoverMotionContext>\n  );\n}\n\nfunction PopoverTrigger({ ...props }: PopoverPrimitive.Trigger.Props) {\n  return <PopoverPrimitive.Trigger data-slot=\"popover-trigger\" {...props} />;\n}\n\nfunction PopoverContent({\n  className,\n  align = \"center\",\n  alignOffset = 0,\n  side = \"bottom\",\n  sideOffset = 4,\n  ...props\n}: PopoverPrimitive.Popup.Props &\n  Pick<PopoverPrimitive.Positioner.Props, \"align\" | \"alignOffset\" | \"side\" | \"sideOffset\">) {\n  const motion = use(PopoverMotionContext);\n  return (\n    <PopoverPrimitive.Portal>\n      <PopoverPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50\"\n      >\n        <PopoverPrimitive.Popup\n          data-slot=\"popover-content\"\n          data-motion={motion}\n          className={cn(\n            \"z-50 flex w-72 flex-col gap-2.5 rounded-none bg-popover p-2.5 text-xs text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-hidden\",\n            className,\n          )}\n          {...props}\n        />\n      </PopoverPrimitive.Positioner>\n    </PopoverPrimitive.Portal>\n  );\n}\n\nfunction PopoverHeader({ className, ...props }: ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"popover-header\"\n      className={cn(\"flex flex-col gap-1 text-xs\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {\n  return (\n    <PopoverPrimitive.Title\n      data-slot=\"popover-title\"\n      className={cn(\"text-sm font-medium\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction PopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props) {\n  return (\n    <PopoverPrimitive.Description\n      data-slot=\"popover-description\"\n      className={cn(\"text-xs/relaxed text-muted-foreground\", className)}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  type PopoverMotion,\n  PopoverTitle,\n  PopoverTrigger,\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/popover",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/popover-example.tsx",
+      "api": "https://base-ui.com/react/components/popover.md"
+    },
+    "status": "adapted",
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/popover.json",
+    "snapshotDate": "2026-10-02",
+    "decision": "动效改由 motion 属性选预设（fade／pop／zoom，缺省 pop，ADR 0021）：删掉弹层上的 tw-animate-css 类与 origin-(--transform-origin)，弹层渲染 data-motion，缩放原点由预设读 Base UI 的 --transform-origin；上游的 100ms 淡入加缩放 95% 保留为 zoom。"
+  },
+  "docs": "非模态浮层：PopoverTrigger render={<Button variant=\"outline\" size=\"sm\" />}，不在触发器里再套 Button；PopoverContent 放筛选条件、日期范围等少量输入，有输入时写 PopoverTitle 或 aria-label；改了值就生效时用受控 open，应用后关闭；宽度用 w-*（默认 w-72），对齐用 align。完整说明见 docs/components/popover.md。",
+  "type": "registry:ui"
+}

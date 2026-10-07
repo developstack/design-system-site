@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-retail-price-tag",
+  "title": "Retail Price Tag",
+  "description": "Hanging store tag with discount badge, sale price, SKU, and barcode stripes. E-commerce editorial and product drops.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/pricing/retail-price-tag-card.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/retail-price-tag>，上游文件 components/pricing/retail-price-tag-card.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\nimport { forwardRef, type ComponentPropsWithoutRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type RetailPriceTagCardProps = Readonly<\n  {\n    productName?: string;\n    price?: string;\n    originalPrice?: string;\n    sku?: string;\n    discount?: string;\n  } & ComponentPropsWithoutRef<\"div\">\n>;\n\nconst BARCODE_SLOTS = [\n  \"barcode-01\",\n  \"barcode-02\",\n  \"barcode-03\",\n  \"barcode-04\",\n  \"barcode-05\",\n  \"barcode-06\",\n  \"barcode-07\",\n  \"barcode-08\",\n  \"barcode-09\",\n  \"barcode-10\",\n  \"barcode-11\",\n  \"barcode-12\",\n  \"barcode-13\",\n  \"barcode-14\",\n  \"barcode-15\",\n  \"barcode-16\",\n  \"barcode-17\",\n  \"barcode-18\",\n  \"barcode-19\",\n  \"barcode-20\",\n  \"barcode-21\",\n  \"barcode-22\",\n  \"barcode-23\",\n  \"barcode-24\",\n] as const;\n\n// Production-ready Retail Price Tag component — styled with Tailwind CSS.\nexport const RetailPriceTagCard = forwardRef<\n  HTMLDivElement,\n  RetailPriceTagCardProps\n>(\n  (\n    {\n      className,\n      productName = \"Merino Crew Neck\",\n      price = \"₹2,499\",\n      originalPrice = \"₹3,999\",\n      sku = \"SKU-8842\",\n      discount = \"38% OFF\",\n      ...props\n    },\n    ref,\n  ) => (\n    <div\n      ref={ref}\n      data-slot=\"retail-price-tag-card\"\n      className={cn(\"relative w-40 font-sans\", className)}\n      {...props}\n    >\n      <div className=\"absolute -top-1 left-1/2 z-10 h-3 w-3 -translate-x-1/2 rounded-full border border-stone-300 bg-stone-50 shadow-sm\" />\n      <div\n        className=\"absolute top-0 left-1/2 z-0 h-8 w-px -translate-x-1/2 bg-stone-300\"\n        aria-hidden\n      />\n      <div className=\"relative mt-6 -rotate-2 rounded-sm border border-stone-300 bg-gradient-to-b from-stone-50 to-stone-100/90 px-4 py-3 shadow-sm shadow-stone-300/30\">\n        <span className=\"absolute -top-2.5 right-2 rounded-sm border border-stone-300 bg-white px-1.5 py-0.5 text-[8px] font-semibold tracking-wide text-stone-600 uppercase\">\n          {discount}\n        </span>\n        <p className=\"pr-10 text-[11px] leading-tight font-semibold text-stone-600\">\n          {productName}\n        </p>\n        <p className=\"mt-2 text-2xl font-bold tracking-tight text-stone-800\">\n          {price}\n        </p>\n        <p className=\"text-[11px] text-stone-400 line-through\">\n          {originalPrice}\n        </p>\n        <p className=\"mt-2 font-mono text-[8px] tracking-wider text-stone-400 uppercase\">\n          {sku}\n        </p>\n        <div className=\"mt-2 border-t border-dashed border-stone-300 pt-2\">\n          <div className=\"flex justify-center gap-0.5\">\n            {BARCODE_SLOTS.map((slotId, slotIndex) => (\n              <div\n                key={slotId}\n                className={cn(\n                  \"h-4 w-px\",\n                  slotIndex % 2 === 0 ? \"bg-stone-500/70\" : \"bg-transparent\",\n                )}\n              />\n            ))}\n          </div>\n        </div>\n      </div>\n    </div>\n  ),\n);\n\nRetailPriceTagCard.displayName = \"RetailPriceTagCard\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/pricing/retail-price-tag-card.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/retail-price-tag",
+    "license": "MIT"
+  },
+  "docs": "Hanging store tag with discount badge, sale price, SKU, and barcode stripes. 主要导出：RetailPriceTagCard。 最小用法：<RetailPriceTagCard />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/card.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-retail-price-tag.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

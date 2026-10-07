@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-components-base-popover",
+  "title": "Popover",
+  "description": "An accessible popup anchored to a button.",
+  "registryDependencies": [
+    "@developstack/animateui-primitives-base-popover"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/components/base/popover.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/components-base-popover.json>，上游文件 registry/components/base/popover/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\nimport * as React from 'react';\n\nimport {\n  Popover as PopoverPrimitive,\n  PopoverTrigger as PopoverTriggerPrimitive,\n  PopoverPositioner as PopoverPositionerPrimitive,\n  PopoverPopup as PopoverPopupPrimitive,\n  PopoverPortal as PopoverPortalPrimitive,\n  PopoverClose as PopoverClosePrimitive,\n  PopoverBackdrop as PopoverBackdropPrimitive,\n  PopoverTitle as PopoverTitlePrimitive,\n  PopoverDescription as PopoverDescriptionPrimitive,\n  type PopoverProps as PopoverPrimitiveProps,\n  type PopoverTriggerProps as PopoverTriggerPrimitiveProps,\n  type PopoverPositionerProps as PopoverPositionerPrimitiveProps,\n  type PopoverPopupProps as PopoverPopupPrimitiveProps,\n  type PopoverCloseProps as PopoverClosePrimitiveProps,\n  type PopoverBackdropProps as PopoverBackdropPrimitiveProps,\n  type PopoverTitleProps as PopoverTitlePrimitiveProps,\n  type PopoverDescriptionProps as PopoverDescriptionPrimitiveProps,\n} from '@/components/vendor/animateui/primitives/base/popover';\nimport { cn } from '@/lib/utils';\n\ntype PopoverProps = PopoverPrimitiveProps;\n\nfunction Popover(props: PopoverProps) {\n  return <PopoverPrimitive {...props} />;\n}\n\ntype PopoverTriggerProps = PopoverTriggerPrimitiveProps;\n\nfunction PopoverTrigger(props: PopoverTriggerProps) {\n  return <PopoverTriggerPrimitive {...props} />;\n}\n\ntype PopoverPanelProps = PopoverPositionerPrimitiveProps &\n  PopoverPopupPrimitiveProps;\n\nfunction PopoverPanel({\n  className,\n  align = 'center',\n  sideOffset = 4,\n  initialFocus,\n  finalFocus,\n  style,\n  children,\n  ...props\n}: PopoverPanelProps) {\n  return (\n    <PopoverPortalPrimitive>\n      <PopoverPositionerPrimitive\n        align={align}\n        sideOffset={sideOffset}\n        className=\"z-50\"\n        {...props}\n      >\n        <PopoverPopupPrimitive\n          initialFocus={initialFocus}\n          finalFocus={finalFocus}\n          className={cn(\n            'bg-popover text-popover-foreground w-72 rounded-md border p-4 shadow-md outline-hidden origin-(--transform-origin)',\n            className,\n          )}\n          style={style}\n        >\n          {children}\n        </PopoverPopupPrimitive>\n      </PopoverPositionerPrimitive>\n    </PopoverPortalPrimitive>\n  );\n}\n\ntype PopoverCloseProps = PopoverClosePrimitiveProps;\n\nfunction PopoverClose(props: PopoverCloseProps) {\n  return <PopoverClosePrimitive {...props} />;\n}\n\ntype PopoverBackdropProps = PopoverBackdropPrimitiveProps;\n\nfunction PopoverBackdrop(props: PopoverBackdropProps) {\n  return <PopoverBackdropPrimitive {...props} />;\n}\n\ntype PopoverTitleProps = PopoverTitlePrimitiveProps;\n\nfunction PopoverTitle(props: PopoverTitleProps) {\n  return <PopoverTitlePrimitive {...props} />;\n}\n\ntype PopoverDescriptionProps = PopoverDescriptionPrimitiveProps;\n\nfunction PopoverDescription(props: PopoverDescriptionProps) {\n  return <PopoverDescriptionPrimitive {...props} />;\n}\n\nexport {\n  Popover,\n  PopoverTrigger,\n  PopoverPanel,\n  PopoverClose,\n  PopoverBackdrop,\n  PopoverTitle,\n  PopoverDescription,\n  type PopoverProps,\n  type PopoverTriggerProps,\n  type PopoverPanelProps,\n  type PopoverCloseProps,\n  type PopoverBackdropProps,\n  type PopoverTitleProps,\n  type PopoverDescriptionProps,\n};\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/components/base/popover.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/components-base-popover.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "An accessible popup anchored to a button. 主要导出：Popover、PopoverTrigger、PopoverPanel、PopoverClose 等。 最小用法：<Popover />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/popover.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-components-base-popover.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

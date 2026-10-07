@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "unsaved-changes-dialog",
+  "title": "UnsavedChangesDialog",
+  "description": "有未保存修改时离开前的确认框，配 useUnsavedCloseGuard 守住对话框与抽屉的关闭。",
+  "registryDependencies": [
+    "@developstack/alert-dialog"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/unsaved-changes-dialog.tsx",
+      "content": "\"use client\";\n\nimport { useRef, useState } from \"react\";\n\nimport {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  type AlertDialogMotion,\n  AlertDialogTitle,\n} from \"@/components/ui/alert-dialog\";\n\n/** 确认框的动效预设，透传给 `AlertDialog`（ADR 0021）。缺省 `pop`。 */\ntype UnsavedChangesDialogMotion = AlertDialogMotion;\n\ntype UnsavedChangesDialogProps = {\n  open: boolean;\n  /** 用户选择放弃修改：关闭浮层或继续跳转。 */\n  onConfirm: () => void;\n  /** 用户选择继续编辑（含 Esc、点遮罩）。 */\n  onCancel: () => void;\n  title?: string;\n  description?: string;\n  confirmLabel?: string;\n  /** 动效预设，不写就用 `AlertDialog` 的缺省 `pop`。 */\n  motion?: UnsavedChangesDialogMotion;\n};\n\n/**\n * 有未保存修改时离开前的确认框。打开时焦点在「继续编辑」上；确认按钮是 `destructive`。\n * 浮层关闭由 `useUnsavedCloseGuard` 驱动，整页跳转由表单模板的离开拦截驱动。\n */\nfunction UnsavedChangesDialog({\n  open,\n  onConfirm,\n  onCancel,\n  title = \"放弃未保存的修改？\",\n  description = \"离开后，这次填写的内容不会保存。\",\n  confirmLabel = \"放弃修改\",\n  motion,\n}: UnsavedChangesDialogProps) {\n  const cancelRef = useRef<HTMLButtonElement>(null);\n  return (\n    <AlertDialog\n      motion={motion}\n      open={open}\n      onOpenChange={(next) => {\n        if (!next) onCancel();\n      }}\n    >\n      <AlertDialogContent initialFocus={cancelRef}>\n        <AlertDialogHeader>\n          <AlertDialogTitle>{title}</AlertDialogTitle>\n          <AlertDialogDescription>{description}</AlertDialogDescription>\n        </AlertDialogHeader>\n        <AlertDialogFooter>\n          <AlertDialogCancel ref={cancelRef}>继续编辑</AlertDialogCancel>\n          <AlertDialogAction variant=\"destructive\" onClick={onConfirm}>\n            {confirmLabel}\n          </AlertDialogAction>\n        </AlertDialogFooter>\n      </AlertDialogContent>\n    </AlertDialog>\n  );\n}\n\n/**\n * 浮层（对话框、抽屉）的关闭守卫。把 `handleOpenChange` 交给浮层的 `onOpenChange`，\n * 把 `dialogProps` 展开到 `UnsavedChangesDialog` 上。\n * - 脏时关闭请求先弹确认框，确认后才调用 `onClose`；不脏时直接关闭。\n * - `pending` 为真时忽略一切关闭请求（Esc、点遮罩、取消、关闭图标）。\n * - 提交成功后直接调用 `onClose`，不经过守卫。\n */\nfunction useUnsavedCloseGuard({\n  dirty,\n  pending = false,\n  onClose,\n}: {\n  dirty: boolean;\n  pending?: boolean;\n  onClose: () => void;\n}) {\n  const [confirming, setConfirming] = useState(false);\n\n  const requestClose = () => {\n    if (pending) return;\n    if (dirty) setConfirming(true);\n    else onClose();\n  };\n\n  return {\n    /** 传给浮层根的 `onOpenChange`。打开请求不处理。 */\n    handleOpenChange: (open: boolean) => {\n      if (!open) requestClose();\n    },\n    /** 自定义的关闭入口（如页脚的「取消」不是 `DialogClose` 时）。 */\n    requestClose,\n    dialogProps: {\n      open: confirming,\n      onConfirm: () => {\n        setConfirming(false);\n        onClose();\n      },\n      onCancel: () => setConfirming(false),\n    },\n  };\n}\n\nexport type { UnsavedChangesDialogMotion, UnsavedChangesDialogProps };\nexport { UnsavedChangesDialog, useUnsavedCloseGuard };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "对话框、抽屉有未保存修改时用 useUnsavedCloseGuard({ dirty, pending, onClose })：handleOpenChange 交给浮层的 onOpenChange，<UnsavedChangesDialog {...guard.dialogProps} /> 写在浮层里；没改过直接关，提交中不让关，成功后直接 onClose 不经守卫；整页表单用表单模板的 usePageLeaveGuard。完整说明见 docs/components/unsaved-changes-dialog.md。",
+  "type": "registry:ui"
+}

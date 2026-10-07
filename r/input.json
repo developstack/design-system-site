@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/input.tsx",
+      "content": "import * as React from \"react\"\nimport { Input as InputPrimitive } from \"@base-ui/react/input\"\nimport { cn } from \"cn\"\n\nfunction Input({ className, type, ...props }: React.ComponentProps<\"input\">) {\n  return (\n    <InputPrimitive\n      type={type}\n      data-slot=\"input\"\n      className={cn(\n        \"h-8 w-full min-w-0 rounded-none border border-input bg-transparent px-2.5 py-1 text-xs transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-xs file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-1 aria-invalid:ring-destructive/20 md:text-xs dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Input }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/input",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-example.tsx"
+    },
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/input.json",
+    "snapshotDate": "2026-10-02",
+    "sha256": {
+      "src/components/ui/input.tsx": "3b080a0f4ca66a1a33a426581462c1029fdfe104ad58008450c4eb303d4864b4"
+    }
+  },
+  "docs": "单行文本用 Input，配 Label htmlFor 指向它的 id；出错时加 aria-invalid，aria-describedby 指向固定 id 的消息段落，提示与错误共用它，错误文字用 text-destructive-subtle-foreground，不手写 border-destructive；搜索框用 type=\"search\" 加 aria-label；邮箱、密码、数字写 type 和 autoComplete；提交中用 disabled。完整说明见 docs/components/input.md。",
+  "type": "registry:ui"
+}

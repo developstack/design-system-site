@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sonner",
+  "dependencies": [
+    "sonner",
+    "next-themes"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/sonner.tsx",
+      "content": "\"use client\"\n\nimport { useTheme } from \"next-themes\"\nimport { Toaster as Sonner, type ToasterProps } from \"sonner\"\n\nimport { IconPlaceholder } from \"@/app/(create)/components/icon-placeholder\"\n\nconst Toaster = ({ ...props }: ToasterProps) => {\n  const { theme = \"system\" } = useTheme()\n\n  return (\n    <Sonner\n      theme={theme as ToasterProps[\"theme\"]}\n      className=\"toaster group\"\n      icons={{\n        success: (\n          <IconPlaceholder\n            lucide=\"CircleCheckIcon\"\n            tabler=\"IconCircleCheck\"\n            hugeicons=\"CheckmarkCircle02Icon\"\n            phosphor=\"CheckCircleIcon\"\n            remixicon=\"RiCheckboxCircleLine\"\n            className=\"size-4\"\n          />\n        ),\n        info: (\n          <IconPlaceholder\n            lucide=\"InfoIcon\"\n            tabler=\"IconInfoCircle\"\n            hugeicons=\"InformationCircleIcon\"\n            phosphor=\"InfoIcon\"\n            remixicon=\"RiInformationLine\"\n            className=\"size-4\"\n          />\n        ),\n        warning: (\n          <IconPlaceholder\n            lucide=\"TriangleAlertIcon\"\n            tabler=\"IconAlertTriangle\"\n            hugeicons=\"Alert02Icon\"\n            phosphor=\"WarningIcon\"\n            remixicon=\"RiErrorWarningLine\"\n            className=\"size-4\"\n          />\n        ),\n        error: (\n          <IconPlaceholder\n            lucide=\"OctagonXIcon\"\n            tabler=\"IconAlertOctagon\"\n            hugeicons=\"MultiplicationSignCircleIcon\"\n            phosphor=\"XCircleIcon\"\n            remixicon=\"RiCloseCircleLine\"\n            className=\"size-4\"\n          />\n        ),\n        loading: (\n          <IconPlaceholder\n            lucide=\"Loader2Icon\"\n            tabler=\"IconLoader\"\n            hugeicons=\"Loading03Icon\"\n            phosphor=\"SpinnerIcon\"\n            remixicon=\"RiLoaderLine\"\n            className=\"size-4 animate-spin\"\n          />\n        ),\n      }}\n      style={\n        {\n          \"--normal-bg\": \"var(--popover)\",\n          \"--normal-text\": \"var(--popover-foreground)\",\n          \"--normal-border\": \"var(--border)\",\n          \"--border-radius\": \"var(--radius)\",\n        } as React.CSSProperties\n      }\n      toastOptions={{\n        classNames: {\n          toast: \"cn-toast\",\n        },\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { Toaster }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/sonner",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sonner-example.tsx",
+      "api": "https://sonner.emilkowal.ski"
+    },
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/sonner.json",
+    "snapshotDate": "2026-10-02",
+    "sha256": {
+      "src/components/ui/sonner.tsx": "d5178ce4c7834d3f46d261698395b498b8f45fef29975585df7e26cb43aa3cc7"
+    }
+  },
+  "docs": "业务代码 import { toast } from \"sonner\"，不从 @/components/ui/sonner 引入；Toaster 由 AppProviders 挂载，业务代码不再挂。成功用 toast.success 并与数据更新、关闭浮层一起出现；没有自己界面的动作失败用 toast.error；浮层或表单里的失败用 FormError，不弹 toast；不用 toast.loading 和 toast.promise。完整说明见 docs/components/sonner.md。",
+  "type": "registry:ui"
+}

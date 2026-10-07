@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-dark-rose-noir-background",
+  "title": "Dark Rose Noir",
+  "description": "Elegant noir with restrained rose and crimson bloom accents — fashion, beauty, and premium dark branding.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/background-gradient/dark-rose-noir-background.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/dark-rose-noir-background>，上游文件 components/background-gradient/dark-rose-noir-background.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\nimport { forwardRef, type HTMLAttributes, type ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface DarkRoseNoirBackgroundProps extends HTMLAttributes<HTMLDivElement> {\n  children?: ReactNode;\n}\n\nconst DarkRoseNoirBackground = forwardRef<\n  HTMLDivElement,\n  DarkRoseNoirBackgroundProps\n>(({ children, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      data-slot=\"dark-rose-noir-background\"\n      className={cn(\"relative isolate overflow-hidden bg-[#0E0A0B]\", className)}\n      {...props}\n    >\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,#181014_0%,#0E0A0B_50%,#080608_100%)]\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute -inset-6 -z-10 blur-3xl\"\n      >\n        <div className=\"absolute top-[12%] -left-[6%] h-[58%] w-[58%] rounded-full bg-[#FB7185] opacity-14\" />\n        <div className=\"absolute top-[-8%] right-[10%] h-[52%] w-[52%] rounded-full bg-[#F43F5E] opacity-12\" />\n        <div className=\"absolute bottom-[-14%] left-[36%] h-[54%] w-[54%] rounded-full bg-[#FDA4AF] opacity-10\" />\n        <div className=\"absolute right-[14%] bottom-[10%] h-[40%] w-[40%] rounded-full bg-[#BE123C] opacity-12\" />\n      </div>\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(circle_at_center,transparent_58%,rgba(0,0,0,0.4)_100%)]\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(circle_at_center,rgba(255,255,255,0.65)_1px,transparent_1px)] [background-size:4px_4px] opacity-[0.03]\"\n      />\n\n      {children}\n    </div>\n  );\n});\n\nDarkRoseNoirBackground.displayName = \"DarkRoseNoirBackground\";\n\nexport { DarkRoseNoirBackground };\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/background-gradient/dark-rose-noir-background.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/dark-rose-noir-background",
+    "license": "MIT"
+  },
+  "docs": "Elegant noir with restrained rose and crimson bloom accents — fashion, beau… 主要导出：DarkRoseNoirBackground。 最小用法：<DarkRoseNoirBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-dark-rose-noir-background.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

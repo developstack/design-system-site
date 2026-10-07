@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "description-list",
+  "title": "DescriptionList",
+  "description": "只读的「标签 + 值」列表：dl／dt／dd 语义，按容器宽度切 1–3 列，缺值统一显示 EMPTY（—）。",
+  "dependencies": [
+    "cn"
+  ],
+  "registryDependencies": [
+    "@developstack/format"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/description-list.tsx",
+      "content": "import { cn } from \"cn\";\nimport type { ReactNode } from \"react\";\n\nimport {\n  columnsClass,\n  type DescriptionListColumns,\n  displayValue,\n  isEmptyValue,\n} from \"@/components/ui/description-list-model\";\nimport { EMPTY } from \"@/lib/format\";\n\ntype DescriptionItem = {\n  /** 字段名。 */\n  label: string;\n  /** 字段值。缺值（`null`、`undefined`、空串等）统一显示 `EMPTY`（—）。日期、数字先用 `format*` 生成。 */\n  value: ReactNode;\n  /** React key。缺省用 `label`，同一列表里有同名字段时才要传。 */\n  key?: string;\n};\n\ntype DescriptionListProps = {\n  items: readonly DescriptionItem[];\n  /** 最多几列，缺省 2。实际列数按容器宽度切换，不按视口：窄容器一律一列。 */\n  columns?: DescriptionListColumns;\n  /** 只用来调外边距。 */\n  className?: string;\n};\n\n/**\n * 只读的「标签 + 值」列表：`<dl>`／`<dt>`／`<dd>`，标签在上、值在下。\n * 按容器宽度切 1–3 列，所以在整页、抽屉、窄栏里同一份写法都成立。缺值集中换成 `EMPTY`。\n */\nfunction DescriptionList({ items, columns = 2, className }: DescriptionListProps) {\n  return (\n    <div data-slot=\"description-list\" className={cn(\"@container\", className)}>\n      <dl className={cn(\"grid gap-x-6 gap-y-4\", columnsClass(columns))}>\n        {items.map((item) => {\n          const empty = isEmptyValue(item.value, EMPTY);\n          return (\n            <div key={item.key ?? item.label} className=\"flex min-w-0 flex-col gap-1\">\n              <dt className=\"text-muted-foreground text-xs\">{item.label}</dt>\n              <dd\n                className={cn(\n                  \"min-w-0 break-words text-xs\",\n                  empty ? \"text-muted-foreground\" : \"text-foreground\",\n                )}\n              >\n                {displayValue(item.value, EMPTY)}\n              </dd>\n            </div>\n          );\n        })}\n      </dl>\n    </div>\n  );\n}\n\nexport type { DescriptionItem, DescriptionListColumns, DescriptionListProps };\nexport { DescriptionList };\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "src/components/own/description-list-model.ts",
+      "content": "/**\n * DescriptionList 的纯逻辑：缺值判断、缺值占位、列数到容器查询类的映射。不依赖 React 运行时。\n * 占位符由调用方传入（组件传 `@/lib/format` 的 `EMPTY`），本文件不 import 别的条目。\n */\nimport type { ReactNode } from \"react\";\n\n/** 最多几列。实际列数由容器宽度决定：窄容器一律一列。 */\nexport type DescriptionListColumns = 1 | 2 | 3;\n\n/**\n * 值算不算缺值：`null`、`undefined`、布尔值（`cond && x` 的假分支）、`NaN`、空串、只有空白的串、\n * 已经是占位符的串、空数组。`0` 是有效值。\n */\nexport function isEmptyValue(value: ReactNode, placeholder: string): boolean {\n  if (value === null || value === undefined || typeof value === \"boolean\") return true;\n  if (typeof value === \"number\") return Number.isNaN(value);\n  if (typeof value === \"string\") return value.trim() === \"\" || value === placeholder;\n  if (Array.isArray(value)) return value.length === 0;\n  return false;\n}\n\n/** 缺值换成占位符，其余原样返回。 */\nexport function displayValue(value: ReactNode, placeholder: string): ReactNode {\n  return isEmptyValue(value, placeholder) ? placeholder : value;\n}\n\n/** 容器查询的列类要写成完整的字面量，Tailwind 才扫描得到。 */\nconst COLUMNS_CLASS: Record<DescriptionListColumns, string> = {\n  1: \"grid-cols-1\",\n  2: \"grid-cols-1 @md:grid-cols-2\",\n  3: \"grid-cols-1 @md:grid-cols-2 @3xl:grid-cols-3\",\n};\n\nexport function columnsClass(columns: DescriptionListColumns): string {\n  return COLUMNS_CLASS[columns];\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "一组只读字段用 <DescriptionList items={[{ label, value }]} />，放进 DetailSection；aside 元信息用 columns={1}；字段多、值短用 columns={3}，列数按容器宽度自动降级；日期、数字先用 format*；缺值直接传 null 或空串，组件统一显示 —，不自己写占位。完整说明见 docs/components/description-list.md。",
+  "type": "registry:ui"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/aspect-ratio.tsx",
+      "content": "import { cn } from \"cn\"\n\nfunction AspectRatio({\n  ratio,\n  className,\n  ...props\n}: React.ComponentProps<\"div\"> & { ratio: number }) {\n  return (\n    <div\n      data-slot=\"aspect-ratio\"\n      style={\n        {\n          \"--ratio\": ratio,\n        } as React.CSSProperties\n      }\n      className={cn(\"relative aspect-(--ratio)\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { AspectRatio }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/aspect-ratio",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/aspect-ratio-example.tsx"
+    },
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/aspect-ratio.json",
+    "snapshotDate": "2026-10-06",
+    "sha256": {
+      "src/components/ui/aspect-ratio.tsx": "6df19df6b983c450361081b695dbf3541a6fe4a9d2ec148766991e4eb0bf6473"
+    }
+  },
+  "docs": "媒体要固定宽高比时用 AspectRatio：ratio 写宽除以高（如 16 / 9），子元素写 size-full，图片加 object-cover 与 alt；不写固定高度，不用 padding-top 百分比。头像用 Avatar。完整说明见 docs/components/aspect-ratio.md。",
+  "type": "registry:ui"
+}

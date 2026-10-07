@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-browser",
+  "title": "Apple Browser",
+  "description": "Desktop browser chrome with traffic lights and a URL bar framing your website screenshot. Pass theme for light, dark, or transparent chrome.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/mockups/browser-mockup-card.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/browser>，上游文件 components/mockups/browser-mockup-card.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\nimport {\n  forwardRef,\n  type ComponentPropsWithoutRef,\n  type ReactNode,\n} from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst browserThemes = {\n  light: {\n    shell: \"border-neutral-200\",\n    chrome: \"border-neutral-200 bg-neutral-50\",\n    urlBar: \"bg-white\",\n    urlText: \"text-neutral-400\",\n    content: \"bg-white\",\n  },\n  dark: {\n    shell: \"border-neutral-700\",\n    chrome: \"border-neutral-700 bg-neutral-800\",\n    urlBar: \"bg-neutral-900\",\n    urlText: \"text-neutral-500\",\n    content: \"bg-neutral-950\",\n  },\n  transparent: {\n    shell: \"border-neutral-300/50\",\n    chrome: \"border-neutral-300/50 bg-white/40 backdrop-blur-sm\",\n    urlBar: \"bg-white/20\",\n    urlText: \"text-neutral-800\",\n    content: \"bg-transparent\",\n  },\n} as const;\n\ntype BrowserTheme = keyof typeof browserThemes;\n\ntype BrowserMockupCardProps = Readonly<\n  ComponentPropsWithoutRef<\"div\"> & {\n    theme?: BrowserTheme;\n    url?: string;\n    children?: ReactNode;\n  }\n>;\n\nexport const BrowserMockupCard = forwardRef<\n  HTMLDivElement,\n  BrowserMockupCardProps\n>(\n  (\n    {\n      className,\n      children,\n      theme = \"light\",\n      url = \"https://bidyut.cc\",\n      ...props\n    },\n    ref,\n  ) => {\n    const styles = browserThemes[theme];\n\n    return (\n      <div\n        ref={ref}\n        data-slot=\"browser-mockup-card\"\n        data-theme={theme}\n        className={cn(\n          \"w-full max-w-full min-w-0 overflow-hidden rounded-xl border font-sans select-none\",\n          styles.shell,\n          className,\n        )}\n        {...props}\n      >\n        <div\n          className={cn(\n            \"flex items-center gap-2 rounded-t-[calc(0.75rem-1px)] border-b px-3 py-1.5\",\n            styles.chrome,\n          )}\n        >\n          <div className=\"flex gap-1.5\">\n            <div className=\"h-2 w-2 rounded-full bg-red-400\" />\n            <div className=\"h-2 w-2 rounded-full bg-amber-400\" />\n            <div className=\"h-2 w-2 rounded-full bg-emerald-400\" />\n          </div>\n          <div\n            className={cn(\n              \"flex h-5 flex-1 items-center rounded-md px-2\",\n              styles.urlBar,\n            )}\n          >\n            <span\n              className={cn(\"truncate font-mono text-[7px]\", styles.urlText)}\n            >\n              {url}\n            </span>\n          </div>\n        </div>\n\n        <div\n          className={cn(\n            \"relative h-96 w-full overflow-hidden rounded-b-[calc(0.75rem-1px)]\",\n            styles.content,\n          )}\n        >\n          <div className=\"relative size-full\">{children}</div>\n        </div>\n      </div>\n    );\n  },\n);\n\nBrowserMockupCard.displayName = \"BrowserMockupCard\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/mockups/browser-mockup-card.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/browser",
+    "license": "MIT"
+  },
+  "docs": "Desktop browser chrome with traffic lights and a URL bar framing your website screenshot. 主要导出：BrowserMockupCard。 最小用法：<BrowserMockupCard />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/mockup.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-browser.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

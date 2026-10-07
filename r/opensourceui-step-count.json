@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-step-count",
+  "title": "Step Count",
+  "description": "Editorial step stat — light wide card, large number, goal in a quiet footer row. No progress bars or icons.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/widgets/step-count-widget.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/step-count>，上游文件 components/widgets/step-count-widget.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport { forwardRef, type ComponentPropsWithoutRef } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type StepCountWidgetProps = Readonly<\n  {\n    steps?: number;\n    goal?: number;\n    label?: string;\n  } & ComponentPropsWithoutRef<\"div\">\n>;\n\n// Daily steps — editorial stat card, typography-led.\nexport const StepCountWidget = forwardRef<HTMLDivElement, StepCountWidgetProps>(\n  (\n    { className, steps = 8432, goal = 10_000, label = \"steps today\", ...props },\n    ref,\n  ) => {\n    const progress = Math.min(100, Math.round((steps / goal) * 100));\n\n    return (\n      <div\n        ref={ref}\n        data-slot=\"step-count-widget\"\n        className={cn(\n          \"w-64 rounded-3xl border border-neutral-200/80 bg-white p-6 font-sans shadow-lg shadow-black/5 select-none\",\n          className,\n        )}\n        {...props}\n      >\n        <p className=\"text-[11px] text-neutral-400\">Today</p>\n\n        <p className=\"mt-4 text-5xl leading-none font-light tracking-tight text-neutral-900 tabular-nums\">\n          {steps.toLocaleString()}\n        </p>\n        <p className=\"mt-2 text-sm text-neutral-500\">{label}</p>\n\n        <div className=\"mt-8 flex items-center justify-between border-t border-neutral-100 pt-4\">\n          <span className=\"text-xs text-neutral-400\">\n            Goal {goal.toLocaleString()}\n          </span>\n          <span className=\"text-xs font-medium text-neutral-700 tabular-nums\">\n            {progress}%\n          </span>\n        </div>\n      </div>\n    );\n  },\n);\n\nStepCountWidget.displayName = \"StepCountWidget\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/widgets/step-count-widget.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/step-count",
+    "license": "MIT"
+  },
+  "docs": "Editorial step stat — light wide card, large number, goal in a quiet footer row. 主要导出：StepCountWidget。 最小用法：<StepCountWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-step-count.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

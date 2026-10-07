@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-rain-prism-background",
+  "title": "Rain Prism",
+  "description": "Moody rainfall with angled streaks and a soft prism band across the scene — music, film, and reflective editorial layouts.",
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/background-gradient/rain-prism-background.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/rain-prism-background>，上游文件 components/background-gradient/rain-prism-background.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\nimport { forwardRef, type HTMLAttributes, type ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface RainPrismBackgroundProps extends HTMLAttributes<HTMLDivElement> {\n  children?: ReactNode;\n}\n\nconst RainPrismBackground = forwardRef<\n  HTMLDivElement,\n  RainPrismBackgroundProps\n>(({ children, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      data-slot=\"rain-prism-background\"\n      className={cn(\"relative isolate overflow-hidden bg-[#E9EEF2]\", className)}\n      {...props}\n    >\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,#F4F7FA_0%,#DDE6EE_58%,#C8D5E0_100%)]\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:repeating-linear-gradient(108deg,rgba(255,255,255,0.55)_0px,rgba(255,255,255,0.55)_1px,transparent_1px,transparent_14px)] opacity-25\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:repeating-linear-gradient(102deg,rgba(148,163,184,0.35)_0px,rgba(148,163,184,0.35)_1px,transparent_1px,transparent_9px)] opacity-20\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:linear-gradient(90deg,transparent_0%,rgba(45,212,191,0.16)_24%,rgba(251,113,133,0.14)_52%,rgba(56,189,248,0.16)_78%,transparent_100%)] opacity-35\"\n      />\n\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(circle_at_center,#334155_1px,transparent_1px)] [background-size:5px_5px] opacity-[0.05]\"\n      />\n\n      {children}\n    </div>\n  );\n});\n\nRainPrismBackground.displayName = \"RainPrismBackground\";\n\nexport { RainPrismBackground };\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/background-gradient/rain-prism-background.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/rain-prism-background",
+    "license": "MIT"
+  },
+  "docs": "Moody rainfall with angled streaks and a soft prism band across the scene — music,… 主要导出：RainPrismBackground。 最小用法：<RainPrismBackground />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/backdrop.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-rain-prism-background.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

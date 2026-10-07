@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "easyui-dot-field",
+  "title": "Dot Field",
+  "description": "High-performance lightweight static Canvas dot matrix background with dynamic gradient coloring and responsive density scaling.",
+  "files": [
+    {
+      "path": "src/components/vendor/easyui/ui/dot-field.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：EasyUI <https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#dot-field>，上游文件 src/components/ui/DotField.tsx\n// 许可证：MIT © 2026 Suraj Maurya <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE>\n// 收录：2026-10-05；适配：落点（明细见 vendor.lock.json）\nimport React, { useEffect, useRef, memo, useCallback } from 'react';\n\nconst TWO_PI = Math.PI * 2;\n\nexport interface DotFieldProps extends React.HTMLAttributes<HTMLDivElement> {\n  /** Radius of each individual dot (in px). Default: 1.5 */\n  dotRadius?: number;\n  /** Spacing between adjacent dots (in px). Default: 14 */\n  dotSpacing?: number;\n  /** Linear gradient start color. Default: 'rgba(56, 189, 248, 0.35)' */\n  gradientFrom?: string;\n  /** Linear gradient end color. Default: 'rgba(168, 85, 247, 0.25)' */\n  gradientTo?: string;\n  /** Optional container CSS class name */\n  className?: string;\n}\n\nexport const DotField: React.FC<DotFieldProps> = memo(({\n  dotRadius = 1.5,\n  dotSpacing = 14,\n  gradientFrom = 'rgba(255, 255, 255, 0.12)',\n  gradientTo = 'rgba(255, 255, 255, 0.04)',\n  className = '',\n  style,\n  ...rest\n}) => {\n  const containerRef = useRef<HTMLDivElement | null>(null);\n  const canvasRef = useRef<HTMLCanvasElement | null>(null);\n\n  const drawDots = useCallback((width: number, height: number) => {\n    const canvas = canvasRef.current;\n    if (!canvas || width <= 0 || height <= 0) return;\n\n    const ctx = canvas.getContext('2d', { alpha: true });\n    if (!ctx) return;\n\n    const dpr = Math.min(window.devicePixelRatio || 1, 2);\n\n    canvas.width = Math.floor(width * dpr);\n    canvas.height = Math.floor(height * dpr);\n    canvas.style.width = `${width}px`;\n    canvas.style.height = `${height}px`;\n\n    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);\n    ctx.clearRect(0, 0, width, height);\n\n    const grad = ctx.createLinearGradient(0, 0, width, height);\n    grad.addColorStop(0, gradientFrom);\n    grad.addColorStop(1, gradientTo);\n    ctx.fillStyle = grad;\n\n    const step = dotRadius + dotSpacing;\n    if (step <= 0) return;\n\n    const cols = Math.floor(width / step);\n    const rows = Math.floor(height / step);\n    const padX = (width % step) / 2;\n    const padY = (height % step) / 2;\n    const rad = dotRadius / 2;\n\n    ctx.beginPath();\n    for (let row = 0; row < rows; row++) {\n      const ay = padY + row * step + step / 2;\n      for (let col = 0; col < cols; col++) {\n        const ax = padX + col * step + step / 2;\n        ctx.moveTo(ax + rad, ay);\n        ctx.arc(ax, ay, rad, 0, TWO_PI);\n      }\n    }\n    ctx.fill();\n  }, [dotRadius, dotSpacing, gradientFrom, gradientTo]);\n\n  useEffect(() => {\n    const container = containerRef.current;\n    if (!container) return;\n\n    // Draw initial render\n    const rect = container.getBoundingClientRect();\n    drawDots(rect.width, rect.height);\n\n    // Watch container resize\n    const observer = new ResizeObserver((entries) => {\n      for (const entry of entries) {\n        const { width, height } = entry.contentRect;\n        if (width > 0 && height > 0) {\n          drawDots(width, height);\n        }\n      }\n    });\n\n    observer.observe(container);\n\n    return () => {\n      observer.disconnect();\n    };\n  }, [drawDots]);\n\n  return (\n    <div\n      ref={containerRef}\n      className={`relative w-full h-full overflow-hidden ${className}`}\n      style={style}\n      aria-hidden=\"true\"\n      {...rest}\n    >\n      <canvas\n        ref={canvasRef}\n        className=\"pointer-events-none absolute inset-0 block h-full w-full\"\n      />\n    </div>\n  );\n});\n\nDotField.displayName = 'DotField';\n\nexport default DotField;\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/easyui/ui/dot-field.tsx"
+    },
+    {
+      "path": "src/components/vendor/easyui/ui/dot-field.css",
+      "content": "/* 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。 */\n/* 来源：EasyUI <https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#dot-field>，上游文件 src/components/ui/DotField.css */\n/* 许可证：MIT © 2026 Suraj Maurya <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE> */\n/* 收录：2026-10-05；适配：落点（明细见 vendor.lock.json） */\n.dot-field-container {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/easyui/ui/dot-field.css"
+    },
+    {
+      "path": "src/components/vendor/easyui/NOTICE.md",
+      "content": "# 收录组件署名：EasyUI\n\n本目录的文件收录自 EasyUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：EasyUI <https://github.com/Surajmaurya1/easyui>\n- 许可证：MIT <https://github.com/Surajmaurya1/easyui/blob/9dda21c569c9fe194d1c641fd3804fbea5e1098a/LICENSE>\n- 版权：© 2026 Suraj Maurya\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Suraj Maurya\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/easyui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "easyui",
+    "upstream": "https://raw.githubusercontent.com/Surajmaurya1/easyui/9dda21c569c9fe194d1c641fd3804fbea5e1098a/registry.json#dot-field",
+    "license": "MIT"
+  },
+  "docs": "High-performance lightweight static Canvas dot matrix background with dynamic gradient coloring and responsive densit… 主要导出：DotField。 最小用法：<DotField />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/background.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/easyui-dot-field.md。",
+  "categories": [
+    "vendored",
+    "easyui"
+  ],
+  "type": "registry:ui"
+}

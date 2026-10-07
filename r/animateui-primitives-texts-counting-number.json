@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-primitives-texts-counting-number",
+  "title": "Counting Number",
+  "description": "A counting number animation.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-hooks-use-is-in-view"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/primitives/texts/counting-number.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/primitives-texts-counting-number.json>，上游文件 registry/primitives/texts/counting-number/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport { useMotionValue, useSpring, type SpringOptions } from 'motion/react';\n\nimport {\n  useIsInView,\n  type UseIsInViewOptions,\n} from '@/components/vendor/animateui/hooks/use-is-in-view';\n\ntype CountingNumberProps = Omit<React.ComponentProps<'span'>, 'children'> & {\n  number: number;\n  fromNumber?: number;\n  padStart?: boolean;\n  decimalSeparator?: string;\n  decimalPlaces?: number;\n  transition?: SpringOptions;\n  delay?: number;\n  initiallyStable?: boolean;\n} & UseIsInViewOptions;\n\nfunction CountingNumber({\n  ref,\n  number,\n  fromNumber = 0,\n  padStart = false,\n  inView = false,\n  inViewMargin = '0px',\n  inViewOnce = true,\n  decimalSeparator = '.',\n  transition = { stiffness: 90, damping: 50 },\n  decimalPlaces = 0,\n  delay = 0,\n  initiallyStable = false,\n  ...props\n}: CountingNumberProps) {\n  const { ref: localRef, isInView } = useIsInView(\n    ref as React.Ref<HTMLElement>,\n    {\n      inView,\n      inViewOnce,\n      inViewMargin,\n    },\n  );\n\n  const numberStr = number.toString();\n  const decimals =\n    typeof decimalPlaces === 'number'\n      ? decimalPlaces\n      : numberStr.includes('.')\n        ? (numberStr.split('.')[1]?.length ?? 0)\n        : 0;\n\n  const motionVal = useMotionValue(initiallyStable ? number : fromNumber);\n  const springVal = useSpring(motionVal, transition);\n\n  React.useEffect(() => {\n    const timeoutId = setTimeout(() => {\n      if (isInView) motionVal.set(number);\n    }, delay);\n\n    return () => clearTimeout(timeoutId);\n  }, [isInView, number, motionVal, delay]);\n\n  React.useEffect(() => {\n    const unsubscribe = springVal.on('change', (latest) => {\n      if (localRef.current) {\n        let formatted =\n          decimals > 0\n            ? latest.toFixed(decimals)\n            : Math.round(latest).toString();\n\n        if (decimals > 0) {\n          formatted = formatted.replace('.', decimalSeparator);\n        }\n\n        if (padStart) {\n          const finalIntLength = Math.floor(Math.abs(number)).toString().length;\n          const [intPart, fracPart] = formatted.split(decimalSeparator);\n          const paddedInt = intPart?.padStart(finalIntLength, '0') ?? '';\n          formatted = fracPart\n            ? `${paddedInt}${decimalSeparator}${fracPart}`\n            : paddedInt;\n        }\n\n        localRef.current.textContent = formatted;\n      }\n    });\n    return () => unsubscribe();\n  }, [springVal, decimals, padStart, number, decimalSeparator, localRef]);\n\n  const finalIntLength = Math.floor(Math.abs(number)).toString().length;\n\n  const formatValue = (val: number) => {\n    let out = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();\n    if (decimals > 0) out = out.replace('.', decimalSeparator);\n    if (padStart) {\n      const [intPart, fracPart] = out.split(decimalSeparator);\n      const paddedInt = (intPart ?? '').padStart(finalIntLength, '0');\n      out = fracPart ? `${paddedInt}${decimalSeparator}${fracPart}` : paddedInt;\n    }\n    return out;\n  };\n\n  const zeroText = padStart\n    ? '0'.padStart(finalIntLength, '0') +\n      (decimals > 0 ? decimalSeparator + '0'.repeat(decimals) : '')\n    : '0' + (decimals > 0 ? decimalSeparator + '0'.repeat(decimals) : '');\n\n  const initialText = initiallyStable ? formatValue(number) : zeroText;\n\n  return (\n    <span ref={localRef} data-slot=\"counting-number\" {...props}>\n      {initialText}\n    </span>\n  );\n}\n\nexport { CountingNumber, type CountingNumberProps };\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/primitives/texts/counting-number.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/primitives-texts-counting-number.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A counting number animation. 主要导出：CountingNumber。 最小用法：<CountingNumber number={…} />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/number.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-primitives-texts-counting-number.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

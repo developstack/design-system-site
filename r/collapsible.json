@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "files": [
+    {
+      "path": "src/components/own/collapsible.tsx",
+      "content": "\"use client\";\n\n/**\n * 改造自 shadcn 原装 base-lyra collapsible（https://ui.shadcn.com/r/styles/base-lyra/collapsible.json，MIT）。\n * 与上游的差异：\n * 1. 动效改由 `motion` 属性选预设（ADR 0021）。`Collapsible` 收 `motion`，经 context 交给 `CollapsibleContent`。\n *    缺省 `expand`：面板渲染 `data-motion=\"expand\"`，高度取 Base UI 给的 `--collapsible-panel-height`，\n *    展开时从 0 长到内容高度并淡入，收起时沿原路退回。`none` 与上游一致：面板直接出现、直接消失。\n * 此外只有格式化（分号）。\n */\nimport { Collapsible as CollapsiblePrimitive } from \"@base-ui/react/collapsible\";\nimport { createContext, use } from \"react\";\n\n/**\n * 折叠面板支持的动效预设（ADR 0021）。缺省 `expand`。\n * - `expand`：高度从 0 长到内容高度并淡入，250ms；收起 200ms。\n * - `none`：面板直接出现、直接消失。\n */\ntype CollapsibleMotion = \"none\" | \"expand\";\n\nconst CollapsibleMotionContext = createContext<CollapsibleMotion>(\"expand\");\n\nfunction Collapsible({\n  motion = \"expand\",\n  ...props\n}: CollapsiblePrimitive.Root.Props & { motion?: CollapsibleMotion }) {\n  return (\n    <CollapsibleMotionContext value={motion}>\n      <CollapsiblePrimitive.Root data-slot=\"collapsible\" {...props} />\n    </CollapsibleMotionContext>\n  );\n}\n\nfunction CollapsibleTrigger({ ...props }: CollapsiblePrimitive.Trigger.Props) {\n  return <CollapsiblePrimitive.Trigger data-slot=\"collapsible-trigger\" {...props} />;\n}\n\nfunction CollapsibleContent({ ...props }: CollapsiblePrimitive.Panel.Props) {\n  const motion = use(CollapsibleMotionContext);\n  return (\n    <CollapsiblePrimitive.Panel\n      data-slot=\"collapsible-content\"\n      data-motion={motion === \"none\" ? undefined : motion}\n      {...props}\n    />\n  );\n}\n\nexport { Collapsible, CollapsibleContent, type CollapsibleMotion, CollapsibleTrigger };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/collapsible",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/collapsible-example.tsx",
+      "api": "https://base-ui.com/react/components/collapsible.md"
+    },
+    "status": "adapted",
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/collapsible.json",
+    "snapshotDate": "2026-10-03",
+    "decision": "动效改由 motion 属性选预设（expand／none，缺省 expand，ADR 0021）：Collapsible 收 motion，经 context 交给 CollapsibleContent，面板渲染 data-motion=\"expand\"；none 与上游一致。"
+  },
+  "docs": "详情正文的可收起段用详情模板的 DetailSection，不直接写 Collapsible；其它可收起内容用 Collapsible + CollapsibleTrigger + CollapsibleContent；受控用 open 与 onOpenChange；触发器换外观用 render，没有 asChild；箭头用 group-data-panel-open:rotate-90 旋转。完整说明见 docs/components/collapsible.md。",
+  "type": "registry:ui"
+}

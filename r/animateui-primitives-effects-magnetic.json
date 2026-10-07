@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-primitives-effects-magnetic",
+  "title": "Magnetic",
+  "description": "A magnetic effect that clings to the cursor, creating a magnetic attraction effect.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-primitives-animate-slot"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/primitives/effects/magnetic.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/primitives-effects-magnetic.json>，上游文件 registry/primitives/effects/magnetic/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport {\n  motion,\n  useMotionValue,\n  useSpring,\n  type SpringOptions,\n  type HTMLMotionProps,\n} from 'motion/react';\n\nimport { Slot, type WithAsChild } from '@/components/vendor/animateui/primitives/animate/slot';\n\ntype MagneticProps = WithAsChild<\n  {\n    children?: React.ReactNode;\n    strength?: number;\n    range?: number;\n    springOptions?: SpringOptions;\n    onlyOnHover?: boolean;\n    disableOnTouch?: boolean;\n    ref?: React.Ref<HTMLElement>;\n  } & HTMLMotionProps<'div'>\n>;\n\nfunction Magnetic({\n  ref,\n  strength = 0.5,\n  range = 120,\n  springOptions = { stiffness: 100, damping: 10, mass: 0.5 },\n  onlyOnHover = false,\n  disableOnTouch = true,\n  style,\n  onMouseEnter,\n  onMouseLeave,\n  onMouseMove,\n  asChild = false,\n  ...props\n}: MagneticProps) {\n  const localRef = React.useRef<HTMLDivElement>(null);\n  React.useImperativeHandle(ref, () => localRef.current as HTMLDivElement);\n\n  const isTouchDevice = React.useMemo(() => {\n    if (typeof window === 'undefined') return false;\n    return window.matchMedia('(pointer:coarse)').matches;\n  }, []);\n\n  const [active, setActive] = React.useState(!onlyOnHover);\n\n  const rawX = useMotionValue(0);\n  const rawY = useMotionValue(0);\n  const x = useSpring(rawX, springOptions);\n  const y = useSpring(rawY, springOptions);\n\n  const compute = React.useCallback(\n    (e: MouseEvent | React.MouseEvent) => {\n      if (!localRef.current) return;\n      const { left, top, width, height } =\n        localRef.current.getBoundingClientRect();\n      const cx = left + width / 2;\n      const cy = top + height / 2;\n      const dx = e.clientX - cx;\n      const dy = e.clientY - cy;\n      const dist = Math.hypot(dx, dy);\n\n      if ((active || !onlyOnHover) && dist <= range) {\n        const factor = (1 - dist / range) * strength;\n        rawX.set(dx * factor);\n        rawY.set(dy * factor);\n      } else {\n        rawX.set(0);\n        rawY.set(0);\n      }\n    },\n    [active, onlyOnHover, range, strength, rawX, rawY],\n  );\n\n  React.useEffect(() => {\n    if (disableOnTouch && isTouchDevice) return;\n    const handle = (e: MouseEvent) => compute(e);\n    window.addEventListener('mousemove', handle);\n    return () => window.removeEventListener('mousemove', handle);\n  }, [compute, disableOnTouch, isTouchDevice]);\n\n  const Component = asChild ? Slot : motion.div;\n\n  return (\n    <Component\n      ref={localRef}\n      style={{ display: 'inline-block', ...style, x, y }}\n      onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {\n        if (onlyOnHover) setActive(true);\n        onMouseEnter?.(e);\n      }}\n      onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => {\n        if (onlyOnHover) setActive(false);\n        rawX.set(0);\n        rawY.set(0);\n        onMouseLeave?.(e);\n      }}\n      onMouseMove={(e: React.MouseEvent<HTMLDivElement>) => {\n        if (onlyOnHover) compute(e);\n        onMouseMove?.(e);\n      }}\n      {...props}\n    />\n  );\n}\n\nexport { Magnetic, type MagneticProps };\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/primitives/effects/magnetic.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/primitives-effects-magnetic.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A magnetic effect that clings to the cursor, creating a magnetic attraction effect. 主要导出：Magnetic。 最小用法：<Magnetic />。 收录组件，颜色原样来自上游。独有组件。属性与示例见 packages/registry/docs/vendor/animateui-primitives-effects-magnetic.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

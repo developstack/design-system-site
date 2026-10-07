@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/radio-group.tsx",
+      "content": "\"use client\";\n\n/**\n * 改造自 shadcn 原装 base-lyra radio-group（https://ui.shadcn.com/r/styles/base-lyra/radio-group.json，MIT）。\n * 与上游的差异：\n * 1. 动效改由 `motion` 属性选预设（ADR 0021）。`RadioGroup` 收 `motion`，经 context 交给每个 `RadioGroupItem`。\n *    缺省 `pop`：选中的圆点（`RadioPrimitive.Indicator`）渲染 `data-motion=\"pop\"`，选中时淡入加缩放，换选时沿原路退回。\n *    `none` 与上游一致：圆点直接出现、直接消失。\n * 2. 圆点的 `-translate-x-1/2 -translate-y-1/2` 合写成 `-translate-1/2`（lint 要求）。\n * 此外只有格式化，其余类名逐字保留。\n */\nimport { Radio as RadioPrimitive } from \"@base-ui/react/radio\";\nimport { RadioGroup as RadioGroupPrimitive } from \"@base-ui/react/radio-group\";\nimport { cn } from \"cn\";\nimport { createContext, use } from \"react\";\n\n/**\n * 单选组支持的动效预设（ADR 0021）。缺省 `pop`。\n * - `pop`：选中的圆点淡入加缩放 96%→100%，200ms；离开的圆点 150ms 退回。\n * - `none`：圆点直接出现、直接消失。\n */\ntype RadioGroupMotion = \"none\" | \"pop\";\n\nconst RadioGroupMotionContext = createContext<RadioGroupMotion>(\"pop\");\n\nfunction RadioGroup({\n  className,\n  motion = \"pop\",\n  ...props\n}: RadioGroupPrimitive.Props & { motion?: RadioGroupMotion }) {\n  return (\n    <RadioGroupMotionContext value={motion}>\n      <RadioGroupPrimitive\n        data-slot=\"radio-group\"\n        className={cn(\"grid w-full gap-2\", className)}\n        {...props}\n      />\n    </RadioGroupMotionContext>\n  );\n}\n\nfunction RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {\n  const motion = use(RadioGroupMotionContext);\n  return (\n    <RadioPrimitive.Root\n      data-slot=\"radio-group-item\"\n      className={cn(\n        \"group/radio-group-item peer relative flex aspect-square size-4 shrink-0 rounded-full border border-input outline-none group-has-[:focus-visible]/field-label:ring-0 group-has-[:focus-visible]/field-label:not-data-checked:border-input after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground group-has-[:focus-visible]/field-label:data-checked:border-primary dark:data-checked:bg-primary\",\n        className,\n      )}\n      {...props}\n    >\n      <RadioPrimitive.Indicator\n        data-slot=\"radio-group-indicator\"\n        data-motion={motion === \"none\" ? undefined : motion}\n        className=\"flex size-4 items-center justify-center\"\n      >\n        <span className=\"absolute top-1/2 left-1/2 size-2 -translate-1/2 rounded-full bg-primary-foreground\" />\n      </RadioPrimitive.Indicator>\n    </RadioPrimitive.Root>\n  );\n}\n\nexport { RadioGroup, RadioGroupItem, type RadioGroupMotion };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/radio-group",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/radio-group-example.tsx",
+      "api": "https://base-ui.com/react/components/radio-group.md"
+    },
+    "status": "adapted",
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/radio-group.json",
+    "snapshotDate": "2026-10-03",
+    "decision": "动效改由 motion 属性选预设（pop／none，缺省 pop，ADR 0021）：RadioGroup 收 motion，经 context 交给圆点，圆点渲染 data-motion=\"pop\"；none 与上游一致。"
+  },
+  "docs": "两到五个互斥项用 RadioGroup，表单里直接用 form-fields 的 RadioGroupField；手拼时每项 Field orientation=\"horizontal\"，RadioGroupItem 的 id 与 FieldLabel htmlFor 相同；onValueChange 的参数先在选项里找到再写回，不用 as；出错时每项加 aria-invalid；六个以上用 SelectField，布尔值用 SwitchField。完整说明见 docs/components/radio-group.md。",
+  "type": "registry:ui"
+}

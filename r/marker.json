@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marker",
+  "dependencies": [
+    "cn",
+    "@base-ui/react@^1.8.0",
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/marker.tsx",
+      "content": "/**\n * 改造自 shadcn 原装 base-lyra marker（https://ui.shadcn.com/r/styles/base-lyra/marker.json，MIT）。\n * 按 #16 改造：不导出 markerVariants（Q11）。\n */\nimport { mergeProps } from \"@base-ui/react/merge-props\";\nimport { useRender } from \"@base-ui/react/use-render\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"cn\";\nimport type * as React from \"react\";\n\nconst markerVariants = cva(\n  \"group/marker relative flex min-h-4 w-full items-center gap-2 text-left text-xs text-muted-foreground [&_svg:not([class*='size-'])]:size-3.5 [a]:underline [a]:underline-offset-3 [a]:hover:text-foreground\",\n  {\n    variants: {\n      variant: {\n        default: \"\",\n        separator:\n          \"before:mr-1 before:h-px before:min-w-0 before:flex-1 before:bg-border after:ml-1 after:h-px after:min-w-0 after:flex-1 after:bg-border\",\n        border: \"border-b border-border pb-2\",\n      },\n    },\n  },\n);\n\nfunction Marker({\n  className,\n  variant = \"default\",\n  render,\n  ...props\n}: useRender.ComponentProps<\"div\"> & VariantProps<typeof markerVariants>) {\n  return useRender({\n    defaultTagName: \"div\",\n    props: mergeProps<\"div\">(\n      {\n        className: cn(markerVariants({ variant, className })),\n      },\n      props,\n    ),\n    render,\n    state: {\n      slot: \"marker\",\n      variant,\n    },\n  });\n}\n\nfunction MarkerIcon({ className, ...props }: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"marker-icon\"\n      aria-hidden=\"true\"\n      className={cn(\"size-3.5 shrink-0 [&_svg:not([class*='size-'])]:size-3.5\", className)}\n      {...props}\n    />\n  );\n}\n\nfunction MarkerContent({ className, ...props }: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      data-slot=\"marker-content\"\n      className={cn(\n        \"min-w-0 wrap-break-word group-data-[variant=separator]/marker:flex-none group-data-[variant=separator]/marker:text-center *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Marker, MarkerContent, MarkerIcon };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "status": "adapted",
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/marker.json",
+    "snapshotDate": "2026-10-03",
+    "decision": "https://github.com/developstack/design-system/issues/16"
+  },
+  "docs": "系统事件用 default + MarkerIcon + MarkerContent；日期或会话分隔用 variant=\"separator\"；带底线的小标题用 variant=\"border\"；标记里的链接直接放进 MarkerContent；换标签用 render。有发送方的内容用 Message + Bubble，不用 Marker。完整说明见 docs/components/marker.md。",
+  "type": "registry:ui"
+}

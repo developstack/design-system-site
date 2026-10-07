@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-editor-tool-dock",
+  "title": "Editor Tool Dock",
+  "description": "Vertical editor tool dock using MacDock tile size, padding, and ease-smooth hover scale.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/docks/editor-tool-dock.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/editor-tool-dock>，上游文件 components/docks/editor-tool-dock.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport { forwardRef, useState, type ComponentPropsWithoutRef } from \"react\";\n\nimport {\n  AudioLines,\n  Folder,\n  MousePointer2,\n  PenLine,\n  Sparkles,\n  type LucideIcon,\n} from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type EditorToolItem = Readonly<{\n  id: string;\n  label: string;\n  icon?: LucideIcon;\n}>;\n\nexport type EditorToolDockProps = Readonly<\n  {\n    tools?: readonly EditorToolItem[];\n    activeId?: string;\n    showAllTools?: boolean;\n    allToolsLabel?: string;\n    onSelect?: (id: string) => void;\n    onAllTools?: () => void;\n  } & ComponentPropsWithoutRef<\"nav\">\n>;\n\nconst DEFAULT_TOOLS: readonly EditorToolItem[] = [\n  { id: \"select\", label: \"Select\", icon: MousePointer2 },\n  { id: \"draw\", label: \"Draw\", icon: PenLine },\n  { id: \"generate\", label: \"Generate\", icon: Sparkles },\n  { id: \"audio\", label: \"Audio\", icon: AudioLines },\n];\n\n// Editor tool dock — vertical frosted tool strip aligned with MacDock styling.\nexport const EditorToolDock = forwardRef<HTMLElement, EditorToolDockProps>(\n  (\n    {\n      className,\n      tools = DEFAULT_TOOLS,\n      activeId: activeIdProp,\n      showAllTools = true,\n      allToolsLabel = \"All tools\",\n      onSelect,\n      onAllTools,\n      ...props\n    },\n    ref,\n  ) => {\n    const [activeId, setActiveId] = useState(\n      activeIdProp ?? tools[0]?.id ?? \"select\",\n    );\n    const currentId = activeIdProp ?? activeId;\n\n    return (\n      <nav\n        ref={ref}\n        data-slot=\"editor-tool-dock\"\n        aria-label=\"Editor tools\"\n        className={cn(\n          \"inline-flex flex-col items-center gap-2.5 rounded-2xl border border-neutral-50 bg-white/50 p-2.5 font-sans shadow-xl shadow-black/10 backdrop-blur-md\",\n          className,\n        )}\n        {...props}\n      >\n        {tools.map((tool) => {\n          const Icon = tool.icon ?? MousePointer2;\n          const active = tool.id === currentId;\n\n          return (\n            <button\n              key={tool.id}\n              type=\"button\"\n              aria-label={tool.label}\n              aria-pressed={active}\n              title={tool.label}\n              onClick={() => {\n                setActiveId(tool.id);\n                onSelect?.(tool.id);\n              }}\n              className={cn(\n                \"ease-smooth flex size-11 items-center justify-center rounded-lg shadow-xs shadow-neutral-100 transition-[background-color,color,transform] duration-300 will-change-transform\",\n                active\n                  ? \"bg-neutral-900 text-white\"\n                  : \"bg-neutral-50 text-neutral-600 hover:scale-110 hover:text-neutral-900\",\n              )}\n            >\n              <Icon size={17} aria-hidden strokeWidth={1.75} />\n            </button>\n          );\n        })}\n\n        {showAllTools ? (\n          <button\n            type=\"button\"\n            aria-label={allToolsLabel}\n            onClick={onAllTools}\n            className=\"ease-smooth flex size-11 items-center justify-center rounded-lg bg-rose-200 text-white shadow-xs transition-transform duration-300 hover:scale-110\"\n          >\n            <Folder size={16} aria-hidden fill=\"currentColor\" />\n          </button>\n        ) : null}\n      </nav>\n    );\n  },\n);\n\nEditorToolDock.displayName = \"EditorToolDock\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/docks/editor-tool-dock.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/editor-tool-dock",
+    "license": "MIT"
+  },
+  "docs": "Vertical editor tool dock using MacDock tile size, padding, and ease-smooth hover scale. 主要导出：EditorToolDock。 最小用法：<EditorToolDock />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/nav.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-editor-tool-dock.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "opensourceui-audio-recorder",
+  "title": "Audio Recorder",
+  "description": "Dark recording card with title, date, animated red waveform, and elapsed time. Play and pause feel like a native voice memo app.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/opensourceui/widgets/audio-recorder-widget.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：OpenSourceUI <https://opensourceui.in/components/audio-recorder>，上游文件 components/widgets/audio-recorder-widget.tsx\n// 许可证：MIT © 2026 Bidyut Kundu <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n// 收录：2026-10-05；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n\nimport {\n  forwardRef,\n  useEffect,\n  useState,\n  type ComponentPropsWithoutRef,\n} from \"react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Pause, Play } from \"lucide-react\";\n\nconst BAR_COUNT = 12;\nconst BAR_IDS = Array.from({ length: BAR_COUNT }, (_, bar) => bar);\n\nexport type AudioRecorderWidgetProps = Readonly<\n  {\n    title?: string;\n    date?: string;\n  } & ComponentPropsWithoutRef<\"div\">\n>;\n\n// Production-ready Audio Recorder component — styled with Tailwind CSS.\nexport const AudioRecorderWidget = forwardRef<\n  HTMLDivElement,\n  AudioRecorderWidgetProps\n>(({ className, title = \"New Audio\", date = \"12.8.24\", ...props }, ref) => {\n  const [recording, setRecording] = useState(true);\n  const [bars, setBars] = useState<number[]>(() => BAR_IDS.map(() => 30));\n\n  useEffect(() => {\n    if (!recording) return;\n    const timer = globalThis.setInterval(() => {\n      setBars(BAR_IDS.map(() => 20 + Math.random() * 60));\n    }, 120);\n    return () => globalThis.clearInterval(timer);\n  }, [recording]);\n\n  return (\n    <div\n      ref={ref}\n      data-slot=\"audio-recorder-widget\"\n      className={cn(\n        \"flex h-44 w-44 flex-col justify-between rounded-3xl bg-neutral-900 p-4 font-sans text-white shadow-lg\",\n        className,\n      )}\n      {...props}\n    >\n      <div>\n        <p className=\"text-sm font-semibold\">{title}</p>\n        <p className=\"text-[11px] text-neutral-400\">{date}</p>\n      </div>\n\n      <div className=\"flex h-10 items-end justify-center gap-0.5\">\n        {BAR_IDS.map((bar) => (\n          <span\n            key={bar}\n            className=\"w-1.5 rounded-full bg-red-500 transition-all duration-100\"\n            style={{ height: `${bars[bar]}%` }}\n          />\n        ))}\n      </div>\n\n      <div className=\"flex items-center justify-between\">\n        <span className=\"font-mono text-xs text-neutral-300\">01:12:25</span>\n        <button\n          type=\"button\"\n          onClick={() => setRecording(!recording)}\n          aria-label={recording ? \"Pause recording\" : \"Resume recording\"}\n          aria-pressed={recording}\n          className={cn(\n            \"flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-white transition-transform hover:scale-105 active:scale-95\",\n            recording ? \"bg-red-500\" : \"bg-neutral-700\",\n          )}\n        >\n          {recording ? (\n            <Pause size={14} fill=\"white\" />\n          ) : (\n            <Play size={14} fill=\"white\" />\n          )}\n        </button>\n      </div>\n    </div>\n  );\n});\n\nAudioRecorderWidget.displayName = \"AudioRecorderWidget\";\n",
+      "type": "registry:component",
+      "target": "@components/vendor/opensourceui/widgets/audio-recorder-widget.tsx"
+    },
+    {
+      "path": "src/components/vendor/opensourceui/NOTICE.md",
+      "content": "# 收录组件署名：OpenSourceUI\n\n本目录的文件收录自 OpenSourceUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：OpenSourceUI <https://github.com/bidyut10/opensourceui>\n- 许可证：MIT <https://github.com/bidyut10/opensourceui/blob/e4703843b45513c21304253558853a550b986dbe/LICENSE>\n- 版权：© 2026 Bidyut Kundu\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Bidyut Kundu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/opensourceui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "opensourceui",
+    "upstream": "https://opensourceui.in/components/audio-recorder",
+    "license": "MIT"
+  },
+  "docs": "Dark recording card with title, date, animated red waveform, and elapsed time. 主要导出：AudioRecorderWidget。 最小用法：<AudioRecorderWidget />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/widget.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/opensourceui-audio-recorder.md。",
+  "categories": [
+    "vendored",
+    "opensourceui"
+  ],
+  "type": "registry:component"
+}

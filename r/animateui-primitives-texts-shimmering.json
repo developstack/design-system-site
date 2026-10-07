@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-primitives-texts-shimmering",
+  "title": "Shimmering Text",
+  "description": "A shimmering text animation.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-hooks-use-is-in-view"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/primitives/texts/shimmering.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/primitives-texts-shimmering.json>，上游文件 registry/primitives/texts/shimmering/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport { motion, type HTMLMotionProps } from 'motion/react';\n\ntype ShimmeringTextProps = Omit<HTMLMotionProps<'span'>, 'children'> & {\n  text: string;\n  duration?: number;\n  wave?: boolean;\n  color?: string;\n  shimmeringColor?: string;\n};\n\nfunction ShimmeringText({\n  text,\n  duration = 1,\n  transition,\n  wave = false,\n  color = 'var(--color-neutral-500)',\n  shimmeringColor = 'var(--color-neutral-300)',\n  ...props\n}: ShimmeringTextProps) {\n  return (\n    <motion.span\n      style={\n        {\n          '--shimmering-color': shimmeringColor,\n          '--color': color,\n          color: 'var(--color)',\n          position: 'relative',\n          display: 'inline-block',\n          perspective: '500px',\n        } as React.CSSProperties\n      }\n      {...props}\n    >\n      {text?.split('')?.map((char, i) => (\n        <motion.span\n          key={i}\n          style={{\n            display: 'inline-block',\n            whiteSpace: 'pre',\n            transformStyle: 'preserve-3d',\n          }}\n          initial={{\n            ...(wave\n              ? {\n                  scale: 1,\n                  rotateY: 0,\n                }\n              : {}),\n            color: 'var(--color)',\n          }}\n          animate={{\n            ...(wave\n              ? {\n                  x: [0, 5, 0],\n                  y: [0, -5, 0],\n                  scale: [1, 1.1, 1],\n                  rotateY: [0, 15, 0],\n                }\n              : {}),\n            color: ['var(--color)', 'var(--shimmering-color)', 'var(--color)'],\n          }}\n          transition={{\n            duration,\n            repeat: Infinity,\n            repeatType: 'loop',\n            repeatDelay: text.length * 0.05,\n            delay: (i * duration) / text.length,\n            ease: 'easeInOut',\n            ...transition,\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </motion.span>\n  );\n}\n\nexport { ShimmeringText, type ShimmeringTextProps };\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/primitives/texts/shimmering.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/primitives-texts-shimmering.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A shimmering text animation. 主要导出：ShimmeringText。 最小用法：<ShimmeringText text={…} />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/text.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-primitives-texts-shimmering.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form-error",
+  "title": "FormError",
+  "description": "表单或浮层内的失败消息：role=\"alert\" 的一行彩色小字，message 为空时不渲染。",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/form-error.tsx",
+      "content": "import { cn } from \"cn\";\n\n/**\n * 失败消息支持的动效预设（ADR 0021）。缺省 `fade`。\n * - `fade`：出现时淡入，150ms。\n * - `slide-up`：出现时从下方 16px 升起并淡入，220ms。\n * - `none`：直接出现。\n */\ntype FormErrorMotion = \"none\" | \"fade\" | \"slide-up\";\n\n/**\n * 表单或浮层内的失败消息，放在页脚按钮上方。`message` 为空时不渲染。\n * 出现时按 `motion` 入场（基础层的 `@starting-style`）；换成另一条消息时重挂，再入场一次。\n */\nfunction FormError({\n  message,\n  id,\n  motion = \"fade\",\n  className,\n}: {\n  message?: string | null;\n  id?: string;\n  motion?: FormErrorMotion;\n  className?: string;\n}) {\n  if (!message) return null;\n  return (\n    <p\n      key={message}\n      role=\"alert\"\n      id={id}\n      data-slot=\"form-error\"\n      data-motion={motion === \"none\" ? undefined : motion}\n      className={cn(\"text-destructive-subtle-foreground text-xs\", className)}\n    >\n      {message}\n    </p>\n  );\n}\n\nexport { FormError, type FormErrorMotion };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "docs": "提交失败时用 <FormError message={error} />，放在页脚按钮上方：对话框、抽屉、设置块都一样，失败时不关浮层、不弹 toast.error；确认框不用放，ConfirmActionDialog 已内置；要被控件引用就传 id 并写 aria-describedby；message 为 null 或空串时不渲染任何 DOM。完整说明见 docs/components/form-error.md。",
+  "type": "registry:ui"
+}

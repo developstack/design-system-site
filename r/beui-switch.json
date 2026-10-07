@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "beui-switch",
+  "title": "Switch",
+  "author": "Saurabh <saurabh10102@gmail.com>",
+  "description": "Toggle with a spring-driven thumb and press feedback.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/beui/motion/switch.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：beUI <https://beui.dev/r/switch.json>，上游文件 components/motion/switch.tsx\n// 许可证：MIT © 2026 Saurabh Chauhan <https://github.com/starc007/ui-components/blob/main/LICENSE>\n// 收录：2026-10-04；适配：落点（明细见 vendor.lock.json）\n\"use client\";\n// beui.dev/components/motion/switch\n\nimport { animate, motion, MotionConfig, useReducedMotion } from \"motion/react\";\nimport { useEffect, useId, useRef, useState } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\n// Heavy, deliberate thumb — high mass keeps the travel weighty without wobble.\nconst THUMB_SPRING = { type: \"spring\", stiffness: 800, damping: 80, mass: 4 } as const;\n\nexport interface SwitchProps {\n  checked: boolean;\n  onCheckedChange: (checked: boolean) => void;\n  disabled?: boolean;\n  label?: string;\n  ariaLabel?: string;\n  className?: string;\n}\n\nexport function Switch({\n  checked,\n  onCheckedChange,\n  disabled,\n  label,\n  ariaLabel,\n  className,\n}: SwitchProps) {\n  const id = useId();\n  const thumbRef = useRef<HTMLDivElement>(null);\n  const reduce = useReducedMotion();\n  const [isPressed, setIsPressed] = useState(false);\n  const [isPointer, setIsPointer] = useState(false);\n\n  // Disabled shake feedback when pressed.\n  useEffect(() => {\n    if (!thumbRef.current || reduce) return;\n    if (disabled && isPressed) {\n      animate(\n        thumbRef.current,\n        { x: [0, -2, 2, -1, 0] },\n        { delay: 0.2, duration: 0.6 },\n      );\n    }\n  }, [disabled, isPressed, reduce]);\n\n  const squish = !disabled && isPointer && isPressed && !reduce;\n\n  return (\n    <MotionConfig transition={reduce ? { duration: 0 } : THUMB_SPRING}>\n      <span className={cn(\"inline-flex items-center gap-3\", className)}>\n        <motion.button\n          id={id}\n          type=\"button\"\n          role=\"switch\"\n          aria-checked={checked}\n          aria-label={ariaLabel}\n          disabled={disabled}\n          onClick={() => !disabled && onCheckedChange(!checked)}\n          onPointerDown={(e) => {\n            setIsPressed(true);\n            setIsPointer(e.type.startsWith(\"pointer\"));\n          }}\n          onPointerUp={() => setIsPressed(false)}\n          onPointerLeave={() => setIsPressed(false)}\n          initial={false}\n          data-state={checked ? \"checked\" : \"unchecked\"}\n          className={cn(\n            \"group peer inline-flex h-7 w-12 shrink-0 cursor-pointer items-center px-1 rounded-full outline-none transition-colors duration-200\",\n            \"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n            \"disabled:cursor-not-allowed disabled:opacity-60\",\n            checked ? \"justify-end bg-primary\" : \"justify-start bg-muted-foreground/60\",\n          )}\n        >\n          <motion.div\n            ref={thumbRef}\n            layout\n            animate={{ scale: squish ? 0.9 : 1 }}\n            className=\"pointer-events-none block h-5 w-5 rounded-full bg-background shadow-md\"\n          >\n            {/* Stretch toward the destination while active. */}\n            <div\n              className={cn(\n                \"size-5\",\n                squish && (checked ? \"ml-1\" : \"mr-1\"),\n              )}\n            />\n          </motion.div>\n        </motion.button>\n        {label ? (\n          <label htmlFor={id} className=\"cursor-pointer text-sm text-foreground\">\n            {label}\n          </label>\n        ) : null}\n      </span>\n    </MotionConfig>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/vendor/beui/motion/switch.tsx"
+    },
+    {
+      "path": "src/components/vendor/beui/NOTICE.md",
+      "content": "# 收录组件署名：beUI\n\n本目录的文件收录自 beUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：beUI <https://github.com/starc007/ui-components>\n- 许可证：MIT <https://github.com/starc007/ui-components/blob/main/LICENSE>\n- 版权：© 2026 Saurabh Chauhan\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Saurabh Chauhan\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/beui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "beui",
+    "upstream": "https://beui.dev/r/switch.json",
+    "license": "MIT"
+  },
+  "docs": "Toggle with a spring-driven thumb and press feedback. 主要导出：Switch。 最小用法：<Switch checked={…} onCheckedChange={…} />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/switch.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/beui-switch.md。",
+  "categories": [
+    "vendored",
+    "beui"
+  ],
+  "type": "registry:component"
+}

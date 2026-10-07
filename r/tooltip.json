@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/own/tooltip.tsx",
+      "content": "/**\n * 改造自 shadcn 原装 base-lyra tooltip（https://ui.shadcn.com/r/styles/base-lyra/tooltip.json，MIT）。\n * 与上游的差异：\n * 1. 动效改由 `motion` 属性选预设（ADR 0021）。`Tooltip` 收 `motion`，经 context 交给 `TooltipContent`，\n *    弹层渲染 `data-motion`。删掉弹层上的 tw-animate-css 类（`data-open:animate-in`、`fade-*`、`zoom-*`、\n *    `slide-in-from-*`，以及 Radix 遗留的 `data-[state=delayed-open]:*`）与 `origin-(--transform-origin)`：\n *    预设自己读 Base UI 的 `--transform-origin`。\n * 2. 加 `data-instant:transition-none`：在一组提示之间移动、由焦点打开或被直接关掉时，Base UI 给弹层加\n *    `data-instant`，这时不过渡（Base UI 文档的写法）。\n * 此外只有格式化与一条 Biome 豁免注释，其余类名逐字保留。\n */\n\"use client\";\n\nimport { Tooltip as TooltipPrimitive } from \"@base-ui/react/tooltip\";\nimport { cn } from \"cn\";\nimport { createContext, use } from \"react\";\n\n/**\n * 提示支持的动效预设（ADR 0021）。缺省 `fade`：提示要快，不缩放。\n * - `fade`：只淡入淡出，150ms。\n * - `pop`：从触发器一侧淡入加缩放 96%→100%，200ms。\n */\ntype TooltipMotion = \"fade\" | \"pop\";\n\nconst TooltipMotionContext = createContext<TooltipMotion>(\"fade\");\n\nfunction TooltipProvider({ delay = 0, ...props }: TooltipPrimitive.Provider.Props) {\n  return <TooltipPrimitive.Provider data-slot=\"tooltip-provider\" delay={delay} {...props} />;\n}\n\nfunction Tooltip({\n  motion = \"fade\",\n  ...props\n}: TooltipPrimitive.Root.Props & { motion?: TooltipMotion }) {\n  return (\n    <TooltipMotionContext value={motion}>\n      <TooltipPrimitive.Root data-slot=\"tooltip\" {...props} />\n    </TooltipMotionContext>\n  );\n}\n\nfunction TooltipTrigger({ ...props }: TooltipPrimitive.Trigger.Props) {\n  return <TooltipPrimitive.Trigger data-slot=\"tooltip-trigger\" {...props} />;\n}\n\nfunction TooltipContent({\n  className,\n  side = \"top\",\n  sideOffset = 4,\n  align = \"center\",\n  alignOffset = 0,\n  children,\n  ...props\n}: TooltipPrimitive.Popup.Props &\n  Pick<TooltipPrimitive.Positioner.Props, \"align\" | \"alignOffset\" | \"side\" | \"sideOffset\">) {\n  const motion = use(TooltipMotionContext);\n  return (\n    <TooltipPrimitive.Portal>\n      <TooltipPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50\"\n      >\n        <TooltipPrimitive.Popup\n          data-slot=\"tooltip-content\"\n          data-motion={motion}\n          className={cn(\n            \"z-50 inline-flex w-fit max-w-xs items-center gap-1.5 rounded-none bg-foreground px-3 py-1.5 text-xs text-background has-data-[slot=kbd]:pr-1.5 data-instant:transition-none **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-none\",\n            className,\n          )}\n          {...props}\n        >\n          {children}\n          <TooltipPrimitive.Arrow\n            // biome-ignore lint/nursery/noTailwindArbitraryValue: 与上游逐字一致的箭头位置（半个箭头加 2px 间距）。\n            className=\"z-50 size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-none bg-foreground fill-foreground data-[side=bottom]:top-1 data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2 data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2 data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2 data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2 data-[side=top]:-bottom-2.5\"\n          />\n        </TooltipPrimitive.Popup>\n      </TooltipPrimitive.Positioner>\n    </TooltipPrimitive.Portal>\n  );\n}\n\nexport { Tooltip, TooltipContent, type TooltipMotion, TooltipProvider, TooltipTrigger };\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/tooltip",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/tooltip-example.tsx",
+      "api": "https://base-ui.com/react/components/tooltip.md"
+    },
+    "status": "adapted",
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/tooltip.json",
+    "snapshotDate": "2026-10-02",
+    "decision": "动效改由 motion 属性选预设（fade／pop，缺省 fade，ADR 0021）：删掉弹层上的 tw-animate-css 类与 origin-(--transform-origin)，弹层渲染 data-motion；Base UI 标 data-instant 时（在一组提示之间移动、焦点打开、直接关掉）不过渡。"
+  },
+  "docs": "给纯图标按钮补说明：TooltipTrigger 用 render 包 Button，按钮仍要有 aria-label；侧栏收起后的导航名用 SidebarMenuButton 的 tooltip prop；截断文字补全文用 render 包 span；侧栏里 side=\"right\"；内容要交互就改用 Popover。TooltipProvider 只由 AppProviders 挂一次。完整说明见 docs/components/tooltip.md。",
+  "type": "registry:ui"
+}

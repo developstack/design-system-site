@@ -1,0 +1,42 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "beui-dock",
+  "title": "Dock",
+  "author": "Saurabh <saurabh10102@gmail.com>",
+  "description": "macOS-style dock with grouped actions and a gliding active pill.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/beui/motion/dock.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：beUI <https://beui.dev/r/dock.json>，上游文件 components/motion/dock.tsx\n// 许可证：MIT © 2026 Saurabh Chauhan <https://github.com/starc007/ui-components/blob/main/LICENSE>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\n\"use client\";\n// beui.dev/components/motion/dock\n\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { createContext, useContext, useId, useMemo, type ReactNode } from \"react\";\nimport { SPRING_LAYOUT } from \"@/components/vendor/beui/lib/ease\";\nimport { cn } from \"@/lib/utils\";\n\ntype DockContextValue = {\n  size: number;\n  pillLayoutId: string;\n};\n\nconst DockContext = createContext<DockContextValue | null>(null);\n\nexport interface DockProps {\n  children: ReactNode;\n  className?: string;\n  /** Size of each item in px. */\n  size?: number;\n}\n\nexport function Dock({ children, size = 44, className }: DockProps) {\n  const pillLayoutId = useId();\n  const ctx = useMemo<DockContextValue>(\n    () => ({ size, pillLayoutId }),\n    [size, pillLayoutId],\n  );\n\n  return (\n    <DockContext.Provider value={ctx}>\n      <div\n        className={cn(\n          \"inline-flex h-auto items-end gap-1.5 rounded-2xl border border-border bg-card/80 px-2 py-1 shadow-2xl backdrop-blur-xl\",\n          className,\n        )}\n      >\n        {children}\n      </div>\n    </DockContext.Provider>\n  );\n}\n\nexport interface DockItemProps {\n  children: ReactNode;\n  className?: string;\n  /** When set, the item renders as a <button>. Omit when children carry their own link or button. */\n  onClick?: () => void;\n  active?: boolean;\n  \"aria-label\"?: string;\n}\n\nexport function DockItem({\n  children,\n  className,\n  onClick,\n  active,\n  ...rest\n}: DockItemProps) {\n  const dock = useContext(DockContext);\n  const reduce = useReducedMotion();\n  const size = dock?.size ?? 44;\n  const pillLayoutId = dock?.pillLayoutId ?? \"dock-pill\";\n\n  const pill = active ? (\n    <motion.span\n      layoutId={pillLayoutId}\n      transition={reduce ? { duration: 0 } : SPRING_LAYOUT}\n      className=\"absolute inset-0.5 -z-10 rounded-xl bg-muted/60\"\n    />\n  ) : null;\n  const sharedStyle = { width: size, height: size };\n  const sharedClass = cn(\n    \"relative flex shrink-0 items-center justify-center rounded-full text-foreground\",\n    className,\n  );\n\n  if (onClick) {\n    return (\n      <button\n        type=\"button\"\n        onClick={onClick}\n        aria-label={rest[\"aria-label\"]}\n        aria-pressed={active}\n        style={sharedStyle}\n        className={cn(\n          sharedClass,\n          \"cursor-pointer border-0 bg-transparent p-0 outline-none\",\n          \"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background\",\n        )}\n      >\n        {pill}\n        {children}\n      </button>\n    );\n  }\n\n  // Children carry their own link or button (and its accessible name).\n  return (\n    <div style={sharedStyle} className={sharedClass}>\n      {pill}\n      {children}\n    </div>\n  );\n}\n\nexport function DockSeparator({ className }: { className?: string }) {\n  return (\n    <span\n      aria-hidden\n      className={cn(\"mx-1 h-6 w-px self-center bg-border\", className)}\n    />\n  );\n}\n",
+      "type": "registry:component",
+      "target": "@components/vendor/beui/motion/dock.tsx"
+    },
+    {
+      "path": "src/components/vendor/beui/lib/ease.ts",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：beUI <https://beui.dev/r/action-swap-blur.json>，上游文件 lib/ease.ts\n// 许可证：MIT © 2026 Saurabh Chauhan <https://github.com/starc007/ui-components/blob/main/LICENSE>\n// 收录：2026-10-04；适配：落点（明细见 vendor.lock.json）\n// Shared motion tokens. Easing curves mirror the CSS custom properties in\n// globals.css; springs are the canonical physics used across components.\n// Strong custom variants — defaults like `ease-in`/`ease-out` feel weak.\n\nexport const EASE_OUT = [0.16, 1, 0.3, 1] as const;\nexport const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;\nexport const EASE_DRAWER = [0.32, 0.72, 0, 1] as const;\n\n/** CSS string form of EASE_OUT for inline style transitions. */\nexport const EASE_OUT_CSS = \"cubic-bezier(0.16, 1, 0.3, 1)\";\n\n/** Press feedback on buttons and other tappable surfaces. */\nexport const SPRING_PRESS = {\n  type: \"spring\",\n  stiffness: 500,\n  damping: 30,\n  mass: 0.6,\n} as const;\n\n/** Content swaps — label/icon slots trading places inside a control. */\nexport const SPRING_SWAP = {\n  type: \"spring\",\n  stiffness: 460,\n  damping: 30,\n  mass: 0.55,\n} as const;\n\n/** Overlay panel entrances — modals and sheets summoned by pointer. */\nexport const SPRING_PANEL = {\n  type: \"spring\",\n  stiffness: 420,\n  damping: 40,\n  mass: 0.5,\n} as const;\n\n/** Shared-layout glides — pills, indicators and panels morphing between positions. */\nexport const SPRING_LAYOUT = {\n  type: \"spring\",\n  stiffness: 360,\n  damping: 32,\n  mass: 0.6,\n} as const;\n\n/** Cursor-follow physics for decorative mouse tracking (magnetic, tilt, dock). */\nexport const SPRING_MOUSE = {\n  stiffness: 200,\n  damping: 15,\n  mass: 0.3,\n} as const;\n\n/** Dragged handles and fills (sliders) — critically damped `useSpring` config,\n * so the value follows the pointer butterily and never rebounds off an end. */\nexport const SPRING_GLIDE = {\n  stiffness: 700,\n  damping: 50,\n  mass: 0.5,\n} as const;\n",
+      "type": "registry:lib",
+      "target": "@components/vendor/beui/lib/ease.ts"
+    },
+    {
+      "path": "src/components/vendor/beui/NOTICE.md",
+      "content": "# 收录组件署名：beUI\n\n本目录的文件收录自 beUI，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：beUI <https://github.com/starc007/ui-components>\n- 许可证：MIT <https://github.com/starc007/ui-components/blob/main/LICENSE>\n- 版权：© 2026 Saurabh Chauhan\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT License\n\nCopyright (c) 2026 Saurabh Chauhan\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/beui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "beui",
+    "upstream": "https://beui.dev/r/dock.json",
+    "license": "MIT"
+  },
+  "docs": "macOS-style dock with grouped actions and a gliding active pill. 主要导出：Dock、DockItem、DockSeparator。 最小用法：<Dock>…</Dock>。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/nav.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/beui-dock.md。",
+  "categories": [
+    "vendored",
+    "beui"
+  ],
+  "type": "registry:component"
+}

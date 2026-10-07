@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/kbd.tsx",
+      "content": "import { cn } from \"cn\"\n\nfunction Kbd({ className, ...props }: React.ComponentProps<\"kbd\">) {\n  return (\n    <kbd\n      data-slot=\"kbd\"\n      className={cn(\n        \"pointer-events-none inline-flex h-5 w-fit min-w-5 items-center justify-center gap-1 rounded-none bg-muted px-1 font-sans text-xs font-medium text-muted-foreground select-none in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background dark:in-data-[slot=tooltip-content]:bg-background/10 [&_svg:not([class*='size-'])]:size-3\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction KbdGroup({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <kbd\n      data-slot=\"kbd-group\"\n      className={cn(\"inline-flex items-center gap-1\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Kbd, KbdGroup }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "meta": {
+    "links": {
+      "docs": "https://ui.shadcn.com/docs/components/base/kbd",
+      "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/kbd-example.tsx"
+    },
+    "upstream": "https://ui.shadcn.com/r/styles/base-lyra/kbd.json",
+    "snapshotDate": "2026-10-06",
+    "sha256": {
+      "src/components/ui/kbd.tsx": "72d29dfe445f09f9612a85f1cc15ba8bc1ffd8d36f87c43458a0cbab974f4b42"
+    }
+  },
+  "docs": "显示按键用 Kbd，一个 Kbd 只写一个键；组合键用 KbdGroup 包住多个 Kbd；可以放在 Button、InputGroupAddon 与 TooltipContent 里。菜单项的快捷键用菜单的 Shortcut 子组件，代码用 <code>。完整说明见 docs/components/kbd.md。",
+  "type": "registry:ui"
+}

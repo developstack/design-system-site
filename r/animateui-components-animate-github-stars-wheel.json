@@ -1,0 +1,39 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animateui-components-animate-github-stars-wheel",
+  "title": "GitHub Stars Wheel",
+  "description": "A scrolling wheel that displays GitHub stars count.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@developstack/animateui-primitives-effects-particles",
+    "@developstack/animateui-primitives-texts-scrolling-number"
+  ],
+  "files": [
+    {
+      "path": "src/components/vendor/animateui/components/animate/github-stars-wheel.tsx",
+      "content": "// 收录组件 · developstack 设计系统（ADR 0016）：原样收录，勿手改；同步上游时整文件覆盖。\n// 来源：animate-ui <https://animate-ui.com/r/components-animate-github-stars-wheel.json>，上游文件 registry/components/animate/github-stars-wheel/index.tsx\n// 许可证：MIT + Commons Clause © 2025 Elliot Sutton <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n// 收录：2026-10-04；适配：落点、import 路径（明细见 vendor.lock.json）\n'use client';\n\nimport * as React from 'react';\nimport { StarIcon } from 'lucide-react';\n\nimport {\n  ScrollingNumber as ScrollingNumberPrimitive,\n  ScrollingNumberContainer as ScrollingNumberContainerPrimitive,\n  ScrollingNumberItems as ScrollingNumberItemsPrimitive,\n  ScrollingNumberHighlight as ScrollingNumberHighlightPrimitive,\n  type ScrollingNumberContainerProps as ScrollingNumberContainerPrimitiveProps,\n} from '@/components/vendor/animateui/primitives/texts/scrolling-number';\nimport { cn } from '@/lib/utils';\nimport {\n  Particles,\n  ParticlesEffect,\n} from '@/components/vendor/animateui/primitives/effects/particles';\n\nfunction percentageBetween(value: number, min: number, max: number): number {\n  return ((value - min) / (max - min)) * 100;\n}\n\ntype GitHubStarsWheelProps = {\n  username?: string;\n  repo?: string;\n  direction?: 'btt' | 'ttb';\n  delay?: number;\n  value?: number;\n  step?: number;\n} & Omit<\n  ScrollingNumberContainerPrimitiveProps,\n  'direction' | 'number' | 'step'\n>;\n\nfunction GitHubStarsWheel({\n  username,\n  repo,\n  direction = 'btt',\n  itemsSize = 35,\n  sideItemsCount = 2,\n  delay = 0,\n  step = 100,\n  value,\n  className,\n  ...props\n}: GitHubStarsWheelProps) {\n  const [stars, setStars] = React.useState(value ?? 0);\n  const [currentStars, setCurrentStars] = React.useState(0);\n  const [isLoading, setIsLoading] = React.useState(true);\n  const roundedStars = React.useMemo(\n    () => Math.round(stars / step) * step,\n    [stars, step],\n  );\n  const isCompleted = React.useMemo(\n    () => currentStars === roundedStars,\n    [currentStars, roundedStars],\n  );\n  const fillPercentage = React.useMemo(\n    () => percentageBetween(currentStars, 0, roundedStars),\n    [currentStars, roundedStars],\n  );\n\n  React.useEffect(() => {\n    if (value !== undefined && username && repo) return;\n\n    const timeout = setTimeout(() => {\n      fetch(`https://api.github.com/repos/${username}/${repo}`)\n        .then((response) => response.json())\n        .then((data) => {\n          if (data && typeof data.stargazers_count === 'number') {\n            setStars(data.stargazers_count);\n          }\n        })\n        .catch(console.error)\n        .finally(() => setIsLoading(false));\n    }, delay);\n\n    return () => clearTimeout(timeout);\n  }, [username, repo, value, delay]);\n\n  return (\n    !isLoading && (\n      <ScrollingNumberContainerPrimitive\n        key={direction}\n        className={cn('w-28', className)}\n        direction={direction}\n        number={roundedStars}\n        step={step}\n        itemsSize={itemsSize}\n        onNumberChange={setCurrentStars}\n        {...props}\n      >\n        <div\n          className=\"absolute top-0 left-0 w-full bg-gradient-to-t from-transparent to-background z-10\"\n          style={{\n            height: `${itemsSize * sideItemsCount}px`,\n          }}\n        />\n        <div\n          className=\"absolute bottom-0 left-0 w-full bg-gradient-to-b from-transparent to-background z-10\"\n          style={{\n            height: `${itemsSize * sideItemsCount}px`,\n          }}\n        />\n        <ScrollingNumberPrimitive delay={delay}>\n          <ScrollingNumberItemsPrimitive className=\"flex items-center justify-start pl-8\" />\n        </ScrollingNumberPrimitive>\n        <ScrollingNumberHighlightPrimitive className=\"bg-accent/40 border rounded-md size-full flex items-center pl-2\">\n          <Particles animate={isCompleted}>\n            <StarIcon\n              aria-hidden=\"true\"\n              className=\"fill-neutral-300 stroke-neutral-300 dark:fill-neutral-700 dark:stroke-neutral-700 size-4\"\n            />\n            <StarIcon\n              aria-hidden=\"true\"\n              className=\"absolute top-0 left-0 size-4 fill-yellow-500 stroke-yellow-500\"\n              style={{\n                clipPath: `inset(${100 - (isCompleted ? fillPercentage : fillPercentage - 10)}% 0 0 0)`,\n              }}\n            />\n            <ParticlesEffect\n              delay={0.5}\n              className=\"size-1 rounded-full bg-yellow-500\"\n            />\n          </Particles>\n        </ScrollingNumberHighlightPrimitive>\n      </ScrollingNumberContainerPrimitive>\n    )\n  );\n}\n\nexport { GitHubStarsWheel, type GitHubStarsWheelProps };\n",
+      "type": "registry:ui",
+      "target": "@components/vendor/animateui/components/animate/github-stars-wheel.tsx"
+    },
+    {
+      "path": "src/components/vendor/animateui/NOTICE.md",
+      "content": "# 收录组件署名：animate-ui\n\n本目录的文件收录自 animate-ui，由 developstack 设计系统的注册表分发（ADR 0016）。\n\n- 来源：animate-ui <https://github.com/imskyleen/animate-ui>\n- 许可证：MIT + Commons Clause <https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md>\n- 版权：© 2025 Elliot Sutton\n- 限制：Commons Clause：不得把组件本身以原样单独或打包出售/再分发\n- 收录说明：源码按原样收录，只改了落点、import 路径和包名，明细见设计系统仓库的 vendor.lock.json。\n  不要手改本目录的文件。同步上游时，整文件覆盖。\n\n## 许可证全文\n\n```text\nMIT + Commons Clause License Condition\n\nCopyright (c) 2025 Elliot Sutton\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, and distribute the Software **as part of an application, website, or product**, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n## Commons Clause Restriction\n\nYou may use this Software, including for any commercial purpose, **so long as you do not sell or redistribute the components themselves in their original form—whether alone or in a bundle.**\n\n## No Warranty\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n```\n",
+      "type": "registry:file",
+      "target": "@components/vendor/animateui/NOTICE.md"
+    }
+  ],
+  "meta": {
+    "vendored": true,
+    "source": "animateui",
+    "upstream": "https://animate-ui.com/r/components-animate-github-stars-wheel.json",
+    "license": "MIT + Commons Clause"
+  },
+  "docs": "A scrolling wheel that displays GitHub stars count. 主要导出：GitHubStarsWheel。 最小用法：<GitHubStarsWheel />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/github-stars.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/animateui-components-animate-github-stars-wheel.md。",
+  "categories": [
+    "vendored",
+    "animateui"
+  ],
+  "type": "registry:ui"
+}
