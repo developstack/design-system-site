@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{WeekStripCalendar as t}from"./week-strip-calendar-DcYsINLW.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

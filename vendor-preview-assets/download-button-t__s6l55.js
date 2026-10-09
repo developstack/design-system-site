@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BRsgvuRh.js";import{DownloadButton as t}from"./download-button-BWTHIt4o.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

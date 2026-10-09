@@ -1,0 +1,1 @@
+import e,{dialConfig as t}from"./delete-button-C8VSkcse.js";export{e as default,t as dialConfig};

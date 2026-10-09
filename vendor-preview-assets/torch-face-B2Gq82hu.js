@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{TorchFaceWidget as t}from"./torch-face-widget-BHJSf-pj.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

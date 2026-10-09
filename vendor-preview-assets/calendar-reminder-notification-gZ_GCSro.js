@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{CalendarReminderNotificationBanner as t}from"./calendar-reminder-notification-banner-DBY5c_5U.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

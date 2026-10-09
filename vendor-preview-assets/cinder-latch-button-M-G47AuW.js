@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{CinderLatchButton as t}from"./cinder-latch-button-DuLOX0Gu.js";var n=e();function r(){return(0,n.jsx)(t,{children:`Unlock`})}export{r as default};

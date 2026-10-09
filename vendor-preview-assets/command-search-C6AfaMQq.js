@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{CommandSearch as t}from"./command-search-2mbaQf4W.js";var n=e();function r(){return(0,n.jsx)(`div`,{className:`flex w-full justify-center py-8`,children:(0,n.jsx)(`div`,{className:`w-full max-w-[512px]`,children:(0,n.jsx)(t,{})})})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{QuantityStepperButton as t}from"./quantity-stepper-button-CH1PA-aT.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

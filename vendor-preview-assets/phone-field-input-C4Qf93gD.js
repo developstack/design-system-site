@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{PhoneFieldInput as t}from"./phone-field-input-DMNTGonq.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

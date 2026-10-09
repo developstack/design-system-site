@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{SlideToConfirmButton as t}from"./slide-to-confirm-button-DlMWOt6X.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

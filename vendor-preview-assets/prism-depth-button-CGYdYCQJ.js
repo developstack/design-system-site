@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{PrismDepthButton as t}from"./prism-depth-button-C8UMipjh.js";var n=e();function r(){return(0,n.jsx)(t,{children:`Get started`})}export{r as default};

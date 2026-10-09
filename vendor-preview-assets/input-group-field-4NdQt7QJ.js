@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{InputGroupField as t}from"./input-group-field-BrXpklGG.js";var n=e();function r(){return(0,n.jsx)(t,{prefix:`https://`,placeholder:`opensourceui.in`})}export{r as default};

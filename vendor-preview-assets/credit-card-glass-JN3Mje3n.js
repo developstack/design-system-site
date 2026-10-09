@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BRsgvuRh.js";import{CreditCardGlass as t}from"./credit-card-glass-DM5-KSTN.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

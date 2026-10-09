@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-hePW80VL.js";import{a as t}from"./vendor-preview-BRsgvuRh.js";import{t as n}from"./useIsoLayoutEffect-Dmcld2CP.js";import{t as r}from"./useStableCallback-BHdTHU6x.js";var i=e(t(),1);function a(e,t){let a=i.useRef(e),o=r(t);n(()=>{a.current!==e&&o(a.current),a.current=e},[e,o])}export{a as t};

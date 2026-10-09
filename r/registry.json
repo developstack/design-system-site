@@ -27171,7 +27171,7 @@
         "upstream": "https://uselayouts.com/r/slide-subscribe.json",
         "license": "MIT"
       },
-      "docs": "Pick a billing period, then slide to start a trial. 主要导出：SlideSubscribe。 最小用法：<SlideSubscribe />。 收录组件，颜色原样来自上游。独有组件。属性与示例见 packages/registry/docs/vendor/uselayouts-slide-subscribe.md。",
+      "docs": "Pick a billing period, then slide to start a trial. 主要导出：SlideSubscribe。 最小用法：<SlideSubscribe />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/pricing.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/uselayouts-slide-subscribe.md。",
       "categories": [
         "vendored",
         "uselayouts"
@@ -27489,7 +27489,7 @@
           }
         }
       },
-      "docs": "接入步骤见设计系统文档站的接入说明（docs/consumer-onboarding.md）。init 把公开的组件注册表地址写进 components.json，之后 shadcn add @developstack/<name> 不要令牌。只有安装和升级 @developstack/tokens 要令牌：它在 GitHub Packages 上，要先导出 GITHUB_TOKEN，在 ~/.npmrc 写鉴权行，在项目 .npmrc 声明 @developstack 的包源。令牌包的版本范围只接受 patch 更新。monorepo 还要在根目录安装同一个版本范围：共享 Biome 配置从根目录的 node_modules 找 lint 插件。init 只写令牌的 @import，不写主题块；已有的 @theme inline、:root、.dark 块要删掉。品牌层只覆盖 10 个变量，:root 和 .dark 都要写。",
+      "docs": "接入步骤见设计系统文档站的接入说明（docs/consumer-onboarding.md）。init 把公开的组件注册表地址写进 components.json，之后 shadcn add @developstack/<name> 不要令牌。只有安装和升级 @developstack/tokens 要令牌：它在 GitHub Packages 上，要先导出 GITHUB_TOKEN，在 ~/.npmrc 写鉴权行，在项目 .npmrc 声明 @developstack 的包源。令牌包的版本范围只接受 patch 更新。monorepo 还要在根目录安装同一个版本范围：共享 Biome 配置从根目录的 node_modules 找 lint 插件。init 只写令牌的 @import，不写主题块；已有的 @theme inline、:root、.dark 块要删掉。品牌层只覆盖 11 个变量，:root 和 .dark 都要写；圆角只改 --brand-radius。",
       "type": "registry:base",
       "config": {
         "style": "base-lyra",
@@ -27538,7 +27538,7 @@
       ],
       "files": [
         {
-          "path": "src/components/ui/input.tsx",
+          "path": "src/components/own/input.tsx",
           "type": "registry:ui"
         }
       ],
@@ -27547,11 +27547,10 @@
           "docs": "https://ui.shadcn.com/docs/components/base/input",
           "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/input-example.tsx"
         },
+        "status": "adapted",
         "upstream": "https://ui.shadcn.com/r/styles/base-lyra/input.json",
         "snapshotDate": "2026-10-02",
-        "sha256": {
-          "src/components/ui/input.tsx": "3b080a0f4ca66a1a33a426581462c1029fdfe104ad58008450c4eb303d4864b4"
-        }
+        "decision": "rounded-none 改成品牌层令牌 rounded-control（ADR 0024）；缺省 --brand-radius 为 0，外观与上游相同。其余逐字保留上游。"
       },
       "docs": "单行文本用 Input，配 Label htmlFor 指向它的 id；出错时加 aria-invalid，aria-describedby 指向固定 id 的消息段落，提示与错误共用它，错误文字用 text-destructive-subtle-foreground，不手写 border-destructive；搜索框用 type=\"search\" 加 aria-label；邮箱、密码、数字写 type 和 autoComplete；提交中用 disabled。完整说明见 docs/components/input.md。",
       "type": "registry:ui"
@@ -27700,7 +27699,7 @@
       ],
       "files": [
         {
-          "path": "src/components/ui/card.tsx",
+          "path": "src/components/own/card.tsx",
           "type": "registry:ui"
         }
       ],
@@ -27709,11 +27708,10 @@
           "docs": "https://ui.shadcn.com/docs/components/base/card",
           "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/card-example.tsx"
         },
+        "status": "adapted",
         "upstream": "https://ui.shadcn.com/r/styles/base-lyra/card.json",
         "snapshotDate": "2026-10-02",
-        "sha256": {
-          "src/components/ui/card.tsx": "f2cef6bb36d35d6abafeae26a5b040852c1c797e5bf91e131eeb1b1a7eca7aec"
-        }
+        "decision": "圆角改用品牌层令牌（ADR 0024）：卡片 rounded-surface，页眉与页脚 rounded-t-surface／rounded-b-surface；缺省 --brand-radius 为 0，外观与上游相同。删掉 CardTitle 上未定义的 cn-font-heading。其余逐字保留上游。"
       },
       "docs": "设置块：<form> 包住 Card，CardHeader + CardContent + CardFooter，保存按钮在 CardFooter；指标卡用 size=\"sm\"，CardDescription 写指标名、CardTitle 写数值并加 tabular-nums；右上角动作用 CardAction，放在 CardHeader 里；密度只用 size，不手写 p-*；不嵌套 Card；危险区用设置模板的 SettingsDangerZone。完整说明见 docs/components/card.md。",
       "type": "registry:ui"
@@ -27835,7 +27833,7 @@
       ],
       "files": [
         {
-          "path": "src/components/ui/textarea.tsx",
+          "path": "src/components/own/textarea.tsx",
           "type": "registry:ui"
         }
       ],
@@ -27844,11 +27842,10 @@
           "docs": "https://ui.shadcn.com/docs/components/base/textarea",
           "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/textarea-example.tsx"
         },
+        "status": "adapted",
         "upstream": "https://ui.shadcn.com/r/styles/base-lyra/textarea.json",
         "snapshotDate": "2026-10-02",
-        "sha256": {
-          "src/components/ui/textarea.tsx": "ee5c869462b6963be45f308342fc9f08bccf6a7d46f88d6470a5301560d87f9c"
-        }
+        "decision": "rounded-none 改成品牌层令牌 rounded-control（ADR 0024），与 Input 一致；缺省 --brand-radius 为 0，外观与上游相同。其余逐字保留上游。"
       },
       "docs": "多行文本用 Textarea，配 Label htmlFor 指向它的 id；高度随内容增长，最小 64px，要更高写 min-h-*，限高写 max-h-*，不写 h-*；出错时加 aria-invalid，aria-describedby 指向固定 id 的消息段落，不手写 border-destructive；提交中用 disabled；单行文本用 Input。完整说明见 docs/components/textarea.md。",
       "type": "registry:ui"
@@ -28156,7 +28153,7 @@
       ],
       "files": [
         {
-          "path": "src/components/ui/field.tsx",
+          "path": "src/components/own/field.tsx",
           "type": "registry:ui"
         }
       ],
@@ -28165,11 +28162,10 @@
           "docs": "https://ui.shadcn.com/docs/components/base/field",
           "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/field-example.tsx"
         },
+        "status": "adapted",
         "upstream": "https://ui.shadcn.com/r/styles/base-lyra/field.json",
         "snapshotDate": "2026-10-03",
-        "sha256": {
-          "src/components/ui/field.tsx": "68076bb84619aff785f3945ff6771080e5d7370b227ac3eba4787625f39664ca"
-        }
+        "decision": "选项卡片（包着 Field 的 FieldLabel）的 rounded-none 改成品牌层令牌 rounded-control（ADR 0024）；缺省 --brand-radius 为 0，外观与上游相同。FieldDescription 的 [[data-variant=legend]+&] 改写成等价的 [&:is([data-variant=legend]+*)]（Biome 解析不了前者）；FieldError 用 === 与按错误文字取 key。其余逐字保留上游。"
       },
       "docs": "表单布局用 Field：最外层 FieldGroup，组间放 FieldSeparator；一组字段用 FieldSet + FieldLegend + 内层 FieldGroup；单个字段优先用 form-fields 的包装；横排用 orientation=\"horizontal\"；不用 FieldError、不给 Field 加 data-invalid，错误写进固定 id 的 FieldDescription；间距由结构给出，不手写 gap。完整说明见 docs/components/field.md。",
       "type": "registry:ui"
@@ -28398,7 +28394,8 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "sidebar",
       "dependencies": [
-        "cn"
+        "cn",
+        "lucide-react"
       ],
       "registryDependencies": [
         "@developstack/button",
@@ -28411,7 +28408,7 @@
       ],
       "files": [
         {
-          "path": "src/components/ui/sidebar.tsx",
+          "path": "src/components/own/sidebar.tsx",
           "type": "registry:ui"
         }
       ],
@@ -28420,11 +28417,10 @@
           "docs": "https://ui.shadcn.com/docs/components/base/sidebar",
           "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/sidebar-example.tsx"
         },
+        "status": "adapted",
         "upstream": "https://ui.shadcn.com/r/styles/base-lyra/sidebar.json",
         "snapshotDate": "2026-10-02",
-        "sha256": {
-          "src/components/ui/sidebar.tsx": "76480f1d3734047d513eb54207256fceb5bf66539186faac8bd719c30570e7ea"
-        }
+        "decision": "rounded-none 改成品牌层令牌（ADR 0024）：floating 面板与 inset 内容区 rounded-surface，菜单按钮、子菜单按钮、分组标题与菜单骨架 rounded-control，菜单动作、分组动作、徽标与骨架图标 rounded-inner；缺省 --brand-radius 为 0，外观与上游相同。SidebarRail 的 [[…]_&] 改写成等价的 [&:is(…_*)]（Biome 解析不了前者）；图标直接用 lucide 的 PanelLeftIcon。其余逐字保留上游。"
       },
       "docs": "搭应用的壳不要直接拼 Sidebar，用应用外壳模板 AppShell；加导航项就往 nav 数据里加；收起成图标栏用 collapsible=\"icon\"，每项要有 icon 与 tooltip；SidebarTrigger 放页头最左；当前项由 isNavItemActive 按 match 算，不手写 startsWith。完整说明见 docs/components/sidebar.md。",
       "type": "registry:ui"

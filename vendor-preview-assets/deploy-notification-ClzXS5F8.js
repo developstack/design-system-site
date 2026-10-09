@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{DeployNotificationBanner as t}from"./deploy-notification-banner-Bf47BRaO.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

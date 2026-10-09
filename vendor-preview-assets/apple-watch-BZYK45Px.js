@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{AppleWatchMockupCard as t}from"./apple-watch-mockup-card-d5oMAQIW.js";var n=e();function r(){return(0,n.jsx)(t,{variant:`black`})}export{r as default};

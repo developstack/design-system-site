@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{NeonEdgeButton as t}from"./neon-edge-button-DVut7KrH.js";var n=e();function r(e){return(0,n.jsx)(`div`,{className:`h-52 flex items-center justify-center p-4`,children:(0,n.jsx)(`div`,{className:`pointer-events-none scale-90`,children:(0,n.jsx)(t,{children:`Deploy`})})})}export{r as default};

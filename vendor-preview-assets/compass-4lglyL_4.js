@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{CompassWidget as t}from"./compass-widget-7FZYNRS1.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{IosEarbudsWidget as t}from"./ios-earbuds-widget-BEuhx1lt.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

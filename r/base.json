@@ -33,7 +33,7 @@
       }
     }
   },
-  "docs": "接入步骤见设计系统文档站的接入说明（docs/consumer-onboarding.md）。init 把公开的组件注册表地址写进 components.json，之后 shadcn add @developstack/<name> 不要令牌。只有安装和升级 @developstack/tokens 要令牌：它在 GitHub Packages 上，要先导出 GITHUB_TOKEN，在 ~/.npmrc 写鉴权行，在项目 .npmrc 声明 @developstack 的包源。令牌包的版本范围只接受 patch 更新。monorepo 还要在根目录安装同一个版本范围：共享 Biome 配置从根目录的 node_modules 找 lint 插件。init 只写令牌的 @import，不写主题块；已有的 @theme inline、:root、.dark 块要删掉。品牌层只覆盖 10 个变量，:root 和 .dark 都要写。",
+  "docs": "接入步骤见设计系统文档站的接入说明（docs/consumer-onboarding.md）。init 把公开的组件注册表地址写进 components.json，之后 shadcn add @developstack/<name> 不要令牌。只有安装和升级 @developstack/tokens 要令牌：它在 GitHub Packages 上，要先导出 GITHUB_TOKEN，在 ~/.npmrc 写鉴权行，在项目 .npmrc 声明 @developstack 的包源。令牌包的版本范围只接受 patch 更新。monorepo 还要在根目录安装同一个版本范围：共享 Biome 配置从根目录的 node_modules 找 lint 插件。init 只写令牌的 @import，不写主题块；已有的 @theme inline、:root、.dark 块要删掉。品牌层只覆盖 11 个变量，:root 和 .dark 都要写；圆角只改 --brand-radius。",
   "type": "registry:base",
   "config": {
     "style": "base-lyra",

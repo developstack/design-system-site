@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{GitHubStarsWheel as t}from"./github-stars-wheel-BEyjGm0t.js";var n=e(),r=({delay:e,direction:r})=>(0,n.jsx)(`div`,{className:`size-full flex items-center justify-center`,children:(0,n.jsx)(t,{username:`imskyleen`,repo:`animate-ui`,delay:e,direction:r})});export{r as GitHubStarsWheelDemo};

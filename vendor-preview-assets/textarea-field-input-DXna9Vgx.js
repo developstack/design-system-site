@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{TextareaFieldInput as t}from"./textarea-field-input-DQlARH0B.js";var n=e();function r(){return(0,n.jsx)(t,{placeholder:`Tell us about your project…`,defaultValue:``})}export{r as default};

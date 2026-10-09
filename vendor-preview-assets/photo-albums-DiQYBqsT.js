@@ -1,0 +1,1 @@
+import e from"./photo-albums-BZJkBsEl.js";export{e as default};

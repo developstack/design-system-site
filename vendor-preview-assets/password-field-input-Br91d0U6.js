@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{PasswordFieldInput as t}from"./password-field-input-lOFz6u1a.js";var n=e();function r(){return(0,n.jsx)(t,{placeholder:`Enter password`})}export{r as default};

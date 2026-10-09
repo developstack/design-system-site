@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{SelectFieldInput as t}from"./select-field-input-C1pIbAuE.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`Shipping rates vary by region.`})}export{r as default};

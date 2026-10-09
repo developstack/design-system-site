@@ -40,7 +40,7 @@
     "upstream": "https://uselayouts.com/r/slide-subscribe.json",
     "license": "MIT"
   },
-  "docs": "Pick a billing period, then slide to start a trial. 主要导出：SlideSubscribe。 最小用法：<SlideSubscribe />。 收录组件，颜色原样来自上游。独有组件。属性与示例见 packages/registry/docs/vendor/uselayouts-slide-subscribe.md。",
+  "docs": "Pick a billing period, then slide to start a trial. 主要导出：SlideSubscribe。 最小用法：<SlideSubscribe />。 收录组件，颜色原样来自上游。同组候选见对比表 packages/registry/docs/catalog/pricing.md，按 SKILL 第 3 步选。属性与示例见 packages/registry/docs/vendor/uselayouts-slide-subscribe.md。",
   "categories": [
     "vendored",
     "uselayouts"

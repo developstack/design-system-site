@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{ShareMenuDropdown as t}from"./share-menu-dropdown-CyM8nRhb.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

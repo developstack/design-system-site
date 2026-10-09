@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{DndFaceWidget as t}from"./dnd-face-widget-CDyYnZIv.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

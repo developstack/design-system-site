@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BRsgvuRh.js";import{WeekStripCalendar as t}from"./week-strip-calendar-Bt3yq_as.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

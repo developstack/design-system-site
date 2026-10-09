@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BRsgvuRh.js";import{ToastNotificationBanner as t}from"./toast-notification-banner-czIeqy87.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

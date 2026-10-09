@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{CheckboxFieldInput as t}from"./checkbox-field-input-C3e-boJT.js";var n=e();function r(){return(0,n.jsx)(t,{hint:`You can unsubscribe at any time.`})}export{r as default};

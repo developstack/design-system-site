@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{FilterSortDropdown as t}from"./filter-sort-dropdown-eT6GWkGJ.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

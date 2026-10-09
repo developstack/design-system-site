@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{GitHubRepoCard as t}from"./github-repo-card-5op6Q_Jq.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BRsgvuRh.js";import{OtpUnderlineInput as t}from"./otp-underline-input-DUHkeGLr.js";var n=e();function r(){return(0,n.jsx)(t,{autoFocus:!1})}export{r as default};

@@ -1,1 +1,0 @@
-import{n as e}from"./vendor-preview-BRsgvuRh.js";import{TextFieldInput as t}from"./text-field-input-DR5QsKq_.js";var n=e();function r(){return(0,n.jsx)(t,{label:`Full name`,placeholder:`Jane Cooper`,hint:`As shown on your government ID.`})}export{r as default};

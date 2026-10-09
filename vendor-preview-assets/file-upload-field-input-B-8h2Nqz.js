@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{FileUploadFieldInput as t}from"./file-upload-field-input-BfkB2ueH.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

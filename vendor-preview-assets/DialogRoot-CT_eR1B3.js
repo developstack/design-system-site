@@ -1,0 +1,1 @@
+import{i as e}from"./popupTriggerMap-K2wsiIgx.js";import{s as t}from"./DialogTitle-BRxWkjVQ.js";var n=e(function(e){return t(`dialog`,e)});export{n as t};

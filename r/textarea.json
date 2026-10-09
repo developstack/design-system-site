@@ -6,8 +6,8 @@
   ],
   "files": [
     {
-      "path": "src/components/ui/textarea.tsx",
-      "content": "import * as React from \"react\"\nimport { cn } from \"cn\"\n\nfunction Textarea({ className, ...props }: React.ComponentProps<\"textarea\">) {\n  return (\n    <textarea\n      data-slot=\"textarea\"\n      className={cn(\n        \"flex field-sizing-content min-h-16 w-full rounded-none border border-input bg-transparent px-2.5 py-2 text-xs transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-1 aria-invalid:ring-destructive/20 md:text-xs dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Textarea }\n",
+      "path": "src/components/own/textarea.tsx",
+      "content": "/**\n * 改造自 shadcn 原装 base-lyra textarea（https://ui.shadcn.com/r/styles/base-lyra/textarea.json，MIT）。\n * 与上游的差异：`rounded-none` 改成品牌层的圆角令牌 `rounded-control`（ADR 0024）。\n * 多行输入框与 Input 同属控件，圆角跟 Input 一致。缺省 `--brand-radius` 是 0，`rounded-control` 算出 0，与上游相同。\n * 此外只有格式化与一条 Biome 豁免注释，其余类名逐字保留。\n */\nimport { cn } from \"cn\";\nimport type * as React from \"react\";\n\nfunction Textarea({ className, ...props }: React.ComponentProps<\"textarea\">) {\n  return (\n    // biome-ignore lint/correctness/noRestrictedElements: 这里就是注册表的 Textarea 组件本身，只能渲染原生元素。\n    <textarea\n      data-slot=\"textarea\"\n      className={cn(\n        \"flex field-sizing-content min-h-16 w-full rounded-control border border-input bg-transparent px-2.5 py-2 text-xs transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-1 aria-invalid:ring-destructive/20 md:text-xs dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Textarea };\n",
       "type": "registry:ui"
     }
   ],
@@ -16,11 +16,10 @@
       "docs": "https://ui.shadcn.com/docs/components/base/textarea",
       "examples": "https://ui.shadcn.com/code/apps/v4/registry/bases/base/examples/textarea-example.tsx"
     },
+    "status": "adapted",
     "upstream": "https://ui.shadcn.com/r/styles/base-lyra/textarea.json",
     "snapshotDate": "2026-10-02",
-    "sha256": {
-      "src/components/ui/textarea.tsx": "ee5c869462b6963be45f308342fc9f08bccf6a7d46f88d6470a5301560d87f9c"
-    }
+    "decision": "rounded-none 改成品牌层令牌 rounded-control（ADR 0024），与 Input 一致；缺省 --brand-radius 为 0，外观与上游相同。其余逐字保留上游。"
   },
   "docs": "多行文本用 Textarea，配 Label htmlFor 指向它的 id；高度随内容增长，最小 64px，要更高写 min-h-*，限高写 max-h-*，不写 h-*；出错时加 aria-invalid，aria-describedby 指向固定 id 的消息段落，不手写 border-destructive；提交中用 disabled；单行文本用 Input。完整说明见 docs/components/textarea.md。",
   "type": "registry:ui"

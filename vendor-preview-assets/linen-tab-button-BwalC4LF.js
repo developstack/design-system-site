@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{LinenTabButton as t}from"./linen-tab-button-BgWUS60i.js";var n=e();function r(){return(0,n.jsx)(t,{children:`View details`})}export{r as default};

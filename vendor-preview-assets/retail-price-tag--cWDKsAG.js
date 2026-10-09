@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{RetailPriceTagCard as t}from"./retail-price-tag-card-5XUknNaT.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

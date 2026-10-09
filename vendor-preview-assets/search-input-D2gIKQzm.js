@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{SearchInput as t}from"./search-input-BuoVc8gd.js";var n=e();function r(){return(0,n.jsx)(t,{defaultValue:``,placeholder:`Search components…`})}export{r as default};

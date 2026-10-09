@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{ContactForm as t}from"./contact-form-D-zAKgh2.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};

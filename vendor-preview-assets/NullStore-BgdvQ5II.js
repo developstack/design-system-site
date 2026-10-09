@@ -1,0 +1,1 @@
+import{r as e}from"./popupTriggerMap-K2wsiIgx.js";var t=class extends e{setState(e){}update(e){}set(e,t){}notifyAll(){}};export{t};

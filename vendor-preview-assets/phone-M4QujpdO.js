@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{PhoneMockupCard as t}from"./phone-mockup-card-hZNKdRkB.js";var n=e();function r(){return(0,n.jsx)(t,{variant:`orange`})}export{r as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./vendor-preview-CIUuMICK.js";import{IosDigitalClockWidget as t}from"./ios-digital-clock-widget-BxUOYldL.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as default};
